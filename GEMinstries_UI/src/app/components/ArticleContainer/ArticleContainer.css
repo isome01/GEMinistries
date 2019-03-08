@@ -1,0 +1,27 @@
+article {
+    margin: 20px auto;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+article hr {
+    justify-self: center;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 100%;
+}
+
+.article-summary {
+    width: 50%;
+    display: inline-block;
+}
+
+.article-summary h4 {
+    padding: 20px;
+}
+
+.article-slide-container {
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+}

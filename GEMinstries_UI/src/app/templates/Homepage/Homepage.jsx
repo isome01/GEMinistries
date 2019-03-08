@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PageBanner from '../../components/PageBanner/PageBanner.jsx';
+import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
 import NavbarContainer from '../../components/NavbarContainer/NavbarContainer.jsx';
 
 import './Homepage.css'
@@ -23,7 +24,14 @@ class Homepage extends Component{
                     <NavbarContainer />
                 </header>
                 <main>
-
+                    <section>
+                        <hr style={{border:'solid #eee 2px'}}/>
+                        <ArticleContainer />
+                        <hr style={{border:'solid #eee 2px'}}/>
+                        <ArticleContainer />
+                        <hr style={{border:'solid #eee 2px'}}/>
+                        <ArticleContainer />
+                    </section>
                 </main>
                 <footer>
 
