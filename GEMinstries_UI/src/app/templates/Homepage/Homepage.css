@@ -1,0 +1,23 @@
+.home {
+    position: relative;
+    display: block;
+    justify-content: center;
+    margin: auto;
+    border-right: solid #eee 2px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    width:1024px;
+    max-width: 100%;
+}
+
+.home-header {
+    padding: 15px;
+    margin: auto;
+}
+
+.home-footer {
+    padding: 15px;
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
+}

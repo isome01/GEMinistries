@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+
+//Import page templates
+import Homepage from '../templates/Homepage/Homepage.jsx';
 
 class App extends Component {
     
@@ -17,8 +22,14 @@ class App extends Component {
     render(){
         return(
             <div class="app-content">
-                <h1>Hello Greg and Earlene Ministries. :D</h1>
-                <p> The Lord is on your side. </p>
+                <Router>
+                    <div>
+                    <Switch>
+                        <Route to="/" exact strict component={Homepage} />
+
+                    </Switch>
+                    </div>
+                </Router>
             </div>
         );
     }

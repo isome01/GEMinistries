@@ -1,0 +1,16 @@
+.page-banner {
+    position: relative;
+    display: block;
+    justify-content: center;
+    margin: auto;
+    border-right: solid navy 15px;
+    border-left: solid  navy 2px;
+    box-sizing: border-box;
+}
+
+.page-banner .banner-header {
+    padding: 15px;
+    margin: auto;
+    width:100%;
+    max-width: 100%;
+}
