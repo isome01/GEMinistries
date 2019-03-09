@@ -4,7 +4,7 @@ npm i --save-dev webpack webpack-cli
 npm i --save-dev html-webpack-plugin html-loader
 npm i --save-dev style-loader css-loader
 npm i --save-dev prop-types
-npm i --save-dev react-router
+npm i --save-dev react-router react-router-dom
 npm i --save-dev axios
 npm i --save-dev express
 npm i --save-dev nodemon
