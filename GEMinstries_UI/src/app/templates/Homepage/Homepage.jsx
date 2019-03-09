@@ -3,7 +3,11 @@ import PageBanner from '../../components/PageBanner/PageBanner.jsx';
 import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
 import NavbarContainer from '../../components/NavbarContainer/NavbarContainer.jsx';
 
-import './Homepage.css'
+//Image imports
+import banner_logo from '../../../assets/GEM_logo_navy.png';
+import banner_moto from '../../../assets/mission_statement_2.png';
+
+import './Homepage.css'; //styling
 
 class Homepage extends Component{
 
@@ -13,14 +17,13 @@ class Homepage extends Component{
     }
 
     componentDidMount(){
-
     }
 
     render(){
         return(
             <div id="home_page" class="home">
                 <header>
-                    <PageBanner />
+                    <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
                     <NavbarContainer />
                 </header>
                 <main>

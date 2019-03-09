@@ -28,6 +28,14 @@ module.exports = {
             {
                 test : /\.css$/,
                 use : ["style-loader","css-loader"] /* make sure to include style-loader first */
+            },
+
+            /* so that we can load images properly */
+            {
+                test: /\.(ttf|eot|svg|gif|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use : [{
+                    loader: "file-loader"
+                }]
             }
             
         ]

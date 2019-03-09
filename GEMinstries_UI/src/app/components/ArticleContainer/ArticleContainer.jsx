@@ -25,8 +25,8 @@ class ArticleContainer extends Component {
                         <li data-target="#demo" data-slide-to="2"></li>
                     </ul>
                     
-                    {/* */}
-                    <div className="carousel-inner">
+                    {/**/}
+                    <div className="carousel-inner" style={{border:"solid navy 2px"}}>
                         <div className="carousel-item active">
                             <img src="https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/Kroenert-senegal-peace-corps.jpg.jpeg?itok=Myk8IOz7" alt="Los Angeles" width="" height="" />
                         </div>

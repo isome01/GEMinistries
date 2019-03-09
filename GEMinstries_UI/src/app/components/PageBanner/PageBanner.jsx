@@ -9,8 +9,8 @@ class PageBanner extends Component {
         return(
             <div id="page_banner" class="page-banner">
                 <div class="banner-header">
-                    <h1>Hello Greg and Earlene Ministries. :D</h1>
-                    <p> The Lord is on your side. </p>    
+                    <img alt="Page_Banner_Logo" src={this.props.banner_logo} style={{display:'inline-block',width:'20%',height:'197px', maxWidth:'100%' }}/>
+                    <img alt="Page_Banner_Moto" src={this.props.banner_moto} style={{display:'inline-block',width:'80%',height:'197px', maxWidth:'100%'}}/>  
                 </div>
             </div>
         )
