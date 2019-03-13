@@ -4,7 +4,7 @@ import ArticleContainer from '../../components/ArticleContainer/ArticleContainer
 import NavbarContainer from '../../components/NavbarContainer/NavbarContainer.jsx';
 
 //Image imports
-import banner_logo from '../../../assets/GEM_logo_navy.png';
+import banner_logo from '../../../assets/GEM_Logo_Navy.png';
 import banner_moto from '../../../assets/mission_statement_2.png';
 
 import './Homepage.css'; //styling
