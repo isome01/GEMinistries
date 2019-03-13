@@ -4,6 +4,8 @@ import {Route, Switch} from 'react-router-dom';
 
 //Import page templates
 import Homepage from '../templates/Homepage/Homepage.jsx';
+import AboutUspage from '../templates/AboutUspage/AboutUspage.jsx';
+import Errorpage from '../templates/Errorpage/Errorpage.jsx';
 
 class App extends Component {
     
@@ -23,12 +25,11 @@ class App extends Component {
         return(
             <div class="app-content">
                 <Router>
-                    <div>
                     <Switch>
-                        <Route to="/" exact strict component={Homepage} />
-
+                        <Route path="/" exact strict component={Homepage} />
+                        <Route path="/About_Us" strict component={AboutUspage} />
+                        <Route component={Errorpage}/>
                     </Switch>
-                    </div>
                 </Router>
             </div>
         );

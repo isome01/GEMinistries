@@ -12,6 +12,8 @@ article hr {
 }
 
 .article-summary {
+    padding: 20px;
+    margin: auto;
     width: 50%;
     display: inline-block;
 }
@@ -21,7 +23,9 @@ article hr {
 }
 
 .article-slide-container {
-    margin: 0;
+    height: 50%;
+    padding: 20px;
+    margin: auto;
     width: 50%;
     display: inline-block;
 }
