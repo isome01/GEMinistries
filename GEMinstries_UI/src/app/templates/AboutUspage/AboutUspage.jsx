@@ -6,7 +6,7 @@ import NavbarContainer from '../../components/NavbarContainer/NavbarContainer.js
 
 //Image imports
 import banner_logo from '../../../assets/GEM_logo_navy.png';
-import banner_moto from '../../../assets/mission_statement_2.png';
+import banner_moto from '../../../assets/mission_stsatement_2.png';
 
 import './AboutUspage.css';
 
