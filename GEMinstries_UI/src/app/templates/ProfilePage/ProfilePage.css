@@ -1,0 +1,12 @@
+.profile-page{
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    width: 100%;
+    max-height: 1024px;
+    height:auto;
+    overflow: hidden;
+
+    background-color: #fff;
+    border: solid black 2px;
+}

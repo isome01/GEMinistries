@@ -1,16 +1,18 @@
 .navbar-container {
-    position: absolute;
+    position: sticky;;
 }
 
 .navbar-header {
     padding: 0 20px 0 5px;
     font-size: 1.5rem;
+    position: sticky;
 }
 
 .nav-items {
     float: left;
     text-align: center;
     margin: 10px;
+    position: sticky;
 }
 
 .nav-items a{

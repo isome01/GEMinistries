@@ -1,32 +1,58 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import PageBanner from '../../components/PageBanner/PageBanner.jsx';
-import NavbarContainer from '../../components/NavbarContainer/NavbarContainer.jsx';
+import ProfileCard from '../../presentational/ProfileCard.jsx';
+import ProfilePage from '../ProfilePage/ProfilePage.jsx';
 
-//Image imports
-import banner_logo from '../../../assets/GEM_Logo_Navy.png';
-import banner_moto from '../../../assets/mission_statement_2.png';
+import profile_pic_greg from '../../../assets/Greg_Jones.jpg';
 
 import './AboutUspage.css';
 
 class AboutUspage extends Component{
 
+    constructor(props){
+        super(props);
+    }
+
+    componentWillMount(){
+        /* Do backend calls for profile data here */
+        
+    }
+
+    componentDidMount(){
+
+        /* set the state here */
+    }
+
+    /* Here we will map routes to their respective profiles. */
     render(){
         return(
-            <div id="about_us" class="about-us">
-                <header>
-                    <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
-                    <NavbarContainer />
-                </header>
-                <main>
-                    <h1 className="about-us-header">
-                        About Us
-                    </h1>
-                </main>
-                <footer class="about-us-footer">
-
-                </footer>
+            <div>
+                <div id="about_us" class="about-us">
+                    <header>
+                    </header>
+                    <main>
+                        <h1 className="about-us-header">
+                            About Us
+                        </h1>
+                        <section class="about-us-section">
+                            <ProfileCard
+                                profile_pic={profile_pic_greg}
+                                profile_name='Greg Jones'
+                                profile_link={`${this.props.match.url}/Greg_Jones`}
+                            />
+                            <ProfileCard
+                                profile_pic={profile_pic_greg}
+                                profile_name='Greg Jones'
+                                profile_link={`${this.props.match.url}/Greg_Jones`}
+                            />
+                        </section>
+                    </main>
+                    <footer class="about-us-footer">
+                    </footer>
+                </div>
+                <Route path={`${this.props.match.path}/Greg_Jones`} strict component={ProfilePage} />
+                {console.log(this.props.match.path)}
             </div>
         );
     }
