@@ -9,6 +9,11 @@ class NavbarContainer extends Component {
         super(props);
     }
 
+    shouldComponentUpdate = (nextProps, nextState) => {
+        
+        return this.props.navbar_content == nextProps.navbar_content ? false : true;
+    } 
+
     render(){
 
         const navbar_content = this.props.navbar_content || [

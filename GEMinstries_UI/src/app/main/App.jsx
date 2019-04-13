@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
-import {Route, Switch, browserHistory} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 //Import page templates
 import Homepage from '../templates/Homepage/Homepage.jsx';
@@ -40,14 +40,14 @@ class App extends Component {
 
         return(
             <div class="app-content">
-                <Router history={browserHistory}>
+                <Router>
                     <div>
                         <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
                         <NavbarContainer navbar_content={navbar_content} />
 
                         <Switch>
                             <Route path="/" exact strict component={Homepage} />
-                            <Route path="/About_Us" exact strict component={AboutUspage} />
+                            <Route path="/About_Us" component={AboutUspage} strict/>
                             <Route component={Errorpage}/>
                         </Switch>
                     </div>

@@ -5,7 +5,7 @@ import './presentational.css';
 
 const ProfileCard = (props) => (
     <div class="profile_container">
-        <Link to={props.profile_link || "#"} >
+        <Link to={props.profile_link || "#"} onClick={()=>{console.log('Clicked')}} >
             <div align="center">
                 <img alt="Profile Image" src={props.profile_pic}/>
                 <h5> {props.profile_name} </h5>

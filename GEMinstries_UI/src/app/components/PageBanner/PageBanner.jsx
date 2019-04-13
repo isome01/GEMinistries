@@ -5,6 +5,10 @@ import './PageBanner.css';
 
 class PageBanner extends Component {
 
+    shouldComponentUpdate(){
+        return false;
+    }
+
     render(){
         return(
             <div id="page_banner" class="page-banner">

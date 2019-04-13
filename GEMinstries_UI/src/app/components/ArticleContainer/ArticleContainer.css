@@ -1,7 +1,10 @@
 article {
     margin: 20px auto;
+    margin: 0px;
+    width: 50%;
     max-width: 100%;
     word-wrap: break-word;
+    display: inline-block;
 }
 
 article hr {
@@ -14,18 +17,9 @@ article hr {
 .article-summary {
     padding: 20px;
     margin: auto;
-    width: 50%;
-    display: inline-block;
+    width: 100%;
 }
 
 .article-summary h4 {
     padding: 20px;
-}
-
-.article-slide-container {
-    height: 50%;
-    padding: 20px;
-    margin: auto;
-    width: 50%;
-    display: inline-block;
 }
