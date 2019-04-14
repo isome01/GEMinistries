@@ -8,6 +8,7 @@ import profile_pic_greg from '../../../assets/Greg_Jones.jpg';
 import profile_pic_earlene from '../../../assets/Earlene.jpg';
 
 import './AboutUspage.css';
+import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
 
 class AboutUspage extends Component{
 
@@ -49,6 +50,7 @@ class AboutUspage extends Component{
             return (
                 <div id="about_us" className="about-us">
                     <header>
+                        <ArticleContainer />
                     </header>
                     <main>
                         <h1 className="about-us-header">
@@ -80,6 +82,7 @@ class AboutUspage extends Component{
     render(){
 
         let profiles = [{
+            route : 'Greg_Jones',
             profile_image:profile_pic_greg,
             occupation: 'Director',
             name : 'Greg Jones',
@@ -93,6 +96,7 @@ class AboutUspage extends Component{
             
             God had a plan for me and He just patiently waited for me to answer His call to service for Kingdom building. I begin serving as a volunteer at West Dallas Community Church and have never looked back. I later accepted the responsibility of Outreach Director and have been serving in this position for the past 20 years. I am currently the Senior Deacon and serve in numerous ministries as we forge to make an impact in West Dallas and beyond to continue to build Christ's Kingdom. I am a missionary for Jesus Christ for HIS service to bring all glory to GOD.`
         },{
+            route: 'Earlene_Jones',
             profile_image:profile_pic_earlene,
             occupation: 'Director',
             name : 'Earlene Jones',
@@ -109,12 +113,10 @@ class AboutUspage extends Component{
             <div>
                 {this.shouldPageRender()}
                 <Switch>
-                    {/*
                     {profiles.map( profile => (
                         <Route 
-                            path={`${this.props.match.path}/:profile`} 
+                            path={`${this.props.match.path}/${profile.route}`} 
                             render={()=><ProfilePage
-                                            key={i} 
                                             profile_image={profile.profile_image}
                                             profile_name={profile.name}
                                             profile_occupation={profile.occupation}
@@ -122,22 +124,8 @@ class AboutUspage extends Component{
                                             onLoadFunction={this.profileIsAccessed.bind(this)}
                                         /> } exact/>
                         ) 
-                    ) */}
-                    <Route path={`${this.props.match.path}/Greg_Jones`} render={()=><ProfilePage
-                        profile_image={profiles[0].profile_image}
-                        profile_name={profiles[0].name}
-                        profile_occupation={profiles[0].occupation}
-                        profile_bio={profiles[0].bio}
-                        onLoadFunction={this.profileIsAccessed.bind(this)}
-                    /> } exact />
-                    <Route path={`${this.props.match.path}/Earlene_Jones`} render={()=><ProfilePage
-                        profile_image={profiles[1].profile_image}
-                        profile_name={profiles[1].name}
-                        profile_occupation={profiles[1].occupation}
-                        profile_bio={profiles[1].bio}
-                        onLoadFunction={this.profileIsAccessed.bind(this)}
-                    /> } exact />
-
+                    )}
+                    {/* <Route path={`${this.props.match.path/:profile}`} render */}
                     <Redirect to={`${this.props.match.url}`} />
                 </Switch>
             </div>

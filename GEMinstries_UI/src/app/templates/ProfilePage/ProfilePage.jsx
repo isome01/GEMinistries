@@ -40,12 +40,19 @@ class ProfilePage extends Component{
             <div className="profile-page">
                 <header></header>
                 <main>
-                    <section className>
-                        <img src={this.props.profile_image} alt="profile image"/>
-                        <ol>
+                    <section className="profile-specs">
+                        <div>
+                            <img src={this.props.profile_image} alt="profile image"/>
+                        </div>
+                        <ul>
                             <li>Name: {this.props.profile_name}</li>
-                            <li>  {this.props.profile_occupation}</li>
-                        </ol>
+                            <li>Role: {this.props.profile_occupation}</li>
+                            <br/>
+                            <ul>
+                                <h5>Contact:</h5>
+                                <li> {this.props.email || '(Email)'}</li>
+                            </ul>
+                        </ul>
                     </section>
                     <section>
                         <ArticleContainer 

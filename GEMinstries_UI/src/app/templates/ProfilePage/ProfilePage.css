@@ -9,3 +9,38 @@
     background-color: #fff;
     border: solid black 2px;
 }
+
+.profile-specs{
+    max-width: 100%;
+    width: 100%;
+
+}
+
+.profile-specs div {
+    max-width: 75%;
+    width: 100%;
+    display: inline-block;
+}
+
+.profile-specs div img {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.profile-specs ul {
+    padding: 0px;
+    max-width: max-content;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+}
+
+.profile-specs ul li {
+    margin: auto;
+    font-weight: bold;
+}
