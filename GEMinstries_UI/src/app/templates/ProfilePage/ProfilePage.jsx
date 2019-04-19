@@ -50,7 +50,7 @@ class ProfilePage extends Component{
                             <br/>
                             <ul>
                                 <h5>Contact:</h5>
-                                <li> {this.props.email || '(Email)'}</li>
+                                <li> {this.props.email || this.props.phone_number || '(Not Avialable)'}</li>
                             </ul>
                         </ul>
                     </section>

@@ -50,11 +50,12 @@ class AboutUspage extends Component{
             return (
                 <div id="about_us" className="about-us">
                     <header>
-                        <ArticleContainer />
+                        {/* Article goes here... */}
                     </header>
                     <main>
                         <h1 className="about-us-header">
                             About Us
+                            <hr/>
                         </h1>
                         <section className="about-us-section">
                             <ProfileCard
@@ -106,7 +107,8 @@ class AboutUspage extends Component{
             Earlene Jones is a woman on a mission called by God to minister hope, help and healing to the hurting and the lost. I love the Lord and serve Him with my whole heart. My relationship continues to grow as I serve on the mission field. God has grown me to be a prayer warrior and servant for I humbly submit myself to the Lord daily rendering my heart to Him for correction and direction.
              We came to West Dallas Community Church, Arrvel Wilson the Pastor. I continue to grow under the leading of the Holy Spirit and Pastor Wilson’s leadership. I have grown as a woman of God under Mrs. Wilson’s leadership also. I am a woman of God with strong convictions. I boldy and compassionately speak God’s truth and desire everyone I meet to know Jesus Christ and the pardon of their sins. I feel called to minister to all walks of life and God has chosen me to do that at Dallas Pregnancy Resource Center and my church. I serve with Greg my husband and our ministries join us together even closer as one. 
             The result of having a personal relationship with Jesus Christ is knowing my desire is to please only the Lord and serve Him with my body, mind and soul. I love and fear the Lord and depend strongly on the leading and guiding of the Holy Spirit. I am sure of my calling I know that know that when people spend time with you they should be challenged when they leave you to be different, because the Spirit of the Lord is surrounding you. 
-            `
+            `,
+            email: 'earlmwhite@gmail.com'
         }];
 
         return(
@@ -122,6 +124,7 @@ class AboutUspage extends Component{
                                             profile_occupation={profile.occupation}
                                             profile_bio={profile.bio}
                                             onLoadFunction={this.profileIsAccessed.bind(this)}
+                                            email={profile.email}
                                         /> } exact/>
                         ) 
                     )}
