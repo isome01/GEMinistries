@@ -4,16 +4,21 @@
   "description": "This is a GUI for backend services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "start": "webpack --mode development",
+    "start2": "webpack-dev-server --mode development"
   },
   "author": "Michael J. Isome",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "css-loader": "^2.1.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack-dev-server": "^3.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
