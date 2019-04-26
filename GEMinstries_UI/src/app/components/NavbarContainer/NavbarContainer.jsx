@@ -10,9 +10,9 @@ class NavbarContainer extends Component {
     }
 
     shouldComponentUpdate = (nextProps, nextState) => {
-        
+
         return this.props.navbar_content == nextProps.navbar_content ? false : true;
-    } 
+    }
 
     render(){
 
@@ -23,7 +23,7 @@ class NavbarContainer extends Component {
         ];
 
         return(
-            <div id="navbar_container">
+            <div id="navbar_sticky-top">
                 <nav className="navbar navbar-expand-md bg-light">
                     <div className="navbar-header">
                         <NavLink to="/">

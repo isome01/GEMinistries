@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
 import SlidingCarousel from '../../components/SlidingCarousel/SlidingCarousel.jsx';
 
-import './Homepage.css'; //styling
+import './style.css'; //styling
 
 
-class Homepage extends Component{
+class Home extends Component{
 
 
     constructor(){
@@ -56,8 +56,8 @@ class Homepage extends Component{
                         Greg and Earlene Jones
                        `,
                     header: 'GO (Grace and Obience Overflow Ministries)'
-                
-                }, 
+
+                },
                 carousel:''
             },
             /*
@@ -85,7 +85,7 @@ class Homepage extends Component{
                             news_feed.map(feed=>(
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
-                                    <ArticleContainer 
+                                    <ArticleContainer
                                         article_header={feed.article.header || ''}
                                         article_summary={feed.article.summary || ''}
                                         article_width={'1000px'}
@@ -105,4 +105,4 @@ class Homepage extends Component{
     }
 }
 
-export default Homepage;
+export default Home;

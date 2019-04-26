@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
 
-import './ProfilePage.css';
+import './style.css';
 
 /* stateful page component */
-class ProfilePage extends Component{
+class Profile extends Component{
 
     constructor(props){
         super(props);
@@ -16,7 +16,7 @@ class ProfilePage extends Component{
     }
 
     componentWillMount(){
-         
+
     }
 
     componentDidMount(){
@@ -55,9 +55,9 @@ class ProfilePage extends Component{
                         </ul>
                     </section>
                     <section>
-                        <ArticleContainer 
+                        <ArticleContainer
                             article_header={`About ${this.props.profile_name}:`}
-                            article_summary={this.props.profile_bio} 
+                            article_summary={this.props.profile_bio}
                             article_width={'100%'}
                         />
                     </section>
@@ -68,4 +68,4 @@ class ProfilePage extends Component{
     }
 };
 
-export default ProfilePage;
+export default Profile;
