@@ -3,9 +3,9 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import {Route, Switch} from 'react-router-dom';
 
 //Import page templates
-import Homepage from '../templates/Homepage/Homepage.jsx';
-import AboutUspage from '../templates/AboutUspage/AboutUspage.jsx';
-import Errorpage from '../templates/Errorpage/Errorpage.jsx';
+import Home from '../templates/Home/Home.jsx';
+import AboutUs from '../templates/AboutUs/AboutUs.jsx';
+import Error from '../templates/Error/Error.jsx';
 
 import PageBanner from '../components/PageBanner/PageBanner.jsx';
 import NavbarContainer from '../components/NavbarContainer/NavbarContainer.jsx';
@@ -18,7 +18,7 @@ import banner_moto from '../../assets/mission_statement_2.png';
 import './app.css';
 
 class App extends Component {
-    
+
     constructor(){
         super();
     }
@@ -39,16 +39,16 @@ class App extends Component {
         ];
 
         return(
-            <div class="app-content">
+            <div class="container">
                 <Router>
                     <div>
                         <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
                         <NavbarContainer navbar_content={navbar_content} />
 
                         <Switch>
-                            <Route path="/" exact strict component={Homepage} />
-                            <Route path="/About_Us" component={AboutUspage} strict/>
-                            <Route component={Errorpage}/>
+                            <Route path="/" exact strict component={Home} />
+                            <Route path="/About_Us" component={AboutUs} strict/>
+                            <Route component={Error}/>
                         </Switch>
                     </div>
                 </Router>

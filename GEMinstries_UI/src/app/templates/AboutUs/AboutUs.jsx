@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import ProfileCard from '../../presentational/ProfileCard.jsx';
-import ProfilePage from '../ProfilePage/ProfilePage.jsx';
+import Profile from '../Profile/Profile.jsx';
 
 import profile_pic_greg from '../../../assets/Greg_Jones.jpg';
 import profile_pic_earlene from '../../../assets/Earlene.jpg';
 
-import './AboutUspage.css';
+import './style.css';
 import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
 
-class AboutUspage extends Component{
+class AboutUs extends Component{
 
     constructor(props){
         super(props);
@@ -24,7 +24,7 @@ class AboutUspage extends Component{
 
     componentWillMount(){
         /* Do backend calls for profile data here */
-        
+
     }
 
     componentDidMount(){
@@ -37,7 +37,7 @@ class AboutUspage extends Component{
         /* set the state here */
 
         this.setState( ()=>
-            ({hide_page : flag}) /* Hide current rendering */ 
+            ({hide_page : flag}) /* Hide current rendering */
         );
         console.log(this.state.hide_page);
     }
@@ -116,9 +116,9 @@ class AboutUspage extends Component{
                 {this.shouldPageRender()}
                 <Switch>
                     {profiles.map( profile => (
-                        <Route 
-                            path={`${this.props.match.path}/${profile.route}`} 
-                            render={()=><ProfilePage
+                        <Route
+                            path={`${this.props.match.path}/${profile.route}`}
+                            render={()=><Profile
                                             profile_image={profile.profile_image}
                                             profile_name={profile.name}
                                             profile_occupation={profile.occupation}
@@ -126,7 +126,7 @@ class AboutUspage extends Component{
                                             onLoadFunction={this.profileIsAccessed.bind(this)}
                                             email={profile.email}
                                         /> } exact/>
-                        ) 
+                        )
                     )}
                     {/* <Route path={`${this.props.match.path/:profile}`} render */}
                     <Redirect to={`${this.props.match.url}`} />
@@ -136,4 +136,4 @@ class AboutUspage extends Component{
     }
 };
 
-export default AboutUspage;
+export default AboutUs;
