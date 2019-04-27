@@ -25,7 +25,7 @@ eventsDAL.retrieveEvents = ()=>{
         err => {
             console.log(err)
             return null
-        }
+        } 
     )
 }
 
