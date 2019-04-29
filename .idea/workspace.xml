@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb70e69-3d6d-410d-852a-ac574654f18d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/misome.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/Article/Article.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/dist/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/components/ArticleContainer/ArticleContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/Article/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/components/ArticleContainer/ArticleContainer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/main/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/main/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/AboutUs/AboutUs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/AboutUs/AboutUs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,24 +28,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx">
+        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1258">
-              <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="731">
+              <caret line="51" column="81" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -41,22 +41,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" selection-start-column="38" selection-end-column="38" />
+            <state relative-caret-position="646">
+              <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/components/NavbarContainer/NavbarContainer.jsx">
+        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/Article/Article.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+            <state relative-caret-position="289">
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/style.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -68,14 +88,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/components/NavbarContainer/NavbarContainer.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.js" />
-        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx" />
-        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/index.html" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/components/ArticleContainer/ArticleContainer.jsx" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/components/ArticleContainer/Article.jsx" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/Article/Article.jsx" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/style.css" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx" />
+        <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx" />
       </list>
     </option>
   </component>
@@ -129,6 +153,39 @@
               <item name="GEMinstries_UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinstries_UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinstries_UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="presentational" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinstries_UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="presentational" type="462c0819:PsiDirectoryNode" />
+              <item name="VerticalNav" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinstries_UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -146,6 +203,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\misome\WebstormProjects\GEMinistries\GEMinistries\GEMinstries_UI\src\app\presentational" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -170,11 +232,12 @@
       <option name="presentableId" value="Default" />
       <updated>1556302442447</updated>
       <workItem from="1556302443509" duration="1464000" />
+      <workItem from="1556546296067" duration="179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4474000" />
+    <option name="totallyTimeSpent" value="9236000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -187,9 +250,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -201,7 +263,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -212,7 +274,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/main/app.css">
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/main/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
@@ -233,16 +295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -253,27 +305,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/components/NavbarContainer/NavbarContainer.jsx">
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        <state relative-caret-position="34">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-646">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx">
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/components/NavbarContainer/NavbarContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1258">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -282,20 +334,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-296">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="731">
+          <caret line="51" column="81" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Community/Community.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#174#232#0" expanded="true" />
-            <element signature="e#528#585#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/index.html">
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/Article/Article.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        <state relative-caret-position="289">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/presentational/VerticalNav/VerticalNav.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

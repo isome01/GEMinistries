@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
-import {Route, Switch} from 'react-router-dom';
+import React, { Component } from 'react'
+import { BrowserRouter as Router} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 //Import page templates
-import Home from '../templates/Home/Home.jsx';
-import AboutUs from '../templates/AboutUs/AboutUs.jsx';
-import Error from '../templates/Error/Error.jsx';
-
-import PageBanner from '../components/PageBanner/PageBanner.jsx';
-import NavbarContainer from '../components/NavbarContainer/NavbarContainer.jsx';
+import Home from '../templates/Home/Home.jsx'
+import AboutUs from '../templates/AboutUs/AboutUs.jsx'
+import Error from '../templates/Error/Error.jsx'
+import Community from '../templates/Community/Community.jsx'
+import PageBanner from '../components/PageBanner/PageBanner.jsx'
+import NavbarContainer from '../components/NavbarContainer/NavbarContainer.jsx'
 
 //Image imports
 import banner_logo from '../../assets/GEM_Logo_Navy.png';
 import banner_moto from '../../assets/mission_statement_2.png';
 
 /* Styling and parent-sizing */
-import './app.css';
+import './main.css';
 
 class App extends Component {
 
@@ -35,8 +35,9 @@ class App extends Component {
 
         //Install navbar content
         const navbar_content = [
-            { text : 'About Us', link : '/About_Us' }
-        ];
+          {text: 'Community', link: '/Community'},
+          {text: 'About Us', link: '/About_Us'},
+        ]
 
         return(
             <div class="container">
@@ -48,6 +49,7 @@ class App extends Component {
                         <Switch>
                             <Route path="/" exact strict component={Home} />
                             <Route path="/About_Us" component={AboutUs} strict/>
+                            <Route path="/Community" component={Community} strict/>
                             <Route component={Error}/>
                         </Switch>
                     </div>

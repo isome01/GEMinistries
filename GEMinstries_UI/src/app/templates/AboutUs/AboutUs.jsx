@@ -8,7 +8,7 @@ import profile_pic_greg from '../../../assets/Greg_Jones.jpg';
 import profile_pic_earlene from '../../../assets/Earlene.jpg';
 
 import './style.css';
-import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
+import Article from '../../presentational/Article/Article.jsx';
 
 class AboutUs extends Component{
 

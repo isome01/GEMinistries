@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
+import Article from '../../presentational/Article/Article.jsx';
 import SlidingCarousel from '../../components/SlidingCarousel/SlidingCarousel.jsx';
 
 import './style.css'; //styling
@@ -85,7 +85,7 @@ class Home extends Component{
                             news_feed.map(feed=>(
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
-                                    <ArticleContainer
+                                    <Article
                                         article_header={feed.article.header || ''}
                                         article_summary={feed.article.summary || ''}
                                         article_width={'1000px'}
