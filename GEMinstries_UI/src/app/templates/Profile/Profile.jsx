@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
+import Article from '../../presentational/Article/Article.jsx';
 
 import './style.css';
 
@@ -55,7 +55,7 @@ class Profile extends Component{
                         </ul>
                     </section>
                     <section>
-                        <ArticleContainer
+                        <Article
                             article_header={`About ${this.props.profile_name}:`}
                             article_summary={this.props.profile_bio}
                             article_width={'100%'}

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import ProfileCard from '../../presentational/ProfileCard.jsx';
+import ProfileCard from '../../presentational/ProfileCard/ProfileCard.jsx';
 import Profile from '../Profile/Profile.jsx';
 
 import profile_pic_greg from '../../../assets/Greg_Jones.jpg';
 import profile_pic_earlene from '../../../assets/Earlene.jpg';
 
 import './style.css';
-import ArticleContainer from '../../components/ArticleContainer/ArticleContainer.jsx';
+import Article from '../../presentational/Article/Article.jsx';
 
 class AboutUs extends Component{
 
@@ -46,34 +46,35 @@ class AboutUs extends Component{
 
         let { hide_page } = this.state;
         if (!hide_page){
-            console.log('rendering main...');
             return (
                 <div id="about_us" className="about-us">
                     <header>
                         {/* Article goes here... */}
                     </header>
-                    <main>
+                    <main className='container-fluid'>
                         <h1 className="about-us-header">
                             About Us
                             <hr/>
                         </h1>
-                        <section className="about-us-section">
+                        <section className="about-us-section row">
                             <ProfileCard
-                                profile_pic={profile_pic_greg}
-                                profile_name='Greg Jones'
-                                profile_link={`${this.props.match.url}/Greg_Jones`}
+                                profilePic={profile_pic_greg}
+                                profileName='Greg Jones'
+                                profileLink={`${this.props.match.url}/Greg_Jones`}
+                                className={'col-md-3'}
                             />
                             <ProfileCard
-                                profile_pic={profile_pic_earlene}
-                                profile_name='Earlene Jones'
-                                profile_link={`${this.props.match.url}/Earlene_Jones`}
+                                profilePic={profile_pic_earlene}
+                                profileName='Earlene Jones'
+                                profileLink={`${this.props.match.url}/Earlene_Jones`}
+                                className={'col-md-3'}
                             />
                         </section>
                     </main>
                     <footer className="about-us-footer">
                     </footer>
                 </div>
-            );
+            )
 
         }return null;
     }
