@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Article from '../../presentational/Article/Article.jsx';
-import SlidingCarousel from '../../components/SlidingCarousel/SlidingCarousel.jsx';
+import SlidingCarousel from '../../containers/SlidingCarousel/SlidingCarousel.jsx';
 
 import './style.css'; //styling
 
@@ -76,11 +76,10 @@ class Home extends Component{
 
         return(
             <div id="home_page" className="home">
-                <header>
-                    <h2> Announcements: </h2>
-                </header>
                 <main>
                     <section>
+                        <br />
+                        <h2> Announcements: </h2>
                         {
                             news_feed.map(feed=>(
                                 <div>

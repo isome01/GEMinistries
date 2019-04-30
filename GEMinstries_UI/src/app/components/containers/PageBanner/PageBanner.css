@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) and (max-width: 1900px){
+@media only screen and (min-width: 768px) and (max-width: 9900px){
     .page-banner {
         position: relative;
         display: block;
@@ -6,6 +6,7 @@
         margin: auto;
         border-right: solid navy 15px;
         border-left: solid  navy 2px;
+        border-bottom: solid navy 1px;
         box-sizing: border-box;
     }
 
@@ -17,14 +18,14 @@
     }
 }
 
-@media only screen and (max-width: 767px) and (min-width:50px){
+@media only screen and (max-width: 767px) and (min-width:0px){
+
+    #bage-banner {
+        display: none;
+    }
 
     #page-banner-logo{
         display: none;
-    }
-    .page-banner{
-        height: 75px;
-        width: 125px;
     }
 
     .page-banner .banner-header{

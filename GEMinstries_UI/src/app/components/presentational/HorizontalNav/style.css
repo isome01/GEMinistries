@@ -3,12 +3,12 @@
     color: navy;
 }
 
-.hrzl-nav ul li {
+.hrzl-nav ul li a{
     color: navy;
     transition: background-color, color .15s;
 }
 
-.hrzl-nav ul li:hover {
+.hrzl-nav ul li a:hover {
     color: white;
     background-color: navy;
 }
