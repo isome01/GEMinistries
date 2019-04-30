@@ -5,11 +5,11 @@ const SlidingCarousel = () => (
     <div className="article-slide-container carousel slide" data-ride="carousel">
         {/*<!-- Indicators -->*/}
         <ul className="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="0" className="active"></li>
             <li data-target="#demo" data-slide-to="1"></li>
             <li data-target="#demo" data-slide-to="2"></li>
         </ul>
-        
+
         {/**/}
         <div className="carousel-inner" style={{border:"solid navy 2px"}}>
             <div className="carousel-item active">
@@ -24,12 +24,12 @@ const SlidingCarousel = () => (
         </div>
         {/* Left and Right controls */}
         <a className="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
+            <span className="carousel-control-prev-icon"></span>
         </a>
         <a className="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
+            <span className="carousel-control-next-icon"></span>
         </a>
-    </div>  
+    </div>
 );
 
 export default SlidingCarousel;

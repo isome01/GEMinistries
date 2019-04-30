@@ -3,17 +3,17 @@ import { BrowserRouter as Router} from 'react-router-dom'
 import {Route, Switch} from 'react-router-dom'
 
 //Import page templates
-import Home from '../templates/Home/Home.jsx'
-import AboutUs from '../templates/AboutUs/AboutUs.jsx'
-import Error from '../templates/Error/Error.jsx'
-import Community from '../templates/Community/Community.jsx'
-import PageBanner from '../components/PageBanner/PageBanner.jsx'
-import NavbarContainer from '../components/NavbarContainer/NavbarContainer.jsx'
-import HorizontalNav from '../presentational/HorizontalNav/HorizontalNav.jsx'
+import Home from '../components/templates/Home/Home.jsx'
+import AboutUs from '../components/templates/AboutUs/AboutUs.jsx'
+import Error from '../components/templates/Error/Error.jsx'
+import Community from '../components/templates/Community/Community.jsx'
+import PageBanner from '../components/containers/PageBanner/PageBanner.jsx'
+import NavbarContainer from '../components/containers/NavbarContainer/NavbarContainer.jsx'
+import HorizontalNav from '../components/presentational/HorizontalNav/HorizontalNav.jsx'
 //Image imports
-import banner_logo from '../../assets/GEM_Logo_Navy.png';
+import banner_logo from '../../assets/GEMnavImgLogo.png';
 import banner_moto from '../../assets/mission_statement_2.png';
-
+import navLogoImg from '../../assets/GEMnavLogoText.png'
 /* Styling and parent-sizing */
 import './main.css';
 
@@ -47,10 +47,9 @@ class App extends Component {
                         <HorizontalNav
                           className='bg-light sticky-top'
                           navLogoText='GEMOutreach'
-                          navLogoImg={''}
+                          navLogoImg={navLogoImg}
                           navContent={navbar_content}
                         />
-
                         <Switch>
                             <Route path="/" exact strict component={Home} />
                             <Route path="/About_Us" component={AboutUs} strict/>

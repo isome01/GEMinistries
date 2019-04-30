@@ -4,8 +4,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import ProfileCard from '../../presentational/ProfileCard/ProfileCard.jsx';
 import Profile from '../Profile/Profile.jsx';
 
-import profile_pic_greg from '../../../assets/Greg_Jones.jpg';
-import profile_pic_earlene from '../../../assets/Earlene.jpg';
+import profile_pic_greg from '../../../../assets/Greg_Jones.jpg';
+import profile_pic_earlene from '../../../../assets/Earlene.jpg';
 
 import './style.css';
 import Article from '../../presentational/Article/Article.jsx';
@@ -29,7 +29,6 @@ class AboutUs extends Component{
 
     componentDidMount(){
 
-        console.log('mounting about us...');
     }
 
     /* This method will return whether a specific profile is accessed or not */
