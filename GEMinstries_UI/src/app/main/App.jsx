@@ -9,7 +9,7 @@ import Error from '../templates/Error/Error.jsx'
 import Community from '../templates/Community/Community.jsx'
 import PageBanner from '../components/PageBanner/PageBanner.jsx'
 import NavbarContainer from '../components/NavbarContainer/NavbarContainer.jsx'
-
+import HorizontalNav from '../presentational/HorizontalNav/HorizontalNav.jsx'
 //Image imports
 import banner_logo from '../../assets/GEM_Logo_Navy.png';
 import banner_moto from '../../assets/mission_statement_2.png';
@@ -44,7 +44,12 @@ class App extends Component {
                 <Router>
                     <div>
                         <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
-                        <NavbarContainer navbar_content={navbar_content} />
+                        <HorizontalNav
+                          className='bg-light sticky-top'
+                          navLogoText='GEMOutreach'
+                          navLogoImg={''}
+                          navContent={navbar_content}
+                        />
 
                         <Switch>
                             <Route path="/" exact strict component={Home} />

@@ -22,12 +22,12 @@
     max-width: 100%;
 }
 
-.card{
+.card {
     margin:auto;
 
 }
 
-.card hr{
+.card hr {
     border: solid #eee 2px;
     margin: auto;
     padding: 15px;

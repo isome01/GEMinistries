@@ -75,7 +75,7 @@ class Home extends Component{
         const news_feed = this.state.news_feed.slice();
 
         return(
-            <div id="home_page" class="home">
+            <div id="home_page" className="home">
                 <header>
                     <h2> Announcements: </h2>
                 </header>

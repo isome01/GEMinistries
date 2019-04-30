@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import VerticalNav from "../../presentational/VerticalNav/VerticalNav.jsx"
+import './style.css'
 
 class Community extends Component {
 
@@ -23,7 +24,7 @@ class Community extends Component {
         navContent: [
           {link: '/Prayer', text: 'Prayer'},
           {link: '/Activities', text: 'Activities'},
-          {link: 'Ministries', text: 'Ministries'},
+          {link: '/Ministries', text: 'Ministries'},
           {link: '/Mission-Trips', text: 'Mission Trips'},
         ]})
     }
@@ -37,15 +38,20 @@ class Community extends Component {
   render(){
     const {navContent} = this.state
 
-    return (<div>
-      <div id="community-page">
-        <VerticalNav
-          navHeader={'Our Community'}
-          navContent={navContent}
-          className={'bg-light col-sm-2'}
-        />
+    return (
+      <div id="community-page" className="community">
+        <header>
+          <VerticalNav
+            navHeader={'Our Community'}
+            navContent={navContent}
+            className={'bg-light col-sm-2'}
+            matchUrl={this.props.match.url}
+          />
+        </header>
+        <main></main>
+        <footer></footer>
       </div>
-    </div>)
+    )
   }
 }
 

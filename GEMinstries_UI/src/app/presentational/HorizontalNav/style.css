@@ -1,0 +1,23 @@
+.hrzl-nav .nav-header{
+    text-decoration: none;
+    color: navy;
+}
+
+.hrzl-nav ul li {
+    color: navy;
+    transition: background-color, color .15s;
+}
+
+.hrzl-nav ul li:hover {
+    color: white;
+    background-color: navy;
+}
+
+.hrzl-nav ul li a {
+    text-decoration: none;
+}
+
+.hrzl-nav .nav-logo {
+    margin: auto;
+    width: 40px;
+}

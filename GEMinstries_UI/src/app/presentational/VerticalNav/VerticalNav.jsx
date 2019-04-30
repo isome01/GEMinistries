@@ -3,16 +3,18 @@ import PropTypes from 'prop-types'
 import {Link} from "react-router-dom"
 import './style.css'
 
-const VerticalNav = ({className, navHeader, navContent}) => (
-  <nav className={`navbar ${className}`}>
-    <span className='navbar-brand'>{navHeader}</span>
+const VerticalNav = ({className, navHeader, navContent, matchUrl}) => (
+  <nav className={`navbar vert-nav ${className}`}>
+    <span className='navbar-brand nav-header'>{navHeader}</span>
     <ul className="navbar-nav">
       {(navContent || []).map( (nav, index) =>(
-        <Link key={`${nav.text}${index}`}
-          to={`${match.url}${nav.link}`}
-          className='nav-item'
-        ><a className='nav-link'>{nav.text}</a>
-        </Link>)
+        <li>
+          <Link key={`${nav.text}${index}`}
+                to={`${matchUrl}${nav.link}`}
+                className='nav-item'
+          ><a className='nav-link'>{nav.text}</a>
+          </Link>
+        </li>)
       )}
     </ul>
   </nav>
@@ -26,7 +28,8 @@ VerticalNav.propTypes = {
       link: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  matchUrl: PropTypes.string.isRequired
 }
 
 export default VerticalNav
