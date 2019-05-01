@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const inputTypes = {
-    button: 'button', 
+    button: 'button',
     checkbox: 'checkbox',
     color: 'color',
     date: 'date',
@@ -25,18 +25,28 @@ const inputTypes = {
 }
 
 /* All input types */
-const FormGroup = ({inputType, label}) => (
+const FormGroup = ({inputType, label, textArea}) => (
     <div className="form-group">
-        <label className={"input-group-text"}>{label}</label>
-        <input className={"form-control"}
-            type={inputTypes[inputType] || 'text'}
-        />
+        <label className={"input-group-text col-sm-3"}>{label}</label>
+        {!textArea
+          ? <input
+              className={"form-control"}
+              type={inputTypes[inputType] || 'text'}
+            />
+          : <textarea
+              className='form-control'
+              rows='5'
+            >
+
+          </textarea>
+        }
     </div>
 )
 
 FormGroup.propTypes = {
     inputType: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    textArea: PropTypes.bool
 }
 
 export default FormGroup

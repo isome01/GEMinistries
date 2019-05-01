@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {Switch, Route } from 'react-router-dom'
-import Navbar from './presentational/Navbar/Navbar'
-import EventsEditor from './container/EventsEditor/EventsEditor'
+import Navbar from './presentational/Navbar/Navbar.jsx'
+import EventsEditor from './container/EventsEditor/EventsEditor.jsx'
 
 class App extends Component{
 
@@ -31,7 +31,7 @@ class App extends Component{
         return(
 
             <Router>
-                <Navbar 
+                <Navbar
                     logo={"Data Editor"}
                     navlinks={navbarLinks}
                 />
