@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FormGroup from '../FormGroup/FormGroup'
+import FormGroup from '../FormGroup/FormGroup.jsx'
 
 const Form = ({toggleSubmit, title, inputFields}) => (
     <form className="container-fluid" onSubmit={ e=>{
@@ -14,11 +14,12 @@ const Form = ({toggleSubmit, title, inputFields}) => (
                     key={index}
                     inputType={inputfield.inputType}
                     label={inputfield.label}
+                    textArea={inputfield.textArea}
                 />)
             })
         }
         <div className={"container"}>
-            <button 
+            <button
                 className={"btn btn-primary form-control col-md-6 col-md-offset-3"}
                 type={"submit"}
             >Submit</button>

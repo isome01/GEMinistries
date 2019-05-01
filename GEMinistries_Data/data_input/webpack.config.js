@@ -38,11 +38,11 @@ module.exports = {
                     loader: "file-loader"
                 }]
             }
-            
+
         ]
     },
     devServer: {
-        port: 3000,
+        port: 3010,
         open: true,
         proxy: {
           "/api": "http://localhost:8080"
