@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "npm run build && nodemon ./src/server/server.js",
-    "test-start": "npm run build && webpack-dev-server --hot && nodemon ./src/server/server.js"
+    "start": "concurrently \"nodemon ./src/server/server.js\" \"npm run build\" ",
+    "test-start": "concurrently \"nodemon ./src/server/server.js\" \"webpack-dev-server --hot\""
   },
   "keywords": [],
   "author": "",
@@ -35,6 +35,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "concurrently": "^4.1.0",
     "express-history-api-fallback": "^2.2.1",
     "mime": "^2.4.2",
     "prop-types": "^15.7.2"

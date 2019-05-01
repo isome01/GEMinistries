@@ -72,7 +72,7 @@ class Home extends Component{
 
     render(){
 
-        const news_feed = this.state.news_feed.slice();
+        const {news_feed} = this.state
 
         return(
             <div id="home_page" className="home">

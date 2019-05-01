@@ -1,26 +1,28 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
+import './style.css'
 
 const HorizontalNav = ({className, navLogoImg, navLogoText, navContent}) => (
-  <nav className={`hrzl-nav navbar navbar-expand-md ${className}`}>
+  <nav className={`navbar hrzl-nav navbar-expand-md ${className}`}>
     <div className="navbar-header">
-        <NavLink to="/">
+        <Link to="/">
           <span className='nav-header navbar-brand'>
-            <img className='nav-logo' src={navLogoImg} alt={navLogoText} style={{width: '200px'}}/>
+            <img className='nav-logo' src={navLogoImg} alt={navLogoText}/>
           </span>
-        </NavLink>
+        </Link>
     </div>
-
     <ul className="navbar-nav">
       {(navContent || []).map(content => (
-        <NavLink key={content.text} to={content.link}>
-          <li className="nav-item" key={content.text}>
-            <span className="nav-link" key={content.text}>
-              {content.text}
-            </span>
-          </li>
-        </NavLink>)
+        <li>
+          <Link
+            key={content.text}
+            to={content.link}
+            className="nav-item"
+          ><a className="nav-link">{content.text}</a>
+          </Link>
+        </li>
+        )
       )}
     </ul>
   </nav>
