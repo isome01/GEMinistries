@@ -5,7 +5,8 @@ eventsBL.retrieveEvents = () => {
     return eventsDAL.retrieveEvents().then(
         results => {
             if (results && results != null)
-                return (JSON.stringify(results) )
+                return results
+            else return {message: "There are no entries."}
         }
     ).catch(
         err => console.log(err)
@@ -13,7 +14,11 @@ eventsBL.retrieveEvents = () => {
 }
 
 eventsBL.addEventBL = event =>{
-    return
+    return eventsDAL.retrieveEvents(event).then(
+        result => result
+    ).catch(
+        err => err
+    )
 }
 
 eventsBL.delEventBL = id=>{
