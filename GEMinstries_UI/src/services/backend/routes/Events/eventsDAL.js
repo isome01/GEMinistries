@@ -38,7 +38,7 @@ eventsDAL.addEvent = event =>{
                 'description': `${event.description}`,
                 'credentials': {
                     'author': `${event.user}`,
-                    'created': `${new Date().toDateString}`
+                    'created': `${new Date().toString()}`
                 }
             }).then(
                 result => {

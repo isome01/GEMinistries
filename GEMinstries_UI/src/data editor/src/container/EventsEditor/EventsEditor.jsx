@@ -20,7 +20,7 @@ class EventsEditor extends Component{
     }
 
     toggleSubmit = inputValues => {
-
+        console.log(inputValues)
         const authOptions = {
             method: 'POST',
             url: '//localhost:9910/events/add',
@@ -45,13 +45,36 @@ class EventsEditor extends Component{
                 toggleSubmit: this.toggleSubmit,
                 inputFields: [
                     {
-                        inputType: 'text',
-                        label: 'Event Name',
-                        textArea: true
-                    },
-                    {
-                        inputType: 'date',
-                        label: 'Date of the event'
+                        key: 'title',
+                        field: {
+                            inputType: 'text',
+                            label: 'Title: '
+                        }
+                    },{
+                      key: 'type',
+                      field: {
+                        inputType: 'checkbox',
+                        label: 'Type of event',
+                      }
+                    },{
+                        key: 'time',
+                        field: {
+                            inputType: 'time',
+                            label: 'What time of day?',
+                        }
+                    },{
+                        key: 'date',
+                        field: {
+                            inputType: 'date',
+                            label: 'What day?',
+                        }
+                    },{
+                        key: 'description',
+                        field: {
+                            inputType: 'text',
+                            label: 'Description of the event',
+                            textArea: true
+                        }
                     }
                 ]
             },

@@ -7,13 +7,18 @@ class Form extends Component {
     static propTypes = {
       title: PropTypes.string.isRequired,
       toggleSubmit: PropTypes.func.isRequired,
+
       inputFields: PropTypes.arrayOf(
-        PropTypes.shape(
-          {
-            inputType: PropTypes.string.isRequired,
-            label: PropTypes.string.isRequired
-          }
-        ))
+        PropTypes.shape({
+          key: PropTypes.string.isRequired,
+          field: PropTypes.shape(
+            {
+              inputType: PropTypes.string.isRequired,
+              label: PropTypes.string.isRequired
+            }
+          )
+        })
+      )
     }
 
     constructor(){
@@ -27,12 +32,9 @@ class Form extends Component {
     submitForm = e => {
       e.preventDefault()
       const {inputFields} = this.state || []
-
-      const inputValues = inputFields.map(input => {
-        return ({
-          type: input.label,
-          title: document.getElementById(input.id).value
-        })
+      let inputValues = {}
+      inputFields.forEach(input => {
+        inputValues[input.key] = document.getElementById(input.field.id).value
       })
       this.props.toggleSubmit(inputValues)
     }
@@ -42,8 +44,12 @@ class Form extends Component {
 
       const inputFields = this.props.inputFields.map( (input,index) => {
         return ({
-          ...input,
-          id: `${input.label}${index}`})
+          key: input.key,
+          field: {
+            ...input.field,
+            id: `${input.field['label']}${index}`}
+          })
+
       })
       this.setState({inputFields: inputFields})
     }
@@ -58,11 +64,11 @@ class Form extends Component {
         {
           inputFields.map( (inputfield) => (
             <FormGroup
-              key={inputfield.id}
-              inputType={inputfield.inputType}
-              label={inputfield.label}
-              textArea={inputfield.textArea}
-              id={inputfield.id}
+              key={inputfield.field.id}
+              inputType={inputfield.field.inputType}
+              label={inputfield.field.label}
+              textArea={inputfield.field.textArea}
+              id={inputfield.field.id}
             />)
           )
         }
