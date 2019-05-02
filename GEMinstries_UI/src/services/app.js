@@ -1,9 +1,8 @@
 const PORT = 9910 || process.env.PORT
-
-var express = require('express')
-var events = require('./routes/Events/events')
-var cors = require('cors')
-var body_parser = require('body-parser')
+const express = require('express')
+const events = require('./routes/Events/events')
+const cors = require('cors')
+const body_parser = require('body-parser')
 
 var app = express()
 

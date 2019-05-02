@@ -42,6 +42,7 @@ module.exports = {
         ]
     },
     devServer: {
+        historyApiFallback: true,
         port: 80,
         open: true,
         proxy: {
