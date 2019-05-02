@@ -1,5 +1,5 @@
-var eventsDAL = require('./eventsDAL')
-var eventsBL = {}
+const eventsDAL = require('./eventsDAL')
+const eventsBL = {}
 
 eventsBL.retrieveEvents = () => {
     return eventsDAL.retrieveEvents().then(
@@ -21,7 +21,7 @@ eventsBL.addEventBL = event =>{
     )
 }
 
-eventsBL.delEventBL = id=>{
+eventsBL.delEventBL = id =>{
     return
 }
 

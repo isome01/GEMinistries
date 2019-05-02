@@ -6,8 +6,9 @@
   "scripts": {
     "preinstall": "cd $(pwd)",
     "build": "webpack --mode production",
+    "middleware": "nodemon src/middleware",
     "start": "npm run build",
-    "start2": "webpack-dev-server --mode development"
+    "start2": "concurrently \"npm run middleware\" \"webpack-dev-server --mode development\""
   },
   "author": "Michael J. Isome",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "css-loader": "^2.1.1",
+    "npm": "^6.9.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
