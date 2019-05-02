@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "editor": "npm run start2 --prefix \"src/data editor/\"",
     "build": "webpack --mode production",
-    "start": "concurrently \"nodemon src/services/middleware/\" \"npm run build\"",
-    "test-start": "concurrently \"nodemon src/services/middleware/\" \"webpack-dev-server --hot\""
+    "backend": "node src/services/backend/",
+    "middleware": "node src/services/middleware/",
+    "start": "concurrently \"npm run backend\" \"npm run middleware\" \"npm run build\" \"npm run editor\"",
+    "test-start": "concurrently \"npm run backend\" \"npm run middleware\" \"npm run editor\" \"webpack-dev-server --hot\""
   },
   "keywords": [],
   "author": "",
@@ -41,6 +44,7 @@
     "express-history-api-fallback": "^2.2.1",
     "mime": "^2.4.2",
     "mongodb": "^3.2.3",
+    "npm": "^6.9.0",
     "prop-types": "^15.7.2"
   }
 }
