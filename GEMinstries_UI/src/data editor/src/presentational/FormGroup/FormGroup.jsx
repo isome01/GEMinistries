@@ -25,20 +25,21 @@ const inputTypes = {
 }
 
 /* All input types */
-const FormGroup = ({inputType, label, textArea}) => (
+const FormGroup = ({inputType, label, textArea, id}) => (
     <div className="form-group">
         <label className={"input-group-text col-sm-3"}>{label}</label>
         {!textArea
           ? <input
               className={"form-control"}
               type={inputTypes[inputType] || 'text'}
+              id={id}
             />
           : <textarea
               className='form-control'
               rows='5'
-            >
-
-          </textarea>
+              id={id}
+              defaultValue={""}
+            ></textarea>
         }
     </div>
 )
@@ -46,6 +47,7 @@ const FormGroup = ({inputType, label, textArea}) => (
 FormGroup.propTypes = {
     inputType: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     textArea: PropTypes.bool
 }
 

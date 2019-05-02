@@ -1,4 +1,4 @@
-var eventsBL = require('./eventsBL')
+const eventsBL = require('./eventsBL')
 
 module.exports = app =>{
     app.get('/events/read', function(req, res){
@@ -14,7 +14,7 @@ module.exports = app =>{
     })
 
     app.post('/events/add', (req,res) => {
-
+      console.log('Got it :D', req.body.event)
         eventsBL.addEventBL(req.body.event).then(
             result => {
                 console.log('result(s)',result)
