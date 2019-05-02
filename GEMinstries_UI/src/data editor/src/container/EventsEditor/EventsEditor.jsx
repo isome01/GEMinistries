@@ -14,7 +14,7 @@ class EventsEditor extends Component{
         super()
         this.state = {
             editorTabs: [], //and we will get rid of "editorForms" var; each tab will have a form
-            editorForms: [],
+            formData: [],
         }
         this.toggleSubmit = this.toggleSubmit.bind(this)
     }
@@ -39,7 +39,7 @@ class EventsEditor extends Component{
     }
 
     componentDidMount(){
-         this.setState( {editorForms: [
+         this.setState( {formData: [
             {
                 title: "Add Event",
                 toggleSubmit: this.toggleSubmit,
@@ -59,13 +59,13 @@ class EventsEditor extends Component{
     }
 
     render(){
-        const editorForms = this.state.editorForms.slice()
+        const {formData} = this.state
 
         return(
             <div className="container event-editor">
                 <div className="row">
                 {
-                    (editorForms).map( (form, index) =>{
+                    formData.map( (form, index) =>{
                         return (
                             <Form
                                 key={index}
