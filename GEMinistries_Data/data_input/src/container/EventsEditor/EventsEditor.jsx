@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Form from '../../presentational/Form/Form'
+import Form from '../../presentational/Form/Form.jsx'
 import './EventEditor.css'
 
 class EventsEditor extends Component{
@@ -8,7 +8,7 @@ class EventsEditor extends Component{
         Add Events to the calendar
         Delete Events from the calendar
     */
-    
+
     constructor(){
         super()
 
@@ -26,7 +26,8 @@ class EventsEditor extends Component{
                 inputFields: [
                     {
                         inputType: 'text',
-                        label: 'Event Name'
+                        label: 'Event Name',
+                        textArea: true
                     },
                     {
                         inputType: 'date',

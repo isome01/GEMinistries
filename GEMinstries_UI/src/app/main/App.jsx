@@ -8,7 +8,6 @@ import AboutUs from '../components/templates/AboutUs/AboutUs.jsx'
 import Error from '../components/templates/Error/Error.jsx'
 import Community from '../components/templates/Community/Community.jsx'
 import PageBanner from '../components/containers/PageBanner/PageBanner.jsx'
-import NavbarContainer from '../components/containers/NavbarContainer/NavbarContainer.jsx'
 import HorizontalNav from '../components/presentational/HorizontalNav/HorizontalNav.jsx'
 //Image imports
 import banner_logo from '../../assets/GEMnavImgLogo.png';
