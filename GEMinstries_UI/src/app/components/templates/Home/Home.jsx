@@ -22,7 +22,7 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        /* get info from the server ... */
+        /* get info from the middleware ... */
 
         let news_feed = [
             {article: {

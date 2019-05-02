@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "concurrently \"nodemon ./src/server/server.js\" \"npm run build\" ",
-    "test-start": "concurrently \"nodemon ./src/server/server.js\" \"webpack-dev-server --hot\""
+    "start": "concurrently \"nodemon src/services/middleware/\" \"npm run build\"",
+    "test-start": "concurrently \"nodemon src/services/middleware/\" \"webpack-dev-server --hot\""
   },
   "keywords": [],
   "author": "",
@@ -35,9 +35,12 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "express-history-api-fallback": "^2.2.1",
     "mime": "^2.4.2",
+    "mongodb": "^3.2.3",
     "prop-types": "^15.7.2"
   }
 }
