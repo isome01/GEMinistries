@@ -39,7 +39,6 @@ class EventsEditor extends Component{
     }
 
     componentDidMount(){
-        console.log('Hello?')
          this.setState( {editorForms: [
             {
                 title: "Add Event",

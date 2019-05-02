@@ -30,8 +30,8 @@ class Form extends Component {
 
       const inputValues = inputFields.map(input => {
         return ({
-          label: input.label,
-          value: document.getElementById(input.id).value
+          type: input.label,
+          title: document.getElementById(input.id).value
         })
       })
       this.props.toggleSubmit(inputValues)

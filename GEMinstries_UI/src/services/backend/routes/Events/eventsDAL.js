@@ -41,8 +41,8 @@ eventsDAL.addEvent = event =>{
                     'created': `${new Date().toDateString}`
                 }
             }).then(
-                result => { 
-                    result
+                result => {
+                    return result
                 }
             ).catch(
                 err => {throw new Error(err)}

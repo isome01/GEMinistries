@@ -14,11 +14,9 @@ module.exports = app =>{
     })
 
     app.post('/events/add', (req,res) => {
-      console.log('Got it :D', req.body.event)
         eventsBL.addEventBL(req.body.event).then(
             result => {
-                console.log('result(s)',result)
-                res.json({message: "success!"})
+                res.json({message: `Event "${result.ops.title} created."`})
             }
         ).catch(
             err => res.json({message: `oops... something went wrong; error - ${err}`})

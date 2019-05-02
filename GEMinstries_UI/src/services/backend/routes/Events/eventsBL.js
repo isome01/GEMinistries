@@ -14,7 +14,7 @@ eventsBL.retrieveEvents = () => {
 }
 
 eventsBL.addEventBL = event =>{
-    return eventsDAL.retrieveEvents(event).then(
+    return eventsDAL.addEvent(event).then(
         result => result
     ).catch(
         err => err
