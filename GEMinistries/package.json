@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "editor": "npm run start2 --prefix \"src/data editor/\"",
+    "editor": "npm run start --prefix \"src/data editor/\"",
     "build": "webpack --mode production",
     "backend": "node src/services/backend/",
     "middleware": "node src/services/middleware/",

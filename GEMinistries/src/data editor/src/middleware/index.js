@@ -1,7 +1,6 @@
 /* This is a [low-key] middleware for our webpack transpiler. */
 
-const PORT = 3000 || process.env.PORT;
-const path = require('path')
+const PORT = 3010 || process.env.PORT;
 const express = require('express');
 const api_fallback = require('connect-history-api-fallback');
 const app = express();
