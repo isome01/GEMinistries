@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Editor from '../Editor/Editor.jsx'
 import './EventEditor.css'
-import {addAnnouncements} from "../../read-only/announcements"
+import {addEvent} from "../../read-only/events"
 
 class EventsEditor extends Component{
     render () {
@@ -18,11 +18,11 @@ class EventsEditor extends Component{
                           tabData={[
                               {
                                   title: 'Add an Event',
-                                  dataObjectKey: 'events',
+                                  dataObjectKey: 'event',
                                   apiUrl: `${uri}/add`,
                                   tablink: '/Add',
                                   tabtext: 'Add',
-                                  inputFields: [...addAnnouncements]
+                                  inputFields: [...addEvent]
                               }
                           ]}
                         />
