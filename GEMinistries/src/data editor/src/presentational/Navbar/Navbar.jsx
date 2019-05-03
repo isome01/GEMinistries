@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 const Navbar = ({logo, navlinks}) => (
-    <nav className={"navbar bg-dark"} style={{width:"300px"}}>
+    <nav className={"navbar bg-dark col-md-1"} style={{width: '100%', maxWidth:"300px"}}>
         <span className="navbar-brand" style={{color:"white"}}>{logo}</span>
         <ul className={"navbar-nav"}>
             {
