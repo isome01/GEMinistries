@@ -4,7 +4,6 @@
   "description": "This is a GUI for backend services",
   "main": "index.js",
   "scripts": {
-    "preinstall": "cd $(pwd)",
     "build": "webpack --mode production",
     "middleware": "nodemon src/middleware",
     "start": "npm run build",

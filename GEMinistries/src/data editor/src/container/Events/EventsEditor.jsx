@@ -31,7 +31,7 @@ class EventsEditor extends Component{
             }
         }
 
-        console.log('Hello..?')
+        console.log('sending')
         axios(authOptions).then(
           results => console.log(results.data.message),
           err => console.log(err)

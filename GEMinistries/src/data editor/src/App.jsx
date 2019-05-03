@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import {Switch, Route } from 'react-router-dom'
 import Navbar from './presentational/Navbar/Navbar.jsx'
-import EventsEditor from './container/EventsEditor/EventsEditor.jsx'
-
+import EventsEditor from './container/Events/EventsEditor.jsx'
+import AnnouncementsEditor from './container/Announcements/AnouncementsEditor.jsx'
 class App extends Component{
 
     constructor(){
@@ -18,9 +18,9 @@ class App extends Component{
         /* Make an axios call to get gather categories for their corresponding editable data */
 
         const navLinks = [
-            {text: "Events Editor", link: "/EventsEditor"},
+            {text: "Events Editor", link: "/Events"},
             {text: "Community Editor", link: "#"},
-            {text: "Announcement Editor", link: "#"}
+            {text: "Announcement Editor", link: "/Announcements"}
         ]
 
         this.setState(()=>({navbarLinks: navLinks}))
@@ -36,7 +36,8 @@ class App extends Component{
                     navlinks={navbarLinks}
                 />
                 <Switch>
-                    <Route path={"/EventsEditor"} exact strict component={EventsEditor}/>
+                    <Route path={"/Events"} exact strict component={EventsEditor}/>
+                    <Route path={"/Announcements"} exact strict component={AnnouncementsEditor} />
                 </Switch>
             </Router>
         )
