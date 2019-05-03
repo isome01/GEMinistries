@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Article from '../../presentational/Article/Article.jsx';
 import SlidingCarousel from '../../containers/SlidingCarousel/SlidingCarousel.jsx';
+import uriHangar from '../../../uri-hangar/'
 
 import './style.css'; //styling
 
@@ -18,6 +19,15 @@ class Home extends Component{
 
     componentWillMount(){
         /* Set some arbitrary variables */
+        let events = []
+        let announcements = []
+
+        uriHangar('events', 'read', {}).then(
+          message => {
+              console.log(message)
+          },
+            err => console.log(err)
+        )
 
     }
 

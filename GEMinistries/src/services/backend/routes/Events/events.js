@@ -4,11 +4,11 @@ module.exports = app =>{
     app.get('/events/read', function(req, res){
         eventsBL.retrieveEvents().then(
             results => {
-                res.json(results)
+                res.json({message: results})
             }
         ).catch(
             err => {
-                res.json({'message':'unable to do stuff;', err})
+                res.json({message:'unable to do stuff;', err})
             }
         )
     })
