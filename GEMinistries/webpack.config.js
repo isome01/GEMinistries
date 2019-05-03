@@ -4,7 +4,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const outputDirectory = "dist";
 
 module.exports = {
-    entry : "./src/AnouncementsEditor.jsx",
+    entry : "./src/",
     output : {
         path : path.join( __dirname, outputDirectory),
         publicPath: '/',

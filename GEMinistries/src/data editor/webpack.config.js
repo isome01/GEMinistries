@@ -4,7 +4,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const outputDirectory = "dist";
 
 module.exports = {
-    entry : "./src/AnouncementsEditor.jsx",
+    entry : "./src/",
     output : {
         path : path.join( __dirname, outputDirectory),
         publicPath: '/',
@@ -43,7 +43,7 @@ module.exports = {
     },
     devServer: {
         port: 3010,
-        open: true,
+        open: false,
         proxy: {
           "/api": "http://localhost:8080"
         }

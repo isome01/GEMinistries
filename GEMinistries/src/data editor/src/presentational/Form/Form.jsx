@@ -7,7 +7,6 @@ class Form extends Component {
     static propTypes = {
       title: PropTypes.string.isRequired,
       toggleSubmit: PropTypes.func.isRequired,
-
       inputFields: PropTypes.arrayOf(
         PropTypes.shape({
           key: PropTypes.string.isRequired,
@@ -36,7 +35,8 @@ class Form extends Component {
       inputFields.forEach(input => {
         inputValues[input.key] = document.getElementById(input.field.id).value
       })
-      this.props.toggleSubmit(inputValues)
+      const {dataObjectKey, apiUrl} = this.props
+      this.props.toggleSubmit(inputValues, dataObjectKey, apiUrl)
     }
 
     componentWillMount() {

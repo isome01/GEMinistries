@@ -29,16 +29,19 @@ class App extends Component{
     render = () =>{
         let {navbarLinks} = this.state
         return(
-
             <Router>
-                <Navbar
-                    logo={"Data Editor"}
-                    navlinks={navbarLinks}
-                />
-                <Switch>
-                    <Route path={"/Events"} exact strict component={EventsEditor}/>
-                    <Route path={"/Announcements"} exact strict component={AnnouncementsEditor} />
-                </Switch>
+                <div className='row'>
+                    <div className=''>
+                        <Navbar
+                          logo={"Data Editor"}
+                          navlinks={navbarLinks}
+                        />
+                    </div>
+                    <Switch>
+                        <Route path={"/Events"} component={EventsEditor}/>
+                        <Route path={"/Announcements"} component={AnnouncementsEditor} />
+                    </Switch>
+                </div>
             </Router>
         )
     }
