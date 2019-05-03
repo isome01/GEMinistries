@@ -5,7 +5,7 @@ import Article from '../../presentational/Article/Article.jsx';
 import './style.css';
 
 /* stateful page component */
-class Profile extends Component{
+class Profile extends Component {
 
     constructor(props){
         super(props);
@@ -21,14 +21,14 @@ class Profile extends Component{
 
     componentDidMount(){
         /* if there were any callbacks, call em */
-        console.log('mounting profile page');
+        console.log('mounting profile page')
         //in this case, a profile is accessed and we want it to render
-       this.props.onLoadFunction(true);
+       this.props.onLoadFunction(true)
     }
 
     componentWillUnmount(){
-        console.log('Unmouting profile page');
-       this.props.onLoadFunction();
+        console.log('Unmouting profile page')
+       this.props.onLoadFunction()
     }
 
     render(){
@@ -56,9 +56,9 @@ class Profile extends Component{
                     </section>
                     <section>
                         <Article
-                            article_header={`About ${this.props.profile_name}:`}
-                            article_summary={this.props.profile_bio}
-                            article_width={'100%'}
+                            header={`About ${this.props.profile_name}:`}
+                            summary={this.props.profile_bio}
+                            width={'100%'}
                         />
                     </section>
                 </main>
