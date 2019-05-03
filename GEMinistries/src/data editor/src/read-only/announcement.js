@@ -1,4 +1,4 @@
-export default [
+const announcement = [
   {
     key: 'header',
     field: {
@@ -15,3 +15,5 @@ export default [
     }
   }
 ]
+
+export default announcement
