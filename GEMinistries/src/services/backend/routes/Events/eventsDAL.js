@@ -1,7 +1,7 @@
 const dbDriver = require('../../public/javascripts/dbdriver')
 const uri = 'GEM'
 
-var eventsDAL = {}
+let eventsDAL = {}
 
 eventsDAL.retrieveEvents = ()=>{
 

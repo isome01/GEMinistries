@@ -39,10 +39,12 @@ class Editor extends Component {
         if (key && url){
           let data = {}
           data[key] = inputValues
+
+          console.log(data)
           const authOptions = {
             method: 'POST',
             url,
-            data: data[key],
+            data,
             headers: {
               'Content-Type': 'application/json',
               'Accept': '*/*'
