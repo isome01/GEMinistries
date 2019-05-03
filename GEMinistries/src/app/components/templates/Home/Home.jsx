@@ -7,28 +7,30 @@ import './style.css'; //styling
 
 
 class Home extends Component{
-
-
     constructor(){
         super();
 
         this.state = {
-            news_feed : []
+            news_feed : [],
+            fetchAnnouncements: false,
+            fetchEvents: false
         };
     }
 
     componentWillMount(){
         /* Set some arbitrary variables */
-        let events = []
-        let announcements = []
+        let announcements = window.sessionStorage.getItem('announcements')
 
-        uriHangar('events', 'read', {}).then(
-          message => {
-              console.log(message)
-          },
-            err => console.log(err)
-        )
-
+        if (!announcements){
+            uriHangar('announcements', 'read', {}).then(
+              message => {
+                  console.log(message)
+                  this.setState({fetchAnnouncements: true})
+                  window.sessionStorage.setItem('announcements', 'true')
+              },
+              err => console.log(err)
+            )
+        }
     }
 
     componentDidMount(){
@@ -82,7 +84,7 @@ class Home extends Component{
 
     render(){
 
-        const {news_feed} = this.state
+        const {news_feed, fetchAnnouncements} = this.state
 
         return(
             <div id="home_page" className="home">
@@ -90,7 +92,7 @@ class Home extends Component{
                     <section>
                         <br />
                         <h2> Announcements: </h2>
-                        {
+                        {fetchAnnouncements &&
                             news_feed.map(feed=>(
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
