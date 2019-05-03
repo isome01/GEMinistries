@@ -6,7 +6,7 @@
 .hrzl-nav ul a {
     color: navy;
     text-decoration: none;
-    transition: background-color, color .05s;
+    transition: background-color .15s;
 }
 
 .hrzl-nav ul a:hover {

@@ -65,7 +65,7 @@ class Home extends Component{
 
                         Greg and Earlene Jones
                        `,
-                    header: 'GO (Grace and Obience Overflow Ministries)'
+                    header: 'GO (Grace and Obedience Overflow Ministries)'
 
                 },
                 carousel:''
@@ -95,9 +95,9 @@ class Home extends Component{
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
                                     <Article
-                                        article_header={feed.article.header || ''}
-                                        article_summary={feed.article.summary || ''}
-                                        article_width={'1000px'}
+                                        header={feed.article.header || ''}
+                                        summary={feed.article.summary || ''}
+                                        width={'1000px'}
                                     />
                                     <SlidingCarousel carousel={feed.carousel} />
                                 </div>
