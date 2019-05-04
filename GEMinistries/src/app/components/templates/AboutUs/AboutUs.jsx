@@ -37,8 +37,7 @@ class AboutUs extends Component{
 
         this.setState( ()=>
             ({hide_page : flag}) /* Hide current rendering */
-        );
-        console.log(this.state.hide_page);
+        )
     }
 
     shouldPageRender = () => {
