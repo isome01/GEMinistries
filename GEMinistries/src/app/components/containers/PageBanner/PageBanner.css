@@ -20,7 +20,7 @@
 
 @media only screen and (max-width: 767px) and (min-width:0px){
 
-    #bage-banner {
+    #page_banner {
         display: none;
     }
 
@@ -28,8 +28,7 @@
         display: none;
     }
 
-    .page-banner .banner-header{
-        margin-left: auto;
-        margin-right: auto;
+    #page-banner-moto{
+        display: none;
     }
 }

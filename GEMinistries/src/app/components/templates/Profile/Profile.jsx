@@ -21,13 +21,11 @@ class Profile extends Component {
 
     componentDidMount(){
         /* if there were any callbacks, call em */
-        console.log('mounting profile page')
         //in this case, a profile is accessed and we want it to render
        this.props.onLoadFunction(true)
     }
 
     componentWillUnmount(){
-        console.log('Unmouting profile page')
        this.props.onLoadFunction()
     }
 

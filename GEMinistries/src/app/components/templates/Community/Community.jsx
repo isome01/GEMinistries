@@ -1,4 +1,9 @@
 import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
+import PrayerFragment from './PrayerFragment.jsx'
+import MissionTripsFragment from "./MissionTripsFragment.jsx"
+import MinistriesFragment from "./MinistriesFragment.jsx"
+import ActivitiesFragment from './ActivitiesFragment.jsx'
 import VerticalNav from "../../presentational/VerticalNav/VerticalNav.jsx"
 import './style.css'
 
@@ -39,16 +44,39 @@ class Community extends Component {
     const {navContent} = this.state
 
     return (
-      <div id="community-page" className="community">
+      <div id="community-page" className="community container-fluid">
         <header>
-          <VerticalNav
-            navHeader={'Our Community'}
-            navContent={navContent}
-            className={'bg-light col-sm-2'}
-            matchUrl={this.props.match.url}
-          />
         </header>
-        <main></main>
+        <main className='row'>
+          <VerticalNav
+              navHeader={'Our Community'}
+              navContent={navContent}
+              className={'bg-light col-sm-2'}
+              matchUrl={this.props.match.url}
+          />
+          <div className='offset-1 col-8'>
+            <Route
+                path={`${this.props.match.url}/Prayer`}
+               render={()=><PrayerFragment />}
+               exact
+            />
+            <Route
+                path={`${this.props.match.url}/Mission-Trips`}
+                render={()=><MissionTripsFragment />}
+                exact
+            />
+            <Route
+              path={`${this.props.match.url}/Activities`}
+              render={()=><ActivitiesFragment />}
+              exact
+            />
+            <Route
+              path={`${this.props.match.url}/Ministries`}
+              render={()=><MinistriesFragment />}
+              exact
+            />
+          </div>
+        </main>
         <footer></footer>
       </div>
     )
