@@ -8,7 +8,7 @@ import './style.css'; //styling
 
 class Home extends Component{
     constructor(){
-        super();
+        super()
 
         this.state = {
             news_feed : [],
@@ -92,7 +92,7 @@ class Home extends Component{
                     <section>
                         <br />
                         <h2> Announcements: </h2>
-                        {fetchAnnouncements &&
+                        {
                             news_feed.map(feed=>(
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
