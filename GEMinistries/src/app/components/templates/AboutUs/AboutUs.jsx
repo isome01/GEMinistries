@@ -46,14 +46,19 @@ class AboutUs extends Component{
         if (!hide_page){
             return (
                 <div id="about_us" className="about-us">
-                    <header>
-                        {/* Article goes here... */}
-                    </header>
-                    <main className='container-fluid'>
+                    <header className='container-fluid'>
                         <h1 className="about-us-header">
                             About Us
                             <hr/>
                         </h1>
+                        <h5 className='container'>We thank all our friends and family for your support and prayers.
+                            With the Lord, and you, we are GEM.
+
+                            Sincerely,
+                             - Greg & Earlene Jones
+                        </h5>
+                    </header>
+                    <main className='container-fluid'>
                         <section className="about-us-section row">
                             <ProfileCard
                                 profilePic={profile_pic_greg}
