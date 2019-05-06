@@ -48,34 +48,36 @@ class Community extends Component {
         <header>
         </header>
         <main className='row'>
-          <VerticalNav
+          <section>
+            <VerticalNav
               navHeader={'Our Community'}
               navContent={navContent}
               className={'bg-light col-sm-2'}
               matchUrl={this.props.match.url}
-          />
-          <div className='offset-1 col-8'>
-            <Route
-                path={`${this.props.match.url}/Prayer`}
-               render={()=><PrayerFragment />}
-               exact
             />
-            <Route
+            <div className='offset-1 col-8'>
+              <Route
+                path={`${this.props.match.url}/Prayer`}
+                render={()=><PrayerFragment />}
+                exact
+              />
+              <Route
                 path={`${this.props.match.url}/Mission-Trips`}
                 render={()=><MissionTripsFragment />}
                 exact
-            />
-            <Route
-              path={`${this.props.match.url}/Activities`}
-              render={()=><ActivitiesFragment />}
-              exact
-            />
-            <Route
-              path={`${this.props.match.url}/Ministries`}
-              render={()=><MinistriesFragment />}
-              exact
-            />
-          </div>
+              />
+              <Route
+                path={`${this.props.match.url}/Activities`}
+                render={()=><ActivitiesFragment />}
+                exact
+              />
+              <Route
+                path={`${this.props.match.url}/Ministries`}
+                render={()=><MinistriesFragment />}
+                exact
+              />
+            </div>
+          </section>
         </main>
         <footer></footer>
       </div>

@@ -12,9 +12,7 @@ const Article = ({header, summary, width, overflows, articleLink}) => (
         const key = `${header}-${index}`
         return (
           paragraph
-          && <p key={key}>{
-            paragraph}
-          </p>)
+          && <p key={key}>{paragraph}</p>)
       })}
       {overflows && <a href={articleLink}> Read More... </a>}
     </div>
