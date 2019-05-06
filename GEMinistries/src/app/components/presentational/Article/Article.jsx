@@ -5,7 +5,6 @@ import './style.css';
 
 const Article = ({header, summary, width, overflows, articleLink}) => (
   <article id="" style={{width : width}}>
-    <hr/>
     <div className="article-summary">
       <h4>{header}</h4>
       {summary.split(/\n/g).map((paragraph, index) => {
@@ -16,6 +15,7 @@ const Article = ({header, summary, width, overflows, articleLink}) => (
       })}
       {overflows && <a href={articleLink}> Read More... </a>}
     </div>
+    <hr/>
   </article>
 )
 
