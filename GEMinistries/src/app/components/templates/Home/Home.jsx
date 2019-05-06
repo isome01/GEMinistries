@@ -18,6 +18,7 @@ class Home extends Component{
         }
         this.convertDate = this.convertDate.bind(this)
         this.meridiem = this.meridiem.bind(this)
+        this.toggleSummary = this.toggleSummary.bind(this)
     }
 
     componentWillMount(){
@@ -43,12 +44,15 @@ class Home extends Component{
 
         uriHangar('announcements', 'read', {}).then(
           res => {
-              console.log(res)
               this.setState({
-                  newsFeed: (res || []).map(feed => ({
+                  newsFeed: (res || []).map((feed, index) => ({
                     header: feed.header,
                     summary: feed.summary,
-                    created: feed.created
+                    created: feed.created,
+                    overflows: feed.summary.length <= 200
+                      ? {allowOverflow: true, doesOverflow: false}
+                      : {allowOverflow: false, doesOverflow: true},
+                    id: `${feed.header}-${index}`
                   })),
                   fetchAnnouncements: true
                 })
@@ -62,10 +66,21 @@ class Home extends Component{
         )
     }
 
-    meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${min} PM`
+  toggleSummary = id => {
+    const {newsFeed}= this.state
+    this.setState({
+      newsFeed: newsFeed.map(feed => {
+        if (feed.id === id)
+          feed.overflows.allowOverflow = !feed.overflows.allowOverflow
+        return feed
+      })
+    })
+  }
+
+
+  meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${min} PM`
 
     convertDate = created => {
-      console.log('created on:', created)
       const date = new Date(created)
       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -99,9 +114,16 @@ class Home extends Component{
                                       {this.convertDate(feed.created)}
                                     </p>
                                     <Article
-                                        header={feed.header || ''}
-                                        summary={feed.summary || ''}
+                                        header={feed.header || 'No header.. :/'}
+                                        summaryid={feed.id}
+                                        summary={
+                                          (feed.overflows.allowOverflow
+                                            ? feed.summary
+                                            : feed.summary.slice(0, 200))
+                                          || 'No summary... :/'}
                                         width={'1000px'}
+                                        overflows={feed.overflows}
+                                        articleLink={this.toggleSummary}
                                     />
                                 </div>
                             ))

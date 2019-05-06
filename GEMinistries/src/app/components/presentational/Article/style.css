@@ -23,3 +23,13 @@ article hr {
 .article-summary h4 {
     padding: 20px;
 }
+
+.article-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: navy;
+}
+
+.article-link:hover {
+    color: #eee;
+}
