@@ -15,7 +15,9 @@ class Home extends Component{
             newsFeed : [],
             fetchAnnouncements: false,
             fetchEvents: false
-        };
+        }
+        this.convertDate = this.convertDate.bind(this)
+        this.meridiem = this.meridiem.bind(this)
     }
 
     componentWillMount(){
@@ -43,10 +45,12 @@ class Home extends Component{
           res => {
               console.log(res)
               this.setState({
-                  newsFeed: (res || news_feed).map(feed => ({
+                  newsFeed: (res || []).map(feed => ({
                     header: feed.header,
-                    summary: feed.summary
-                  }))
+                    summary: feed.summary,
+                    created: feed.created
+                  })),
+                  fetchAnnouncements: true
                 })
           },
           err => {
@@ -56,6 +60,16 @@ class Home extends Component{
               }));
           }
         )
+    }
+
+    meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${min} PM`
+
+    convertDate = created => {
+      console.log('created on:', created)
+      const date = new Date(created)
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      return `${days[date.getDay()]} - ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} at ${this.meridiem(date.getHours(),date.getMinutes())}`
     }
 
     render(){
@@ -72,11 +86,18 @@ class Home extends Component{
                         </h2>
                         <SlidingCarousel carousel={feed.carousel} />
                         <br />
+                        <br />
                         <h2> Announcements: </h2>
                         {
                             (newsFeed || []).map(feed => (
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
+                                    <p
+                                      className='text-left'
+                                      style={{color: 'navy'}}
+                                    >Posted On:&nbsp;
+                                      {this.convertDate(feed.created)}
+                                    </p>
                                     <Article
                                         header={feed.header || ''}
                                         summary={feed.summary || ''}
