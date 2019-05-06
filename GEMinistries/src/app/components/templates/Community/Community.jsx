@@ -47,8 +47,8 @@ class Community extends Component {
       <div id="community-page" className="community container-fluid">
         <header>
         </header>
-        <main className='row'>
-          <section>
+        <main>
+          <section className='row'>
             <VerticalNav
               navHeader={'Our Community'}
               navContent={navContent}
