@@ -89,7 +89,7 @@ class Home extends Component{
                         <br />
                         <h2> Announcements: </h2>
                         {
-                            (newsFeed || []).map(feed => (
+                            (newsFeed || []).reverse().map(feed => (
                                 <div>
                                     <hr style={{border:'solid #eee 2px'}}/>
                                     <p
