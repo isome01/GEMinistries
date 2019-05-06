@@ -91,6 +91,8 @@ class AboutUs extends Component{
             profile_image:profile_pic_greg,
             occupation: 'Director',
             name : 'Greg Jones',
+            phone: '214-629-0158',
+            email: 'Gdjones51@aol.com',
             bio : `I am Greg Jones, a follower of Jesus Christ, my Lord and Savior. I wish I could proclaim this relationship from my birth, but the truth is I was a sinner, without hope.
 
             Although I learned of Christ at the early age of 7, I grew up living without a plan or purpose. The story of his sacrifices had not yet taken over my life. Any problems that came my way, I fixed myself. I believed that all my successes were my own; I was a proud man, and I continued to turn to the world to provide me with the happiness I sought. This worked for a long time until I was getting ready to leave college. I wasn't aware that I was a train wreck just waiting to happen until then. I crash landed on a pathway straight to hell and I did not know how to stop.
@@ -128,6 +130,7 @@ class AboutUs extends Component{
                                             profile_occupation={profile.occupation}
                                             profile_bio={profile.bio}
                                             onLoadFunction={this.profileIsAccessed.bind(this)}
+                                            phone={profile.phone}
                                             email={profile.email}
                                         /> } exact/>
                         )

@@ -48,7 +48,8 @@ class Profile extends Component {
                             <br/>
                             <ul>
                                 <h5>Contact:</h5>
-                                <li> {this.props.email || this.props.phone_number || '(Not Avialable)'}</li>
+                                <li>{this.props.phone || '(No phone number avialable)'}</li>
+                                <li>{this.props.email || '(No email available)'}</li>
                             </ul>
                         </ul>
                     </section>
