@@ -36,7 +36,6 @@ class Profile extends Component {
         */
         return(
             <div className="profile-page">
-                <header></header>
                 <main>
                     <section className="profile-specs">
                         <div>
@@ -61,7 +60,6 @@ class Profile extends Component {
                         />
                     </section>
                 </main>
-                <footer></footer>
             </div>
         );
     }

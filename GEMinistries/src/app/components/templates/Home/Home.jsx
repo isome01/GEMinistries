@@ -37,27 +37,27 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        /* get info from the uri hangar ... */
-        let news_feed = [...feed]
+      /* get info from the uri hangar ... */
+      let news_feed = [...feed]
 
-        uriHangar('announcements', 'read', {}).then(
-          res => {
-            this.setState({
-              newsFeed: (res || []).map((feed, index) => ({
-                header: feed.header,
-                summary: feed.summary,
-                created: feed.created
-              })),
-              fetchAnnouncements: true
-            })
-          },
-          err => {
-            console.log(err)
-            this.setState(()=>({
-              newsFeed : news_feed.slice()
-            }))
-          }
-        )
+      uriHangar('announcements', 'read', {}).then(
+        res => {
+          this.setState({
+            newsFeed: (res || []).map((feed, index) => ({
+              header: feed.header,
+              summary: feed.summary,
+              created: feed.created
+            })),
+            fetchAnnouncements: true
+          })
+        },
+        err => {
+          console.log(err)
+          this.setState(()=>({
+            newsFeed : news_feed.slice()
+          }))
+        }
+      )
     }
 
     meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${min} PM`
@@ -82,8 +82,8 @@ class Home extends Component{
         )
 
     return(
-      fetchAnnouncements &&
       <div id="home-page" className="home container-fluid">
+        fetchAnnouncements &&
         <main>
           <section>
             <br />
