@@ -24,7 +24,7 @@ class Announcement extends Component {
         ...article,
         id: `${article.header}-${article.summary.length}`,
         overflows: article.summary.length > 200,
-        allowOverflow: !article.overflows
+        allowOverflow: article.summary.length <= 200
       }
     })
   }
@@ -39,7 +39,8 @@ class Announcement extends Component {
     })
     const more = '... Read More'
     const less = 'Read Less...'
-    document.getElementById(e.target.id).text = e.target.text === more ? less : more
+    let span = document.getElementById(e.target.id)
+    span.innerHTML = span.innerHTML === more ? less : more
   }
 
   render(){
@@ -61,7 +62,7 @@ class Announcement extends Component {
               className='article-link'
               onClick={this.toggleOverflow}
             >
-              Read More...
+              ... Read More
             </span>)
           }
         />
