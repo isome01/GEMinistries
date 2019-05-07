@@ -25,6 +25,7 @@ class Announcement extends Component {
         id: `${article.header}-${article.summary.length}`,
         overflows: article.summary.length > 200,
         allowOverflow: article.summary.length <= 200
+
       }
     })
   }
