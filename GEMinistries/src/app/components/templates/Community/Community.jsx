@@ -59,7 +59,7 @@ class Community extends Component {
               <Route
                 path={`${this.props.match.url}`}
                 render={() =>(
-                  <div>
+                  <div className='text-center'>
                     <h3>Our community is growing!</h3>
                     <b>
                       We highly value our community, and you make the community. We
