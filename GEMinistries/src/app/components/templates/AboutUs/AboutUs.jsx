@@ -49,33 +49,47 @@ class AboutUs extends Component{
                     <header className='container-fluid'>
                         <h1 className="about-us-header">
                             About Us
-                            <hr/>
+                            <hr style={{border: 'solid navy 5px'}} />
                         </h1>
-                        <h5 className='container'>We thank all our friends and family for your support and prayers.
+                        <h5 className='container'>
+                            We thank all our friends and family for your support and prayers.
+                            <br />
                             With the Lord, and you, we are GEM.
-
-                            Sincerely,
-                             - Greg & Earlene Jones
+                            <br/>
+                            Sincerely,<br />
+                             &nbsp;- Greg & Earlene Jones
                         </h5>
                     </header>
                     <main className='container-fluid'>
                         <section className="about-us-section row">
-                            <ProfileCard
-                                profilePic={profile_pic_greg}
-                                profileName='Greg Jones'
-                                profileLink={`${this.props.match.url}/Greg_Jones`}
-                                className={'col-md-3'}
-                            />
-                            <ProfileCard
-                                profilePic={profile_pic_earlene}
-                                profileName='Earlene Jones'
-                                profileLink={`${this.props.match.url}/Earlene_Jones`}
-                                className={'col-md-3'}
-                            />
+                            <div className='row'>
+                                <h3 className='text-left'>Directors</h3>
+                            </div>
+                            <hr style={{border: 'solid navy 1px', width: '80%'}} />
+                            <br />
+                            <div className='row'>
+                                <ProfileCard
+                                  profilePic={profile_pic_greg}
+                                  profileName='Greg Jones'
+                                  profileLink={`${this.props.match.url}/Greg_Jones`}
+                                  className={'col-md-3'}
+                                />
+                                <ProfileCard
+                                  profilePic={profile_pic_earlene}
+                                  profileName='Earlene Jones'
+                                  profileLink={`${this.props.match.url}/Earlene_Jones`}
+                                  className={'col-md-3'}
+                                />
+                            </div>
+                        </section>
+                        <section className='about-us-section row'>
+                            <div className='row'>
+                                <h3 className='text-left'>Co-Directors</h3>
+                            </div>
+                            <hr style={{border: 'solid navy 1px', width: '80%'}} />
+                            <br />
                         </section>
                     </main>
-                    <footer className="about-us-footer">
-                    </footer>
                 </div>
             )
 

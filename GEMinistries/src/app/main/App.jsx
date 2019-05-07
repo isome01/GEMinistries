@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router} from 'react-router-dom'
 import {Route, Switch} from 'react-router-dom'
+import Footer from '../components/presentational/Footer/Footer.jsx'
 
 //Import page templates
 import Home from '../components/templates/Home/Home.jsx'
@@ -23,23 +24,19 @@ class App extends Component {
     }
 
     componentWillMount(){
-
     }
 
     componentDidMount(){
-
     }
 
     render(){
-
         //Install navbar content
         const navbar_content = [
           {text: 'Community', link: '/Community'},
           {text: 'About Us', link: '/About_Us'},
         ]
-
         return(
-            <div class="container">
+            <div id='app-content' class="container">
                 <Router>
                     <div>
                         <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
@@ -55,6 +52,7 @@ class App extends Component {
                             <Route path="/Community" component={Community} strict/>
                             <Route component={Error}/>
                         </Switch>
+                        <Footer/>
                     </div>
                 </Router>
             </div>
