@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import './style.css';
 
-const Article = ({header, summary, summaryid, width, overflows, articleLink}) => (
+const Article = ({header, summary, summaryid, width, children}) => (
   <article style={{width : width}}>
     <div className="article-summary">
       <h4>{header}</h4>
@@ -15,20 +14,7 @@ const Article = ({header, summary, summaryid, width, overflows, articleLink}) =>
             && <p key={key}>{paragraph}</p>)
         })}
       </div>
-      {overflows.doesOverflow &&
-        <span
-          className='article-link'
-          onClick={e => {
-
-             if (articleLink)
-               articleLink(summaryid)
-             const more = '... Read More'
-             const less = 'Read Less...'
-             e.target.text = e.target.text === more ? less : more
-           }}>
-          Read More...
-        </span>
-      }
+      {children}
     </div>
     <hr/>
   </article>
@@ -37,10 +23,9 @@ const Article = ({header, summary, summaryid, width, overflows, articleLink}) =>
 Article.propTypes = {
   header: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  summaryid: PropTypes.string.isRequired,
   width: PropTypes.number,
-  overflows: PropTypes.bool,
-  articleLink: PropTypes.func
+  children: PropTypes.node
 }
 
 export default Article;

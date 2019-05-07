@@ -57,6 +57,20 @@ class Community extends Component {
             />
             <div className='offset-1 col-8'>
               <Route
+                path={`${this.props.match.url}`}
+                render={() =>(
+                  <div>
+                    <h3>Our community is growing!</h3>
+                    <b>
+                      We highly value our community, and you make the community. We
+                      strive for Christ-like relationships and growth for all; come and
+                      join us as we sail on this outreach!
+                    </b>
+                  </div>
+                )}
+                exact
+              />
+              <Route
                 path={`${this.props.match.url}/Prayer`}
                 render={()=><PrayerFragment />}
                 exact

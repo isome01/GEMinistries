@@ -7,15 +7,15 @@ const VerticalNav = ({className, navHeader, navContent, matchUrl}) => (
   <nav className={`navbar vert-nav ${className}`} style={{maxHeight: '245px', height: '100%'}}>
     <span className='navbar-brand nav-header'>{navHeader}</span>
     <ul className="navbar-nav">
-      {(navContent || []).map( (nav, index) =>(
-        <li>
-          <Link key={`${nav.text}${index}`}
-                to={`${matchUrl}${nav.link}`}
-                className='nav-item'
-          ><a className='nav-link'>{nav.text}</a>
-          </Link>
-        </li>)
-      )}
+      {(navContent || []).map( (nav, index) =>{
+        return (
+         <li className={`nav-item ${index === 0 ? 'active' : ''}`}>
+           <Link key={`${nav.text}${index}`}
+             to={`${matchUrl}${nav.link}`}
+           ><a className='nav-link'>{nav.text}</a>
+           </Link>
+         </li>)
+      })}
     </ul>
   </nav>
 )
