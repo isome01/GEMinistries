@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Article from '../../presentational/Article/Article.jsx';
-import SlidingCarousel from '../../containers/SlidingCarousel/SlidingCarousel.jsx';
+import React, { Component } from 'react'
+import Announcement from '../../containers/Announcement/Announcement.jsx'
+import SlidingCarousel from '../../containers/SlidingCarousel/SlidingCarousel.jsx'
 import uriHangar from '../../../uri-hangar/'
+import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import feed from './default'
-
-import './style.css'; //styling
+import './style.css'
 
 
 class Home extends Component{
@@ -18,7 +18,6 @@ class Home extends Component{
         }
         this.convertDate = this.convertDate.bind(this)
         this.meridiem = this.meridiem.bind(this)
-        this.toggleSummary = this.toggleSummary.bind(this)
     }
 
     componentWillMount(){
@@ -38,47 +37,30 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        /* get info from the middleware ... */
-
+        /* get info from the uri hangar ... */
         let news_feed = [...feed]
 
         uriHangar('announcements', 'read', {}).then(
           res => {
-              this.setState({
-                  newsFeed: (res || []).map((feed, index) => ({
-                    header: feed.header,
-                    summary: feed.summary,
-                    created: feed.created,
-                    overflows: feed.summary.length <= 200
-                      ? {allowOverflow: true, doesOverflow: false}
-                      : {allowOverflow: false, doesOverflow: true},
-                    id: `${feed.header}-${index}`
-                  })),
-                  fetchAnnouncements: true
-                })
+            this.setState({
+              newsFeed: (res || []).map((feed, index) => ({
+                header: feed.header,
+                summary: feed.summary,
+                created: feed.created
+              })),
+              fetchAnnouncements: true
+            })
           },
           err => {
-              console.log(err)
-              this.setState(()=>({
-                  newsFeed : news_feed.slice()
-              }));
+            console.log(err)
+            this.setState(()=>({
+              newsFeed : news_feed.slice()
+            }))
           }
         )
     }
 
-  toggleSummary = id => {
-    const {newsFeed}= this.state
-    this.setState({
-      newsFeed: newsFeed.map(feed => {
-        if (feed.id === id)
-          feed.overflows.allowOverflow = !feed.overflows.allowOverflow
-        return feed
-      })
-    })
-  }
-
-
-  meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${min} PM`
+    meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${min} PM`
 
     convertDate = created => {
       const date = new Date(created)
@@ -87,56 +69,53 @@ class Home extends Component{
       return `${days[date.getDay()]} - ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} at ${this.meridiem(date.getHours(),date.getMinutes())}`
     }
 
-    render(){
+  render(){
+    const {newsFeed, fetchAnnouncements} = this.state
 
-        const {newsFeed, fetchAnnouncements} = this.state
-
-        return(
-            <div id="home-page" className="home container-fluid">
-                <main>
-                    <section>
-                        <br />
-                        <h2 className='text-center' style={{color: 'navy'}}>
-                            Living His mission
-                        </h2>
-                        <SlidingCarousel carousel={feed.carousel} />
-                        <br />
-                        <br />
-                        <h2> Announcements: </h2>
-                        {
-                            (newsFeed || []).reverse().map(feed => (
-                                <div>
-                                    <hr style={{border:'solid #eee 2px'}}/>
-                                    <p
-                                      className='text-left'
-                                      style={{color: 'navy'}}
-                                    >Posted On:&nbsp;
-                                      {this.convertDate(feed.created)}
-                                    </p>
-                                    <Article
-                                        header={feed.header || 'No header.. :/'}
-                                        summaryid={feed.id}
-                                        summary={
-                                          (feed.overflows.allowOverflow
-                                            ? feed.summary
-                                            : feed.summary.slice(0, 200))
-                                          || 'No summary... :/'}
-                                        width={'1000px'}
-                                        overflows={feed.overflows}
-                                        articleLink={this.toggleSummary}
-                                    />
-                                </div>
-                            ))
-                        }
-
-                    </section>
-                </main>
-                <footer>
-
-                </footer>
-            </div>
+    if (!fetchAnnouncements)
+      return (
+        <div className='container'>
+          <div className='text-center'>
+            <PageLoader />
+          </div>
+        </div>
         )
-    }
+
+    return(
+      fetchAnnouncements &&
+      <div id="home-page" className="home container-fluid">
+        <main>
+          <section>
+            <br />
+            <h2 className='text-center' style={{color: 'navy'}}>
+                Living His mission
+            </h2>
+            <SlidingCarousel carousel={feed.carousel} />
+            <br />
+            <br />
+            <h2> Announcements: </h2>
+            {(newsFeed || []).reverse().map(feed => (
+              <div>
+                <hr style={{border:'solid #eee 2px'}}/>
+                <p
+                  className='text-left'
+                  style={{color: 'navy'}}
+                >Posted On:&nbsp;
+                  {this.convertDate(feed.created)}
+                </p>
+                <Announcement
+                  article={({
+                    header: feed.header || 'No header',
+                    summary: feed.summary || 'This announcement has no summary'
+                  })}
+                />
+              </div>
+            ))}
+          </section>
+        </main>
+      </div>
+    )
+  }
 }
 
 export default Home;
