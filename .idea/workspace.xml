@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb70e69-3d6d-410d-852a-ac574654f18d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/ActivitiesFragment.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/MinistriesFragment.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/MissionTripsFragment.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/PrayerFragment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/src/app/components/presentational/VerticalNav/VerticalNav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/presentational/VerticalNav/VerticalNav.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/AboutUs/AboutUs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/AboutUs/AboutUs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/Community.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/Community.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dependencies.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GEMinistries/src/assets/favicon_package_v0.16.zip" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,24 +16,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="24" lean-forward="true" selection-end-line="34" />
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Earlene.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement_2.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEMnavLogoText.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEM_Logo_Navy.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -161,6 +166,13 @@
               <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
               <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -223,7 +235,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31240000" />
+    <option name="totallyTimeSpent" value="32456000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -236,7 +248,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14552239" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -491,6 +502,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="24" lean-forward="true" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -500,12 +518,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="24" lean-forward="true" selection-end-line="34" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Earlene.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement_2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEMnavLogoText.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEM_Logo_Navy.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
