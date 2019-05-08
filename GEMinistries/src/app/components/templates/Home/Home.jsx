@@ -83,7 +83,6 @@ class Home extends Component{
 
     return(
       <div id="home-page" className="home container-fluid">
-        fetchAnnouncements &&
         <main>
           <section>
             <br />
