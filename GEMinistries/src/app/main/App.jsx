@@ -20,13 +20,22 @@ import './main.css';
 class App extends Component {
 
     constructor(){
-        super();
+        super()
+        this.getImage = this.getImage.bind(this)
     }
 
     componentWillMount(){
+        //create the context to assets here!!! Don't forget
+        //NOTE: this is so that you will always have a 'context' to refer to.
     }
 
-    componentDidMount(){
+    getImage = (src = '') => {
+        try{
+            return require(`../../assets/${src}`)
+        } catch {
+            throw new Error('Problem loading the image;')
+            return ''
+        }
     }
 
     render(){
@@ -47,9 +56,29 @@ class App extends Component {
                           navContent={navbar_content}
                         />
                         <Switch>
-                            <Route path="/" exact strict component={Home} />
-                            <Route path="/About_Us" component={AboutUs} strict/>
-                            <Route path="/Community" component={Community} strict/>
+                            <Route
+                              path="/" exact strict
+                              render={()=>(
+                                <Home
+                                  getImage={this.getImage}
+                                />)}
+                            />
+                            <Route
+                              path="/About_Us" strict
+                              render={() => (
+                                <AboutUs
+                                  getImage={this.getImage}
+                                />
+                              )}
+                            />
+                            <Route
+                              path="/Community" strict
+                              render={() => (
+                                <Community
+                                  getImage={this.getImage}
+                                />
+                                )}
+                            />
                             <Route component={Error}/>
                         </Switch>
                         <Footer/>

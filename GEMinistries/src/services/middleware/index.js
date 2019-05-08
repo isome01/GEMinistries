@@ -7,16 +7,15 @@ const path = require('path');
 const app = express();
 
 app.use(api_fallback({
-  verbose:true
-})); //Used for whenever routes are needed for access.
+  verbose: false,
+})) //Used for whenever routes are needed for access.
 
 
-app.use(express.static('dist') ); // for such right here 
+app.use(express.static('dist') ); // for such right here
 
-/*
-app.get('*', (req, res) => {
+/*app.get('*', (req, res) => {
   res.sendFile( path.resolve(__dirname, 'index.html'));
-});*/
+})*/
 
 app.listen(PORT, () =>{
   console.log(
