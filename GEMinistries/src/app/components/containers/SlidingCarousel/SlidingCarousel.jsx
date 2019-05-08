@@ -1,35 +1,62 @@
-import React, {Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 import './SlidingCarousel.css'
 
-const SlidingCarousel = () => (
-    <div className="article-slide-container carousel slide" data-ride="carousel">
-        {/*<!-- Indicators -->*/}
-        <ul className="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" className="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
-
-        {/**/}
-        <div className="carousel-inner" style={{border:"solid navy 2px"}}>
-            <div className="carousel-item active">
-                <img src="https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/Kroenert-senegal-peace-corps.jpg.jpeg?itok=Myk8IOz7" alt="Los Angeles" width="" height="" />
+const SlidingCarousel = ({title, dataList, className, style}) => (
+  <div className='article-slide-container carousel slide' data-ride="carousel">
+    <ul className="carousel-indicators">
+      {
+        (dataList || []).map((data, index) => (
+          <li
+            data-target={`#${title}`}
+            data-slide-to={`${index}`}
+            className={index === 0 ? 'active' : ''}>
+          </li>
+        ))
+      }
+    </ul>
+    <div className={`carousel-inner ${className}`} style={style || {border: "solid navy 1px"}}>
+      {
+        (dataList || []).map((data, index) => (
+          <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+            <div className='carousel-caption d-none d-md-block'>
+              <h5>{title}</h5>
+              {data.caption && <p>{data.caption}</p>}
             </div>
-            <div className="carousel-item">
-                <img src="https://ucsdnews.ucsd.edu/news_uploads/Peace-Corps-160219.jpg" alt="Chicago" width="" height="" />
-            </div>
-            <div className="carousel-item">
-                <img src="https://www.experiencegla.com/media/uploads/high-school-peace-corps.jpg" alt="New York" width="" height="" />
-            </div>
-        </div>
-        {/* Left and Right controls */}
-        <a className="carousel-control-prev" href="#demo" data-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
-        </a>
-        <a className="carousel-control-next" href="#demo" data-slide="next">
-            <span className="carousel-control-next-icon"></span>
-        </a>
+            <img
+              id={`${data.name}-${index}`}
+              src={data.path}
+              alt={data.name}
+            />
+          </div>
+        ))
+      }
     </div>
-);
+    {
+      dataList.length > 1 &&
+      <div>
+        <a className="carousel-control-prev" href={`#${title}`} data-slide="prev">
+          <span className="carousel-control-prev-icon" />
+        </a>
+        <a className="carousel-control-next" href={`#${title}`} data-slide="next">
+          <span className="carousel-control-next-icon" />
+        </a>
+      </div>
+    }
+  </div>
+)
+
+SlidingCarousel.propTypes = {
+  title: PropTypes.string.isRequired,
+  dataList: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      caption: PropTypes.string
+    })
+  ).isRequired,
+  className: PropTypes.string,
+  style: PropTypes.shape({})
+}
 
 export default SlidingCarousel;
