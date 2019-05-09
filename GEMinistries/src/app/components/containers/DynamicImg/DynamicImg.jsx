@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import './DynamicImg.css'
+import './style.css'
 
 const DynamicImg = ({title, dataList, className, style}) => (
-  <div className='article-slide-container carousel slide' data-ride="carousel">
-    <ul className="carousel-indicators">
-      {
-        (dataList || []).map((data, index) => (
-          <li
-            data-target={`#${title}`}
-            data-slide-to={`${index}`}
-            className={index === 0 ? 'active' : ''}>
-          </li>
-        ))
-      }
-    </ul>
+  <div id={title} className='carousel slide' data-ride="carousel">
+    {
+      dataList.length > 1 &&
+      <ol className="carousel-indicators">
+        {
+          (dataList).map((data, index) => (
+            <li
+              data-target={`#${title}`}
+              data-slide-to={`${index}`}
+              className={index === 0 ? 'active' : ''}>
+            </li>
+          ))
+        }
+      </ol>
+    }
     <div className={`carousel-inner ${className}`} style={style || {border: "solid navy 1px"}}>
       {
         (dataList || []).map((data, index) => (
           <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-            <div className='carousel-caption d-none d-md-block'>
+            <div className='carousel-caption d-none d-sm-block'>
               <h5>{title}</h5>
               {data.caption && <p>{data.caption}</p>}
             </div>

@@ -45,7 +45,7 @@ class App extends Component {
           {text: 'About Us', link: '/About_Us'},
         ]
         return(
-            <div id='app-content' class="container">
+            <div id='app-content' className="container">
                 <Router>
                     <div>
                         <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
