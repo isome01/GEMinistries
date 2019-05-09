@@ -1,31 +1,31 @@
 export default {
   events: {
     read: {
-      uri: `localhost:9910/events/read`,
+      uri: `www.gemoutreach.org:9910/events/read`,
       method: 'GET'
     },
     add: {
-      uri: `localhost:9910/events/add`,
+      uri: `www.gemoutreach.org:9910/events/add`,
       method: 'POST'
     }
   },
   announcements: {
     read: {
-      uri: `localhost:9910/announcements/read`,
+      uri: `www.gemoutreach.org:9910/announcements/read`,
       method: 'GET'
     },
     add: {
-        uri: `localhost:9910/announcements/add`,
+        uri: `www.gemoutreach.org:9910/announcements/add`,
         method: 'POST'
     }
   },
   profiles: {
     read: {
-      uri: 'localhost:9910/profiles/read',
+      uri: 'www.gemoutreach.org:9910/profiles/read',
       method: 'GET'
     },
     add: {
-      uri: 'localhost:9910/profiles/add',
+      uri: 'www.gemoutreach.org:9910/profiles/add',
       method: 'POST'
     }
   }
