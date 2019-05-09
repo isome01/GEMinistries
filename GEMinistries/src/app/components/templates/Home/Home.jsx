@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Announcement from '../../containers/Announcement/Announcement.jsx'
-import SlidingCarousel from '../../containers/SlidingCarousel/SlidingCarousel.jsx'
+import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import uriHangar from '../../../uri-hangar/'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import feed from './default'
@@ -93,7 +93,7 @@ class Home extends Component{
             <h2 className='text-center' style={{color: 'navy'}}>
                 Living His mission
             </h2>
-            <SlidingCarousel
+            <DynamicImg
               title={'Mission Trip 2018'}
               className='text-center'
               style={({backgroundColor: '#000', maxHeight: '500px'})}
