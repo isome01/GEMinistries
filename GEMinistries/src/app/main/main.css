@@ -1,9 +1,22 @@
 .app-content {
-    max-height: 100%;
-    height: 100%;
+    min-height: 100vh;
     max-width: 1024px;
     width:100%;
-    box-sizing: border-box;
     margin-left:auto;
     margin-right: auto;
+}
+
+body, html {
+    position: relative;
+    min-height: calc(100vh + 4rem);
+    margin: 0;
+}
+
+#root {
+    background: linear-gradient(to right,rgba(224,224,224,1), rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0),
+    rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), rgba(224,224,224,1)) center no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: calc(100vh + 4rem);
+    padding-bottom: 4rem;
 }

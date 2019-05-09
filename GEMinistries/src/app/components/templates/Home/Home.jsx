@@ -75,10 +75,10 @@ class Home extends Component{
   render(){
     const {newsFeed, fetchAnnouncements} = this.state
     const {getImage} = this.props
-    if (!fetchAnnouncements) {
+    if (!fetchAnnouncements || !newsFeed.length) {
       return (
         <div className='container'>
-          <div className='text-center'>
+          <div className='text-center' style={{position: 'center'}}>
             <PageLoader/>
           </div>
         </div>
@@ -94,9 +94,13 @@ class Home extends Component{
                 Living His mission
             </h2>
             <DynamicImg
-              title={'Mission Trip 2018'}
+              title={'Mission2018'}
               className='text-center'
-              style={({backgroundColor: '#000', maxHeight: '500px'})}
+              style={({
+                backgroundColor: '#000',
+                maxHeight: '500px',
+                width: '100%',
+                border: 'solid navy 1px'})}
               dataList={[
                 {
                   name: 'Mission Trip Summer 2019',
@@ -118,7 +122,7 @@ class Home extends Component{
             <h2> Announcements: </h2>
             {(newsFeed || []).reverse().map(feed => (
               <div>
-                <hr style={{border:'solid #eee 2px'}}/>
+                <hr style={{border:'solid #000080 1px'}}/>
                 <p
                   className='text-left'
                   style={{color: 'navy'}}

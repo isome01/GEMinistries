@@ -14,25 +14,3 @@
     padding: 15px;
     margin: auto;
 }
-
-.home-footer {
-    padding: 15px;
-    margin: auto;
-    width: 100%;
-    max-width: 100%;
-}
-
-.card {
-    margin:auto;
-
-}
-
-.card hr {
-    border: solid #eee 2px;
-    margin: auto;
-    padding: 15px;
-}
-
-.card-img-top {
-    border: solid navy 2px;
-}

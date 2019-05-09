@@ -45,8 +45,6 @@ class Community extends Component {
 
     return (
       <div id="community-page" className="community container-fluid">
-        <header>
-        </header>
         <main>
           <section className='row'>
             <VerticalNav
@@ -93,7 +91,6 @@ class Community extends Component {
             </div>
           </section>
         </main>
-        <footer></footer>
       </div>
     )
   }

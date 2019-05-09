@@ -17,6 +17,7 @@ class AboutUs extends Component{
 
         this.state = {
             hide_page : false, //by default show this page.
+            directors: []
         }
 
         this.shouldPageRender.bind(this);
@@ -67,28 +68,31 @@ class AboutUs extends Component{
                             </div>
                             <hr style={{border: 'solid navy 1px', width: '80%'}} />
                             <br />
-                            <div className='row'>
-                                <ProfileCard
-                                  profilePic={profile_pic_greg}
-                                  profileName='Greg Jones'
-                                  profileLink={`${this.props.match.url}/Greg_Jones`}
-                                  className={'col-md-3'}
-                                />
-                                <ProfileCard
-                                  profilePic={profile_pic_earlene}
-                                  profileName='Earlene Jones'
-                                  profileLink={`${this.props.match.url}/Earlene_Jones`}
-                                  className={'col-md-3'}
-                                />
+
+                            <div className='container-fluid'>
+                                <div className='row'>
+                                    <ProfileCard
+                                      profilePic={profile_pic_greg}
+                                      profileName='Greg Jones'
+                                      profileLink={`${this.props.match.url}/Greg_Jones`}
+                                      className={'offset-3 col-sm-3'}
+                                    />
+                                    <ProfileCard
+                                      profilePic={profile_pic_earlene}
+                                      profileName='Earlene Jones'
+                                      profileLink={`${this.props.match.url}/Earlene_Jones`}
+                                      className={'col-sm-3 offset-3'}
+                                    />
+                                </div>
                             </div>
                         </section>
-                        <section className='about-us-section row'>
+                        {this.state.directors.length && <section className='about-us-section row'>
                             <div className='row'>
                                 <h3 className='text-left'>Co-Directors</h3>
                             </div>
                             <hr style={{border: 'solid navy 1px', width: '80%'}} />
                             <br />
-                        </section>
+                        </section>}
                     </main>
                 </div>
             )
