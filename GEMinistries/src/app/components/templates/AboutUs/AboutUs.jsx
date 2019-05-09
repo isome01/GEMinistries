@@ -86,13 +86,13 @@ class AboutUs extends Component{
                                 </div>
                             </div>
                         </section>
-                        {this.state.directors.length && <section className='about-us-section row'>
+                        <section className='about-us-section row'>
                             <div className='row'>
                                 <h3 className='text-left'>Co-Directors</h3>
                             </div>
                             <hr style={{border: 'solid navy 1px', width: '80%'}} />
                             <br />
-                        </section>}
+                        </section>
                     </main>
                 </div>
             )
