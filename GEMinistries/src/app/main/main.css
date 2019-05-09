@@ -18,5 +18,5 @@ body, html {
     background-size: cover;
     position: relative;
     min-height: calc(100vh + 4rem);
-    padding-bottom: 4rem;
+    padding-bottom: 200px;
 }
