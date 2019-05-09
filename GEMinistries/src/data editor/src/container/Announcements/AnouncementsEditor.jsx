@@ -5,7 +5,7 @@ import {addAnnouncements} from '../../read-only/announcements'
 class AnnouncementsEditor extends Component {
     render () {
         const title = 'Announcements Editor'
-        const uri = '//localhost:9910/announcements'
+        const uri = '//www.gemoutreach.org:9910/announcements'
         return(
             <div className='container-fluid'>
                 <div className='offset-3 col-md-5 text-center'>
