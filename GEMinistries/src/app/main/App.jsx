@@ -58,23 +58,26 @@ class App extends Component {
                         <Switch>
                             <Route
                               path="/" exact strict
-                              render={()=>(
+                              component={props=>(
                                 <Home
+                                  {...props}
                                   getImage={this.getImage}
                                 />)}
                             />
                             <Route
                               path="/About_Us" strict
-                              render={() => (
+                              component={ props => (
                                 <AboutUs
+                                  {...props}
                                   getImage={this.getImage}
                                 />
                               )}
                             />
                             <Route
                               path="/Community" strict
-                              render={() => (
+                              component={props => (
                                 <Community
+                                  {...props}
                                   getImage={this.getImage}
                                 />
                                 )}

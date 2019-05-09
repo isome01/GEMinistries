@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import './SlidingCarousel.css'
+import './DynamicImg.css'
 
-const SlidingCarousel = ({title, dataList, className, style}) => (
+const DynamicImg = ({title, dataList, className, style}) => (
   <div className='article-slide-container carousel slide' data-ride="carousel">
     <ul className="carousel-indicators">
       {
@@ -46,7 +46,7 @@ const SlidingCarousel = ({title, dataList, className, style}) => (
   </div>
 )
 
-SlidingCarousel.propTypes = {
+DynamicImg.propTypes = {
   title: PropTypes.string.isRequired,
   dataList: PropTypes.arrayOf(
     PropTypes.shape({
@@ -59,4 +59,4 @@ SlidingCarousel.propTypes = {
   style: PropTypes.shape({})
 }
 
-export default SlidingCarousel;
+export default DynamicImg;
