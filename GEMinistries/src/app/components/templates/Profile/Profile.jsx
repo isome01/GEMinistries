@@ -36,7 +36,6 @@ class Profile extends Component {
         */
         return(
             <div className="profile-page">
-                <header></header>
                 <main>
                     <section className="profile-specs">
                         <div>
@@ -48,7 +47,8 @@ class Profile extends Component {
                             <br/>
                             <ul>
                                 <h5>Contact:</h5>
-                                <li> {this.props.email || this.props.phone_number || '(Not Avialable)'}</li>
+                                <li>{this.props.phone || '(No phone number avialable)'}</li>
+                                <li>{this.props.email || '(No email available)'}</li>
                             </ul>
                         </ul>
                     </section>
@@ -60,7 +60,6 @@ class Profile extends Component {
                         />
                     </section>
                 </main>
-                <footer></footer>
             </div>
         );
     }
