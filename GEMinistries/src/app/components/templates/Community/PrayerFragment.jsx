@@ -23,6 +23,7 @@ const PrayerFragment = () => (
                         `
                     }
                 />
+              <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
             </li>
             <li>
                 <Article

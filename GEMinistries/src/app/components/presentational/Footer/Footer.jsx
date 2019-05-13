@@ -3,14 +3,15 @@ import './style.css'
 
 const Footer = ({children}) => {
   return (
-    <footer className='container'>
+    <footer>
       <div className='row'>
         <div className='col-sm-4 footer-talk'>
-          GEM Outreach &copy; 2019
+          GEM Outreach 501(c)(3)<br />
+          &copy; 2019
         </div>
         <div className='col-sm-4 footer-talk'>
-          Organization Address:
-          2326 Chinkapin Way
+          Organization Address:<br />
+          2326 Chinkapin Way<br />
           Dallas, TX 75212
         </div>
         <div className='col-sm-4 footer-talk'></div>

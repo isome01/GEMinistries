@@ -45,9 +45,9 @@ class App extends Component {
           {text: 'About Us', link: '/About_Us'},
         ]
         return(
-            <div id='app-content' className="container">
+            <div>
                 <Router>
-                    <div>
+                    <div id='app-content' className="container">
                         <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
                         <HorizontalNav
                           className='bg-light sticky-top'
@@ -84,7 +84,7 @@ class App extends Component {
                             />
                             <Route component={Error}/>
                         </Switch>
-                        <Footer/>
+                        <Footer />
                     </div>
                 </Router>
             </div>
