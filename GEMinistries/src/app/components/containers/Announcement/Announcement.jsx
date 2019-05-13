@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Article from "../../presentational/Article/Article.jsx"
+import './style.css'
 
 class Announcement extends Component {
   static propTypes = {
@@ -46,7 +47,7 @@ class Announcement extends Component {
   render(){
     const {header, summary, id, overflows, allowOverflow} = this.state.article
     return (
-      <div>
+      <div className='announcement'>
         <Article
           summaryid={id}
           header={header}

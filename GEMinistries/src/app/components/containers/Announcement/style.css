@@ -1,0 +1,10 @@
+.announcement {
+    background-color: #fff;
+    border: solid #eee 1px;
+    border-radius: 3px;
+    box-shadow: -5px -5px 5px 5px #dddddd;
+}
+
+.announcement h4{
+    color: #000080;
+}

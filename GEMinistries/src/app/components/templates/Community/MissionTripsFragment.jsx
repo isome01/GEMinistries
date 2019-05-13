@@ -27,6 +27,7 @@ const MissionTripsFragment = () => (
                         be used to touch the hearts of many.
                     `}
                 />
+              <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
             </li>
             <li>
                 <Article
@@ -49,6 +50,7 @@ const MissionTripsFragment = () => (
                         a part of such a ministry that is privileged in spiritual momentum.
                     `}
                 />
+              <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
             </li>
 
             <li>
