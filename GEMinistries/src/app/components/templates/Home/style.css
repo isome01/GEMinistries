@@ -3,7 +3,8 @@
     display: block;
     justify-content: center;
     margin: auto;
-    border-right: solid #eee 2px;
+    border-left: solid #eee 7px;
+    border-right: solid #eee 7px;
     box-sizing: border-box;
     word-wrap: break-word;
     max-width: 100%;

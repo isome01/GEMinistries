@@ -82,7 +82,7 @@ class App extends Component {
                                 />
                                 )}
                             />
-                            <Route component={Error}/>
+                            <Route component={Error} />
                         </Switch>
                         <Footer />
                     </div>
