@@ -6,12 +6,8 @@ import EventsEditor from './container/Events/EventsEditor.jsx'
 import AnnouncementsEditor from './container/Announcements/AnouncementsEditor.jsx'
 class App extends Component{
 
-    constructor(){
-        super()
-
-        this.state = {
-            navbarLinks: [],
-        }
+    state = {
+        navbarLinks: []
     }
 
     componentDidMount(){
