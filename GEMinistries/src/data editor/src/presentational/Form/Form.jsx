@@ -1,12 +1,15 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import FormGroup from '../FormGroup/FormGroup.jsx'
+import {ClipLoader} from 'react-spinners'
 
 class Form extends Component {
 
     static propTypes = {
       title: PropTypes.string.isRequired,
       toggleSubmit: PropTypes.func.isRequired,
+      retrievingData: PropTypes.bool.isRequired,
+      removeButton: PropTypes.bool,
       inputFields: PropTypes.arrayOf(
         PropTypes.shape({
           key: PropTypes.string.isRequired,
@@ -59,24 +62,43 @@ class Form extends Component {
     const {inputFields} = this.state
     return (
       <form className="container-fluid" onSubmit={this.submitForm}>
-        <h1>{title}</h1>
+        <h4>{title}</h4>
         <hr />
         {
-          inputFields.map( (inputfield) => (
-            <FormGroup
-              key={inputfield.field.id}
-              inputType={inputfield.field.inputType}
-              label={inputfield.field.label}
-              textArea={inputfield.field.textArea}
-              id={inputfield.field.id}
-            />)
-          )
-        }
+          inputFields.map( (inputfield, index) => (
+            <Fragment>
+              <FormGroup
+                key={inputfield.field.id}
+                inputType={inputfield.field.inputType}
+                label={inputfield.field.label}
+                textArea={inputfield.field.textArea}
+                id={inputfield.field.id}
+              />
+              <hr
+                style={index >= inputFields.length
+                  ? {paddingBottom: '15px'}
+                  : {width: '80%'}
+                }
+              />
+            </Fragment>
+          ))}
         <div className={"container"}>
-          <button
-            className={"btn btn-primary form-control col-md-6 col-md-offset-3"}
-            type={"submit"}
-          >Submit</button>
+          {
+            (this.props.retrievingData &&
+              <ClipLoader
+                sizeUnit='px'
+                size='100px'
+                color='navy'
+                loading={this.props.retrievingData}
+              />
+            ) || (!this.props.removeButton &&
+              <button
+                className={"btn btn-primary form-control col-md-6 col-md-offset-3 text-center"}
+                type={"submit"}
+                style={{maxWidth: '130'}}
+              >Submit</button>
+            )
+          }
         </div>
       </form>
     )

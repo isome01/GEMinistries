@@ -30,13 +30,25 @@ class Editor extends Component {
       ).isRequired,
     }
 
-    constructor(){
-        super()
-        this.toggleSubmit = this.toggleSubmit.bind(this)
+    constructor(props){
+      super(props)
+      this.state = {
+        retrievingData: false,
+        removeButton: false
+      }
+      this.toggleSubmit = this.toggleSubmit.bind(this)
     }
 
-    toggleSubmit = (inputValues, key, url) => {
+    componentDidMount() {
+      this.setState({
+        retrieveData: false,
+        removeButton: false
+      })
+    }
+
+  toggleSubmit = (inputValues, key, url) => {
         if (key && url){
+          this.setState({retrievingData: true})
           let data = {}
           data[key] = inputValues
 
@@ -51,10 +63,18 @@ class Editor extends Component {
             }
           }
 
-          console.log('sending')
           axios(authOptions).then(
-            results => console.log(results.data.message),
-            err => console.log(err)
+            results => {
+              console.log(results.data.message)
+              this.setState({
+                retrievingData: false,
+                removeButton: true
+              })
+            },
+            err => {
+              console.log(err)
+              this.setState({retrievingData: false})
+            }
           )
         } else {
           console.log(`key and url values: ${key} and ${url}`)
@@ -83,6 +103,8 @@ class Editor extends Component {
                       title={tab.title}
                       inputFields={tab.inputFields}
                       toggleSubmit={this.toggleSubmit}
+                      retrievingData={this.state.retrievingData}
+                      removeButton={this.state.removeButton}
                     />}
                 />
               </div>
