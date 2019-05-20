@@ -30,6 +30,7 @@ const DynamicImg = ({title, dataList, className, style}) => (
               id={`${data.name}-${index}`}
               src={data.path}
               alt={data.name}
+              height={style.height || ''}
             />
           </div>
         ))

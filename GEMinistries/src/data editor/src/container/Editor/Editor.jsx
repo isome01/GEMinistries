@@ -97,15 +97,15 @@ class Editor extends Component {
                 <Route
                   path={`${basePath}${tab.tablink}`}
                   render={()=><Form
-                      key={`${basePath}${tab.tablink}`}
-                      dataObjectKey={tab.dataObjectKey}
-                      apiUrl={tab.apiUrl}
-                      title={tab.title}
-                      inputFields={tab.inputFields}
-                      toggleSubmit={this.toggleSubmit}
-                      retrievingData={this.state.retrievingData}
-                      removeButton={this.state.removeButton}
-                    />}
+                    key={`${basePath}${tab.tablink}`}
+                    dataObjectKey={tab.dataObjectKey}
+                    apiUrl={tab.apiUrl}
+                    title={tab.title}
+                    inputFields={tab.inputFields}
+                    toggleSubmit={this.toggleSubmit}
+                    retrievingData={this.state.retrievingData}
+                    removeButton={this.state.removeButton}
+                  />}
                 />
               </div>
               )
