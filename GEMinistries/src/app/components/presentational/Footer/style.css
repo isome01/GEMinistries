@@ -4,6 +4,7 @@ footer {
     width: inherit;
     max-width: inherit;
     background-color: #000080;
+    border: solid #555 2px;
 }
 
 footer .footer-talk {

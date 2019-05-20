@@ -13,5 +13,12 @@ export const addAnnouncements = [
       label: 'Summary:',
       textArea: true
     }
+  },
+    {
+      key: 'attachment',
+      field: {
+        inputType: 'file',
+        label: 'File attachments: ',
+      }
   }
 ]

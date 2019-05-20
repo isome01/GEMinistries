@@ -22,23 +22,36 @@ class App extends Component{
         this.setState(()=>({navbarLinks: navLinks}))
     }
 
-    render = () =>{
+    render = () => {
         let {navbarLinks} = this.state
-        return(
-            <Router>
-                <div className='row'>
-                    <div className=''>
-                        <Navbar
-                          logo={"Data Editor"}
-                          navlinks={navbarLinks}
-                        />
-                    </div>
-                    <Switch>
-                        <Route path={"/Events"} component={EventsEditor}/>
-                        <Route path={"/Announcements"} component={AnnouncementsEditor} />
-                    </Switch>
-                </div>
-            </Router>
+        const uri = 'http://www.gemoutreach.org:'
+        return (
+          <Router>
+              <div className='row'>
+                  <div className=''>
+                      <Navbar
+                        logo={"Data Editor"}
+                        navlinks={navbarLinks}
+                      />
+                  </div>
+                  <Switch>
+                      <Route
+                        path={"/Events"} component={props => {
+                            return (
+                              <EventsEditor {...props} uri={uri} />
+                            )
+                        }}
+                      />
+                      <Route
+                        path={"/Announcements"}
+                        component={ props => {
+                            return (
+                              <AnnouncementsEditor {...props} uri={uri} />
+                            )
+                        }}/>
+                  </Switch>
+              </div>
+          </Router>
         )
     }
 }

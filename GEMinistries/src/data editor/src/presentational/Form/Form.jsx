@@ -4,7 +4,6 @@ import FormGroup from '../FormGroup/FormGroup.jsx'
 import {ClipLoader} from 'react-spinners'
 
 class Form extends Component {
-
     static propTypes = {
       title: PropTypes.string.isRequired,
       toggleSubmit: PropTypes.func.isRequired,
@@ -23,11 +22,44 @@ class Form extends Component {
       )
     }
 
-    constructor(){
-      super()
-      this.submitForm = this.submitForm.bind(this)
+  constructor(){
+    super()
+    this.submitForm = this.submitForm.bind(this)
+    this.addMedia = this.addMedia.bind(this)
       this.state = {
         inputFields: []
+      }
+    }
+
+    addMedia = e => {
+      const mediaRowId = `${e.target.id}-media-row`
+      console.log('gets here...')
+      let fileInput = document.getElementById(e.target.id)
+      let mediaRow = document.getElementById(mediaRowId)
+      if (!mediaRow) {
+        mediaRow = document.createElement('div')
+        mediaRow.id = mediaRowId
+        mediaRow.className = 'row'
+        document.body.appendChild(mediaRow)
+      }
+
+      let reader = new FileReader()
+
+      reader.onload = e => {
+        let image = document.createElement('img')
+        image.src = e.target.result
+        image.value = e.target.result
+        image.height = 200
+        mediaRow.appendChild(image)
+      }
+
+
+      if (fileInput.files.length > 1) {
+        for(let i = 0; i < fileInput.files.length; i++) {
+          reader.readAsDataURL(fileInput.files[i])
+        }
+      } else {
+        reader.readAsDataURL(fileInput.files[0])
       }
     }
 
@@ -35,8 +67,22 @@ class Form extends Component {
       e.preventDefault()
       const {inputFields} = this.state || []
       let inputValues = {}
+
       inputFields.forEach(input => {
-        inputValues[input.key] = document.getElementById(input.field.id).value
+        const field = document.getElementById(input.field.id)
+        if (field.type !== 'file') {
+          inputValues[input.key] = field.value
+        } else {
+          const mediaRow = document.getElementById(`${field.id}-media-row`).childNodes
+          if (mediaRow.length > 1) {
+            console.log(mediaRow)
+            mediaRow.forEach( media => {
+              inputValues[input.key] = media.value
+            })
+          } else {
+            inputValues[input.key] = mediaRow[0].value
+          }
+        }
       })
       const {dataObjectKey, apiUrl} = this.props
       this.props.toggleSubmit(inputValues, dataObjectKey, apiUrl)
@@ -73,6 +119,7 @@ class Form extends Component {
                 label={inputfield.field.label}
                 textArea={inputfield.field.textArea}
                 id={inputfield.field.id}
+                onChange={ inputfield.field.inputType === 'file' ? this.addMedia : null}
               />
               <hr
                 style={index >= inputFields.length
