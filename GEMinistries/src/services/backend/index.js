@@ -8,7 +8,8 @@ const body_parser = require('body-parser')
 let app = express()
 
 app.use(cors())
-app.use(body_parser.json())
+app.use(body_parser.json({limit: '50mb', urlencoded: true}))
+app.use(body_parser.urlencoded({limit: '50mb', urlencoded: true}))
 
 announcements(app)
 events(app)

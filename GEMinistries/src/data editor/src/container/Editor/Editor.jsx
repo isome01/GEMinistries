@@ -28,6 +28,7 @@ class Editor extends Component {
               )
           }).isRequired,
       ).isRequired,
+      maxNoOfImages: PropTypes.number
     }
 
     constructor(props){
@@ -47,72 +48,74 @@ class Editor extends Component {
     }
 
   toggleSubmit = (inputValues, key, url) => {
-        if (key && url){
-          this.setState({retrievingData: true})
-          let data = {}
-          data[key] = inputValues
+    if (key && url){
+      this.setState({retrievingData: true})
+      let data = {}
+      data[key] = inputValues
 
-          console.log(data)
-          const authOptions = {
-            method: 'POST',
-            url,
-            data,
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': '*/*'
-            }
-          }
+      console.log(data)
+      const authOptions = {
+        method: 'POST',
+        url,
+        data,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*'
+        },
+        maxContentLength: 10000000
+      }
 
-          axios(authOptions).then(
-            results => {
-              console.log(results.data.message)
-              this.setState({
-                retrievingData: false,
-                removeButton: true
-              })
-            },
-            err => {
-              console.log(err)
-              this.setState({retrievingData: false})
-            }
-          )
-        } else {
-          console.log(`key and url values: ${key} and ${url}`)
+      axios(authOptions).then(
+        results => {
+          console.log(results.data.message)
+          this.setState({
+            retrievingData: false,
+            removeButton: true
+          })
+        },
+        err => {
+          console.log(err)
+          this.setState({retrievingData: false})
         }
+      )
+    } else {
+      console.log(`key and url values: ${key} and ${url}`)
     }
+  }
 
-    render() {
-      const {tabData, basePath} = this.props
-      return (
-          <div className='editor container-fluid'>
-            <Tabs
-              navtabs={tabData.map(tab => ({
-                  link: `${basePath}${tab.tablink}`,
-                  text: tab.tabtext
-                }))}
-              children={null}
-            />
-            {tabData.map((tab)=>(
-              <div className='offset-1 col-sm-10'>
-                <Route
-                  path={`${basePath}${tab.tablink}`}
-                  render={()=><Form
-                    key={`${basePath}${tab.tablink}`}
-                    dataObjectKey={tab.dataObjectKey}
-                    apiUrl={tab.apiUrl}
-                    title={tab.title}
-                    inputFields={tab.inputFields}
-                    toggleSubmit={this.toggleSubmit}
-                    retrievingData={this.state.retrievingData}
-                    removeButton={this.state.removeButton}
-                  />}
-                />
-              </div>
-              )
-            )}
-          </div>
-        )
-    }
+  render() {
+    const {tabData, basePath} = this.props
+    return (
+        <div className='editor container-fluid'>
+          <Tabs
+            navtabs={tabData.map(tab => ({
+                link: `${basePath}${tab.tablink}`,
+                text: tab.tabtext
+              }))}
+            children={null}
+          />
+          {tabData.map((tab)=>(
+            <div className='offset-1 col-sm-10'>
+              <Route
+                path={`${basePath}${tab.tablink}`}
+                render={()=><Form
+                  key={`${basePath}${tab.tablink}`}
+                  dataObjectKey={tab.dataObjectKey}
+                  apiUrl={tab.apiUrl}
+                  title={tab.title}
+                  inputFields={tab.inputFields}
+                  toggleSubmit={this.toggleSubmit}
+                  retrievingData={this.state.retrievingData}
+                  removeButton={this.state.removeButton}
+                  maxNoOfImages={this.props.maxNoOfImages}
+                />}
+              />
+            </div>
+            )
+          )}
+        </div>
+      )
+  }
 }
 
 export default Editor

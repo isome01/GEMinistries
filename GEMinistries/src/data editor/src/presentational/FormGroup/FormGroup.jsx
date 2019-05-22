@@ -25,7 +25,7 @@ const inputTypes = {
 }
 
 /* All input types */
-const FormGroup = ({inputType, label, textArea, id, onChange}) => (
+const FormGroup = ({inputType, label, textArea, id, onChange, multiple}) => (
     <div className='row form-group'>
         <label
           className={
@@ -40,7 +40,7 @@ const FormGroup = ({inputType, label, textArea, id, onChange}) => (
                 id={id}
                 accept={inputType === 'file' ? 'image/*' : ''}
                 onChange={onChange}
-                multiple/>
+                multiple={multiple}/>
               : <textarea
                 className='form-control'
                 rows='5'
@@ -58,7 +58,8 @@ FormGroup.propTypes = {
     label: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     textArea: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    multiple: PropTypes.bool
 }
 
 export default FormGroup

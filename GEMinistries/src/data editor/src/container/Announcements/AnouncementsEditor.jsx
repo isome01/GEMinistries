@@ -23,6 +23,7 @@ class AnnouncementsEditor extends Component {
           </div>
           <div style={{padding: '10px'}}>
             <Editor
+              maxNoOfImages={5}
               basePath={this.props.match.path}
               tabData={[
                 {
