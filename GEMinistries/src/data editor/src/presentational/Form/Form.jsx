@@ -4,104 +4,123 @@ import FormGroup from '../FormGroup/FormGroup.jsx'
 import {ClipLoader} from 'react-spinners'
 
 class Form extends Component {
-    static propTypes = {
-      title: PropTypes.string.isRequired,
-      toggleSubmit: PropTypes.func.isRequired,
-      retrievingData: PropTypes.bool.isRequired,
-      removeButton: PropTypes.bool,
-      inputFields: PropTypes.arrayOf(
-        PropTypes.shape({
-          key: PropTypes.string.isRequired,
-          field: PropTypes.shape(
-            {
-              inputType: PropTypes.string.isRequired,
-              label: PropTypes.string.isRequired
-            }
-          )
-        })
-      )
-    }
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    toggleSubmit: PropTypes.func.isRequired,
+    retrievingData: PropTypes.bool.isRequired,
+    removeButton: PropTypes.bool,
+    maxNoOfImages: PropTypes.number,
+    inputFields: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        field: PropTypes.shape(
+          {
+            inputType: PropTypes.string.isRequired,
+            label: PropTypes.string.isRequired
+          }
+        )
+      })
+    )
+  }
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.submitForm = this.submitForm.bind(this)
     this.addMedia = this.addMedia.bind(this)
-      this.state = {
-        inputFields: []
-      }
+    this.removeImg = this.removeImg.bind(this)
+    this.errorMsg = this.errorMsg.bind(this)
+    this.state = {
+      inputFields: []
     }
+  }
 
-    addMedia = e => {
+  componentWillMount() {
+    //create individual ids for each field
+
+    const inputFields = this.props.inputFields.map( (input,index) => {
+      return ({
+        key: input.key,
+        field: {
+          ...input.field,
+          id: `${input.field['label']}${index}`}
+      })
+
+    })
+    this.setState({inputFields: inputFields})
+  }
+
+  errorMsg = msg => {
+    return (`<div
+      class="col-md-auto text-center text-danger"
+      style="border: solid red 2px;border-radius: 5px;background-color: #ffbbbb;padding: 20px"
+      >${msg}</div>`)
+  }
+
+  addMedia = e => {
+    const {maxNoOfImages} = this.props || 1
+    if (document.getElementById(e.target.id).files.length <= maxNoOfImages) {
       const mediaRowId = `${e.target.id}-media-row`
-      console.log('gets here...')
-      let fileInput = document.getElementById(e.target.id)
+      const files = e.target.files
       let mediaRow = document.getElementById(mediaRowId)
-      if (!mediaRow) {
-        mediaRow = document.createElement('div')
-        mediaRow.id = mediaRowId
-        mediaRow.className = 'row'
-        document.body.appendChild(mediaRow)
-      }
+      mediaRow.innerHTML = `<span
+        class='col-sm-12 text-left'
+        style="fontWeight: bold"
+      >File${this.props.maxNoOfImages > 1 ? '(s)' : ''}:&nbsp;</span>`
 
-      let reader = new FileReader()
+      const noOfFiles = files.length
+      for(let i = 0;i < noOfFiles; i++) {
 
-      reader.onload = e => {
-        let image = document.createElement('img')
-        image.src = e.target.result
-        image.value = e.target.result
-        image.height = 200
-        mediaRow.appendChild(image)
-      }
+        let reader = new FileReader()
 
-
-      if (fileInput.files.length > 1) {
-        for(let i = 0; i < fileInput.files.length; i++) {
-          reader.readAsDataURL(fileInput.files[i])
+        reader.onload = e => {
+          let div = document.createElement('div')
+          div.innerHTML = `<div
+            class="col-sm-12 text-center"
+            id="${mediaRowId}-img-${mediaRow.childNodes.length+1}"
+            style="word-break: break-all">${files[i].name}</div>`
+          div.value = e.target.result
+          mediaRow.insertBefore(div, null)
         }
-      } else {
-        reader.readAsDataURL(fileInput.files[0])
+
+        reader.readAsDataURL(files[i])
       }
+    } else {
+      const mediaRow = document.getElementById(`${e.target.id}-media-row`)
+      const div = document.createElement('div')
+      mediaRow.innerHTML = ''
+      div.innerHTML = this.errorMsg(`No more than ${this.props.maxNoOfImages} images allowed.`)
+      mediaRow.insertBefore(div, null)
     }
+  }
 
-    submitForm = e => {
-      e.preventDefault()
-      const {inputFields} = this.state || []
-      let inputValues = {}
+  removeImg = e => document.body.removeChild(e.target.id)
 
-      inputFields.forEach(input => {
-        const field = document.getElementById(input.field.id)
-        if (field.type !== 'file') {
-          inputValues[input.key] = field.value
-        } else {
-          const mediaRow = document.getElementById(`${field.id}-media-row`).childNodes
-          if (mediaRow.length > 1) {
-            console.log(mediaRow)
-            mediaRow.forEach( media => {
-              inputValues[input.key] = media.value
-            })
-          } else {
-            inputValues[input.key] = mediaRow[0].value
-          }
-        }
-      })
-      const {dataObjectKey, apiUrl} = this.props
-      this.props.toggleSubmit(inputValues, dataObjectKey, apiUrl)
-    }
+  submitForm = e => {
+    e.preventDefault()
+    const {inputFields} = this.state || []
+    let inputValues = {}
 
-    componentWillMount() {
-      //create individual ids for each field
-
-      const inputFields = this.props.inputFields.map( (input,index) => {
-        return ({
-          key: input.key,
-          field: {
-            ...input.field,
-            id: `${input.field['label']}${index}`}
+    inputFields.forEach(input => {
+      const field = document.getElementById(input.field.id)
+      if (field.type !== 'file') {
+        inputValues[input.key] = field.value
+      } else if (field.type === 'file' && field.files[0]) {
+        const mediaRow = document.getElementById(`${field.id}-media-row`).childNodes
+        console.log(mediaRow)
+        if (mediaRow.length > 1) {
+          console.log(mediaRow)
+          mediaRow.forEach( media => {
+            inputValues[input.key] = inputValues[input.key] || []
+            inputValues[input.key].push(media.value)
           })
-
-      })
-      this.setState({inputFields: inputFields})
-    }
+        } else {
+          inputValues[input.key] = mediaRow[0].value
+        }
+      }
+    })
+    const {dataObjectKey, apiUrl} = this.props
+    this.props.toggleSubmit(inputValues, dataObjectKey, apiUrl)
+  }
 
   render(){
     const {title} = this.props
@@ -111,16 +130,24 @@ class Form extends Component {
         <h4>{title}</h4>
         <hr />
         {
-          inputFields.map( (inputfield, index) => (
+          inputFields.map( (input, index) => (
             <Fragment>
               <FormGroup
-                key={inputfield.field.id}
-                inputType={inputfield.field.inputType}
-                label={inputfield.field.label}
-                textArea={inputfield.field.textArea}
-                id={inputfield.field.id}
-                onChange={ inputfield.field.inputType === 'file' ? this.addMedia : null}
+                key={input.field.id}
+                inputType={input.field.inputType}
+                label={input.field.label}
+                textArea={input.field.textArea}
+                id={input.field.id}
+                onChange={ input.field.inputType === 'file' ? this.addMedia : null}
+                multiple={this.props.maxNoOfImages > 1}
               />
+              {input.field.inputType === 'file' &&
+              (
+                <div
+                  id={`${input.field.id}-media-row`}
+                  className='row container-fluid'
+                ></div>
+              )}
               <hr
                 style={index >= inputFields.length
                   ? {paddingBottom: '15px'}
@@ -134,8 +161,8 @@ class Form extends Component {
             (this.props.retrievingData &&
               <ClipLoader
                 sizeUnit='px'
-                size='100px'
-                color='navy'
+                size='50'
+                color='#1e416e'
                 loading={this.props.retrievingData}
               />
             ) || (!this.props.removeButton &&
