@@ -72,6 +72,7 @@ class Editor extends Component {
             retrievingData: false,
             removeButton: true
           })
+          alert('Your request has been processed successfully.')
         },
         err => {
           console.log(err)
