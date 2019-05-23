@@ -62,10 +62,7 @@ class Form extends Component {
       const mediaRowId = `${e.target.id}-media-row`
       const files = e.target.files
       let mediaRow = document.getElementById(mediaRowId)
-      mediaRow.innerHTML = `<span
-        class='col-sm-12 text-left'
-        style="fontWeight: bold"
-      >File${this.props.maxNoOfImages > 1 ? '(s)' : ''}:&nbsp;</span>`
+      mediaRow.innerHTML = ''
 
       const noOfFiles = files.length
       for(let i = 0;i < noOfFiles; i++) {
@@ -79,6 +76,7 @@ class Form extends Component {
             id="${mediaRowId}-img-${mediaRow.childNodes.length+1}"
             style="word-break: break-all">${files[i].name}</div>`
           div.value = e.target.result
+          div.name = files[i].name
           mediaRow.insertBefore(div, null)
         }
 
@@ -106,15 +104,22 @@ class Form extends Component {
         inputValues[input.key] = field.value
       } else if (field.type === 'file' && field.files[0]) {
         const mediaRow = document.getElementById(`${field.id}-media-row`).childNodes
+        document.getElementById(`${field.id}-media-row`)
         console.log(mediaRow)
         if (mediaRow.length > 1) {
           console.log(mediaRow)
           mediaRow.forEach( media => {
             inputValues[input.key] = inputValues[input.key] || []
-            inputValues[input.key].push(media.value)
+            inputValues[input.key].push({
+              name: media.name,
+              value: media.value
+            })
           })
         } else {
-          inputValues[input.key] = mediaRow[0].value
+          inputValues[input.key] = {
+            name: mediaRow[0].name,
+            value: mediaRow[0].value
+          }
         }
       }
     })

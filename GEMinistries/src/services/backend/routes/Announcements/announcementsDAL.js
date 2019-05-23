@@ -21,9 +21,10 @@ announcementsDAL.addAnnouncement = announcement => {
     db => db.collection('announcements').insertOne({
       'header': `${announcement.header}`,
       'summary': `${announcement.summary}`,
+      'attachment': `${announcement.attachment}`,
       'created': `${new Date().toString()}`
     }).then(
-      result => {message: result}
+      result => result
     )
   ).catch(
     err => ({message: err})
