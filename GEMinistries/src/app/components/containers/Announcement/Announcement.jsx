@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import Article from "../../presentational/Article/Article.jsx"
 import './style.css'
@@ -8,7 +8,13 @@ class Announcement extends Component {
     article: PropTypes.shape({
       header: PropTypes.string.isRequired,
       summary: PropTypes.string.isRequired,
+      children: PropTypes.node,
+      childBefore: PropTypes.bool,
+      childAfter: PropTypes.bool
     })
+  }
+  defaultProps = {
+    children: null
   }
   constructor(props) {
     super(props)
@@ -45,7 +51,7 @@ class Announcement extends Component {
   }
 
   render(){
-    const {header, summary, id, overflows, allowOverflow} = this.state.article
+    const {header, summary, id, overflows, allowOverflow, children} = this.state.article
     return (
       <div className='announcement'>
         <Article
@@ -56,15 +62,21 @@ class Announcement extends Component {
             ? summary
             : summary.slice(0, 200)) || 'No summary... :/'
           }
+          childAfter={!this.state.article.childBefore}
+          childBefore={this.state.article.childBefore}
           children={
             (overflows &&
-            <span
-              id={`toggle-${header.toLowerCase()}`}
-              className='article-link'
-              onClick={this.toggleOverflow}
-            >
-              ... Read More
-            </span>)
+              <Fragment>
+                {allowOverflow && children}
+                <span
+                  id={`toggle-${header.toLowerCase()}`}
+                  className='article-link'
+                  onClick={this.toggleOverflow}
+                >
+                  ... Read More
+                </span>
+              </Fragment>
+            )
           }
         />
       </div>

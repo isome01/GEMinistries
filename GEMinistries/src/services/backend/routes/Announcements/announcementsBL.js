@@ -12,21 +12,23 @@ announcementsBL.getAnnouncements = () => {
 }
 
 announcementsBL.addAnnouncement = announcement => {
-  let attachment
-  if (typeof (announcement.attachment.length) === 'number') {
-    attachment = announcement.attachment.map(data => {
-      if (data.value)
-        return saveImage(data.name, data.value)
-    })
-  } else attachment = saveImage(
-      announcement.attachment.name,
-      announcement.attachment.value
+  let {attachment} = announcement
+  if (attachment) {
+    if (typeof (attachment.length) === 'number') {
+      attachment = attachment.map(data => {
+        if (data.value)
+          return saveImage(data.name, data.value)
+      })
+    } else attachment = saveImage(
+      attachment.name,
+      attachment.value
     )
+  }
 
   return announcementsDAL.addAnnouncement(Announcement({
     header: announcement.header,
     summary: announcement.summary,
-    attachment
+    attachment: attachment || ''
   })).then(
     results => results,
     err => err

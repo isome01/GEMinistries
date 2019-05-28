@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { BrowserRouter as Router} from 'react-router-dom'
 import {Route, Switch} from 'react-router-dom'
 import Footer from '../components/presentational/Footer/Footer.jsx'
@@ -18,6 +19,10 @@ import navLogoImg from '../../assets/GEMnavLogoText.png'
 import './main.css';
 
 class App extends Component {
+
+    static propTypes = {
+        uriHangar: PropTypes.func.isRequired
+    }
 
     constructor(){
         super()
@@ -44,51 +49,55 @@ class App extends Component {
           {text: 'Community', link: '/Community'},
           {text: 'About Us', link: '/About_Us'},
         ]
-        return(
-            <div>
-                <Router>
-                    <div id='app-content' className="container">
-                        <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
-                        <HorizontalNav
-                          className='bg-light sticky-top'
-                          navLogoText='GEMOutreach'
-                          navLogoImg={navLogoImg}
-                          navContent={navbar_content}
-                        />
-                        <Switch>
-                            <Route
-                              path="/" exact strict
-                              component={props=>(
-                                <Home
-                                  {...props}
-                                  getImage={this.getImage}
-                                />)}
-                            />
-                            <Route
-                              path="/About_Us" strict
-                              component={ props => (
-                                <AboutUs
-                                  {...props}
-                                  getImage={this.getImage}
-                                />
-                              )}
-                            />
-                            <Route
-                              path="/Community" strict
-                              component={props => (
-                                <Community
-                                  {...props}
-                                  getImage={this.getImage}
-                                />
-                                )}
-                            />
-                            <Route component={Error} />
-                        </Switch>
-                        <Footer />
-                    </div>
-                </Router>
-            </div>
-        );
+        const {uriHangar} = this.props
+        return (
+          <div>
+              <Router>
+                  <div id='app-content' className="container">
+                      <PageBanner banner_logo={banner_logo} banner_moto={banner_moto}/>
+                      <HorizontalNav
+                        className='bg-light sticky-top'
+                        navLogoText='GEMOutreach'
+                        navLogoImg={navLogoImg}
+                        navContent={navbar_content}
+                      />
+                      <Switch>
+                          <Route
+                            path="/" exact strict
+                            component={props => (
+                              <Home
+                                {...props}
+                                getImage={this.getImage}
+                                uriHangar={uriHangar}
+                              />)}
+                          />
+                          <Route
+                            path="/About_Us" strict
+                            component={props => (
+                              <AboutUs
+                                {...props}
+                                getImage={this.getImage}
+                                uriHangar={uriHangar}
+                              />
+                            )}
+                          />
+                          <Route
+                            path="/Community" strict
+                            component={props => (
+                              <Community
+                                {...props}
+                                getImage={this.getImage}
+                                uriHangar={uriHangar}
+                              />
+                            )}
+                          />
+                          <Route component={Error}/>
+                      </Switch>
+                      <Footer/>
+                  </div>
+              </Router>
+          </div>
+        )
     }
 }
 
