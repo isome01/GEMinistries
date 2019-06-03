@@ -6,12 +6,6 @@ export const addEvent = [
       inputType: 'text'
     }
   }, {
-    key: 'type',
-    field: {
-      label: 'Type:',
-      inputType: 'checkbox'
-    }
-  }, {
     key: 'description',
     field: {
       label: 'Description of the event:',
@@ -19,16 +13,38 @@ export const addEvent = [
       textArea: true
     }
   }, {
-    key: 'date',
+    key: 'startDate',
     field: {
       label: 'Date of the event:',
       inputType: 'date'
     }
   }, {
-    key: 'time',
+    key: 'startTime',
     field: {
-      label: 'Time of the event (e.g. 05:00 PM)',
+      label: 'Time of the event (e.g. 05:00 PM): ',
       inputType: 'time'
+    }
+  }, {
+    key: 'endDate',
+    field: {
+      label: '... and when does it end?:',
+      inputType: 'date'
+    }
+  }, {
+    key: 'endTime',
+    field: {
+      label: 'End Time: ',
+      inputType: 'time'
+    }
+  }
+]
+
+export const updateEvent = [
+  ...addEvent, {
+    key: 'attachment',
+    field: {
+      label: 'Attachments',
+      inputType: 'file'
     }
   }
 ]

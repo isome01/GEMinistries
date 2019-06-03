@@ -9,7 +9,8 @@ import './style.css'
 class Home extends Component{
   static propTypes = {
     getImage: PropTypes.func,
-    uriHangar: PropTypes.func
+    uriHangar: PropTypes.func,
+    domain: PropTypes.string.isRequired
   }
   constructor () {
       super()
@@ -24,11 +25,11 @@ class Home extends Component{
 
   componentWillMount () {
     /* Set some arbitrary variables */
-    const {uriHangar} = this.props
+    const {uriHangar, domain} = this.props
     let announcements = window.sessionStorage.getItem('announcements')
 
     if (!announcements){
-      uriHangar('announcements', 'read', {}).then(
+      uriHangar('announcements', 'read', {}, domain).then(
         message => {
           console.log(message)
           this.setState({fetchAnnouncements: true})
@@ -42,9 +43,9 @@ class Home extends Component{
   componentDidMount () {
     /* get info from the uri hangar ... */
     let news_feed = [...feed]
-    const {uriHangar, fetchAnnouncements} = this.props
+    const {uriHangar, fetchAnnouncements, domain} = this.props
     if (!fetchAnnouncements) {
-      uriHangar('announcements', 'read', {}).then(
+      uriHangar('announcements', 'read', {}, domain).then(
         res => {
           this.setState({
             newsFeed: (res || []).map((feed, index) => ({

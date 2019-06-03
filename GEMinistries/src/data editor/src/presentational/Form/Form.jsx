@@ -5,6 +5,8 @@ import {ClipLoader} from 'react-spinners'
 
 class Form extends Component {
   static propTypes = {
+    currentData: PropTypes.object,
+    hasFormData: PropTypes.bool,
     title: PropTypes.string.isRequired,
     toggleSubmit: PropTypes.func.isRequired,
     retrievingData: PropTypes.bool.isRequired,
@@ -23,30 +25,94 @@ class Form extends Component {
     )
   }
 
+  static defaultProps = {
+    currentData: {},
+    hasFormData: false
+  }
+
   constructor(props){
     super(props)
+    this.populateForm = this.populateForm.bind(this)
     this.submitForm = this.submitForm.bind(this)
     this.addMedia = this.addMedia.bind(this)
+    this.onChange = this.onChange.bind(this)
     this.removeImg = this.removeImg.bind(this)
     this.errorMsg = this.errorMsg.bind(this)
+    this.successMsg = this.successMsg.bind(this)
     this.state = {
-      inputFields: []
+      inputFields: [],
+      replaceMedia: false
     }
   }
 
   componentWillMount() {
     //create individual ids for each field
-
-    const inputFields = this.props.inputFields.map( (input,index) => {
+    const {maxNoOfImages, hasFormData} = this.props
+    this.setState({
+      replaceMedia: (maxNoOfImages > 1 && hasFormData)
+    })
+    let inputFields = this.props.inputFields.map( (input,index) => {
       return ({
         key: input.key,
         field: {
           ...input.field,
           id: `${input.field['label']}${index}`}
       })
-
     })
+    inputFields[inputFields.length] = {
+      key: 'replaceMedia',
+      field: {
+        label: 'Replace current images?',
+        inputType: 'checkbox',
+        id: `Replace current images?${inputFields.length}`
+      }
+    }
     this.setState({inputFields: inputFields})
+  }
+
+  componentDidMount() {
+    this.populateForm()
+  }
+
+  componentWillUpdate(nextProps, nextState, nextContext) {
+    this.populateForm(nextProps.currentData)
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    const {currentData} = this.props
+    for (let k in currentData) {
+      if (currentData[k] !== nextProps.currentData[k]) {
+        return true
+      }
+    }
+    return false
+  }
+
+  populateForm = data => {
+    const currentData = data || this.props.currentData
+    const {inputFields} = this.state
+    for (let k in currentData) {
+      inputFields.forEach(input => {
+        let inputField = document.getElementById(input.field.id)
+        if (inputField) {
+          if (input.key === k) {
+            if (inputField && inputField.type !== 'file') {
+              inputField.value = currentData[k]
+              inputField.name = currentData._id
+            }
+          } else if (input.key === 'replaceMedia') {
+            inputField.name = 'replaceMedia'
+          }
+        }
+      })
+    }
+  }
+
+  successMsg = msg => {
+    return (`<div
+      class="col-md-auto text-center text-success"
+      style="border: solid green 2px;border-radius: 5px;background-color: #bbbbff;padding: 20px"
+      ></div>`)
   }
 
   errorMsg = msg => {
@@ -54,6 +120,20 @@ class Form extends Component {
       class="col-md-auto text-center text-danger"
       style="border: solid red 2px;border-radius: 5px;background-color: #ffbbbb;padding: 20px"
       >${msg}</div>`)
+  }
+
+  onChange = e => {
+    const type = e.target.type
+    switch(type){
+      case 'checkbox':
+        if (e.target.value === 'on') {
+          e.target.value = 'checked'
+        } else {
+          e.target.value = 'unchecked'
+        }
+      default:
+        return null
+    }
   }
 
   addMedia = e => {
@@ -100,67 +180,74 @@ class Form extends Component {
 
     inputFields.forEach(input => {
       const field = document.getElementById(input.field.id)
-      if (field.type !== 'file') {
-        inputValues[input.key] = field.value
-      } else if (field.type === 'file' && field.files[0]) {
-        const mediaRow = document.getElementById(`${field.id}-media-row`).childNodes
-        document.getElementById(`${field.id}-media-row`)
-        console.log(mediaRow)
-        if (mediaRow.length > 1) {
-          console.log(mediaRow)
-          mediaRow.forEach( media => {
-            inputValues[input.key] = inputValues[input.key] || []
-            inputValues[input.key].push({
-              name: media.name,
-              value: media.value
+      if (field) {
+        if (field.type !== 'file') {
+          inputValues[input.key] = field.value
+          if (field.name) {
+            inputValues['id'] = field.name
+          }
+        } else if (field.type === 'file' && field.files[0]) {
+          const mediaRow = document.getElementById(`${field.id}-media-row`).childNodes
+          document.getElementById(`${field.id}-media-row`)
+          if (mediaRow.length > 1) {
+            console.log(mediaRow)
+            mediaRow.forEach( media => {
+              inputValues[input.key] = inputValues[input.key] || []
+              inputValues[input.key].push({
+                name: media.name,
+                value: media.value
+              })
             })
-          })
-        } else {
-          inputValues[input.key] = {
-            name: mediaRow[0].name,
-            value: mediaRow[0].value
+          } else {
+            inputValues[input.key] = {
+              name: mediaRow[0].name,
+              value: mediaRow[0].value
+            }
           }
         }
       }
     })
-    const {dataObjectKey, apiUrl} = this.props
-    this.props.toggleSubmit(inputValues, dataObjectKey, apiUrl)
+    const {dataObjectKey, api, action} = this.props
+    this.props.toggleSubmit(inputValues, dataObjectKey, api, action)
   }
 
-  render(){
+  render () {
     const {title} = this.props
-    const {inputFields} = this.state
+    const {inputFields, replaceMedia} = this.state
     return (
       <form className="container-fluid" onSubmit={this.submitForm}>
         <h4>{title}</h4>
         <hr />
         {
-          inputFields.map( (input, index) => (
-            <Fragment>
-              <FormGroup
-                key={input.field.id}
-                inputType={input.field.inputType}
-                label={input.field.label}
-                textArea={input.field.textArea}
-                id={input.field.id}
-                onChange={ input.field.inputType === 'file' ? this.addMedia : null}
-                multiple={this.props.maxNoOfImages > 1}
-              />
-              {input.field.inputType === 'file' &&
-              (
-                <div
-                  id={`${input.field.id}-media-row`}
-                  className='row container-fluid'
-                ></div>
-              )}
-              <hr
-                style={index >= inputFields.length
-                  ? {paddingBottom: '15px'}
-                  : {width: '80%'}
-                }
-              />
-            </Fragment>
-          ))}
+          inputFields.map( (input, index) => {
+            if (input.key !== 'replaceMedia' ||
+            (input.key === 'replaceMedia' && replaceMedia)) {
+              return (
+                <Fragment>
+                  <FormGroup
+                    key={input.field.id}
+                    inputType={input.field.inputType}
+                    label={input.field.label}
+                    textArea={input.field.textArea}
+                    id={input.field.id}
+                    onChange={input.field.inputType === 'file' ? this.addMedia : this.onChange}
+                    multiple={this.props.maxNoOfImages > 1}
+                  />
+                  {input.field.inputType === 'file' &&
+                  <div
+                    id={`${input.field.id}-media-row`}
+                    className='row container-fluid'
+                  ></div>
+                  }
+                  <hr
+                    style={index >= inputFields.length
+                      ? {paddingBottom: '15px'}
+                      : {width: '80%'}}
+                  />
+                </Fragment>)
+            } return <div key={input.field.id} id={input.field.id} />
+          })
+        }
         <div className={"container"}>
           {
             (this.props.retrievingData &&

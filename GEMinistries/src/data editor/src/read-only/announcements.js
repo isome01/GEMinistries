@@ -22,3 +22,7 @@ export const addAnnouncements = [
       }
   }
 ]
+
+export const updateAnnouncements = [
+  ...addAnnouncements,
+]

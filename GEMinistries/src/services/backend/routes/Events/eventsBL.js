@@ -1,3 +1,5 @@
+const manageAttachments = require('../../public/javascripts/manageAttachments')
+const Event = require('../../public/javascripts/Event')
 const eventsDAL = require('./eventsDAL')
 const eventsBL = {}
 
@@ -9,7 +11,7 @@ eventsBL.retrieveEvents = () => {
             else return {message: "There are no entries."}
         }
     ).catch(
-        err => console.log(err)
+        err => err
     )
 }
 
@@ -21,8 +23,31 @@ eventsBL.addEventBL = event =>{
     )
 }
 
-eventsBL.delEventBL = id =>{
-    return
+eventsBL.updateEventBL = event => {
+    let {attachment, replaceMedia} = event
+
+    return eventsDAL.updateEvent(Event(
+      event.title,
+      event.description,
+      event.startDate,
+      event.startTime,
+      event.endDate,
+      event.endTime,
+      manageAttachments(attachment),
+      event.credentials
+      ), (replaceMedia === 'checked' ? true : false)
+    ).then(
+      result => result
+    ).catch(
+      err => err
+    )
+}
+
+eventsBL.delEventBL = event =>{
+    return eventsDAL.deleteEvent(event).then(
+      result => result,
+      err => err
+    )
 }
 
 module.exports = eventsBL

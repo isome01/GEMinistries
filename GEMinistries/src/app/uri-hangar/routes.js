@@ -1,31 +1,43 @@
 export default {
   events: {
     read: {
-      uri: `localhost:9910/events/read`,
+      uri: `/events/read`,
       method: 'GET'
     },
     add: {
-      uri: `localhost:9910/events/add`,
+      uri: `/events/add`,
+      method: 'POST'
+    },
+    update: {
+      uri: '/events/update',
       method: 'POST'
     }
   },
   announcements: {
     read: {
-      uri: `localhost:9910/announcements/read`,
+      uri: `/announcements/read`,
       method: 'GET'
     },
     add: {
-        uri: `localhost:9910/announcements/add`,
-        method: 'POST'
+      uri: `/announcements/add`,
+      method: 'POST'
+    },
+    update: {
+      uri: '/announcements/update',
+      method: 'POST'
     }
   },
   profiles: {
     read: {
-      uri: 'localhost:9910/profiles/read',
+      uri: '/profiles/read',
       method: 'GET'
     },
     add: {
-      uri: 'localhost:9910/profiles/add',
+      uri: '/profiles/add',
+      method: 'POST'
+    },
+    update: {
+      uri: '/profiles/update',
       method: 'POST'
     }
   }

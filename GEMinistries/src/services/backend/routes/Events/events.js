@@ -14,13 +14,24 @@ module.exports = app =>{
     })
 
     app.post('/events/add', (req,res) => {
-        console.log('event:',req.body.event)
         eventsBL.addEventBL(req.body.event).then(
             result => {
-                res.json({message: `Event "${result.ops.title}" created.`})
+                res.json({message: result})
             }
         ).catch(
             err => res.json({message: `oops... something went wrong; error - ${err}`})
+        )
+    })
+
+    app.post('/events/update', (req, res) => {
+        eventsBL.updateEventBL(req.body.event).then(
+          result => {
+              res.json({message: result})
+          }
+        ).catch(
+          err => {
+            res.json({message: `Unable to process event update; error - ${err}`})
+          }
         )
     })
 

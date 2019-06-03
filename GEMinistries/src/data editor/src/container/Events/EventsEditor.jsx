@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import Editor from '../Editor/Editor.jsx'
+import PropTypes from 'prop-types'
+import Editor from '../Editor'
 import './EventEditor.css'
-import {addEvent} from "../../read-only/events"
+import {addEvent, updateEvent} from "../../read-only/events"
 
 class EventsEditor extends Component{
+  static propTypes = {
+    uriHangar: PropTypes.func.isRequired,
+    domain: PropTypes.string.isRequired,
+  }
   render() {
     const title = 'Events Editor'
-    const uri = '//localhost:9910/events'
     return (
       <div className='container-fluid'>
         <div className='row'>
@@ -24,16 +28,28 @@ class EventsEditor extends Component{
             </div>
             <div style={{padding: '10px'}}>
               <Editor
+                uriHangar={this.props.uriHangar}
+                domain={this.props.domain}
+                maxNoOfImages={5}
                 basePath={this.props.match.path}
+                baseAPI={'events'}
                 tabData={[
                   {
+                    action: 'add',
                     title: 'Add an Event',
                     dataObjectKey: 'event',
-                    apiUrl: `${uri}/add`,
                     tablink: '/Add',
                     tabtext: 'Add',
-                    inputFields: [...addEvent]
-                  }
+                    inputFields: [...addEvent],
+                  }, {
+                    action: 'update',
+                    title: 'Update an Event',
+                    dataObjectKey: 'event',
+                    tablink: '/Update',
+                    tabtext: 'Update',
+                    inputFields: [...updateEvent],
+                    hasFormData: true,
+                  },
                 ]}
               />
             </div>
