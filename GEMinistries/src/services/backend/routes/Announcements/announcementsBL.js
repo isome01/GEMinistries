@@ -1,4 +1,4 @@
-const saveImage = require('../../public/javascripts/saveImage')
+const manageAttachments = require('../../public/javascripts/manageAttachments')
 const Announcement = require('../../public/javascripts/Announcement')
 const announcementsDAL = require('./announcementsDAL')
 
@@ -13,23 +13,25 @@ announcementsBL.getAnnouncements = () => {
 
 announcementsBL.addAnnouncement = announcement => {
   let {attachment} = announcement
-  if (attachment) {
-    if (typeof (attachment.length) === 'number') {
-      attachment = attachment.map(data => {
-        if (data.value)
-          return saveImage(data.name, data.value)
-      })
-    } else attachment = saveImage(
-      attachment.name,
-      attachment.value
-    )
-  }
 
   return announcementsDAL.addAnnouncement(Announcement({
     header: announcement.header,
     summary: announcement.summary,
-    attachment: attachment || ''
+    attachment: manageAttachments(attachment) || ''
   })).then(
+    results => results,
+    err => err
+  )
+}
+
+announcementsBL.updateAnnouncement = announcement => {
+  let {attachment, replaceMedia} = announcement
+  return announcementsDAL.updateAnnouncement(Announcement({
+    header: announcement.header,
+    summary: announcement.summary,
+    attachment: manageAttachments(attachment) || ''
+  }), (replaceMedia === 'checked' ? true : false)
+  ).then(
     results => results,
     err => err
   )

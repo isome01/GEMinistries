@@ -59,7 +59,7 @@ FormGroup.propTypes = {
     id: PropTypes.string.isRequired,
     textArea: PropTypes.bool,
     onChange: PropTypes.func,
-    multiple: PropTypes.bool
+    multiple: PropTypes.bool,
 }
 
 export default FormGroup

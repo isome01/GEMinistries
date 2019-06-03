@@ -1,11 +1,15 @@
 import React, {Component} from 'react'
-import Editor from '../Editor/Editor.jsx'
-import {addAnnouncements} from '../../read-only/announcements'
+import PropTypes from 'prop-types'
+import Editor from '../Editor'
+import {addAnnouncements, updateAnnouncements} from '../../read-only/announcements'
 
 class AnnouncementsEditor extends Component {
+  static propTypes = {
+    uriHangar: PropTypes.func.isRequired,
+    domain: PropTypes.string.isRequired
+  }
   render() {
     const title = 'Announcements Editor'
-    const uri = '//localhost:9910/announcements'
     return (
       <div className='container-fluid'>
         <div
@@ -23,16 +27,27 @@ class AnnouncementsEditor extends Component {
           </div>
           <div style={{padding: '10px'}}>
             <Editor
-              maxNoOfImages={5}
+              uriHangar={this.props.uriHangar}
+              domain={this.props.domain}
+              maxNoOfImages={1}
               basePath={this.props.match.path}
+              baseAPI={'announcements'}
               tabData={[
                 {
+                  action: 'add',
                   dataObjectKey: 'announcement',
-                  apiUrl: `${uri}/add`,
                   title: 'Add an Announcement',
                   tablink: '/Add',
                   tabtext: 'Add',
                   inputFields: [...addAnnouncements]
+                }, {
+                  action: 'update',
+                  dataObjectKey: 'announcement',
+                  title: 'Update an Announcement',
+                  tablink: '/Update',
+                  tabtext: 'Update',
+                  inputFields: [...updateAnnouncements],
+                  hasFormData: true
                 }
               ]}
             />

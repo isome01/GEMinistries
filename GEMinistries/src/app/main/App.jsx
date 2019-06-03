@@ -50,6 +50,7 @@ class App extends Component {
           {text: 'About Us', link: '/About_Us'},
         ]
         const {uriHangar} = this.props
+        const domain = this.props.domain || 'localhost'
         return (
           <div>
               <Router>
@@ -69,6 +70,7 @@ class App extends Component {
                                 {...props}
                                 getImage={this.getImage}
                                 uriHangar={uriHangar}
+                                domain={domain}
                               />)}
                           />
                           <Route
@@ -78,6 +80,7 @@ class App extends Component {
                                 {...props}
                                 getImage={this.getImage}
                                 uriHangar={uriHangar}
+                                domain={domain}
                               />
                             )}
                           />
@@ -88,6 +91,7 @@ class App extends Component {
                                 {...props}
                                 getImage={this.getImage}
                                 uriHangar={uriHangar}
+                                domain={domain}
                               />
                             )}
                           />
