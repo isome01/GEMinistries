@@ -34,20 +34,20 @@ announcementsDAL.addAnnouncement = announcement => {
   )
 }
 
-announcementsDAL.updateAnnouncement = (announcement, replaceMedia=false) => {
-  const id = new ObjectId(announcement._id)
+announcementsDAL.updateAnnouncement = announcement => {
+  const id = new ObjectId(announcement.id)
   return dbDriver(uri).then(
     db => db.collection('announcements').findOne({
       _id: id
     }, {'limit': 1}).then(
       result => {
-        const dataCopy = Announcement(
-          announcement.header || result.header,
-          announcement.summary || result.summary,
-          replaceMedia
-            ? (announcement.attachment || result.attachment)
-            : [...result.attachment, announcement.attachment]
-        )
+        const dataCopy = Announcement({
+          id,
+          header: (announcement.header || announcement.header),
+          summary: (announcement.summary || result.summary),
+          attachment: announcement.attachment || result.attachment
+        })
+        console.log(dataCopy)
         db.collection('announcements').updateOne({
           _id: id
         }, {$set : {
@@ -56,13 +56,20 @@ announcementsDAL.updateAnnouncement = (announcement, replaceMedia=false) => {
           'summary': `${dataCopy.summary}`,
           'attachment': `${dataCopy.attachment}`,
           'created': `${result.created}`
-          }},{}).then(
-          result => result,
-          err => err
+          }}, {}).then(
+          res => {
+            console.log(res)
+            return res
+          }
+        ).catch(
+          err => {throw new Error(err)}
         )
-      },
+      }
+    ).catch(
       err => {throw new Error(err)}
     )
+  ).catch(
+    err => {throw new Error(err)}
   )
 }
 

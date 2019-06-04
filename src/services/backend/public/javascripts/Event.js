@@ -1,12 +1,13 @@
-module.exports = ({title, description, startDate, startTime, endDate, endTime, attachment, credentials}) => {
-  return ({
-    title: title || '',
-    description: description || '',
-    startDate: startDate || '',
-    startTime: startTime || '',
-    endDate: endDate || '',
-    endTime: endTime || '',
-    attachment: attachment || '',
-    credentials: credentials || ''
-  })
-}
+const ObjectId = require('mongodb').ObjectID
+
+module.exports = ({id, title, description, startDate, startTime, endDate, endTime, attachment, credentials}) => ({
+  title,
+  description,
+  startDate,
+  startTime,
+  endDate,
+  endTime,
+  attachment,
+  credentials,
+  id: new ObjectId(id)
+})

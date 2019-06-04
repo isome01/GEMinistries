@@ -19,7 +19,9 @@ module.exports = app =>{
                 res.json({message: result})
             }
         ).catch(
-            err => res.json({message: `oops... something went wrong; error - ${err}`})
+            err => {
+              res.json({message: `oops... something went wrong; error - ${err}`})
+            }
         )
     })
 

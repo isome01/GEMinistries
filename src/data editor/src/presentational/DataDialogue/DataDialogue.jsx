@@ -9,8 +9,8 @@ class DataDialogue extends Component {
     dialogueTitle: PropTypes.string.isRequired
   }
 
-  state = {
-
+  static defaultProps = {
+    dataTitles: []
   }
 
   render () {
@@ -26,7 +26,7 @@ class DataDialogue extends Component {
         >
           <h5>{this.props.dialogueTitle}</h5>
           <div style={{paddingTop: '10px', paddingBottom: '10px'}}>
-            {this.props.dataTitles.map(data => {
+            {(this.props.dataTitles).map(data => {
               return (
                 <div
                   style={{

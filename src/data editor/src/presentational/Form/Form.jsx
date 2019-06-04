@@ -51,7 +51,7 @@ class Form extends Component {
     this.setState({
       replaceMedia: (maxNoOfImages > 1 && hasFormData)
     })
-    let inputFields = this.props.inputFields.map( (input,index) => {
+    let inputFields = this.props.inputFields.map( (input, index) => {
       return ({
         key: input.key,
         field: {
@@ -183,7 +183,7 @@ class Form extends Component {
       if (field) {
         if (field.type !== 'file') {
           inputValues[input.key] = field.value
-          if (field.name) {
+          if (field.name && !inputValues['id']) {
             inputValues['id'] = field.name
           }
         } else if (field.type === 'file' && field.files[0]) {
@@ -260,7 +260,7 @@ class Form extends Component {
             ) || (!this.props.removeButton &&
               <button
                 className={"btn btn-primary form-control col-md-6 col-md-offset-3 text-center"}
-                type={"submit"}
+                type="submit"
                 style={{maxWidth: '130'}}
               >Submit</button>
             )
