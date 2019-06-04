@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb70e69-3d6d-410d-852a-ac574654f18d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data editor/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/dist/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data editor/src/container/Editor/Editor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/container/Editor/Editor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data editor/src/presentational/DataDialogue/DataDialogue.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/presentational/DataDialogue/DataDialogue.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data editor/src/presentational/Form/Form.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/presentational/Form/Form.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data editor/src/uri-hangar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/uri-hangar/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,28 +24,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dependencies.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/main/App.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="84" column="59" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+            <state relative-caret-position="51">
+              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/data editor/src/App.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Events/eventsDAL.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="92" column="7" lean-forward="true" selection-start-line="92" selection-start-column="7" selection-end-line="92" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -54,7 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/components/NavbarContainer/NavbarContainer.jsx" />
         <option value="$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx" />
@@ -87,11 +97,9 @@
         <option value="$PROJECT_DIR$/GEMinistries/src/app/components/templates/AboutUs/AboutUs.jsx" />
         <option value="$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css" />
         <option value="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
-  </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/GEMinistries/package.json" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -103,114 +111,77 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data editor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data editor" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="dist" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="services" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="services" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="presentational" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="services" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="GEMinistries" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\misome\WebstormProjects\GEMinistries" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="services" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="backend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Events" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -223,6 +194,11 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\misome\WebstormProjects\GEMinistries\src\services\services" />
+      <recent name="C:\Users\misome\WebstormProjects\GEMinistries\src\services" />
+      <recent name="C:\Users\misome\WebstormProjects\GEMinistries\src\data editor" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\misome\WebstormProjects\GEMinistries\GEMinistries\GEMinstries_UI\src\app\presentational" />
     </key>
@@ -259,7 +235,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34949000" />
+    <option name="totallyTimeSpent" value="35451000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -271,10 +247,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14552239" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14541623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -286,7 +262,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -297,8 +273,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/main/main.css" />
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/package.json" />
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx" />
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/index.html" />
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx" />
@@ -316,251 +290,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/presentational/Form/Form.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816">
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/package.json" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/presentational/Form/Form.jsx" />
     <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/presentational/NavbarTabs/NavbarTabs.jsx" />
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Editor/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/presentational/Tabs/Tabs.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Editor/style.css" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/presentational/Tabs/Tabs.jsx" />
     <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/read-only/announcement.js" />
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Editor/Editor.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-932">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Events/EventsEditor.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Announcements/AnouncementsEditor.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/HorizontalNav/HorizontalNav.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/VerticalNav/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/Article/Article.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/VerticalNav/VerticalNav.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="91" selection-start-line="6" selection-start-column="91" selection-end-line="6" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/ActivitiesFragment.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/MinistriesFragment.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/PrayerFragment.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/MissionTripsFragment.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="34" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/dist/bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="45" column="51158" selection-start-line="45" selection-start-column="51158" selection-end-line="45" selection-end-column="51158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/AboutUs/AboutUs.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Profile/Profile.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/Community.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="24" lean-forward="true" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Earlene.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement_2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEMnavLogoText.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEM_Logo_Navy.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Editor/Editor.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/package.json" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Events/EventsEditor.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/container/Announcements/AnouncementsEditor.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/data editor/src/App.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/HorizontalNav/HorizontalNav.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/VerticalNav/style.css" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/Article/Article.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/presentational/VerticalNav/VerticalNav.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/ActivitiesFragment.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/MinistriesFragment.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/PrayerFragment.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/MissionTripsFragment.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/dist/bundle.js" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/AboutUs/AboutUs.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Profile/Profile.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Community/Community.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Earlene.jpg" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.txt" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement.png" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/mission_statement_2.png" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/Greg_Jones.jpg" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEMnavLogoText.png" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/assets/GEM_Logo_Navy.png" />
     <entry file="file://$PROJECT_DIR$/dependencies.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="44" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/main/App.jsx">
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/main/App.jsx" />
+    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx" />
+    <entry file="file://$PROJECT_DIR$/src/services/services/backend/bin/www">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Announcements/announcementsBL.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="385">
+          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx">
+    <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Announcements/announcementsDAL.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="84" column="59" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+        <state relative-caret-position="45">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data editor/src/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Events/eventsDAL.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="92" column="7" lean-forward="true" selection-start-line="92" selection-start-column="7" selection-end-line="92" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
         </state>
       </provider>
     </entry>

@@ -50,29 +50,32 @@ eventsDAL.addEvent = event => {
 }
 
 eventsDAL.updateEvent = (event, replaceMedia=false) => {
-  const id = new ObjectId(event._id)
+  const {id} = event
   return dbDriver(uri).then(
     db => {
       db.collection('events').findOne({
         _id: id
       }).then(
         result => {
-          console.log(...event.attachment, ...result.attachment, '\nreplacedMedia:', replaceMedia)
           const dataCopy = Event(
-            event.title || result.title,
-            event.description || result.description,
-            event.startDate || result.startDate,
-            event.startTime || result.startTime,
-            event.endDate || result.endDate,
-            event.endTime || result.endTime,
-            event.credentials || result.credentials,
-            replaceMedia
+            {id,
+            title: event.title || result.title,
+            description: event.description || result.description,
+            startDate: event.startDate || result.startDate,
+            startTime: event.startTime || result.startTime,
+            endDate: event.endDate || result.endDate,
+            endTime: event.endTime || result.endTime,
+            credentials: event.credentials || result.credentials,
+            attachment: replaceMedia
               ? (event.attachment || result.attachment)
-              : [...event.attachment, ...result.attachment]
-          )
-
+              : [
+                ...event.attachment || event.attachment,
+                ...(result.attachment.split(',')) || result.attachment
+              ]
+          })
+          console.log(dataCopy)
           db.collection('events').updateOne({
-            _id: ObjectId(dataCopy.id)
+            _id: id
           },{$set: {
               'title': `${dataCopy.title}`,
               'description': `${dataCopy.description}`,

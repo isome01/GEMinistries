@@ -1,5 +1,6 @@
-module.exports = ({header, summary, attachment}) => ({
-  header: `${header}`,
-  summary: `${summary}`,
-  attachment: `${attachment}`
+module.exports = ({id, header, summary, attachment}) => ({
+  id,
+  header,
+  summary,
+  attachment
 })

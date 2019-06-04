@@ -12,6 +12,7 @@ export default function (api, action, data = {} , domain, port = '9910', apiCont
 
   return axios({method, url, data, headers, ...apiContents}).then(
     res => {
+      console.log(res.data)
       const message = res.data.message
       return message || 'no message returned'
     },

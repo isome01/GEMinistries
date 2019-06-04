@@ -25,17 +25,13 @@ eventsBL.addEventBL = event =>{
 
 eventsBL.updateEventBL = event => {
     let {attachment, replaceMedia} = event
-
-    return eventsDAL.updateEvent(Event(
-      event.title,
-      event.description,
-      event.startDate,
-      event.startTime,
-      event.endDate,
-      event.endTime,
-      manageAttachments(attachment),
-      event.credentials
-      ), (replaceMedia === 'checked' ? true : false)
+    event = {
+        ...event,
+        attachment: manageAttachments(attachment)
+    }
+    return eventsDAL.updateEvent(
+      Event(event),
+      (replaceMedia === 'checked')
     ).then(
       result => result
     ).catch(

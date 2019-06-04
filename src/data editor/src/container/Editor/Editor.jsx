@@ -38,6 +38,7 @@ class Editor extends Component {
   }
 
   static defaultProps = {
+    maxNoOfImages: 1
   }
 
   constructor(props) {
