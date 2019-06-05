@@ -35,12 +35,16 @@ class App extends Component {
     }
 
     getImage = (src = '') => {
-        try{
-            return require(`../../assets/${src}`)
-        } catch {
-            throw new Error('Problem loading the image;')
-            return ''
-        }
+        if (src && src !== 'undefined'){
+            try{
+                const media = require(`../../assets/${src}`)
+                return media
+            } catch {
+                console.log('Problem loading the image;')
+            }
+        } else console.log('Media source not defined. :/')
+
+        return ''
     }
 
     render(){

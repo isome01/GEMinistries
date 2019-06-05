@@ -5,17 +5,32 @@ const uri = 'GEM'
 
 let eventsDAL = {}
 
-eventsDAL.retrieveEvents = () => {
+const checkDate = date => {
+  return (
+    (date && new Date(date) >= new Date())
+    ? 'future' : 'past'
+  )
+}
 
-    return dbDriver(uri).then(
-        db => {
-            return db.collection('events').find().toArray().then(
-                results => results,
-                err => err
-            )
-        },
+eventsDAL.retrieveEvents = () => {
+  return dbDriver(uri).then(
+    db => {
+      return db.collection('events').find().toArray().then(
+        results => {
+          let arr = []
+          results.forEach(data => {
+            data['status'] = checkDate(data['endDate'])
+            arr.push(data)
+          })
+          return arr
+        }
+      ).catch(
         err => {throw new Error(err)}
-    )
+      )
+    }
+  ).catch(
+    err => {throw new Error(err)}
+  )
 }
 
 eventsDAL.addEvent = event => {
@@ -32,7 +47,7 @@ eventsDAL.addEvent = event => {
                   'author': `${event.user || 'Greg Jones'}`,
                   'created': `${new Date().toString()}`
               },
-              'attachment': `${event.attachment}`
+              'attachment': `${event.attachment || ''}`
           }).then(
       result => {
               if (result.insertedCount >= 1) {
@@ -83,7 +98,8 @@ eventsDAL.updateEvent = (event, replaceMedia=false) => {
               'endTime': `${dataCopy.endTime}`,
               'startDate': `${dataCopy.startDate}`,
               'endDate': `${dataCopy.endDate}`,
-              'attachment': `${dataCopy.attachment}`
+              'attachment': `${dataCopy.attachment}`,
+              'status': `${checkDate(dataCopy['status'])}`
           }}, {}).then(
           result => result,
           err => err
