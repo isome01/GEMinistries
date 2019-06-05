@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import './style.css'
 
 const DynamicImg = ({title, dataList, className, style, showCaption, showTitle}) => (
+  /*
+  Remember, title CANNOT have a string with whitespaces. Capiche?
+  */
   <div id={title} className='carousel slide' data-ride="carousel" style={{display: style.display || 'block'}}>
     {
       dataList.length > 1 &&

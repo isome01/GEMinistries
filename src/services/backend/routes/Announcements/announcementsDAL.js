@@ -24,7 +24,7 @@ announcementsDAL.addAnnouncement = announcement => {
       'header': `${announcement.header}`,
       'title': `${announcement.header}`,
       'summary': `${announcement.summary}`,
-      'attachment': `${announcement.attachment}`,
+      'attachment': `${announcement.attachment || ''}`,
       'created': `${new Date().toString()}`
     }).then(
       result => result
@@ -54,7 +54,7 @@ announcementsDAL.updateAnnouncement = announcement => {
           'header': `${dataCopy.header}`,
           'title': `${dataCopy.header}`,
           'summary': `${dataCopy.summary}`,
-          'attachment': `${dataCopy.attachment}`,
+          'attachment': `${dataCopy.attachment || ''}`,
           'created': `${result.created}`
           }}, {}).then(
           res => {

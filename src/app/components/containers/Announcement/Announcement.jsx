@@ -67,7 +67,7 @@ class Announcement extends Component {
           children={
             (overflows &&
               <Fragment>
-                {allowOverflow && children}
+                {children}
                 <span
                   id={`toggle-${header.toLowerCase()}`}
                   className='article-link'

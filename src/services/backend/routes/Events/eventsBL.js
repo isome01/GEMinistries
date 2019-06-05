@@ -16,7 +16,7 @@ eventsBL.retrieveEvents = () => {
 }
 
 eventsBL.addEventBL = event =>{
-    return eventsDAL.addEvent(event).then(
+    return eventsDAL.addEvent(Event({...event, attachment: ''})).then(
         result => result
     ).catch(
         err => err

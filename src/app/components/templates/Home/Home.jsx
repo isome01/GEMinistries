@@ -5,6 +5,7 @@ import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import feed from './default'
 import './style.css'
+import $ from 'jquery'
 
 class Home extends Component{
   static propTypes = {
@@ -12,15 +13,19 @@ class Home extends Component{
     uriHangar: PropTypes.func,
     domain: PropTypes.string.isRequired
   }
-  constructor () {
-      super()
-      this.state = {
-          newsFeed : [],
-          fetchAnnouncements: false,
-          fetchEvents: false
-      }
-      this.convertDate = this.convertDate.bind(this)
-      this.meridiem = this.meridiem.bind(this)
+
+  constructor() {
+    super()
+    this.state = {
+      fetchNewsFeed: false,
+      newsFeed: [],
+      fetchEvents: false,
+      featuredEvent: null,
+      upcomingEvents: []
+    }
+    this.convertDate = this.convertDate.bind(this)
+    this.meridiem = this.meridiem.bind(this)
+
   }
 
   componentWillMount () {
@@ -32,7 +37,7 @@ class Home extends Component{
       uriHangar('announcements', 'read', {}, domain).then(
         message => {
           console.log(message)
-          this.setState({fetchAnnouncements: true})
+          this.setState({fetchNewsFeed: true})
           window.sessionStorage.setItem('announcements', 'true')
         },
         err => console.log(err)
@@ -43,8 +48,46 @@ class Home extends Component{
   componentDidMount () {
     /* get info from the uri hangar ... */
     let news_feed = [...feed]
-    const {uriHangar, fetchAnnouncements, domain} = this.props
-    if (!fetchAnnouncements) {
+    let upcomingEvents = []
+    let featuredEvent = null
+    const {uriHangar, domain} = this.props
+    const {fetchNewsFeed, fetchEvents} = this.state
+    if (!fetchEvents) {
+      uriHangar('events', 'read', {}, domain).then(
+       res => {
+         if (res.length > 1) {
+           for (let i = 1; i < res.length; i++) {
+             let event = res[i]
+             if (event['status'] === 'past' && event['attachment']) {
+               if (new Date(event['endDate']) >= new Date(res[i-1]['endDate'])) {
+                 featuredEvent = event
+               } else featuredEvent = res[i]
+             }
+           }
+         } else featuredEvent = (
+           (res[0] && res[0]['status'] === 'past' && res[0]['attachment'] && res[0]['attachment'].length)
+             ? {...res[0]}
+             : {...featuredEvent}
+         )
+
+         this.setState({
+           featuredEvent: {...featuredEvent},
+           upcomingEvents: (res || []).reverse().map(event => {
+             if (event['status'] === 'future') {
+               return {...event}
+             }
+           }),
+
+         })
+       },
+       err => {
+         console.log(err)
+         featuredEvent = null
+         upcomingEvents = []
+       }
+      )
+    }
+    if (!fetchNewsFeed) {
       uriHangar('announcements', 'read', {}, domain).then(
         res => {
           this.setState({
@@ -53,14 +96,17 @@ class Home extends Component{
               summary: feed.summary,
               attachment: feed.attachment,
               created: feed.created
-        })),
-            fetchAnnouncements: true
+            })),
+            fetchNewsFeed: true,
+            fetchEvents: true
           })
         },
         err => {
           console.log(err)
           this.setState(()=>({
-            newsFeed : news_feed.slice()
+            newsFeed : news_feed.slice(),
+            upcomingEvents: upcomingEvents.slice(),
+            featuredEvent: null
           }))
         }
       )
@@ -77,9 +123,9 @@ class Home extends Component{
   }
 
   render () {
-    const {newsFeed, fetchAnnouncements} = this.state
+    const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, upcomingEvents} = this.state
     const {getImage} = this.props
-    if (!fetchAnnouncements) {
+    if (!fetchNewsFeed || !fetchEvents) {
       return (
         <div className='container'>
           <div className='text-center' style={{position: 'center'}}>
@@ -88,46 +134,39 @@ class Home extends Component{
         </div>
       )
     }
-
-    return(
+    return (
       <div id="home-page" className="home container-fluid">
         <main>
           <section>
-            <br />
+            <br/>
             <h2 className='text-center' style={{color: 'navy'}}>
-                Living His mission
+              Living His mission
             </h2>
             <div>
-              <DynamicImg
-                title={'Mission2018'}
-                className='text-center'
-                style={({
-                  border: 'solid navy 1px',
-                  height: '600px'
-                })}
-                dataList={[
-                  {
-                    name: 'Mission Trip Summer 2019',
-                    caption: 'Carrying out His mission',
-                    path: `${getImage('37553541_10155221685005834_2978869568522420224_n.jpg')}`
-                  }, {
-                    name: 'Mission Trip Summer 2019',
-                    caption: 'Carrying out His mission',
-                    path: `${getImage('37229110_10156750315657859_5542478179626647552_n.jpg')}`
-                  }, {
-                    name: 'Mission Trip Summer 2019',
-                    caption: 'Carrying out His mission',
-                    path: `${getImage('37582402_10155221650790834_491459642958807040_n.jpg')}`
-                  }
-                ]}
-              />
+              {
+                featuredEvent && featuredEvent['attachment'] && (
+                  <DynamicImg
+                    title='featured-event'
+                    className='text-center'
+                    style={({
+                      border: 'solid navy 1px',
+                      height: '600px'
+                    })}
+                    dataList={featuredEvent['attachment'].split(',').map(image => ({
+                      name: 'featured-event',
+                      caption: (featuredEvent.description || ''),
+                      path: getImage(image)})
+                    )}
+                  />
+                )
+              }
             </div>
-            <br />
-            <br />
+            <br/>
+            <br/>
             <h2> Announcements: </h2>
             {(newsFeed || []).reverse().map(feed => (
               <div>
-                <hr style={{border:'solid #000080 1px'}}/>
+                <hr style={{border: 'solid #000080 1px'}}/>
                 <p
                   className='text-left'
                   style={{color: 'navy'}}
@@ -140,7 +179,7 @@ class Home extends Component{
                     summary: feed.summary || 'This announcement has no summary',
                     children: (
                       feed.attachment &&
-                      <div style={{height:'370px', width: '370px', display: 'inline-block'}}>
+                      <div style={{height: '370px', width: '370px', display: 'inline-block'}}>
                         <DynamicImg
                           style={{
                             border: 'solid #eee 2px',

@@ -1,6 +1,6 @@
 const ObjectId = require('mongodb').ObjectID
 
-module.exports = ({id, title, description, startDate, startTime, endDate, endTime, attachment, credentials}) => ({
+module.exports = ({id, title, description, startDate, startTime, endDate, endTime, attachment, credentials, status}) => ({
   title,
   description,
   startDate,
@@ -9,5 +9,6 @@ module.exports = ({id, title, description, startDate, startTime, endDate, endTim
   endTime,
   attachment,
   credentials,
-  id: new ObjectId(id)
+  id: new ObjectId(id),
+  status
 })

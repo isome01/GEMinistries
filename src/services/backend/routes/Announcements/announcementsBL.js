@@ -30,7 +30,7 @@ announcementsBL.updateAnnouncement = announcement => {
   let {attachment} = announcement
   const data = {
     ...announcement,
-    attachment: manageAttachments(attachment)[0],
+    attachment: attachment ? manageAttachments(attachment)[0] : '',
   }
   return announcementsDAL.updateAnnouncement(
     Announcement(data)

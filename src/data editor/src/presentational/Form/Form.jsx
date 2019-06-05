@@ -192,11 +192,13 @@ class Form extends Component {
           if (mediaRow.length > 1) {
             console.log(mediaRow)
             mediaRow.forEach( media => {
-              inputValues[input.key] = inputValues[input.key] || []
-              inputValues[input.key].push({
-                name: media.name,
-                value: media.value
-              })
+              if (media.value && media.name) {
+                inputValues[input.key] = inputValues[input.key] || []
+                inputValues[input.key].push({
+                  name: media.name,
+                  value: media.value
+                })
+              }
             })
           } else {
             inputValues[input.key] = {
@@ -237,7 +239,7 @@ class Form extends Component {
                   <div
                     id={`${input.field.id}-media-row`}
                     className='row container-fluid'
-                  ></div>
+                  >{''}</div>
                   }
                   <hr
                     style={index >= inputFields.length
