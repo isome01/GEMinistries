@@ -112,7 +112,7 @@ class Editor extends Component {
       console.log(data)
 
       uriHangar(api, action, data, domain, port, {
-        maxContentLength: this.props.maxNoOfImages * 2000000
+        maxContentLength: this.props.maxNoOfImages * 50000000
       }).then(
         results => {
           console.log(results)

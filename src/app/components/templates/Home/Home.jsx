@@ -153,7 +153,7 @@ class Home extends Component{
                       height: '600px'
                     })}
                     dataList={featuredEvent['attachment'].split(',').map(image => ({
-                      name: 'featured-event',
+                      name: featuredEvent.title,
                       caption: (featuredEvent.description || ''),
                       path: getImage(image)})
                     )}
@@ -179,7 +179,7 @@ class Home extends Component{
                     summary: feed.summary || 'This announcement has no summary',
                     children: (
                       feed.attachment &&
-                      <div style={{height: '370px', width: '370px', display: 'inline-block'}}>
+                      <div style={{height: '220px', width: '300px', display: 'inline-block'}}>
                         <DynamicImg
                           style={{
                             border: 'solid #eee 2px',
