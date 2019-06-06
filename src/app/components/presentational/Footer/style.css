@@ -3,8 +3,10 @@ footer {
     bottom: 0;
     width: inherit;
     max-width: inherit;
-    background-color: #000080;
-    border: solid #555 2px;
+    background-color: #1e416e;
+    border: solid #eee 2px;
+    border-radius: 0px 0px 5px 5px;
+    border-bottom: 0;
 }
 
 footer .footer-talk {

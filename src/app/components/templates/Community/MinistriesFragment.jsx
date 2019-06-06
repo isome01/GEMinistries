@@ -6,7 +6,7 @@ const MinistriesFragment = () => (
         <br />
         <br />
         <h5 className='text-center'>Ministries for all ages</h5>
-        <hr style={{border: 'solid #000080 1px'}}/>
+        <hr style={{border: 'solid #1e416e 1px'}}/>
         <ul>
             <li>
                 <Article

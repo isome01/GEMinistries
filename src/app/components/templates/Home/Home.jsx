@@ -5,7 +5,6 @@ import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import feed from './default'
 import './style.css'
-import $ from 'jquery'
 
 class Home extends Component{
   static propTypes = {
@@ -25,7 +24,6 @@ class Home extends Component{
     }
     this.convertDate = this.convertDate.bind(this)
     this.meridiem = this.meridiem.bind(this)
-
   }
 
   componentWillMount () {
@@ -139,7 +137,7 @@ class Home extends Component{
         <main>
           <section>
             <br/>
-            <h2 className='text-center' style={{color: 'navy'}}>
+            <h2 className='text-center' style={{color: '#1e416e'}}>
               Living His mission
             </h2>
             <div>
@@ -149,7 +147,7 @@ class Home extends Component{
                     title='featured-event'
                     className='text-center'
                     style={({
-                      border: 'solid navy 1px',
+                      border: 'solid #1e416e 1px',
                       height: '600px'
                     })}
                     dataList={featuredEvent['attachment'].split(',').map(image => ({
@@ -166,10 +164,10 @@ class Home extends Component{
             <h2> Announcements: </h2>
             {(newsFeed || []).reverse().map(feed => (
               <div>
-                <hr style={{border: 'solid #000080 1px'}}/>
+                <hr style={{border: 'solid #1e416e 1px'}}/>
                 <p
                   className='text-left'
-                  style={{color: 'navy'}}
+                  style={{color: '#000080'}}
                 >Posted On:&nbsp;
                   {this.convertDate(feed.created)}
                 </p>
