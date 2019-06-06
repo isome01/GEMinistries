@@ -4,14 +4,14 @@
 }
 
 .hrzl-nav ul a {
-    color: navy;
+    color: #000080;
     text-decoration: none;
     transition: background-color .15s;
 }
 
 .hrzl-nav ul a:hover {
     color: white;
-    background-color: navy;
+    background-color: #000080;
     text-decoration: none;
 }
 

@@ -21,7 +21,7 @@ article {
 .article-link {
     text-decoration: none;
     cursor: pointer;
-    color: navy;
+    color: #1e416e;
 }
 
 .article-link:hover {

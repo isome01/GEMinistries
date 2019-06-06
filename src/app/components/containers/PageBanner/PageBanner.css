@@ -4,9 +4,9 @@
         display: block;
         justify-content: center;
         margin: auto;
-        border-right: solid navy 15px;
-        border-left: solid  navy 2px;
-        border-bottom: solid navy 1px;
+        border-right: solid #1e416e 15px;
+        border-left: solid  #1e416e 2px;
+        border-bottom: solid #1e416e 1px;
         box-sizing: border-box;
     }
 

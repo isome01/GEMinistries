@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, browserHistory } from 'react-router-dom'
 import {Switch, Route } from 'react-router-dom'
 import Navbar from './presentational/Navbar/Navbar.jsx'
 import EventsEditor from './container/Events/EventsEditor.jsx'
@@ -32,7 +32,7 @@ class App extends Component{
     const {uriHangar} = this.props
     const domain = 'localhost'
     return (
-      <Router>
+      <Router history={browserHistory}>
         <div className='row'>
           <div className=''>
             <Navbar

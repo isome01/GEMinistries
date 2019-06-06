@@ -50,7 +50,7 @@ class AboutUs extends Component{
                     <header className='container-fluid'>
                         <h1 className="about-us-header">
                             About Us
-                            <hr style={{border: 'solid navy 5px'}} />
+                            <hr style={{border: 'solid #1e416e 2px', borderRadius: '5px',}} />
                         </h1>
                         <h5 className='container'>
                             We thank all our friends and family for your support and prayers.
@@ -66,7 +66,7 @@ class AboutUs extends Component{
                             <div className='row'>
                                 <h3 className='text-left'>Directors</h3>
                             </div>
-                            <hr style={{border: 'solid navy 1px', width: '80%'}} />
+                            <hr style={{border: 'solid #1e416e 1px', borderRadius: '5px', width: '80%'}} />
                             <br />
 
                             <div className='container-fluid'>
@@ -90,7 +90,7 @@ class AboutUs extends Component{
                             <div className='row'>
                                 <h3 className='text-left'>Co-Directors</h3>
                             </div>
-                            <hr style={{border: 'solid navy 1px', width: '80%'}} />
+                            <hr style={{border: 'solid #1e416e 1px', width: '80%', borderRadius: '5px',}} />
                             <br />
                         </section>
                     </main>

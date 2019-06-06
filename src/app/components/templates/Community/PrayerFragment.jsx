@@ -6,7 +6,7 @@ const PrayerFragment = () => (
         <br />
         <br />
         <h5 className='text-center'>Prayer requests</h5>
-        <hr style={{border: 'solid navy 1px'}} />
+        <hr style={{border: 'solid #1e416e 1px'}} />
         <ul>
             <li>
                 <Article
