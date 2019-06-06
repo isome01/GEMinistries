@@ -50,12 +50,13 @@ class Announcement extends Component {
     span.innerHTML = span.innerHTML === more ? less : more
   }
 
-  render(){
+  render () {
     const {header, summary, id, overflows, allowOverflow, children} = this.state.article
     return (
       <div className='announcement'>
         <Article
           summaryid={id}
+          slice={overflows ? 'whole' : 'bisection'}
           header={header}
           width='1000px'
           summary={(allowOverflow
@@ -65,16 +66,20 @@ class Announcement extends Component {
           childAfter={!this.state.article.childBefore}
           childBefore={this.state.article.childBefore}
           children={
-            (overflows &&
+            (
               <Fragment>
-                {children}
-                <span
-                  id={`toggle-${header.toLowerCase()}`}
-                  className='article-link'
-                  onClick={this.toggleOverflow}
-                >
-                  ... Read More
-                </span>
+                {( (overflows && allowOverflow) || !overflows) && children}
+                {overflows &&
+                  <div className='row'>
+                    <span
+                      id={`toggle-${header.toLowerCase()}`}
+                      className='article-link'
+                      onClick={this.toggleOverflow}
+                    >
+                    ... Read More
+                  </span>
+                  </div>
+                }
               </Fragment>
             )
           }
