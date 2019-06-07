@@ -99,7 +99,7 @@ class UpcomingFragment extends Component {
                         </div>
                       </li>
                     )
-                  } else return <h5> Nothing on this day! </h5>
+                  }
                 }))
               || <h5> There are no upcoming events :/ </h5>
             }
