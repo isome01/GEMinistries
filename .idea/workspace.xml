@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb70e69-3d6d-410d-852a-ac574654f18d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/templates/Community/MinistriesFragment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/templates/Community/MinistriesFragment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data editor/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data editor/src/container/Editor/Editor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/container/Editor/Editor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data editor/src/presentational/DataDialogue/DataDialogue.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/presentational/DataDialogue/DataDialogue.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data editor/src/presentational/Form/Form.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/presentational/Form/Form.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data editor/src/uri-hangar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data editor/src/uri-hangar/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,38 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dependencies.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/app/components/templates/Community/MinistriesFragment.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data editor/src/App.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Events/eventsDAL.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="92" column="7" lean-forward="true" selection-start-line="92" selection-start-column="7" selection-end-line="92" selection-end-column="7" />
+            <state relative-caret-position="497">
+              <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,6 +72,7 @@
         <option value="$PROJECT_DIR$/GEMinistries/src/app/components/containers/PageBanner/PageBanner.css" />
         <option value="$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/app/components/templates/Community/MinistriesFragment.jsx" />
       </list>
     </option>
   </component>
@@ -111,10 +86,56 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GEMinistries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GEMinistries" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Community" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -174,7 +195,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,11 +251,12 @@
       <workItem from="1556842249956" duration="9000" />
       <workItem from="1556842277296" duration="651000" />
       <workItem from="1556843213147" duration="11693000" />
+      <workItem from="1559941757364" duration="1806000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35451000" />
+    <option name="totallyTimeSpent" value="37061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -247,7 +268,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14541623" />
@@ -262,7 +283,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3281412" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -273,8 +294,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Profile/Profile.jsx" />
-    <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/index.html" />
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/templates/Home/Home.jsx" />
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/components/NavbarContainer/NavbarContainer.jsx" />
     <entry file="file://$PROJECT_DIR$/GEMinstries_UI/src/app/main/App.jsx" />
@@ -331,9 +350,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/main/App.jsx" />
     <entry file="file://$PROJECT_DIR$/GEMinistries/src/app/components/templates/Home/Home.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/services/services/backend/bin/www">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/services/backend/bin/www" />
     <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Announcements/announcementsBL.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -348,13 +365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data editor/src/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/backend/routes/Events/eventsDAL.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -366,6 +376,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data editor/src/presentational/DataDialogue/DataDialogue.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data editor/src/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/templates/Community/MinistriesFragment.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
