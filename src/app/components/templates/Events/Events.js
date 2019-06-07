@@ -52,7 +52,7 @@ class Events extends Component {
   }
 
   render () {
-    const {fetchEvents, upcomingEvents} = this.state
+    const {fetchEvents, upcomingEvents, pastEvents} = this.state
     const {getImage} = this.props
     if (fetchEvents) {
       return (
@@ -91,6 +91,9 @@ class Events extends Component {
               render={() => (
                 <CollageFragment
                   getImage={getImage}
+                  loading={fetchEvents}
+                  convertDate={convertDate}
+                  pastEvents={pastEvents}
                 />
               )}
             />
