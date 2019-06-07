@@ -6,7 +6,11 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle})
   /*
   Remember, title CANNOT have a string with whitespaces. Capiche?
   */
-  <div id={title.replace(/ /g, '-')} className='carousel slide' data-ride="carousel" style={{display: style.display || 'block'}}>
+  <div
+    id={title.replace(/ /g, '-')}
+    className='carousel slide'
+    data-ride="carousel"
+    style={{display: (style.display ? style.display : 'block')}}>
     {
       dataList.length > 1 &&
       <ol className="carousel-indicators">
