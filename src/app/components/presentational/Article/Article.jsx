@@ -12,11 +12,16 @@ const columnslice = {
 const Article = ({header, summary, summaryid, width, children, childBefore, childAfter, className, slice}) => (
   <article style={{width : width}} className={className || ''}>
     <div className='article-summary row'>
-      <div className='col-sm-12'>
+      {slice === 'whole' &&
+        <div className='col-sm-12'>
         <h4>{header}</h4>
       </div>
+      }
       <div className={columnslice[slice] && children ? columnslice[slice] : 'whole'}>
         {!childAfter && childBefore && children}
+        {slice !== 'whole' &&
+          <h4>{header}</h4>
+        }
         <div id={summaryid} >
           {summary.split(/\n/g).map((paragraph, index) => {
             const key = `${header}-${index}`

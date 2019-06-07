@@ -31,6 +31,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle})
     >
       {
         (dataList || []).map((data, index) => (
+          data.path &&
           <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
             {(showCaption || showTitle) &&
             <div className='carousel-caption d-none d-sm-block'>

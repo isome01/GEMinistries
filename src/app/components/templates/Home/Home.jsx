@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Announcement from '../../containers/Announcement/Announcement.jsx'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
+import {convertDate} from '../../../scripts'
 import feed from './default'
 import './style.css'
 
@@ -22,8 +23,6 @@ class Home extends Component{
       featuredEvent: null,
       upcomingEvents: []
     }
-    this.convertDate = this.convertDate.bind(this)
-    this.meridiem = this.meridiem.bind(this)
   }
 
   componentWillMount () {
@@ -33,8 +32,7 @@ class Home extends Component{
 
     if (!announcements){
       uriHangar('announcements', 'read', {}, domain).then(
-        message => {
-          console.log(message)
+        () => {
           this.setState({fetchNewsFeed: true})
           window.sessionStorage.setItem('announcements', 'true')
         },
@@ -75,13 +73,18 @@ class Home extends Component{
                return {...event}
              }
            }),
-
+           fetchEvents: true
          })
        },
        err => {
          console.log(err)
          featuredEvent = null
          upcomingEvents = []
+         this.setState({
+           featuredEvent,
+           upcomingEvents,
+           fetchEvents: true
+         })
        }
       )
     }
@@ -95,29 +98,18 @@ class Home extends Component{
               attachment: feed.attachment,
               created: feed.created
             })),
-            fetchNewsFeed: true,
-            fetchEvents: true
+            fetchNewsFeed: true
           })
         },
         err => {
           console.log(err)
           this.setState(()=>({
-            newsFeed : news_feed.slice(),
-            upcomingEvents: upcomingEvents.slice(),
-            featuredEvent: null
+            newsFeed: [],
+            fetchNewsFeed: true
           }))
         }
       )
     }
-  }
-
-  meridiem = (hr, min) => hr < 12 ? `${hr}:${min} AM` : `${hr === 12 ? '12' : `${hr - 12}`}:${String(min).length === 1 ? '0' : ''}${min} PM`
-
-  convertDate = created => {
-    const date = new Date(created)
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    return `${days[date.getDay()]} - ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} at ${this.meridiem(date.getHours(),date.getMinutes())}`
   }
 
   render () {
@@ -150,11 +142,14 @@ class Home extends Component{
                       border: 'solid #1e416e 1px',
                       height: '600px'
                     })}
-                    dataList={featuredEvent['attachment'].split(',').map(image => ({
-                      name: featuredEvent.title,
-                      caption: (featuredEvent.description || ''),
-                      path: getImage(image)})
+                    dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
+                      image => ({
+                        name: featuredEvent.title,
+                        caption: (featuredEvent.description || ''),
+                        path: getImage(image)
+                      })
                     )}
+                    showCaption={false}
                   />
                 )
               }
@@ -169,7 +164,7 @@ class Home extends Component{
                   className='text-left'
                   style={{color: '#000080'}}
                 >Posted On:&nbsp;
-                  {this.convertDate(feed.created)}
+                  {convertDate(feed.created)}
                 </p>
                 <Announcement
                   article={({

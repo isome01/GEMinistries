@@ -2,23 +2,39 @@ import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import Calendar from "react-calendar"
 
+
 class UpcomingFragment extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     upcomingEvents: PropTypes.array,
+    convertDate: PropTypes.func
   }
 
   static defaultProps = {
     upcomingEvents: [],
+    convertDate: null,
     loading: false
   }
 
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectDate: null
+    }
+    this.selectEventFromDay = this.selectEventFromDay.bind(this)
+  }
+
+  selectEventFromDay = date => {
+    if (date) {
+      this.setState({
+        selectDate: new Date(date)
+      })
+    }
   }
 
   render () {
-    const {upcomingEvents, loading} = this.props
-
+    const {upcomingEvents, loading, convertDate} = this.props
+    const {selectDate} = this.state
     if (loading) {
       return null
     }
@@ -27,7 +43,18 @@ class UpcomingFragment extends Component {
       <Fragment>
         <Calendar
           value={new Date()}
-          className='col-sm border-dark border-top-0 rounded-bottom'
+          tileClassName={({date}) => {
+            const tiles = upcomingEvents.filter(event => {
+              if (event.endDate && event.startDate)
+                return (
+                  new Date(event.startDate) <= new Date(date) && new Date(event.endDate) >= new Date(date)
+                )
+              return false
+            }).map(() => 'bg-success rounded-top rounded-bottom rounded-left rounded-right border-success')
+            return tiles
+          }}
+          onClickDay={value => this.selectEventFromDay(value)}
+          className='col-sm border-dark border-top-0 border-right-0 rounded-bottom'
           calendarType='Hebrew'
         />
         <br />
@@ -40,18 +67,41 @@ class UpcomingFragment extends Component {
           </div>
         </div>
         <div className='col-sm-12' style={{margin: '20px 0 50px 0'}}>
-          <ul>
+          <ul style={{height: '300px', overflow: 'auto'}}>
             {
               (upcomingEvents &&
-                upcomingEvents.map(event => (
-                  <li style={{listStyleType: 'none'}}>
-                    <h5>{event.title}</h5>
-                    <p>{event.description}</p>
-                    <hr />
-                  </li>
-                ))) || (
-                <h5> There are no upcoming events :/ </h5>
-              )
+                upcomingEvents.map(event => {
+                  if (selectDate === null  ||
+                    (selectDate >= new Date(event.startDate)
+                    && selectDate <= new Date(event.endDate))
+                  ) {
+                    return (
+                      <li
+                        style={{listStyleType: 'none'}}
+                        className='col-sm-12'>
+                        <div className='row'>
+                          <div className='col-sm'>
+                            <h5>{event.title}</h5>
+                            <p>{event.description}</p>
+                          </div>
+                          <div className='col-sm'>
+                            <p className='text-success'>
+                              {new Date(event.startDate) > new Date()
+                              ? 'Starts on:' : 'Started on:'}&nbsp;{convertDate(event.startDate)}
+                            </p>
+                            <p className='text-danger'>
+                              Ends:&nbsp;{convertDate(event.endDate)}
+                            </p>
+                          </div>
+                          <div className='col-sm-12'>
+                            <hr />
+                          </div>
+                        </div>
+                      </li>
+                    )
+                  } else return <h5> Nothing on this day! </h5>
+                }))
+              || <h5> There are no upcoming events :/ </h5>
             }
           </ul>
         </div>

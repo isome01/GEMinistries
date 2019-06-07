@@ -6,11 +6,9 @@ const api_fallback = require('connect-history-api-fallback');
 const path = require('path');
 const app = express();
 
-/*
 app.use(api_fallback({
   verbose: false,
 })) //Used for whenever routes are needed for access.
-*/
 
 app.use(express.static('dist') ); // for such right here
 
