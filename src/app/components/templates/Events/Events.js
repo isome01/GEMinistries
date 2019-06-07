@@ -2,8 +2,11 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import {Route} from 'react-router-dom'
 import VerticalNav from '../../presentational/VerticalNav'
-import UpcomingFragment from './UpcomingFragment'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
+import {convertDate} from '../../../scripts'
+import UpcomingFragment from './UpcomingFragment'
+import CollageFragment from './CollageFragment'
+import './style.css'
 
 class Events extends Component {
   static propTypes = {
@@ -15,23 +18,27 @@ class Events extends Component {
     super(props)
     this.state = {
       fetchEvents: false,
-      events: []
+      upcomingEvents: [],
+      pastEvents: []
     }
   }
   componentDidMount() {
     const {uriHangar, domain} = this.props
-    let events = []
     this.setState({fetchEvents: true})
     uriHangar('events', 'read', {}, domain).then(
       res => {
-        events = res.map(event => {
-          if (event.startDate >= new Date() || event.endDate >= new Date()) {
-            return {...event}
-          }
-        })
         this.setState({
-          fetchEvents: false,
-          events
+          upcomingEvents: res.map(event => ({...event})).filter(
+            event => {
+              return (
+                new Date(event.startDate) >= new Date()
+                || event.endDate >= new Date(event.endDate))
+            }
+          ),
+          pastEvents: res.map(event => ({...event})).filter(
+            event => new Date(event.endDate) < new Date()
+          ),
+          fetchEvents: false
         })
       }
     ).catch(
@@ -45,7 +52,8 @@ class Events extends Component {
   }
 
   render () {
-    const {fetchEvents, getImage} = this.state
+    const {fetchEvents, upcomingEvents} = this.state
+    const {getImage} = this.props
     if (fetchEvents) {
       return (
         <div className='text-center'>
@@ -54,7 +62,7 @@ class Events extends Component {
       )
     }
     return (
-      <div id='events-page' className='container-fluid'>
+      <div id='events-page' className='events-page container-fluid'>
         <main>
           <section className='row'>
             <VerticalNav
@@ -63,15 +71,25 @@ class Events extends Component {
               navHeader={'Our Events!'}
               navContent={[
                 {link: '', text: 'Upcoming Events'},
-                {link: '/Past', text: 'Passed Events'},
                 {link: '/Collage', text: 'Our Wall of Events'}
               ]}
             />
             <Route
               path={`${this.props.match.url}`} strict exact
-              render={()=>(
+              render={() => (
                 <UpcomingFragment
+                  upcomingEvents={upcomingEvents}
                   loading={fetchEvents}
+                  getImage={getImage}
+                  convertDate={convertDate}
+                />
+              )}
+            />
+            <Route
+              strict
+              path={`${this.props.match.url}/Collage`}
+              render={() => (
+                <CollageFragment
                   getImage={getImage}
                 />
               )}
