@@ -53,12 +53,14 @@ class AboutUs extends Component{
                             <hr style={{border: 'solid #1e416e 2px', borderRadius: '5px',}} />
                         </h1>
                         <h5 className='container'>
-                            We thank all our friends and family for your support and prayers.
-                            <br />
-                            With the Lord, and you, we are GEM.
-                            <br/>
-                            Sincerely,<br />
-                             &nbsp;- Greg & Earlene Jones
+                            <i style={{color: '#1e416e'}}>
+                                We thank all our friends and family for your support and prayers.
+                                <br />
+                                With the Lord, and you, we are GEM.
+                                <br/>
+                                <i style={{color: '#1e416e'}}>Sincerely,</i><br />
+                                &nbsp;- Greg & Earlene Jones
+                            </i>
                         </h5>
                     </header>
                     <main className='container-fluid'>
