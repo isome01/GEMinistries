@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Announcement from '../../containers/Announcement/Announcement.jsx'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
@@ -51,24 +51,23 @@ class Home extends Component{
     if (!fetchEvents) {
       uriHangar('events', 'read', {}, domain).then(
        res => {
-         if (res.length > 1) {
-           for (let i = 1; i < res.length; i++) {
-             let event = res[i]
-             if (event['status'] === 'past' && event['attachment']) {
-               if (new Date(event['endDate']) >= new Date(res[i-1]['endDate'])) {
-                 featuredEvent = event
-               } else featuredEvent = res[i]
-             }
+         const pastEvents = res.filter(event => (event['status'] === 'past' && event['attachment']))
+         if (pastEvents.length > 1) {
+           for (let i = 1; i < pastEvents.length; i++) {
+             let event = pastEvents[i]
+              if (new Date(event['endDate']) >= new Date(pastEvents[i-1]['endDate'])) {
+                featuredEvent = event
+              } else featuredEvent = pastEvents[i]
            }
          } else featuredEvent = (
-           (res[0] && res[0]['status'] === 'past' && res[0]['attachment'] && res[0]['attachment'].length)
-             ? {...res[0]}
+           (pastEvents[0]['attachment'] && pastEvents[0]['attachment'].length)
+             ? {...pastEvents[0]}
              : {...featuredEvent}
          )
 
          this.setState({
            featuredEvent: {...featuredEvent},
-           upcomingEvents: (res || []).reverse().map(event => {
+           upcomingEvents: (pastEvents || []).reverse().map(event => {
              if (event['status'] === 'future') {
                return {...event}
              }
@@ -129,14 +128,21 @@ class Home extends Component{
         <main>
           <section>
             <br/>
-            <h2 className='text-center' style={{color: '#1e416e'}}>
-              Living His mission
-            </h2>
+            <div className='featured-event-info col-sm-12'>
+              <h2 className='text-center'>
+                Featuring our previous event:&nbsp;
+              </h2>
+              {featuredEvent &&
+                <div>
+                  <i>{featuredEvent.description}</i>
+                </div>
+              }
+            </div>
             <div>
               {
                 featuredEvent && featuredEvent['attachment'] && (
                   <DynamicImg
-                    title='featured-event'
+                    title={featuredEvent.title ? featuredEvent.title : 'GEM'}
                     className='text-center'
                     style={({
                       border: 'solid #1e416e 1px',
@@ -153,6 +159,9 @@ class Home extends Component{
                   />
                 )
               }
+            </div>
+            <div className='featured-event-info' style={{margin: '10px 0', boxShadow: 'none', backgroundColor: '#fff', color: '#1e416e'}}>
+              <i>(For more information on upcoming events check out our events page.)</i>
             </div>
             <br/>
             <br/>
