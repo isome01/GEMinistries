@@ -142,7 +142,7 @@ class Home extends Component{
               {
                 featuredEvent && featuredEvent['attachment'] && (
                   <DynamicImg
-                    title={featuredEvent.title ? featuredEvent.title : 'GEM'}
+                    title={featuredEvent.title ? featuredEvent.title.replace(/ /g, '-') : 'GEM'}
                     className='text-center'
                     style={({
                       border: 'solid #1e416e 1px',
@@ -150,7 +150,7 @@ class Home extends Component{
                     })}
                     dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
                       image => ({
-                        name: featuredEvent.title,
+                        name: featuredEvent.title.replace(/ /g, '-'),
                         caption: (featuredEvent.description || ''),
                         path: getImage(image)
                       })
