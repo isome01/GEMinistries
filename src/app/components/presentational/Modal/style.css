@@ -1,0 +1,18 @@
+.modal {
+    position: absolute;
+    z-index: 1;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    border: solid #fff 1px;
+    border-radius: 10px;
+}
+
+.modal-body {
+    background-color: #fff;
+    border: solid #fff 1px;
+    border-radius: 10px;
+}
