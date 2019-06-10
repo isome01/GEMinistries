@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types'
 import './style.css'
 
@@ -38,10 +38,13 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle})
           data.path &&
           <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
             {(showCaption || showTitle) &&
-            <div className='carousel-caption d-none d-sm-block'>
-              {showTitle && title && <h5>{title}</h5>}
-              {showCaption && data.caption && <p>{data.caption}</p>}
-            </div>}
+              <Fragment>
+                <div className='carousel-caption d-none d-sm-block'>
+                  {showTitle && title && <h5>{title}</h5>}
+                  {showCaption && data.caption && <p>{data.caption}</p>}
+                </div>
+              </Fragment>
+            }
             <img
               id={`${data.name}-${index}`}
               src={data.path}
@@ -54,6 +57,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle})
           </div>
         ))
       }
+      {(showCaption || showTitle) && <div className='dialog-overlay' />}
     </div>
     {
       dataList.length > 1 &&
