@@ -27,7 +27,8 @@ class Form extends Component {
 
   static defaultProps = {
     currentData: {},
-    hasFormData: false
+    hasFormData: false,
+    maxNoOfImages: 0
   }
 
   constructor(props){

@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PropTypes from 'prop-types'
 import Article from '../../presentational/Article/Article.jsx'
+import Modal from '../../presentational/Modal'
 import {convertDate} from '../../../scripts'
 
 class CollageFragment extends Component {
@@ -12,18 +13,29 @@ class CollageFragment extends Component {
   }
   static defaultProps = {
     pastEvents: [],
-    loading: false
+    loading: false,
   }
 
   constructor(props) {
     super(props)
+    this.state = {
+      modalView: false
+    }
+    this.toggleModal = this.toggleModal.bind(this)
+  }
+
+  toggleModal = () => {
+    const {modalView} = this.state
+    this.setState({modalView: !modalView})
   }
 
   render () {
     const {loading, pastEvents, getImage} = this.props
+    const {modalView} = this.state
     if (loading) {
       return null
     }
+
     return (
       <Fragment>
         <div className='col-sm' />
@@ -46,7 +58,7 @@ class CollageFragment extends Component {
               {
                 event['attachment'] && (
                   event.attachment.split(',').map(image => (
-                    <div style={{width: '33%', maxHeight: '400px', height: '400px', display: 'inline-block'}}>
+                    <div onClick={this.toggleModal} style={{width: '33%', display: 'inline-block', cursor: 'pointer'}}>
                       <DynamicImg
                         title={event.title}
                         dataList={[{
@@ -58,11 +70,9 @@ class CollageFragment extends Component {
                         style={{
                           border: 'solid #eee 2px',
                           backgroundColor: '#000',
-                          height: '100%',
-                          width: '100%',
-                          maxHeight: '400px',
-                          display: 'block'
+                          height: '275px',
                         }}
+                        className='text-center'
                       />
                     </div>
                   ))
@@ -70,6 +80,18 @@ class CollageFragment extends Component {
               }
             </div>
           ))
+        }
+        {modalView &&
+          <Modal
+            className='offset-md-3 col-md-6'
+            title={`Zoomed in`}
+            toggleRender={this.toggleModal}
+            children={(
+              <div>
+                <h2>HELLO MODAL :D</h2>
+              </div>
+            )}
+          />
         }
       </Fragment>
     )

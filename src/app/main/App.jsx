@@ -60,7 +60,10 @@ class App extends Component {
               bannerMoto={this.getImage('mission_statement_2.png')}
             />
           </div>
-          <div className='container-fluid sticky-top' style={{backgroundColor: '#eee'}}>
+          <div
+            className='container-fluid sticky-top'
+            style={{backgroundColor: '#eee', left: '0', right: '0', margin: '0'}}
+          >
             <HorizontalNav
               className='container bg-light'
               navLogoText='GEMOutreach'
@@ -68,7 +71,7 @@ class App extends Component {
               navContent={navContent}
             />
           </div>
-          <div id='app-content' className="container">
+          <div id='app-content'>
             <Switch>
               <Route
                 path="/" exact strict
