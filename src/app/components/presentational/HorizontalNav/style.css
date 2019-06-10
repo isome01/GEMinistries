@@ -1,6 +1,9 @@
 .hrzl-nav {
     border: solid #eee 1px;
     border-radius: 0 0 5px 5px;
+    left: 0;
+    right: 0;
+    position: relative;
 }
 
 .hrzl-nav ul a {

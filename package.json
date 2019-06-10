@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "backend": "node src/services/backend/",
     "middleware": "node src/services/middleware/",
-    "start": "concurrently \"npm run backend\" \"npm run middleware\" \"npm run fix-memory-limit\" \"npm run build\" \"npm run editor\"",
+    "start": "concurrently \"npm run backend\" \"npm run middleware\" \"npm run build\" \"npm run editor\"",
     "test-start": "concurrently \"npm run backend\" \"npm run middleware\" \"npm run editor\" \"npm run build\" \"webpack-dev-server --hot\""
   },
   "keywords": [],
