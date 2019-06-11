@@ -5,9 +5,9 @@ const PrayerFragment = () => (
     <div>
         <br />
         <br />
-        <h5 className='text-center'>Prayer requests</h5>
+        <h5 className='text-center xioudown-banner'>Prayer requests</h5>
         <hr style={{border: 'solid #1e416e 1px'}} />
-        <ul>
+        <ul className='community-fragment'>
             <li>
                 <Article
                     header={'Prayers for you'}

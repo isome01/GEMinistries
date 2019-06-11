@@ -7,26 +7,24 @@ import './style.css';
 /* stateful page component */
 class Profile extends Component {
 
-    constructor(props){
-        super(props);
+    constructor(props) {
+        super(props)
 
-        this.state = {
-
-        };
+        this.state = {}
     }
 
-    componentWillMount(){
+    componentWillMount() {
 
     }
 
-    componentDidMount(){
+    componentDidMount() {
         /* if there were any callbacks, call em */
         //in this case, a profile is accessed and we want it to render
-       this.props.onLoadFunction(true)
+        this.props.onLoadFunction(true)
     }
 
-    componentWillUnmount(){
-       this.props.onLoadFunction()
+    componentWillUnmount() {
+        this.props.onLoadFunction()
     }
 
     render() {
@@ -54,6 +52,7 @@ class Profile extends Component {
                   </section>
                   <section>
                       <Article
+
                         header={`About ${this.props.profile_name}:`}
                         summary={this.props.profile_bio}
                         width={'100%'}
@@ -61,8 +60,9 @@ class Profile extends Component {
                   </section>
               </main>
           </div>
-        );
+        )
     }
-};
+}
 
 export default Profile;
+

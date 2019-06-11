@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types'
 import './style.css'
 
-const DynamicImg = ({title, dataList, className, style, showCaption, showTitle}) => (
+const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink}) => (
   /*
   Remember, title CANNOT have a string with whitespaces. Capiche?
   */
@@ -10,7 +10,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle})
     id={title.replace(/ /g, '-')}
     className='carousel slide'
     data-ride="carousel"
-    style={{display: (style.display ? style.display : 'block')}}>
+    style={{display: (style.display || 'block')}}>
     {
       dataList.length > 1 &&
       <ol className="carousel-indicators">
@@ -45,15 +45,18 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle})
                 </div>
               </Fragment>
             }
-            <img
-              id={`${data.name}-${index}`}
-              src={data.path}
-              alt={data.name}
-              style={{
-                width: style.width || '',
-                height: style.height || ''
-              }}
-            />
+            {
+              <img
+                id={`${data.name}-${index}`}
+                src={data.path}
+                alt={data.name}
+                name={passingLink}
+                style={{
+                  width: style.width || '',
+                  height: style.height || ''
+                }}
+              />
+            }
           </div>
         ))
       }
@@ -77,7 +80,7 @@ DynamicImg.propTypes = {
   title: PropTypes.string.isRequired,
   dataList: PropTypes.arrayOf(
     PropTypes.shape({
-      path: PropTypes.string.isRequired,
+      path: PropTypes.any.isRequired,
       name: PropTypes.string.isRequired,
       caption: PropTypes.string
     })
@@ -85,12 +88,14 @@ DynamicImg.propTypes = {
   className: PropTypes.string,
   style: PropTypes.shape({}),
   showTitle: PropTypes.bool,
-  showCaption: PropTypes.bool
+  showCaption: PropTypes.bool,
+  passingLink: PropTypes.string
 }
 
 DynamicImg.defaultProps = {
   showTitle: true,
-  showCaption: true
+  showCaption: true,
+  passingLink: ''
 }
 
 export default DynamicImg;
