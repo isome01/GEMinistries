@@ -1,14 +1,23 @@
 import React, {Fragment} from 'react'
 //import Form from '../../../../data editor/src/presentational/Form/Form.jsx'
 import PropTypes from 'prop-types'
+import './style.css'
 
-const Modal = ({className, toggleRender, children, title}) => {
+const Modal = ({className, toggleRender, children, isZoomed}) => {
+
+  const centerModal = e => {
+    e.preventDefault()
+    let modal = document.getElementsByClassName('modal')[0]
+    if (modal) {
+      modal.style.width = `${window.screen.width}`
+    }
+  }
 
   //init()
   return (
-    <div className='modal container-fluid row'>
-      <div className={`modal-body ${className}`}>
-        <div className={`modal-main`}>
+    <div className='modal container-fluid row' onClick={toggleRender}>
+      <div className={`modal-body ${className}`} style={{width: (isZoomed ? '1000px' : '100%')}}>
+        <div className={`modal-main`} onLoad={centerModal}>
           {children}
         </div>
         <div className='modal-footer'>
@@ -22,15 +31,16 @@ const Modal = ({className, toggleRender, children, title}) => {
 }
 
 Modal.propTypes = {
-  title: PropTypes.string,
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   toggleRender: PropTypes.func,
+  isZoomed: PropTypes.bool
 }
 
 Modal.defaultProps = {
   isForm: false,
   children: null,
+  isZoomed: false,
   className: ''
 }
 

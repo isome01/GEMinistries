@@ -19,25 +19,59 @@ class CollageFragment extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      modalView: false
+      modalView: false,
+      currentView: null
     }
     this.toggleModal = this.toggleModal.bind(this)
   }
 
-  toggleModal = () => {
+  toggleModal = e => {
+    if (e.target.name) {
+      this.setState({
+        currentView: e.target
+      })
+    }
     const {modalView} = this.state
-    this.setState({modalView: !modalView})
+    this.setState({
+      modalView: !modalView
+    })
   }
 
   render () {
     const {loading, pastEvents, getImage} = this.props
-    const {modalView} = this.state
+    const {modalView, currentView} = this.state
     if (loading) {
       return null
     }
 
     return (
       <Fragment>
+        {modalView && currentView && (
+          <Modal
+            isZoomed={window.screen.width > 1000}
+            className='offset-md-3 col-md-6'
+            title={`Zoomed in`}
+            toggleRender={this.toggleModal}
+            children={(
+              <DynamicImg
+                title={currentView.alt}
+                dataList={[{
+                  path: getImage(currentView.name),
+                  name: currentView.alt
+                }]}
+                showTitle={false}
+                showCaption={false}
+                style={{
+                  backgroundColor: '#000',
+                  height: '100%',
+                  width: '100%'
+                }}
+                className='text-center'
+              /> ||
+              <h2>HELLO MODAL :D</h2>
+            )}
+          />)
+        }
         <div className='col-sm' />
         <div className='col-sm-12 text-center xioudown-banner'>
           <h3 style={{color: '#fff'}}>
@@ -73,6 +107,7 @@ class CollageFragment extends Component {
                           height: '275px',
                         }}
                         className='text-center'
+                        passingLink={image}
                       />
                     </div>
                   ))
@@ -80,18 +115,6 @@ class CollageFragment extends Component {
               }
             </div>
           ))
-        }
-        {modalView &&
-          <Modal
-            className='offset-md-3 col-md-6'
-            title={`Zoomed in`}
-            toggleRender={this.toggleModal}
-            children={(
-              <div>
-                <h2>HELLO MODAL :D</h2>
-              </div>
-            )}
-          />
         }
       </Fragment>
     )

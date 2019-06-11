@@ -11,6 +11,7 @@ import Community from '../components/templates/Community/Community.jsx'
 import Events from '../components/templates/Events/Events'
 import PageBanner from '../components/containers/PageBanner/PageBanner.jsx'
 import HorizontalNav from '../components/presentational/HorizontalNav/HorizontalNav.jsx'
+import {getImage} from '../scripts'
 
 /* Styling and parent-sizing */
 import './main.css'
@@ -21,24 +22,11 @@ class App extends Component {
   }
   constructor(props) {
     super(props)
-    this.getImage = this.getImage.bind(this)
   }
 
   componentWillMount() {
     //create the context to assets here!!! Don't forget
     //NOTE: this is so that you will always have a 'context' to refer to.
-  }
-
-  getImage = (src = '') => {
-    if (src && src !== 'undefined') {
-      try {
-        const media = require(`../../assets/${src}`)
-        return media
-      } catch {
-        console.log('Problem loading the image;')
-      }
-    } else console.log('Media source not defined. :/')
-    return ''
   }
 
   render() {
@@ -56,8 +44,8 @@ class App extends Component {
           <div className='container-fluid' style={{backgroundColor: '#1e416e'}}>
             <PageBanner
               className=''
-              bannerLogo={this.getImage('GEMnavImgLogo.png')}
-              bannerMoto={this.getImage('mission_statement_2.png')}
+              bannerLogo={getImage('GEMnavImgLogo.png')}
+              bannerMoto={getImage('mission_statement_2.png')}
             />
           </div>
           <div
@@ -65,10 +53,11 @@ class App extends Component {
             style={{backgroundColor: '#eee', left: '0', right: '0', margin: '0'}}
           >
             <HorizontalNav
-              className='container bg-light'
+              className='container'
               navLogoText='GEMOutreach'
-              navLogoImg={this.getImage('GEMnavLogoText.png')}
+              navLogoImg={getImage('GEMnavLogoText.png')}
               navContent={navContent}
+              title='GEM Outreach Nav'
             />
           </div>
           <div id='app-content'>
@@ -78,7 +67,7 @@ class App extends Component {
                 component={props => (
                   <Home
                     {...props}
-                    getImage={this.getImage}
+                    getImage={getImage}
                     uriHangar={uriHangar}
                     domain={domain}
                   />)}
@@ -88,7 +77,7 @@ class App extends Component {
                 component={props => (
                   <AboutUs
                     {...props}
-                    getImage={this.getImage}
+                    getImage={getImage}
                     uriHangar={uriHangar}
                     domain={domain}
                   />
@@ -99,7 +88,7 @@ class App extends Component {
                 component={props => (
                   <Community
                     {...props}
-                    getImage={this.getImage}
+                    getImage={getImage}
                     uriHangar={uriHangar}
                     domain={domain}
                   />
@@ -110,7 +99,7 @@ class App extends Component {
                 component={props => (
                   <Events
                     {...props}
-                    getImage={this.getImage}
+                    getImage={getImage}
                     uriHangar={uriHangar}
                     domain={domain}
                   />

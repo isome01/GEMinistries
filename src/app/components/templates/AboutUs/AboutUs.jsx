@@ -77,13 +77,13 @@ class AboutUs extends Component{
                                       profilePic={profile_pic_greg}
                                       profileName='Greg Jones'
                                       profileLink={`${this.props.match.url}/Greg_Jones`}
-                                      className={'offset-3 col-sm-3'}
+                                      className={'col-sm-3 offset-sm-3'}
                                     />
                                     <ProfileCard
                                       profilePic={profile_pic_earlene}
                                       profileName='Earlene Jones'
                                       profileLink={`${this.props.match.url}/Earlene_Jones`}
-                                      className={'col-sm-3 offset-3'}
+                                      className={'col-sm-3'}
                                     />
                                 </div>
                             </div>

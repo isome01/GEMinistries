@@ -6,3 +6,15 @@ export const convertDate = created => {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   return `${days[date.getDay()]} - ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} at ${meridiem(date.getHours(),date.getMinutes())}`
 }
+
+export const getImage = (src = '') => {
+  if (src && src !== 'undefined') {
+    try {
+      const media = require(`../../assets/${src}`)
+      return media
+    } catch {
+      console.log('Problem loading the image;')
+    }
+  } else console.log('Media source not defined. :/')
+  return ''
+}
