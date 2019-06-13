@@ -23,3 +23,20 @@
     margin-top: 10px;
     margin-bottom: 15px;
 }
+
+@media only screen and (max-width: 767px) {
+    .featured-event-header {
+        font-size: 1.5rem;
+    }
+
+    .featured-event-info {
+        width: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: none;
+    }
+
+    .announcements-header {
+        font-size: 1.5rem;
+    }
+}

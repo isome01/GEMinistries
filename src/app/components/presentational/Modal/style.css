@@ -1,19 +1,33 @@
 .modal {
-    position: absolute;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, .25);
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
     display: block;
-    border: solid #fff 1px;
 }
 
-.modal-body {
-    top: 25%;
-    padding: 15px;
-    background-color: #fff;
-    border: solid #eee 1px;
-    border-radius: 2px;
+@media only screen and (min-width: 576px) {
+    .modal {
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, .25);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+        border: solid #fff 1px;
+    }
+
+    .modal-body {
+        top: 25%;
+        padding: 15px;
+        background-color: #fff;
+        border: solid #eee 1px;
+        border-radius: 2px;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 575px){
+
+    .modal {
+        display: none;
+    }
 }

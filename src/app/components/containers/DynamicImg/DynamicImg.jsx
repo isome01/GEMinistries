@@ -10,7 +10,9 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
     id={title.replace(/ /g, '-')}
     className='carousel slide'
     data-ride="carousel"
-    style={{display: (style.display || 'block')}}>
+    style={{
+      display: style.display || 'block',
+    }}>
     {
       dataList.length > 1 &&
       <ol className="carousel-indicators">
@@ -28,6 +30,11 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
     <div
       className={`carousel-inner ${className}`}
       style={{
+        margin: style.margin || 'auto',
+        width: '100%',
+        maxWidth: style.width || style.maxWidth || '100%',
+        height: '100%',
+        maxHeight: style.height || style.maxHeight || '100%',
         border: style.border || 'solid #eee 2px',
         borderRadius: style.borderRadius || '0',
         backgroundColor: style.backgroundColor || '#000'
@@ -45,18 +52,19 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
                 </div>
               </Fragment>
             }
-            {
-              <img
-                id={`${data.name}-${index}`}
-                src={data.path}
-                alt={data.name}
-                name={passingLink}
-                style={{
-                  width: style.width || '',
-                  height: style.height || ''
-                }}
-              />
-            }
+            <img
+              id={`${data.name}-${index}`}
+              src={data.path}
+              alt={data.name}
+              name={passingLink}
+              style={{
+                width: '100%',
+                maxWidth: (style.width || style.maxWidth) || 'auto',
+                height: '100%',
+                maxHeight: (style.height || style.maxHeight) || 'auto',
+                objectFit: 'contain'
+              }}
+            />
           </div>
         ))
       }

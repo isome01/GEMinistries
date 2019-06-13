@@ -8,3 +8,20 @@
 .announcement h4{
     color: #1e416e;
 }
+
+@media only screen and (max-width: 767px) {
+    .announcement {
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 1px;
+        border-top: solid #eee 1px;
+        border-bottom: solid #eee 1px;
+        border-right: none;
+        border-left: none;
+        padding: 0;
+        margin: 0;
+        right: 0;
+        left: 0;
+    }
+}

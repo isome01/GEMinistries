@@ -33,73 +33,72 @@ class AboutUs extends Component{
     }
 
     /* This method will return whether a specific profile is accessed or not */
-    profileIsAccessed(flag=false){
+    profileIsAccessed(flag = false) {
         /* set the state here */
-
-        this.setState( ()=>
-            ({hide_page : flag}) /* Hide current rendering */
+        this.setState(() =>
+          ({hide_page: flag}) /* Hide current rendering */
         )
     }
 
     shouldPageRender = () => {
-
-        let { hide_page } = this.state;
-        if (!hide_page){
+        let {hide_page} = this.state;
+        if (!hide_page) {
             return (
-                <div id="about_us" className="about-us">
-                    <header className='container-fluid'>
-                        <h1 className="about-us-header">
-                            About Us
-                            <hr style={{border: 'solid #1e416e 2px', borderRadius: '5px',}} />
-                        </h1>
-                        <h5 className='container'>
-                            <i style={{color: '#1e416e'}}>
-                                We thank all our friends and family for your support and prayers.
-                                <br />
-                                With the Lord, and you, we are GEM.
-                                <br/>
-                                <i style={{color: '#1e416e'}}>Sincerely,</i><br />
-                                &nbsp;- Greg & Earlene Jones
-                            </i>
-                        </h5>
-                    </header>
-                    <main className='container-fluid'>
-                        <section className="about-us-section row">
-                            <div className='row'>
-                                <h3 className='text-left'>Directors</h3>
-                            </div>
-                            <hr style={{border: 'solid #1e416e 1px', borderRadius: '5px', width: '80%'}} />
-                            <br />
+              <div id="about_us" className="about-us">
+                  <header className='container-fluid'>
+                      <h1 className="about-us-header">
+                          About Us
+                          <hr style={{border: 'solid #1e416e 2px', borderRadius: '5px',}}/>
+                      </h1>
+                      <h5 className='container'>
+                          <i style={{color: '#1e416e'}}>
+                              We thank all our friends and family for your support and prayers.
+                              <br/>
+                              With the Lord, and you, we are GEM.
+                              <br/>
+                              <i style={{color: '#1e416e'}}>Sincerely,</i><br/>
+                              &nbsp;- Greg & Earlene Jones
+                          </i>
+                      </h5>
+                  </header>
+                  <main className='container-fluid'>
+                      <section className="about-us-section row">
+                          <div className='row'>
+                              <h3 className='text-left'>Directors</h3>
+                          </div>
+                          <hr style={{border: 'solid #1e416e 1px', borderRadius: '5px', width: '80%'}}/>
+                          <br/>
 
-                            <div className='container-fluid'>
-                                <div className='row'>
-                                    <ProfileCard
-                                      profilePic={profile_pic_greg}
-                                      profileName='Greg Jones'
-                                      profileLink={`${this.props.match.url}/Greg_Jones`}
-                                      className={'col-sm-3 offset-sm-3'}
-                                    />
-                                    <ProfileCard
-                                      profilePic={profile_pic_earlene}
-                                      profileName='Earlene Jones'
-                                      profileLink={`${this.props.match.url}/Earlene_Jones`}
-                                      className={'col-sm-3'}
-                                    />
-                                </div>
-                            </div>
-                        </section>
-                        <section className='about-us-section row'>
-                            <div className='row'>
-                                <h3 className='text-left'>Co-Directors</h3>
-                            </div>
-                            <hr style={{border: 'solid #1e416e 1px', width: '80%', borderRadius: '5px',}} />
-                            <br />
-                        </section>
-                    </main>
-                </div>
+                          <div className='container-fluid'>
+                              <div className='row'>
+                                  <ProfileCard
+                                    profilePic={profile_pic_greg}
+                                    profileName='Greg Jones'
+                                    profileLink={`${this.props.match.url}/Greg_Jones`}
+                                    className={'col-sm-3 offset-sm-3'}
+                                  />
+                                  <ProfileCard
+                                    profilePic={profile_pic_earlene}
+                                    profileName='Earlene Jones'
+                                    profileLink={`${this.props.match.url}/Earlene_Jones`}
+                                    className={'col-sm-3'}
+                                  />
+                              </div>
+                          </div>
+                      </section>
+                      <section className='about-us-section row'>
+                          <div className='row'>
+                              <h3 className='text-left'>Co-Directors</h3>
+                          </div>
+                          <hr style={{border: 'solid #1e416e 1px', width: '80%', borderRadius: '5px',}}/>
+                          <br/>
+                      </section>
+                  </main>
+              </div>
             )
 
-        }return null;
+        }
+        return null;
     }
 
 
