@@ -49,7 +49,7 @@ class CollageFragment extends Component {
         {modalView && currentView && (
           <Modal
             isZoomed={window.screen.width > 1000}
-            className='offset-md-3 col-md-6'
+            className='offset-md-3 col-md-6 offset-sm-2 col-sm-8 offset-xs-0 col-xs-12'
             title={`Zoomed in`}
             toggleRender={this.toggleModal}
             children={(

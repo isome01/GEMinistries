@@ -50,11 +50,11 @@ class UpcomingFragment extends Component {
                   new Date(event.startDate) <= new Date(date) && new Date(event.endDate) >= new Date(date)
                 )
               return false
-            }).map(() => 'bg-success rounded-top rounded-bottom rounded-left rounded-right border-success')
+            }).map(() => 'bg-success rounded-top rounded-bottom rounded-left rounded-right border-success text-default')
             return tiles
           }}
           onClickDay={value => this.selectEventFromDay(value)}
-          className='col-sm border-dark border-top-0 border-right-0 rounded-bottom'
+          className='col-sm col-xs-12 border-dark border-top-0 border-right-0 rounded-bottom'
           calendarType='Hebrew'
         />
         <br />

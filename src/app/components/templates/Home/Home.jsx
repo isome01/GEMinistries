@@ -129,7 +129,7 @@ class Home extends Component{
           <section>
             <br/>
             <div className='featured-event-info col-sm-12'>
-              <h2 className='text-center'>
+              <h2 className='text-center featured-event-header'>
                 Featuring our previous event:&nbsp;
               </h2>
               {featuredEvent &&
@@ -146,7 +146,7 @@ class Home extends Component{
                     className='text-center'
                     style={({
                       border: 'solid #1e416e 1px',
-                      height: '600px'
+                      height: 600
                     })}
                     dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
                       image => ({
@@ -165,7 +165,7 @@ class Home extends Component{
             </div>
             <br/>
             <br/>
-            <h2> Announcements: </h2>
+            <h2 className='announcements-header'> Announcements: </h2>
             {(newsFeed || []).reverse().map(feed => (
               <div>
                 <hr style={{border: 'solid #1e416e 1px'}}/>

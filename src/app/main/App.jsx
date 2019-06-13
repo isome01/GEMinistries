@@ -44,20 +44,20 @@ class App extends Component {
           <div className='container-fluid' style={{backgroundColor: '#1e416e'}}>
             <PageBanner
               className=''
-              bannerLogo={getImage('GEMnavImgLogo.png')}
+              bannerLogo={getImage('GEM-04.svg')}
               bannerMoto={getImage('mission_statement_2.png')}
             />
           </div>
           <div
-            className='container-fluid sticky-top'
-            style={{backgroundColor: '#eee', left: '0', right: '0', margin: '0'}}
+            className='sticky-top'
+            style={{backgroundColor: '#eee', width: '100%', margin: '0'}}
           >
             <HorizontalNav
-              className='container'
+              className='container-fluid'
               navLogoText='GEMOutreach'
               navLogoImg={getImage('GEMnavLogoText.png')}
               navContent={navContent}
-              title='GEM Outreach Nav'
+              id='GEMOutreachNav'
             />
           </div>
           <div id='app-content'>

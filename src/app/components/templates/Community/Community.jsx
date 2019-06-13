@@ -53,7 +53,7 @@ class Community extends Component {
               className={'bg-light col-sm-2'}
               matchUrl={this.props.match.url}
             />
-            <div className='offset-1 col-8'>
+            <div className='offset-sm-1 col-sm-9 col-xs-12'>
               <Route
                 path={`${this.props.match.url}`}
                 render={() =>(

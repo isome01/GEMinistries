@@ -14,20 +14,23 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
     <div className='article-summary row'>
       {slice === 'whole' &&
         <div className='col-sm-12'>
-        <h4>{header}</h4>
+        <h4 className='article-header'>{header}</h4>
       </div>
       }
       <div className={columnslice[slice] && children ? columnslice[slice] : 'whole'}>
         {!childAfter && childBefore && children}
         {slice !== 'whole' &&
-          <h4>{header}</h4>
+        <h4 className='article-header'>{header}</h4>
         }
-        <div id={summaryid} >
+        <div id={summaryid}>
           {summary.split(/\n/g).map((paragraph, index) => {
             const key = `${header}-${index}`
             return (
               paragraph
-              && <p key={key}>{paragraph}</p>)
+              && <p className='article-paragraph' key={key}>
+                {paragraph}
+              </p>
+            )
           })}
         </div>
       </div>

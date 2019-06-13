@@ -11,17 +11,39 @@
     max-height: 100%;
 }
 
-.xioudown-banner {
-    background: linear-gradient(to right,
-    rgba(224,224,224,1),
-    rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1),
-    rgba(224,224,224,1)) center no-repeat;
-    color: #fff;
-    width: 100%;
-    padding: 90px 0 100px 0;
-    margin-top: 20px;
-}
-
 .community-fragment {
     list-style-type: none;
+}
+
+.xioudown-banner {
+    color: #fff;
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .xioudown-banner {
+        background: linear-gradient(to right,
+        rgba(224,224,224,1),
+        rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1), rgba(30,65,110,1),
+        rgba(224,224,224,1)) center no-repeat;
+        padding: 90px 0 100px 0;
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .xioudown-banner {
+        background: rgba(30, 65, 110, 1);
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+    .xioudown-banner h3 {
+        font-size: 1.5rem;
+    }
+
+    .xioudown-banner h5 {
+        font-size: 1.5rem;
+    }
+
 }
