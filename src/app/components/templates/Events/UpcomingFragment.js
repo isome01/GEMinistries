@@ -54,7 +54,7 @@ class UpcomingFragment extends Component {
             return tiles
           }}
           onClickDay={value => this.selectEventFromDay(value)}
-          className='col-sm col-xs-12 border-dark border-top-0 border-right-0 rounded-bottom'
+          className='upcoming-calendar col-sm col-xs-12 border-dark border-top-0 border-right-0 rounded-bottom'
           calendarType='Hebrew'
         />
         <br />

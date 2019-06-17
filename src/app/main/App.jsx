@@ -15,6 +15,7 @@ import {getImage} from '../scripts'
 
 /* Styling and parent-sizing */
 import './main.css'
+import VerticalNav from '../components/presentational/VerticalNav'
 
 class App extends Component {
   static propTypes = {
@@ -32,10 +33,24 @@ class App extends Component {
   render() {
     //Install navbar content
     const navContent = [
-      {text: 'Community', link: '/Community'},
+      {text: 'Community', link: '/Community',
+        children: (
+          <VerticalNav
+            navHeader='Our Community'
+            navContent={[
+              {link: '/Prayer', text: 'Prayer'},
+              {link: '/Activities', text: 'Activities'},
+              {link: '/Ministries', text: 'Ministries'},
+              {link: '/Mission-Trips', text: 'Mission Trips'},
+            ]}
+            className='col-sm-12'
+            matchUrl='/Community'
+          />)
+      },
       {text: 'Events', link: '/Events'},
       {text: 'About Us', link: '/About-Us'}
     ]
+    const homePageStyle = {width: '100%', margin: '0'}
     const {uriHangar} = this.props
     const domain = this.props.domain || 'localhost'
     return (
@@ -50,10 +65,10 @@ class App extends Component {
           </div>
           <div
             className='sticky-top'
-            style={{backgroundColor: '#eee', width: '100%', margin: '0'}}
+            style={homePageStyle}
           >
             <HorizontalNav
-              className='container-fluid'
+              className='offset-md-2 col-md-6'
               navLogoText='GEMOutreach'
               navLogoImg={getImage('GEMnavLogoText.png')}
               navContent={navContent}
@@ -108,8 +123,8 @@ class App extends Component {
               <Route component={Error}/>
             </Switch>
           </div>
-          <div className='container-fluid'>
-            <Footer/>
+          <div className='container-fluid' style={homePageStyle}>
+            <Footer />
           </div>
         </div>
       </Router>

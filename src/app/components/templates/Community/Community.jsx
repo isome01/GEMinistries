@@ -47,13 +47,15 @@ class Community extends Component {
       <div id="community-page" className="community container-fluid">
         <main>
           <section className='row'>
-            <VerticalNav
-              navHeader={'Our Community'}
-              navContent={navContent}
-              className={'bg-light col-sm-2'}
-              matchUrl={this.props.match.url}
-            />
-            <div className='offset-sm-1 col-sm-9 col-xs-12'>
+            <div className='sticky-top' style={{zIndex: 1}}>
+              <VerticalNav
+                navHeader='Our Community'
+                navContent={navContent}
+                className='bg-light community-nav'
+                matchUrl={this.props.match.url}
+              />
+            </div>
+            <div className='col-md-12 col-sm-12 col-xs-12'>
               <Route
                 path={`${this.props.match.url}`}
                 render={() =>(

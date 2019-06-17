@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 import './style.css'
 
 const VerticalNav = ({className, navHeader, navContent, matchUrl}) => (
-  <nav className={`navbar vert-nav ${className}`} style={{maxHeight: '245px', height: '100%'}}>
+  <nav className={`navbar vert-nav ${className}`}>
     <span className='navbar-brand nav-header'>{navHeader}</span>
     <ul className="navbar-nav">
       {(navContent || []).map( (nav, index) =>{

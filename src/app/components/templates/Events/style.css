@@ -19,3 +19,32 @@
     padding: 90px 0 100px 0;
     margin-top: 20px;
 }
+
+@media only screen and (min-width: 768px) {
+    .upcoming-calendar {
+        width: 100%;
+        max-width: 1200px;
+        min-width: 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 567px) {
+    .upcoming-calendar {
+        margin-top: 50px;
+        width: 100%;
+        min-width: 567px;
+        max-width: 767px;
+    }
+}
+
+@media only screen and (max-width: 567px) {
+    .upcoming-calendar {
+        margin-top: 25px;
+        width: 100%;
+        min-width: 0;
+        max-width: 576px;
+        height: 100%;
+        max-height: 350px;
+    }
+}

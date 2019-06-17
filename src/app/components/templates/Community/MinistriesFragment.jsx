@@ -7,7 +7,7 @@ const MinistriesFragment = () => (
         <br/>
         <h5 className='text-center xioudown-banner'>Ministries for all ages</h5>
         <hr style={{border: 'solid #1e416e 1px'}}/>
-        <ul className='community-fragment'>
+        <ul className='community-fragment offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
             <li>
                 <Article
                     width={'100%'}
