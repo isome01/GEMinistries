@@ -1,0 +1,125 @@
+.hrzl-nav {
+    border: solid #eee 1px;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    background-color: #eee;
+}
+
+.hrzl-nav .nav-header {
+    height: 100%;
+    width: 100%;
+    background-color: #eee;
+}
+
+.hrzl-nav ul a {
+    color: #000080;
+    text-decoration: none;
+    transition: background-color .15s;
+    background-color: #eee;
+}
+
+.hrzl-nav ul li {
+    top: 50%;
+}
+
+.hrzl-nav ul a:hover {
+    color: white;
+    background-color: #000080;
+    text-decoration: none;
+}
+
+.hrzl-nav .navbar-nav {
+    background-color: #eee;
+}
+
+.featured-event {
+    margin: auto;
+    max-height: 600px;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .hrzl-nav {
+        height: 65px;
+        max-height: 65px;
+    }
+
+    .hrzl-nav .nav-logo {
+        margin: auto;
+        width: 200px;
+        border-radius: 5px;
+    }
+
+    .hrzl-nav .nav-separator {
+        top: 25%;
+        color: #ddd;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+        display: inline-block;
+        border-radius: 2px;
+    }
+    .hrzl-nav ul hr {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .hrzl-nav {
+        height: 100%;
+
+        margin: 0;
+    }
+
+    .hrzl-nav .nav-logo {
+        height: 100%;
+        max-height: 45px;
+        margin: 0;
+        border-radius: 5px;
+    }
+
+    .hrzl-nav .nav-separator {
+        display: none;
+    }
+
+    .hrzl-nav ul {
+        margin: 0;
+        border-bottom: solid #ddd 2px;
+    }
+
+    .hrzl-nav ul hr {
+        display: block;
+        border-top: solid #ddd 1px;
+        color: #ddd;
+    }
+
+    .hrzl-nav ul li {
+        border-top: solid rgba(208, 208, 208, .25) 2px;
+        border-left: solid rgba(208, 208, 208, .25) 2px;
+        border-right: solid rgba(208, 208, 208, .25) 2px;
+    }
+
+    .hrzl-nav .navbar-toggler {
+        background-color: #eee;
+        border: solid #1e416e 1px;
+        border-radius: 10px;
+        box-shadow: 0 1px #ddd;
+        margin: 0;
+    }
+
+    .hrzl-nav .nav-header {
+        height: 100%;
+        width: 100%;
+        background-color: #eee;
+    }
+}

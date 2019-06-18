@@ -1,0 +1,40 @@
+{
+  "name": "data_input",
+  "version": "1.0.0",
+  "description": "This is a GUI for backend services",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "middleware": "nodemon src/middleware",
+    "start": "concurrently \"npm run middleware\" \"npm run build\" \"webpack-dev-server --mode development\""
+  },
+  "author": "Michael J. Isome",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "concurrently": "^4.1.0",
+    "css-loader": "^2.1.1",
+    "jquery": "^3.4.1",
+    "npm": "^6.9.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.7.2",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
+  }
+}

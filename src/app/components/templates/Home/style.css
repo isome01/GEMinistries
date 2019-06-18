@@ -1,0 +1,42 @@
+.home {
+    position: relative;
+    display: block;
+    justify-content: center;
+    margin: auto;
+    border-left: solid #eee 7px;
+    border-right: solid #eee 7px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.home-header {
+    padding: 15px;
+    margin: auto;
+}
+
+.featured-event-info {
+    box-shadow: 2px 2px 2px 4px gray;
+    background-color: #1e416e;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .featured-event-header {
+        font-size: 1.5rem;
+    }
+
+    .featured-event-info {
+        width: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: none;
+    }
+
+    .announcements-header {
+        font-size: 1.5rem;
+    }
+}

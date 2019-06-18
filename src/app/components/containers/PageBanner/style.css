@@ -1,0 +1,19 @@
+@media only screen and (min-width: 768px) and (max-width: 9900px) {
+    .page-banner {
+        background-color: #1e416e;
+    }
+
+    .banner-img {
+        display: inline-block;
+        max-height: 197px;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+@media only screen and (max-width: 767px) and (min-width:0px){
+    .banner-img {
+        display: none;
+    }
+}
+

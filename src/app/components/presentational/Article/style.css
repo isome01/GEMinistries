@@ -1,0 +1,51 @@
+article {
+    margin: 0;
+    width: 50%;
+    max-width: 100%;
+    word-wrap: break-word;
+    display: inline-block;
+}
+
+.article-summary {
+    margin: auto;
+    width: 100%;
+}
+
+.article-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: #1e416e;
+}
+
+.article-link:hover {
+    color: #eee;
+}
+
+.article-link:active {
+    color: #ddd;
+}
+
+@media only screen and (min-width: 768px) {
+    .article-summary {
+        padding: 20px;
+    }
+
+    .article-header {
+        padding: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .article-header {
+        font-size: 1rem;
+    }
+
+    .article-summary {
+        padding: 0 5px;
+    }
+
+    .article-paragraph {
+        font-size: .75rem;
+    }
+}
