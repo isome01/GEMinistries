@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+import PropTypes from 'prop-types'
+import {Route, Redirect} from 'react-router-dom'
 import PrayerFragment from './PrayerFragment.jsx'
 import MissionTripsFragment from "./MissionTripsFragment.jsx"
 import MinistriesFragment from "./MinistriesFragment.jsx"
@@ -8,6 +9,10 @@ import VerticalNav from "../../presentational/VerticalNav/VerticalNav.jsx"
 import './style.css'
 
 class Community extends Component {
+
+  static propTypes = {
+    getImage: PropTypes.func.required
+  }
 
   constructor(props){
     super(props)
@@ -42,19 +47,11 @@ class Community extends Component {
 
   render(){
     const {navContent} = this.state
-
+    const {getImage} = this.props
     return (
       <div id="community-page" className="community container-fluid">
         <main>
           <section className='row'>
-            <div className='sticky-top' style={{zIndex: 1}}>
-              <VerticalNav
-                navHeader='Our Community'
-                navContent={navContent}
-                className='bg-light community-nav'
-                matchUrl={this.props.match.url}
-              />
-            </div>
             <div className='col-md-12 col-sm-12 col-xs-12'>
               <Route
                 path={`${this.props.match.url}`}
@@ -72,24 +69,45 @@ class Community extends Component {
               />
               <Route
                 path={`${this.props.match.url}/Prayer`}
-                render={()=><PrayerFragment />}
+                render={props => (
+                  <PrayerFragment
+                    {...props}
+                    getImage={getImage}
+                  />
+                )}
                 exact
               />
               <Route
                 path={`${this.props.match.url}/Mission-Trips`}
-                render={()=><MissionTripsFragment />}
+                render={props => (
+                  <MissionTripsFragment
+                    {...props}
+                    getImage={getImage}
+                  />
+                )}
                 exact
               />
               <Route
                 path={`${this.props.match.url}/Activities`}
-                render={()=><ActivitiesFragment />}
+                component={props => (
+                  <ActivitiesFragment
+                    {...props}
+                    getImage={getImage}
+                  />
+                )}
                 exact
               />
               <Route
                 path={`${this.props.match.url}/Ministries`}
-                render={()=><MinistriesFragment />}
+                component={props => (
+                  <MinistriesFragment
+                    {...props}
+                    getImage={getImage}
+                  />
+                )}
                 exact
               />
+              <Redirect to={`${this.props.match.url}/Prayer`} from={this.props.match.url} />
             </div>
           </section>
         </main>

@@ -43,11 +43,23 @@ class App extends Component {
               {link: '/Ministries', text: 'Ministries'},
               {link: '/Mission-Trips', text: 'Mission Trips'},
             ]}
-            className='col-sm-12'
+            className='dynamic-nav text-center bg-light col-sm-12 col-md-12 col-lg-12'
             matchUrl='/Community'
           />)
       },
-      {text: 'Events', link: '/Events'},
+      {text: 'Events', link: '/Events',
+        children: (
+          <VerticalNav
+            className='dynamic-nav text-center bg-light col-sm-12 col-md-12 col-lg-12'
+            matchUrl={`/Events`}
+            navHeader={'Our Events!'}
+            navContent={[
+              {link: '/Future-Events', text: 'Upcoming Events'},
+              {link: '/Collage', text: 'Our Wall of Events'}
+            ]}
+          />
+        )
+      },
       {text: 'About Us', link: '/About-Us'}
     ]
     const homePageStyle = {width: '100%', margin: '0'}

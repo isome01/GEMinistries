@@ -51,14 +51,10 @@
 
 @media only screen and (min-width: 768px) {
     .hrzl-nav {
-        height: 65px;
-        opacity: .25;
+        height: 45px;
+        opacity: .45;
         transition: opacity .45s, height .25s;
         font-family: Georgia, Times New Roman, serif;
-    }
-
-    .li-children {
-        display: none;
     }
 
     .hrzl-nav:hover {
@@ -94,8 +90,11 @@
     .hrzl-nav ul li:hover {
         font-size: 1.5rem;
     }
-    .hrzl-nav:hover + .li-children{
-        display: block;
+
+    .child-content {
+        background-color: #eee;
+        border-top: solid #1e416e 2px;
+        transition: height .25s;
     }
     .hrzl-nav ul li a {
         padding: 10px;

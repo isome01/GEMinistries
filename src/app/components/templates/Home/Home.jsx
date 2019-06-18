@@ -212,6 +212,7 @@ class Home extends Component{
                           title={feed.header}
                           showCaption={false}
                           showTitle={false}
+                          children={null}
                         />
                       </div>
                     )
