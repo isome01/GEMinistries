@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import {Route} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import VerticalNav from '../../presentational/VerticalNav'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import {convertDate} from '../../../scripts'
@@ -65,17 +65,8 @@ class Events extends Component {
       <div id='events-page' className='events-page container-fluid'>
         <main>
           <section className='row'>
-            <VerticalNav
-              className='bg-light'
-              matchUrl={`${this.props.match.url}`}
-              navHeader={'Our Events!'}
-              navContent={[
-                {link: '', text: 'Upcoming Events'},
-                {link: '/Collage', text: 'Our Wall of Events'}
-              ]}
-            />
             <Route
-              path={`${this.props.match.url}`} strict exact
+              path={`${this.props.match.url}/Future-Events`} strict exact
               render={() => (
                 <UpcomingFragment
                   upcomingEvents={upcomingEvents}
@@ -96,6 +87,12 @@ class Events extends Component {
                   pastEvents={pastEvents}
                 />
               )}
+            />
+            <Redirect
+              from={`${this.props.match.url}`}
+              to={`${this.props.match.url}/Future-Events`}
+              strict
+              sensitive={false}
             />
           </section>
         </main>

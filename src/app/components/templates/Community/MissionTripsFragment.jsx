@@ -1,18 +1,18 @@
-import React from 'React'
+import React, {Fragment} from 'React'
 import Article from "../../presentational/Article/Article.jsx"
 
 const MissionTripsFragment = () => (
-    <div>
-        <br />
-        <br />
-        <h5 className='text-center xioudown-banner'>Mission trips: What we do and where the Lord takes us</h5>
-        <hr style={{border: 'solid #1e416e 1px'}}/>
-        <ul className='community-fragment'>
-            <li>
-                <Article
-                    width={'100%'}
-                    header={'Our trip to Uganda'}
-                    summary={`
+  <Fragment>
+    <br/>
+    <br/>
+    <h5 className='text-center xioudown-banner'>Mission trips: What we do and where the Lord takes us</h5>
+    <hr style={{border: 'solid #1e416e 1px'}}/>
+    <ul className='community-fragment offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
+      <li className=''>
+        <Article
+          width={'100%'}
+          header={'Our trip to Uganda'}
+          summary={`
                         May 4th, 2019 -
                         
                         Summer (2018) was our relatively first mission trip, and by the grace
@@ -26,14 +26,14 @@ const MissionTripsFragment = () => (
                         "the mission", is a blessing to be a part of - and by the grace of God may we
                         be used to touch the hearts of many.
                     `}
-                />
-              <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
-            </li>
-            <li>
-                <Article
-                    width={'100%'}
-                    header={'Serving abroad and around!'}
-                    summary={`
+        />
+        <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
+      </li>
+      <li li className='offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1' style={{margin: '100px 0'}}>
+        <Article
+          width={'100%'}
+          header={'Serving abroad and around!'}
+          summary={`
                         A conduit of success have we been moved to live this ministry, and by the
                         uniqueness, vastness, and incomprehensible willpower of God are we
                         led to serve all over. 
@@ -49,22 +49,22 @@ const MissionTripsFragment = () => (
                         by movement and discernment of the Spirit, are we ever so blessed to be
                         a part of such a ministry that is privileged in spiritual momentum.
                     `}
-                />
-              <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
-            </li>
+        />
+        <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
+      </li>
 
-            <li>
-                <Article
-                    width={'100%'}
-                    header={'Serve with us!'}
-                    summary={`
+      <li li className='offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1' style={{margin: '100px 0'}}>
+        <Article
+          width={'100%'}
+          header={'Serve with us!'}
+          summary={`
                         Come and participate with us on our journeys, and for any light of
                         mission trips that are on your heart, do not hesitate to suggest.
                     `}
-                />
-            </li>
-        </ul>
-    </div>
+        />
+      </li>
+    </ul>
+  </Fragment>
 )
 
 export default MissionTripsFragment

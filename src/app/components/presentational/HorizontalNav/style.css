@@ -21,19 +21,20 @@
 .hrzl-nav ul a {
     color: #000080;
     text-decoration: none;
-    transition: background-color .15s;
-    background-color: #eee;
+    transition: background .3s;
+    background: rgba(0, 0, 0, 0);
+}
+
+.hrzl-nav ul a:hover {
+    color: white;
+    background: rgba(0, 0, 128, .9);
+    text-decoration: none;
 }
 
 .hrzl-nav ul li {
     top: 50%;
 }
 
-.hrzl-nav ul a:hover {
-    color: white;
-    background-color: #000080;
-    text-decoration: none;
-}
 
 .hrzl-nav .navbar-nav {
     background-color: #eee;
@@ -47,10 +48,18 @@
     width: 100%;
 }
 
+
 @media only screen and (min-width: 768px) {
     .hrzl-nav {
-        height: 65px;
-        max-height: 65px;
+        height: 45px;
+        opacity: .45;
+        transition: opacity .45s, height .25s;
+        font-family: Georgia, Times New Roman, serif;
+    }
+
+    .hrzl-nav:hover {
+        opacity: 1;
+        height: 85px;
     }
 
     .hrzl-nav .nav-logo {
@@ -72,13 +81,31 @@
     .hrzl-nav ul hr {
         display: none;
     }
+
+    .hrzl-nav ul li {
+        font-weight: normal;
+        font-size: 1rem;
+        transition: font-size .35s;
+    }
+    .hrzl-nav ul li:hover {
+        font-size: 1.5rem;
+    }
+
+    .child-content {
+        background-color: #eee;
+        border-top: solid #1e416e 2px;
+        transition: height .25s;
+    }
+    .hrzl-nav ul li a {
+        padding: 10px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
     .hrzl-nav {
         height: 100%;
-
         margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .hrzl-nav .nav-logo {
@@ -104,9 +131,14 @@
     }
 
     .hrzl-nav ul li {
+        font-weight: normal;
         border-top: solid rgba(208, 208, 208, .25) 2px;
         border-left: solid rgba(208, 208, 208, .25) 2px;
         border-right: solid rgba(208, 208, 208, .25) 2px;
+    }
+
+    .hrzl-nav ul li a {
+        padding: 0;
     }
 
     .hrzl-nav .navbar-toggler {

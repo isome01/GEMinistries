@@ -3,8 +3,6 @@
     display: block;
     justify-content: center;
     margin: auto;
-    border-left: solid #eee 7px;
-    border-right: solid #eee 7px;
     box-sizing: border-box;
     word-wrap: break-word;
     max-width: 100%;
@@ -24,9 +22,20 @@
     margin-bottom: 15px;
 }
 
+@media only screen and (min-width: 768px) {
+    #featured-event-display {
+        height: 600px;
+        position: relative;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .featured-event-header {
         font-size: 1.5rem;
+    }
+
+    #featured-event-display {
+        height: 300px;
     }
 
     .featured-event-info {

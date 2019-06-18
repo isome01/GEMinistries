@@ -3,6 +3,19 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const PageBanner = ({className, bannerLogo ,bannerMoto}) => {
+  const generateParallax = e => {
+    if (e.target) {
+      let moto = document.getElementById(e.target.id).style
+      moto.backgroundImage = `url('${e.target.name}')`
+      moto.attachment = 'fixed'
+      moto.position = 'center'
+      moto.backgroundRepeat = 'no-repeat'
+      moto.backgroundSize = 'cover'
+      moto.height = '100%'
+      console.log('loaded')
+    }
+  }
+
   return (
     <div
       id='page_banner'
@@ -13,26 +26,10 @@ const PageBanner = ({className, bannerLogo ,bannerMoto}) => {
         style={{background: 'linear-gradient(to right, #fff, #1e416e)'}}
       />
       <div className='col-md-10' style={{background: '#1e416e'}}>
-        <div className='row'>
-          <div className='col-sm-1'/>
-          <div className='col-sm-2'>
-            {bannerLogo &&
-            (<img
-              id='page-banner-logo'
-              alt="Page_Banner_Logo"
-              src={bannerLogo}
-              className='banner-img'
-            />)}
-          </div>
-          <div className='col-sm-8'>
-            {bannerMoto &&
-            (<img
-              id='page-banner-moto'
-              alt="Page_Banner_Moto"
-              src={bannerMoto}
-              className='banner-img'
-            />)}
-          </div>
+        <div className='row' style={{height: '100px'}}>
+          <div className='col-sm-1' />
+          <div id='page-banner-logo' className='text-center col-sm-2' name={bannerLogo} />
+          <div id='page-banner-moto' className='text-center col-sm-8' name={bannerMoto} onLoad={generateParallax}/>
         </div>
       </div>
       <div

@@ -17,8 +17,13 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
         <h4 className='article-header'>{header}</h4>
       </div>
       }
-      <div className={columnslice[slice] && children ? columnslice[slice] : 'whole'}>
-        {!childAfter && childBefore && children}
+      {
+        !childAfter && childBefore && children &&
+        <div className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
+          {children}
+        </div>
+      }
+      <div className={columnslice[slice] && children ? columnslice[slice] : columnslice.whole}>
         {slice !== 'whole' &&
         <h4 className='article-header'>{header}</h4>
         }
@@ -34,9 +39,11 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
           })}
         </div>
       </div>
-      <div className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
-        {childAfter && !childBefore && children}
-      </div>
+      {childAfter && !childBefore && children &&
+        <div className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
+          {children}
+        </div>
+      }
     </div>
   </article>
 )
@@ -56,6 +63,7 @@ Article.propTypes = {
 Article.defaultProps = {
   childAfter: true,
   childBefore: false,
+  children: null,
   columnSlice: 'whole'
 }
 

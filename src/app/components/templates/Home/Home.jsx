@@ -23,6 +23,7 @@ class Home extends Component{
       featuredEvent: null,
       upcomingEvents: []
     }
+    this.resizeMaxHeight()
   }
 
   componentWillMount () {
@@ -111,9 +112,21 @@ class Home extends Component{
     }
   }
 
+  resizeMaxHeight = id => {
+    const element = document.getElementById(id)
+    if (element) {
+      const {height, maxHeight} = element.style
+      console.log('size:', height, maxHeight)
+      return maxHeight || height
+    } else {
+      console.log(`Error: cannot find element with id ${id}`)
+    }
+  }
+
   render () {
     const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, upcomingEvents} = this.state
     const {getImage} = this.props
+    console.log(typeof(document.body.style.width))
     if (!fetchNewsFeed || !fetchEvents) {
       return (
         <div className='container'>
@@ -141,22 +154,24 @@ class Home extends Component{
             <div>
               {
                 featuredEvent && featuredEvent['attachment'] && (
-                  <DynamicImg
-                    title={featuredEvent.title ? featuredEvent.title.replace(/ /g, '-') : 'GEM'}
-                    className='text-center'
-                    style={({
-                      border: 'solid #1e416e 1px',
-                      height: 600
-                    })}
-                    dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
-                      image => ({
-                        name: featuredEvent.title.replace(/ /g, '-'),
-                        caption: (featuredEvent.description || ''),
-                        path: getImage(image)
-                      })
-                    )}
-                    showCaption={false}
-                  />
+                  <div id='featured-event-display'>
+                    <DynamicImg
+                      title={featuredEvent.title ? featuredEvent.title.replace(/ /g, '-') : 'GEM'}
+                      className='text-center'
+                      style={({
+                        border: 'solid #1e416e 1px',
+                        height: 600
+                      })}
+                      dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
+                        image => ({
+                          name: featuredEvent.title.replace(/ /g, '-'),
+                          caption: (featuredEvent.description || ''),
+                          path: getImage(image)
+                        })
+                      )}
+                      showCaption={false}
+                    />
+                  </div>
                 )
               }
             </div>
@@ -185,7 +200,7 @@ class Home extends Component{
                         <DynamicImg
                           style={{
                             border: 'solid #eee 2px',
-                            backgroundColor: '#000',
+                            background: 'rgba(0, 0, 0, .15)',
                             height: '100%',
                             width: '100%',
                             display: 'block'
@@ -197,6 +212,7 @@ class Home extends Component{
                           title={feed.header}
                           showCaption={false}
                           showTitle={false}
+                          children={null}
                         />
                       </div>
                     )
