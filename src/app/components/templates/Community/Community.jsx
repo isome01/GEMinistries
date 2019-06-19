@@ -52,7 +52,7 @@ class Community extends Component {
       <div id="community-page" className="community container-fluid">
         <main>
           <section className='row'>
-            <div className='col-md-12 col-sm-12 col-xs-12'>
+            <div className='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12' style={{width: '100%', maxWidth: '100%'}}>
               <Route
                 path={`${this.props.match.url}`}
                 render={() =>(

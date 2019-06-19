@@ -19,23 +19,26 @@ const PageBanner = ({className, bannerLogo ,bannerMoto}) => {
   return (
     <div
       id='page_banner'
-      className={`page-banner row ${className || ''}`}
-      style={{background: '#1e416e'}}>
-      <div
-        className='col-md-1'
-        style={{background: 'linear-gradient(to right, #fff, #1e416e)'}}
-      />
-      <div className='col-md-10' style={{background: '#1e416e'}}>
+      className={`page-banner row ${className || ''}`}>
+      <div className='col-md-1' />
+      <div className='col-md-10'>
         <div className='row' style={{height: '100px'}}>
-          <div className='col-sm-1' />
-          <div id='page-banner-logo' className='text-center col-sm-2' name={bannerLogo} />
-          <div id='page-banner-moto' className='text-center col-sm-8' name={bannerMoto} onLoad={generateParallax}/>
+          {bannerMoto && bannerLogo &&
+            <div className='col-sm-1' />
+          }
+          {bannerLogo &&
+            <div className='text-center col-sm'>
+              <img id='page-banner-logo' src={bannerLogo || ''} alt='banner-logo' style={{height: '100px'}}/>
+            </div>
+          }
+          {bannerMoto &&
+            <div className='text-center col-sm'>
+              <img id='page-banner-moto' src={bannerMoto || ''} alt='banner-moto' style={{height: '100px'}}/>
+            </div>
+          }
         </div>
       </div>
-      <div
-        className='col-md-1'
-        style={{background: 'linear-gradient(to left, #fff, #1e416e)'}}
-      />
+      <div className='col-md-1' />
     </div>
   )
 }
