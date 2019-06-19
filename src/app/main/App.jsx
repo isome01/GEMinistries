@@ -68,10 +68,9 @@ class App extends Component {
     return (
       <Router history={browserHistory}>
         <div>
-          <div className='container-fluid' style={{backgroundColor: '#1e416e'}}>
+          <div className='container-fluid' style={{maxHeight: 100}}>
             <PageBanner
               className=''
-              bannerLogo={getImage('GEM-04.svg')}
               bannerMoto={getImage('mission_statement_2.png')}
             />
           </div>

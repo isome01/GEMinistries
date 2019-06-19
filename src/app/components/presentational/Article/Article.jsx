@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const columnslice = {
-  whole: 'col-sm-12',
-  bisection: 'col-sm-6',
-  skewedLeft: 'col-sm-8',
-  skewedRight: 'col-sm-4'
+  whole: 'col-sm-12 col-md-12 col-lg-12',
+  bisection: 'col-sm-6 col-md-6 col-lg-6',
+  skewedLeft: 'col-sm-8 col-md-8 col-lg-8',
+  skewedRight: 'col-sm-4 col-md-4 col-lg-4'
 }
 
 const Article = ({header, summary, summaryid, width, children, childBefore, childAfter, className, slice}) => (
@@ -19,11 +19,14 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
       }
       {
         !childAfter && childBefore && children &&
-        <div className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
+        <div className={`${columnslice[slice] || 'col-sm'} ${slice !== 'whole' ? 'text-center' : ''}`}>
           {children}
         </div>
       }
-      <div className={columnslice[slice] && children ? columnslice[slice] : columnslice.whole}>
+      <div
+        className={`${childBefore && children ? 'col-sm' : ( columnslice[slice] || columnslice.whole )}`}
+        style={{top: '25%'}}
+      >
         {slice !== 'whole' &&
         <h4 className='article-header'>{header}</h4>
         }
@@ -40,7 +43,8 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
         </div>
       </div>
       {childAfter && !childBefore && children &&
-        <div className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
+        <div
+          className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
           {children}
         </div>
       }

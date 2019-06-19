@@ -4,17 +4,19 @@ import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 
 const PrayerFragment = ({getImage}) => (
   <div>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
     <h5 className='text-center xioudown-banner'>Prayer requests</h5>
     <hr style={{border: 'solid #1e416e 1px'}}/>
-    <ul className='community-fragment col-lg-12 col-md-12'>
-      <li className='community-fragment offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
-        <Article
-          header={'Prayers for you'}
-          width='100%'
-          summary={
-            `Submit a prayer request and let us intercede with you.
+    <ul className='col-lg-12 col-md-12'>
+      <li className='community-fragment uplifting-inverted'>
+        <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
+          <Article
+            header={'Prayers for you'}
+            width='100%'
+            summary={
+              `Submit a prayer request and let us intercede with you.
                          
              For life is a war not meant for you take on and fight alone, but for 
              the Lord to walk you to the victory. 
@@ -22,34 +24,36 @@ const PrayerFragment = ({getImage}) => (
              Let us pray for whatever you need; we personally take time to read 
              these prayer requests on a daily basis.
             `
-          }
-          childBefore
-          childAfter={false}
-          children={(
-            <DynamicImg
-              title='prayers-for-you'
-              dataList={[{
-                path: getImage('37161393_10205359654428711_8565820940498239488_n.jpg'),
-                name: 'prayers-for-you'
-              }]}
-              style={{
-                margin: 0,
-                display: 'block',
-                width: 769,
-                background: 'rgba(0, 0, 0, 0)'
-              }}
-              showTitle={false}
-              showCaption={false}
-              slice='skewedLeft'
-            />
-          )}
-        />
-        <hr style={{border: 'solid #eee 1px', width: '80%'}}/>
+            }
+            childBefore
+            childAfter={false}
+            slice='bisection'
+            children={(
+              <div className='frag-img-container'>
+                <DynamicImg
+                  title='prayers-for-you'
+                  dataList={[{
+                    path: getImage('37161393_10205359654428711_8565820940498239488_n.jpg'),
+                    name: 'prayers-for-you'
+                  }]}
+                  style={{
+                    margin: 0,
+                    display: 'block',
+                    width: 769,
+                    background: 'rgba(0, 0, 0, 0)',
+                    border: 'solid #1e416e 1px',
+                    borderRadius: '10px'
+                  }}
+                  showTitle={false}
+                  showCaption={false}
+                />
+              </div>
+            )}
+          />
+        </div>
       </li>
-      <li
-        className='community-fragment col-lg-12 col-md-12'
-        style={{backgroundColor: 'rgb(244, 244, 255)', color: '#000'}}>
-        <div className='community-fragment offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
+      <li className='community-fragment uplifting'>
+        <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
             width='100%'
             header='Prayers heard abroad!'
@@ -65,21 +69,25 @@ const PrayerFragment = ({getImage}) => (
             Allow us to serve you in that.
           `}
             children={(
-              <DynamicImg
-                title='prayers-heard-abroad'
-                dataList={[{
-                  path: getImage('37161393_10205359654428711_8565820940498239488_n.jpg'),
-                  name: 'prayers-heard-abroad'
-                }]}
-                style={{
-                  margin: 0,
-                  display: 'block',
-                  width: 769,
-                  background: 'rgba(0, 0, 0, 0)'
-                }}
-                showTitle={false}
-                showCaption={false}
-              />
+              <div className='frag-img-container' style={{maxWidth: 769}}>
+                <DynamicImg
+                  title='prayers-heard-abroad'
+                  dataList={[{
+                    path: getImage('37588589_10155221650800834_5980536509919395840_n.jpg'),
+                    name: 'prayers-heard-abroad'
+                  }]}
+                  style={{
+                    width: 769,
+                    margin: 0,
+                    display: 'block',
+                    background: 'rgba(0, 0, 0, 0)',
+                    border: 'solid #1e416e 1px',
+                    borderRadius: '10px'
+                  }}
+                  showTitle={false}
+                  showCaption={false}
+                />
+              </div>
             )}
             slice='bisection'
           />
