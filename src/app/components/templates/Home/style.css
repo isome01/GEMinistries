@@ -14,28 +14,112 @@
     margin: auto;
 }
 
-.featured-event-info {
-    box-shadow: 2px 2px 2px 4px gray;
-    background-color: #1e416e;
-    color: #fff;
-    margin-top: 10px;
-    margin-bottom: 15px;
+.announcements-section {
+    top: 0;
+    left: 0;
+    font-family: Georgia, Times New Roman, serif;
+    background-color: #eee
 }
 
-@media only screen and (min-width: 768px) {
-    #featured-event-display {
-        height: 600px;
+.overlay {
+    top:0;
+    left: 0;
+    position: absolute;
+    margin: 0;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    transition: opacity .25s;
+}
+
+.featured-display {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    max-width: 100%;
+    height: 600px;
+    max-height: 600px;
+    display: block;
+    background-color: #dddddd;
+}
+
+.featured-events-section {
+    background-color: #eee;
+}
+
+@media only screen and (min-width: 1200px) {
+    .featured-display {
         position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        max-width: 100%;
+        height: 600px;
+        max-height: 600px;
+        display: block;
+    }
+
+    .home main section {
+        margin-top: 65px;
+        padding: 45px 0;
+        border-radius: 25px;
+        border: solid #ddd 1px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+
+    .featured-display {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        max-width: 100%;
+        height: 475px;
+        display: block;
+    }
+
+    .announcements-section {
+
+    }
+
+    .announcements-header {
+        color: #1e416e;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .home main section {
+        margin-top: 50px;
+        padding: 45px 0;
+        border-radius: 25px;
+        border: solid #ddd 1px;
     }
 }
 
 @media only screen and (max-width: 767px) {
+
+    .featured-events-section {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
     .featured-event-header {
         font-size: 1.5rem;
     }
 
-    #featured-event-display {
+    .featured-display {
+        position: relative;
+        background: none;
+        width: 100%;
         height: 300px;
+        max-width: 100%;
+        display: block;
+        border: 0;
     }
 
     .featured-event-info {
@@ -47,5 +131,13 @@
 
     .announcements-header {
         font-size: 1.5rem;
+    }
+
+    .announcements-section {
+        background: rgb(255, 255, 255);
+    }
+
+    .home main section {
+        margin-top: 15px;
     }
 }

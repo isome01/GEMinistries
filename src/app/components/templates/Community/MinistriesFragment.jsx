@@ -25,7 +25,7 @@ const MinistriesFragment = ({getImage}) => (
                 <DynamicImg
                   title='prayers-heard-abroad'
                   dataList={[{
-                    path: getImage('https://uploads.weconnect.com/8b30e0780a8fbc9e5f60a6ca0434adb172436eea/ie7d696xgv4ufquduscxpkl7iel.jpg'),
+                    path: 'https://uploads.weconnect.com/8b30e0780a8fbc9e5f60a6ca0434adb172436eea/ie7d696xgv4ufquduscxpkl7iel.jpg',
                     name: 'prayers-heard-abroad'
                   }]}
                   style={{

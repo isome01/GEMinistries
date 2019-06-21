@@ -8,6 +8,10 @@
     color: #1e416e;
 }
 
+.announcement p {
+    color: #676d73;
+}
+
 @media only screen and (max-width: 767px) {
     .announcement {
         width: 100%;
