@@ -1,8 +1,11 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types'
+import $ from 'jquery'
 import './style.css'
 
-const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink}) => {
+const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink, getCurrentImage}) => {
+  title = title.replace(/ /g, '-')
+
   const imgBoxStyle = {
     margin: style.margin || 'auto',
     width: '100%',
@@ -11,7 +14,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
     maxHeight: style.height || style.maxHeight || '100%',
     border: style.border || 'solid #eee 2px',
     borderRadius: style.borderRadius || '0',
-    backgroundColor: style.backgroundColor || '#000'
+    backgroundColor: style.backgroundColor || 'rgba'
   }
   const imgStyle = {
     width: '100%',
@@ -20,23 +23,30 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
     maxHeight: (style.height || style.maxHeight) || 'auto',
     objectFit: 'contain'
   }
+
+  /*$(`#${title}`).on('slid.bs.carousel', function(){
+    console.log('Works...')
+  })*/
+
   return (
     /*
     Remember, title CANNOT have a string with whitespaces. Capiche?
     */
     <div
-      id={title.replace(/ /g, '-')}
+      id={title}
       className='carousel slide'
       data-ride="carousel"
       style={{
         display: style.display || 'block',
-      }}>
+      }}
+    >
       {
         dataList.length > 1 &&
         <ol className="carousel-indicators">
           {
             (dataList).map((data, index) => (
               <li
+                onLoad={() => {console.log('YUP')}}
                 data-target={`#${title}`}
                 data-slide-to={`${index}`}
                 className={index === 0 ? 'active' : ''}>
@@ -50,32 +60,34 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
         style={{...imgBoxStyle}}
       >
         {
-          (dataList || []).map((data, index) => (
-            data.path &&
-            <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-              {(showCaption || showTitle) &&
-                <Fragment>
-                  <div className='carousel-caption d-none d-sm-block'>
-                    {showTitle && title && <h5>{title}</h5>}
-                    {showCaption && data.caption && <p>{data.caption}</p>}
-                  </div>
-                </Fragment>
-              }
-              <img
-                id={`${data.name}-${index}`}
-                src={data.path}
-                alt={data.name}
-                name={passingLink}
-                style={{...imgStyle}}
-              />
-            </div>
-          ))
+          (dataList || []).map((data, index) => {
+            return (
+              data.path &&
+              <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                {(showCaption || showTitle) &&
+                  <Fragment>
+                    <div className='carousel-caption d-none d-sm-block'>
+                      {showTitle && title && <h5>{title}</h5>}
+                      {showCaption && data.caption && <p>{data.caption}</p>}
+                    </div>
+                  </Fragment>
+                }
+                <img
+                  id={`${data.name}-${index}`}
+                  src={data.path}
+                  alt={data.name}
+                  name={passingLink}
+                  style={{...imgStyle}}
+                />
+              </div>
+            )
+          })
         }
         {(showCaption || showTitle) && <div className='dialog-overlay' />}
-      </div>
+      </div >
       {
         dataList.length > 1 &&
-        <div>
+        <div onChange={() => getCurrentImage()}>
           <a className="carousel-control-prev" href={`#${title}`} data-slide="prev" role='button'>
             <span className="carousel-control-prev-icon" />
           </a>
@@ -102,6 +114,7 @@ DynamicImg.propTypes = {
   showTitle: PropTypes.bool,
   showCaption: PropTypes.bool,
   passingLink: PropTypes.string,
+  getCurrentImage: PropTypes.func
 }
 
 DynamicImg.defaultProps = {
@@ -109,7 +122,8 @@ DynamicImg.defaultProps = {
   showCaption: true,
   passingLink: '',
   resizeByWidth: null,
-  resizeByHeight: null
+  resizeByHeight: null,
+  getCurrentImage: null
 }
 
 export default DynamicImg;

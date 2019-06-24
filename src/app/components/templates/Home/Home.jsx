@@ -21,9 +21,11 @@ class Home extends Component{
       newsFeed: [],
       fetchEvents: false,
       featuredEvent: null,
-      upcomingEvents: []
+      upcomingEvents: [],
+      featuredImage: null
     }
-    this.resizeMaxHeight()
+    this.getFeaturedDisplay = this.getFeaturedDisplay.bind(this)
+    this.getFeaturedImage = this.getFeaturedImage.bind(this)
   }
 
   componentWillMount () {
@@ -112,21 +114,42 @@ class Home extends Component{
     }
   }
 
-  resizeMaxHeight = id => {
-    const element = document.getElementById(id)
+  getFeaturedImage = image => {
+    console.log(image)
+    if (image) {
+      this.setState({featuredImage: image.replace('/', '')})
+      console.log(image.replace('/', ''))
+    }
+  }
+
+  getFeaturedDisplay = () => {
+    const element = document.getElementsByClassName('featured-display')[0]
+    console.log(element)
     if (element) {
       const {height, maxHeight} = element.style
       console.log('size:', height, maxHeight)
+      console.log(element.style)
       return maxHeight || height
-    } else {
-      console.log(`Error: cannot find element with id ${id}`)
     }
   }
 
   render () {
-    const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, upcomingEvents} = this.state
+    const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, upcomingEvents, featuredImage} = this.state
     const {getImage} = this.props
-    console.log(typeof(document.body.style.width))
+    const featuredImageStyle = {
+      position: 'relative',
+      background: `url('${'https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p'}')`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      width: '100%',
+      maxWidth: '100%',
+      height: 600,
+      display: 'block'
+    }
+
+    const featuredImageHeight = this.getFeaturedDisplay()
+
     if (!fetchNewsFeed || !fetchEvents) {
       return (
         <div className='container'>
@@ -139,10 +162,10 @@ class Home extends Component{
     return (
       <div id="home-page" className="home container-fluid">
         <main>
-          <section>
+          <section className='row featured-events-section'>
             <br/>
             <div className='featured-event-info col-sm-12'>
-              <h2 className='text-center featured-event-header'>
+              <h2 className='text-center'>
                 Featuring our previous event:&nbsp;
               </h2>
               {featuredEvent &&
@@ -151,75 +174,92 @@ class Home extends Component{
                 </div>
               }
             </div>
-            <div>
+            <div className='col-xl-12 col-lg-12 col-md-12 col-12-sm'>
               {
                 featuredEvent && featuredEvent['attachment'] && (
-                  <div id='featured-event-display'>
-                    <DynamicImg
-                      title={featuredEvent.title ? featuredEvent.title.replace(/ /g, '-') : 'GEM'}
-                      className='text-center'
-                      style={({
-                        border: 'solid #1e416e 1px',
-                        height: 600
-                      })}
-                      dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
-                        image => ({
-                          name: featuredEvent.title.replace(/ /g, '-'),
-                          caption: (featuredEvent.description || ''),
-                          path: getImage(image)
-                        })
-                      )}
-                      showCaption={false}
-                    />
+                  <div className='text-center'>
+                    <div className='featured-display' style={featuredImageStyle}>
+                      <DynamicImg
+                        title={featuredEvent.title ? featuredEvent.title.replace(/ /g, '-') : 'GEM'}
+                        className='text-center'
+                        style={({
+                          borderTop: 'solid #eee 1px',
+                          borderBottom: 'solid #eee 1px',
+                          backgroundColor: 'rgba(0, 0, 0, .8)',
+                          height: featuredImageHeight || 600
+                        })}
+                        dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
+                          image => {
+                            return({
+                              name: featuredEvent.title.replace(/ /g, '-'),
+                              caption: (featuredEvent.description || ''),
+                              path: getImage(image)
+                            })
+                          }
+                        )}
+                        showCaption={false}
+                        getCurrentImage={this.getFeaturedImage}
+                        passingLink={featuredEvent['attachment'].split(',')[0]}
+                      />
+                      <div className='featured-event-info' style={{margin: '10px 0', boxShadow: 'none', backgroundColor: '#fff', color: '#1e416e'}}>
+                        <i>(For more information on upcoming events check out our events page.)</i>
+                      </div>
+                    </div>
                   </div>
                 )
               }
             </div>
-            <div className='featured-event-info' style={{margin: '10px 0', boxShadow: 'none', backgroundColor: '#fff', color: '#1e416e'}}>
-              <i>(For more information on upcoming events check out our events page.)</i>
-            </div>
-            <br/>
-            <br/>
-            <h2 className='announcements-header'> Announcements: </h2>
-            {(newsFeed || []).reverse().map(feed => (
-              <div>
+
+          </section>
+          <section className='row announcements-section'>
+            <div className='col-xl-12 col-lg-12 col-md-12'>
+              <div className='offset-lg-1 col-lg-10 offset-md-1 col-md-10 col-sm-12 col-xs-12'>
+                <br/>
+                <br/>
+                <h2 className='text-center announcements-header'>
+                  Announcements:
+                </h2>
                 <hr style={{border: 'solid #1e416e 1px'}}/>
-                <p
-                  className='text-left'
-                  style={{color: '#000080'}}
-                >Posted On:&nbsp;
-                  {convertDate(feed.created)}
-                </p>
-                <Announcement
-                  article={({
-                    header: feed.header || 'No header',
-                    summary: feed.summary || 'This announcement has no summary',
-                    children: (
-                      feed.attachment &&
-                      <div style={{height: '220px', width: '300px', display: 'inline-block'}}>
-                        <DynamicImg
-                          style={{
-                            border: 'solid #eee 2px',
-                            background: 'rgba(0, 0, 0, .15)',
-                            height: '100%',
-                            width: '100%',
-                            display: 'block'
-                          }}
-                          dataList={[{
-                            name: feed.header,
-                            path: `${getImage(feed.attachment)}`,
-                          }]}
-                          title={feed.header}
-                          showCaption={false}
-                          showTitle={false}
-                          children={null}
-                        />
-                      </div>
-                    )
-                  })}
-                />
+                {(newsFeed || []).reverse().map(feed => (
+                  <div style={{margin: '15px 0'}}>
+                    <p
+                      className='text-left'
+                      style={{color: '#000080'}}
+                    >Posted On:&nbsp;
+                      {convertDate(feed.created)}
+                    </p>
+                    <Announcement
+                      article={({
+                        header: feed.header || 'No header',
+                        summary: feed.summary || 'This announcement has no summary',
+                        children: (
+                          feed.attachment &&
+                          <div style={{height: '220px', width: '300px', display: 'inline-block'}}>
+                            <DynamicImg
+                              style={{
+                                border: 'solid #eee 2px',
+                                background: 'rgba(0, 0, 0, .15)',
+                                height: '100%',
+                                width: '100%',
+                                display: 'block'
+                              }}
+                              dataList={[{
+                                name: feed.header,
+                                path: `${getImage(feed.attachment)}`,
+                              }]}
+                              title={feed.header}
+                              showCaption={false}
+                              showTitle={false}
+                              children={null}
+                            />
+                          </div>
+                        )
+                      })}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </section>
         </main>
       </div>

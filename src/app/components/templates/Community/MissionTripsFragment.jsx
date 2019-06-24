@@ -37,7 +37,7 @@ const MissionTripsFragment = ({getImage}) => (
                 <DynamicImg
                   title='prayers-for-you'
                   dataList={[{
-                    path: getImage('https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p'),
+                    path: 'https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p',
                     name: 'prayers-for-you'
                   }]}
                   style={{
@@ -82,7 +82,7 @@ const MissionTripsFragment = ({getImage}) => (
                 <DynamicImg
                   title='prayers-heard-abroad'
                   dataList={[{
-                    path: getImage('https://www.volunteerforever.com/uploads/editor_uploads/rsz_peace-corps-001.jpg'),
+                    path: 'https://www.volunteerforever.com/uploads/editor_uploads/rsz_peace-corps-001.jpg',
                     name: 'prayers-heard-abroad'
                   }]}
                   style={{
@@ -119,7 +119,7 @@ const MissionTripsFragment = ({getImage}) => (
                 <DynamicImg
                   title='serve-with-us'
                   dataList={[{
-                    path: getImage('https://jmubethechange.files.wordpress.com/2013/09/purpleworld.jpg'),
+                    path: 'https://jmubethechange.files.wordpress.com/2013/09/purpleworld.jpg',
                     name: ''
                   }]}
                   style={{
