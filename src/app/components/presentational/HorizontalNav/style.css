@@ -93,7 +93,7 @@
 
     .child-content {
         background-color: #eee;
-        border-top: solid #1e416e 2px;
+        border-top: solid #1e416e 1px;
         transition: height .25s;
     }
     .hrzl-nav ul li a {

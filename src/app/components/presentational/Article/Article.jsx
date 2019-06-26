@@ -19,7 +19,10 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
       }
       {
         !childAfter && childBefore && children &&
-        <div className={`${columnslice[slice] || 'col-sm'} ${slice !== 'whole' ? 'text-center' : ''}`}>
+        <div
+          className={
+            `${columnslice[slice] === 'bisection' ? columnslice[slice] :'col-sm'}
+            ${slice !== 'whole' ? 'text-center' : 'text-left'}`}>
           {children}
         </div>
       }
@@ -44,7 +47,9 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
       </div>
       {childAfter && !childBefore && children &&
         <div
-          className={`col-sm ${slice !== 'whole' ? 'text-center' : ''}`}>
+          className={
+            `${columnslice[slice] === 'bisection' ? columnslice[slice] :'col-sm'}
+            ${slice !== 'whole' ? 'text-center' : 'text-right'}`}>
           {children}
         </div>
       }

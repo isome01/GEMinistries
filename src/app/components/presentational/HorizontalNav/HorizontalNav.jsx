@@ -38,7 +38,7 @@ const HorizontalNav = ({id, className, navLogoImg, navLogoText, navContent}) => 
                       >
                         <Link
                           key={content.text}
-                          to={content.link}
+                          to={content.children ? '#' : content.link}
                           className='nav-item hrzl-nav-item'
                         >{content.text && content.text}
                         </Link>

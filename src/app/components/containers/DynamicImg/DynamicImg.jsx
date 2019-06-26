@@ -1,10 +1,12 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types'
-import $ from 'jquery'
 import './style.css'
 
-const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink, getCurrentImage}) => {
-  title = title.replace(/ /g, '-')
+const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink, getCurrentImage, transTime}) => {
+  /*
+    Remember, title CANNOT have a string with whitespaces. Capiche?
+  */
+  const id = title.replace(/ /g, '-').replace(/(\$|%|^|&|\*|\.|@|#|!|\(|\)|\+|=|-|_|\{|}|\[|]|'|"|;|:|\/|,|\?|>|<)/g, '')
 
   const imgBoxStyle = {
     margin: style.margin || 'auto',
@@ -24,16 +26,9 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
     objectFit: 'contain'
   }
 
-  /*$(`#${title}`).on('slid.bs.carousel', function(){
-    console.log('Works...')
-  })*/
-
   return (
-    /*
-    Remember, title CANNOT have a string with whitespaces. Capiche?
-    */
     <div
-      id={title}
+      id={id}
       className='carousel slide'
       data-ride="carousel"
       style={{
@@ -47,7 +42,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
             (dataList).map((data, index) => (
               <li
                 onLoad={() => {console.log('YUP')}}
-                data-target={`#${title}`}
+                data-target={`#${id}`}
                 data-slide-to={`${index}`}
                 className={index === 0 ? 'active' : ''}>
               </li>
@@ -73,7 +68,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
                   </Fragment>
                 }
                 <img
-                  id={`${data.name}-${index}`}
+                  id={`${id}-${index}`}
                   src={data.path}
                   alt={data.name}
                   name={passingLink}
@@ -87,11 +82,19 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
       </div >
       {
         dataList.length > 1 &&
-        <div onChange={() => getCurrentImage()}>
-          <a className="carousel-control-prev" href={`#${title}`} data-slide="prev" role='button'>
+        <div>
+          <a
+            className="carousel-control-prev"
+            href={`#${id}`}
+            data-slide="prev"
+            role='button'>
             <span className="carousel-control-prev-icon" />
           </a>
-          <a className="carousel-control-next" href={`#${title}`} data-slide="next" role='button'>
+          <a
+            className="carousel-control-next"
+            href={`#${id}`}
+            data-slide="next"
+            role='button'>
             <span className="carousel-control-next-icon" />
           </a>
         </div>
@@ -114,7 +117,8 @@ DynamicImg.propTypes = {
   showTitle: PropTypes.bool,
   showCaption: PropTypes.bool,
   passingLink: PropTypes.string,
-  getCurrentImage: PropTypes.func
+  getCurrentImage: PropTypes.func,
+  transTime: PropTypes.number
 }
 
 DynamicImg.defaultProps = {
@@ -123,7 +127,8 @@ DynamicImg.defaultProps = {
   passingLink: '',
   resizeByWidth: null,
   resizeByHeight: null,
-  getCurrentImage: null
+  getCurrentImage: null,
+  transTime: 0
 }
 
 export default DynamicImg;

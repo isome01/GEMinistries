@@ -107,7 +107,6 @@ class Community extends Component {
                 )}
                 exact
               />
-              <Redirect to={`${this.props.match.url}/Prayer`} from={this.props.match.url} />
             </div>
           </section>
         </main>
