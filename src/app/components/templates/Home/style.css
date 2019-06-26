@@ -50,7 +50,48 @@
     background-color: #eee;
 }
 
+.past-events-panel {
+    color: #1e416e;
+}
+
+.past-event-container {
+    color: #676d73;
+    position: relative;
+    margin: 0 12px;
+    padding: 10px;
+    border: solid #1e416e 1px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    min-height: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    display: inline-block;
+}
+
+.past-event-img {
+    position: relative;
+    background-image: url('https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p');
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.past-events-dialog {
+    height: 75px;
+    min-height: 75px;
+    max-height: 75px;
+}
+
 @media only screen and (min-width: 1200px) {
+    .home main section {
+        margin-top: 65px;
+        padding: 45px 0;
+        border-radius: 25px;
+        border: solid #ddd 1px;
+    }
+
     .featured-display {
         position: relative;
         background-repeat: no-repeat;
@@ -63,11 +104,58 @@
         display: block;
     }
 
-    .home main section {
-        margin-top: 65px;
-        padding: 45px 0;
-        border-radius: 25px;
-        border: solid #ddd 1px;
+    .past-events-panel {
+        background-color: rgb(33, 65, 110);
+        border: solid rgb(16, 48, 96) 1px;
+        border-radius: 15px;
+        padding: 25px;
+        font-family: Georgia, Times New Roman, serif;
+        margin: 50px 0;
+    }
+
+    .overlay {
+        z-index: 1;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        background-color: rgba(0, 0, 0, .65);
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity .35s;
+    }
+
+    .overlay:hover {
+        opacity: 1;
+        color: #fff;
+        font-family: helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .past-event-container {
+        border: solid rgb(208, 224, 240) 1px;
+        background-color: rgb(224, 240, 255);
+        margin: 20px 10px;
+        box-shadow: 0 3px 3px #888888;
+    }
+
+    .past-events-dialog {
+        position: relative;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .announcements-header {
+        color: #1e416e;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .past-event-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -99,6 +187,54 @@
         padding: 45px 0;
         border-radius: 25px;
         border: solid #ddd 1px;
+    }
+
+    .past-events-panel {
+        background-color: rgb(33, 65, 110);
+        border: solid rgb(16, 48, 96) 1px;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 25px 0;
+        font-family: Georgia, Times New Roman, serif;
+    }
+
+    .past-event-container {
+        border: solid rgb(208, 224, 240) 1px;
+        background-color: rgb(224, 240, 255);
+        margin: 20px 10px;
+        box-shadow: 0 3px 3px #888888;
+    }
+
+    .overlay {
+        z-index: 1;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        background-color: rgba(0, 0, 0, .65);
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity .35s;
+    }
+
+    .overlay:hover {
+        opacity: 1;
+        color: #fff;
+        font-family: helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .past-events-dialog {
+        position: relative;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .past-event-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -139,5 +275,29 @@
 
     .home main section {
         margin-top: 15px;
+    }
+
+    .past-events-panel {
+        background-color: #fff;
+        border: none;
+        padding: 10px;
+        font-family: Georgia, Times New Roman, serif;
+    }
+
+    .overlay {
+        display: none;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .past-event-container {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .past-events-dialog {
+        position: relative;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 0 0 5px 5px;
     }
 }

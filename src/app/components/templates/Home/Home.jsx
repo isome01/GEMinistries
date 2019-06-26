@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import $ from 'jquery'
 import Announcement from '../../containers/Announcement/Announcement.jsx'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
@@ -22,10 +23,12 @@ class Home extends Component{
       fetchEvents: false,
       featuredEvent: null,
       upcomingEvents: [],
+      pastEvents: [],
       featuredImage: null
     }
     this.getFeaturedDisplay = this.getFeaturedDisplay.bind(this)
     this.getFeaturedImage = this.getFeaturedImage.bind(this)
+    this.transitionFeaturedEvent = this.transitionFeaturedEvent.bind(this)
   }
 
   componentWillMount () {
@@ -70,13 +73,11 @@ class Home extends Component{
 
          this.setState({
            featuredEvent: {...featuredEvent},
-           upcomingEvents: (pastEvents || []).reverse().map(event => {
-             if (event['status'] === 'future') {
-               return {...event}
-             }
-           }),
+           pastEvents: (pastEvents || []).filter(event => (event._id !== featuredEvent._id)).reverse().slice(0, 4),
+           upcomingEvents: (res|| []).filter(event => event['status'] === 'future').reverse(),
            fetchEvents: true
          })
+         //this.transitionFeaturedEvent()
        },
        err => {
          console.log(err)
@@ -114,38 +115,56 @@ class Home extends Component{
     }
   }
 
+  transitionFeaturedEvent = () => {
+    const {featuredEvent} = this.state
+    if (featuredEvent) {
+      console.log('firing off event stuff...')
+      const title = `#${featuredEvent.title.replace(/ /g, '-')}`
+      console.log($(`${title}`).slide)
+    }
+  }
+
   getFeaturedImage = image => {
-    console.log(image)
-    if (image) {
-      this.setState({featuredImage: image.replace('/', '')})
-      console.log(image.replace('/', ''))
+    const {featuredEvent} = this.state
+    if (featuredEvent.title) {
+      $(`#${featuredEvent.title.replace(/ /g, '-')}`).on('slid.bs.carousel', function () {
+      })
+      //console.log(image)
+      if (image) {
+        this.setState({
+          featuredImage: (this.props.getImage(
+            image || '37229110_10156750315657859_5542478179626647552_n.jpg'
+          ))
+        })
+      }
     }
   }
 
   getFeaturedDisplay = () => {
     const element = document.getElementsByClassName('featured-display')[0]
-    console.log(element)
+    //console.log(element)
     if (element) {
       const {height, maxHeight} = element.style
-      console.log('size:', height, maxHeight)
-      console.log(element.style)
+      /*console.log('size:', height, maxHeight)
+      console.log(element.style)*/
       return maxHeight || height
     }
   }
 
   render () {
-    const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, upcomingEvents, featuredImage} = this.state
+    const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, pastEvents, featuredImage} = this.state
     const {getImage} = this.props
-    const featuredImageStyle = {
+    let featuredImageStyle = {
       position: 'relative',
-      background: `url('${'https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p'}')`,
+      background: `url('${getImage('37229110_10156750315657859_5542478179626647552_n.jpg')}')`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       width: '100%',
       maxWidth: '100%',
       height: 600,
-      display: 'block'
+      display: 'block',
+      transition: 'opacity 1.5s'
     }
 
     const featuredImageHeight = this.getFeaturedDisplay()
@@ -165,7 +184,7 @@ class Home extends Component{
           <section className='row featured-events-section'>
             <br/>
             <div className='featured-event-info col-sm-12'>
-              <h2 className='text-center'>
+              <h2 className='text-center' style={{color: '#1e416e', fontWeight: 'bold', fontFamily: 'Georgia, Times New Roman, serif'}}>
                 Featuring our previous event:&nbsp;
               </h2>
               {featuredEvent &&
@@ -178,9 +197,11 @@ class Home extends Component{
               {
                 featuredEvent && featuredEvent['attachment'] && (
                   <div className='text-center'>
-                    <div className='featured-display' style={featuredImageStyle}>
+                    <div
+                      className='featured-display'
+                      style={featuredImageStyle}>
                       <DynamicImg
-                        title={featuredEvent.title ? featuredEvent.title.replace(/ /g, '-') : 'GEM'}
+                        title={featuredEvent.title || 'GEM'}
                         className='text-center'
                         style={({
                           borderTop: 'solid #eee 1px',
@@ -191,7 +212,7 @@ class Home extends Component{
                         dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
                           image => {
                             return({
-                              name: featuredEvent.title.replace(/ /g, '-'),
+                              name: featuredEvent.title || 'GEM',
                               caption: (featuredEvent.description || ''),
                               path: getImage(image)
                             })
@@ -201,22 +222,44 @@ class Home extends Component{
                         getCurrentImage={this.getFeaturedImage}
                         passingLink={featuredEvent['attachment'].split(',')[0]}
                       />
-                      <div className='featured-event-info' style={{margin: '10px 0', boxShadow: 'none', backgroundColor: '#fff', color: '#1e416e'}}>
-                        <i>(For more information on upcoming events check out our events page.)</i>
-                      </div>
                     </div>
                   </div>
                 )
               }
             </div>
-
+            <div className='col-xl-12 col-lg-12 col-md-12 col-12-sm'  style={{backgroundColor: '#fff'}}>
+              <div className='past-events-panel' style={{}}>
+                <h2 className='text-center' style={{fontWeight: 'bold', color: '#fff'}}> GEM Outreach Past Events! </h2>
+                <div className='offset-xl-1 col-xl-10 offset-lg-1 col-lg-10 offset-md-1 col-md-10 text-center' style={{backgroundColor: '#fff'}}>
+                  <div className='row past-event-row'>
+                    {
+                      pastEvents.map(event => (
+                        <div className='past-event-container'>
+                          <div className='past-event-img'>
+                            <div className='overlay'>
+                              {event.title}
+                            </div>
+                          </div>
+                          <div className='past-events-dialog'>
+                            {event.description}
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                  <div>
+                    <i>(For more information on upcoming events check out our events page.)</i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <section className='row announcements-section'>
             <div className='col-xl-12 col-lg-12 col-md-12'>
               <div className='offset-lg-1 col-lg-10 offset-md-1 col-md-10 col-sm-12 col-xs-12'>
                 <br/>
                 <br/>
-                <h2 className='text-center announcements-header'>
+                <h2 className='text-left announcements-header'>
                   Announcements:
                 </h2>
                 <hr style={{border: 'solid #1e416e 1px'}}/>
@@ -237,7 +280,8 @@ class Home extends Component{
                           <div style={{height: '220px', width: '300px', display: 'inline-block'}}>
                             <DynamicImg
                               style={{
-                                border: 'solid #eee 2px',
+                                border: 'solid #eee 1px',
+                                borderRadius: '10px' ,
                                 background: 'rgba(0, 0, 0, .15)',
                                 height: '100%',
                                 width: '100%',
@@ -261,6 +305,8 @@ class Home extends Component{
               </div>
             </div>
           </section>
+          {
+          }
         </main>
       </div>
     )

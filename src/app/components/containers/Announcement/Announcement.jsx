@@ -53,7 +53,7 @@ class Announcement extends Component {
   render () {
     const {header, summary, id, overflows, allowOverflow, children} = this.state.article
     return (
-      <div className='announcement'>
+      <div className='announcement text-center'>
         <Article
           summaryid={id}
           slice={overflows ? 'whole' : 'bisection'}
@@ -65,6 +65,7 @@ class Announcement extends Component {
           }
           childAfter={!this.state.article.childBefore}
           childBefore={this.state.article.childBefore}
+          className='text-left'
           children={
             (
               <Fragment>

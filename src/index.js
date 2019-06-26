@@ -5,8 +5,15 @@ import App from './app/main/App.jsx'; /* Import App root  */
 
 const app_wrapper = document.getElementById('root');
 
-app_wrapper ? ReactDOM.render(<App uriHangar={uriHangar} domain={'www.gemoutreach.org'}/>, app_wrapper) : () => {
+app_wrapper
+  ? ReactDOM.render(
+    <App
+      uriHangar={uriHangar}
+        domain='localhost'
+    />,
+      app_wrapper
+  ) : () => {
     console.log(
-        `Application unable to start. App wrapper value comes back as ${app_wrapper}`
+      `Application unable to start. App wrapper value comes back as ${app_wrapper}`
     )
 }

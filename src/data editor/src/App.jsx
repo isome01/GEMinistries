@@ -30,7 +30,7 @@ class App extends Component{
   render = () => {
     const {navbarLinks} = this.state
     const {uriHangar} = this.props
-    const domain = 'www.gemoutreach.org'
+    const domain = 'localhost'
     return (
       <Router history={browserHistory}>
         <div className='row'>

@@ -96,7 +96,8 @@ class App extends Component {
                     getImage={getImage}
                     uriHangar={uriHangar}
                     domain={domain}
-                  />)}
+                  />)
+                }
               />
               <Route
                 path="/About-Us" strict
