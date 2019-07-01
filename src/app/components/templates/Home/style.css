@@ -35,6 +35,7 @@
 
 .featured-display {
     position: relative;
+    background-image: url('//gemoutreach.org/423a6ca2a5aa8a4b6c0ed620e9ea7eef.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -43,7 +44,6 @@
     height: 600px;
     max-height: 600px;
     display: block;
-    background-color: #dddddd;
 }
 
 .featured-events-section {
@@ -55,16 +55,12 @@
 }
 
 .past-event-container {
-    color: #676d73;
     position: relative;
-    margin: 0 12px;
-    padding: 10px;
-    border: solid #1e416e 1px;
-    border-radius: 20px;
-    box-sizing: border-box;
-    min-height: 250px;
-    min-width: 250px;
-    max-width: 250px;
+    margin: 0;
+    border: solid #eee 1px;
+    min-height: 300px;
+    min-width: 300px;
+    max-width: 300px;
     display: inline-block;
 }
 
@@ -73,19 +69,14 @@
     background-image: url('https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p');
     background-size: cover;
     background-position: center;
-    height: 150px;
-    width: 100%;
-    border-radius: 5px 5px 0 0;
+    height: 300px;
 }
 
-.past-events-dialog {
-    height: 75px;
-    min-height: 75px;
-    max-height: 75px;
-}
+
 
 @media only screen and (min-width: 1200px) {
     .home main section {
+        background-color: #eeeeee;
         margin-top: 65px;
         padding: 45px 0;
         border-radius: 25px;
@@ -99,18 +90,18 @@
         background-size: cover;
         width: 100%;
         max-width: 100%;
-        height: 600px;
+        height: 100%;
         max-height: 600px;
         display: block;
     }
 
     .past-events-panel {
-        background-color: rgb(33, 65, 110);
+        background-color: #fff;
         border: solid rgb(16, 48, 96) 1px;
         border-radius: 15px;
         padding: 25px;
         font-family: Georgia, Times New Roman, serif;
-        margin: 50px 0;
+        margin: 100px 0;
     }
 
     .overlay {
@@ -118,7 +109,6 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        border-radius: 5px 5px 0 0;
         background-color: rgba(0, 0, 0, .65);
         cursor: pointer;
         opacity: 0;
@@ -132,18 +122,13 @@
         text-align: center;
     }
 
-    .past-event-container {
-        border: solid rgb(208, 224, 240) 1px;
-        background-color: rgb(224, 240, 255);
-        margin: 20px 10px;
-        box-shadow: 0 3px 3px #888888;
+    .overlay:hover  + .overlay i:after {
+        bottom: 5px;
+        padding: 0 3px;
     }
 
-    .past-events-dialog {
-        position: relative;
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 0 0 5px 5px;
+    .past-event-container {
+        margin: 0;
     }
 
     .announcements-header {
@@ -156,10 +141,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 100px 0 50px 0;
+        background: linear-gradient(
+            to right, rgba(255, 255, 255, 1),
+            rgba(33, 65, 110, 1), rgba(33, 65, 110, 1), rgba(33, 65, 110, 1), rgba(33, 65, 110, 1),
+            rgba(255, 255, 255, 1)
+        );
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .home main section {
+        background-color: #eeeeee;
+        position: relative;
+        margin-top: 50px;
+        padding: 45px 0;
+        border-radius: 25px;
+        border: solid #ddd 1px;
+
+    }
 
     .featured-display {
         position: relative;
@@ -168,12 +168,15 @@
         background-size: cover;
         width: 100%;
         max-width: 100%;
-        height: 475px;
+        height: 100%;
+        min-height: 400px;
+        max-height: 475px;
         display: block;
     }
 
-    .announcements-section {
-
+    .featured-display img {
+        max-height: inherit;
+        max-width: inherit;
     }
 
     .announcements-header {
@@ -182,15 +185,9 @@
         font-weight: bold;
     }
 
-    .home main section {
-        margin-top: 50px;
-        padding: 45px 0;
-        border-radius: 25px;
-        border: solid #ddd 1px;
-    }
 
     .past-events-panel {
-        background-color: rgb(33, 65, 110);
+        background-color: #fff;
         border: solid rgb(16, 48, 96) 1px;
         border-radius: 15px;
         padding: 25px;
@@ -199,10 +196,7 @@
     }
 
     .past-event-container {
-        border: solid rgb(208, 224, 240) 1px;
-        background-color: rgb(224, 240, 255);
-        margin: 20px 10px;
-        box-shadow: 0 3px 3px #888888;
+        margin: 0;
     }
 
     .overlay {
@@ -210,7 +204,6 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        border-radius: 5px 5px 0 0;
         background-color: rgba(0, 0, 0, .65);
         cursor: pointer;
         opacity: 0;
@@ -224,17 +217,17 @@
         text-align: center;
     }
 
-    .past-events-dialog {
-        position: relative;
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 0 0 5px 5px;
+    .overlay:hover  + .overlay i:after {
+        bottom: 5px;
+        padding: 0 3px;
     }
 
     .past-event-row {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 100px 0 50px 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(33, 65, 110, 1));
     }
 }
 
@@ -251,8 +244,10 @@
     .featured-display {
         position: relative;
         background: none;
+        height: 100%;
+        min-height: 175px;
+        max-height: 300px;
         width: 100%;
-        height: 300px;
         max-width: 100%;
         display: block;
         border: 0;
@@ -275,6 +270,7 @@
 
     .home main section {
         margin-top: 15px;
+        background: 0;
     }
 
     .past-events-panel {
@@ -282,22 +278,25 @@
         border: none;
         padding: 10px;
         font-family: Georgia, Times New Roman, serif;
+        display: none;
     }
 
     .overlay {
         display: none;
-        border-radius: 5px 5px 0 0;
     }
 
     .past-event-container {
+        width: 100%;
+        height: auto;
+        max-width: 470px;
+        min-width: 0;
+        min-height: 0;
         display: block;
         margin: 5px 0;
+        border: 0;
     }
 
-    .past-events-dialog {
-        position: relative;
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 0 0 5px 5px;
+    .past-event-row {
+        background: none;
     }
 }

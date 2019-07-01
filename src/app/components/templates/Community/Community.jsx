@@ -36,7 +36,8 @@ class Community extends Component {
           {link: '/Activities', text: 'Activities'},
           {link: '/Ministries', text: 'Ministries'},
           {link: '/Mission-Trips', text: 'Mission Trips'},
-        ]})
+        ]}
+      )
     }
   }
 

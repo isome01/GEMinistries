@@ -21,12 +21,24 @@
     margin-top: 20px;
 }
 
+.collage-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e416e;
+}
+
 @media only screen and (min-width: 768px) {
     .upcoming-calendar {
         width: 100%;
         max-width: 1200px;
         min-width: 0;
         margin: 0;
+    }
+
+    .event-img {
+        display: inline-block;
+        min-width: 400px;
     }
 }
 
@@ -36,6 +48,11 @@
         width: 100%;
         min-width: 567px;
         max-width: 767px;
+    }
+
+    .event-img {
+        display: block;
+        width: 100%;
     }
 }
 
@@ -47,5 +64,9 @@
         max-width: 576px;
         height: 100%;
         max-height: 350px;
+    }
+    .event-img {
+        display: block;
+        width: 100%;
     }
 }
