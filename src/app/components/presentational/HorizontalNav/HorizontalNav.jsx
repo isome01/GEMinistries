@@ -10,40 +10,42 @@ const HorizontalNav = ({id, className, navLogoImg, navLogoText, navContent}) => 
   return (
     <Fragment>
       <div>
-        <nav className={`navbar hrzl-nav navbar-expand-md container-fluid`}>
-          <div className='navbar-header offset-md-1 col-md-2'>
+        <nav className={`navbar hrzl-nav navbar-expand-md`}>
+          <div className='navbar-header col-xs-6'>
             <Link to="/">
-        <span className='nav-header navbar-brand'>
-          <img src={navLogoImg} alt={navLogoText} className='nav-logo' />
-        </span>
+              <span className='nav-header navbar-brand'>
+                <img src={navLogoImg} alt={navLogoText} className='nav-logo'/>
+              </span>
             </Link>
           </div>
-          <button
-            className='navbar-toggler'
-            type='button'
-            data-toggle='collapse'
-            data-target={`#${id.replace(/ /g, '-')}`}
-            aria-controls='navbarSupportedContent'
-          >
-            <span className='navbar-toggler-icon'/>
-          </button>
+          <div className='col-xs'>
+            <button
+              className='navbar-toggler'
+              type='button'
+              data-toggle='collapse'
+              data-target={`#${id.replace(/ /g, '-')}`}
+              aria-controls='navbarSupportedContent'
+            >
+              <span className='navbar-toggler-icon'/>
+            </button>
+          </div>
           <div className={`${className}`}>
             <div id={id.replace(/ /g, '-')} className='collapse navbar-collapse' style={{width: '100%'}}>
               <ul className="navbar-nav">
                 {(navContent || []).map(content => (
-                    <Fragment>
-                      <div className='nav-separator text-center'>|</div>
-                      <li
-                        onMouseOver={() => getSelectedChild(content.children)}
-                      >
-                        <Link
-                          key={content.text}
-                          to={content.children ? '#' : content.link}
-                          className='nav-item hrzl-nav-item'
-                        >{content.text && content.text}
-                        </Link>
-                      </li>
-                    </Fragment>
+                  <Fragment>
+                    <div className='nav-separator text-center'>|</div>
+                    <li
+                      onMouseOver={() => getSelectedChild(content.children)}
+                    >
+                      <Link
+                        key={content.text}
+                        to={content.children ? '#' : content.link}
+                        className='nav-item hrzl-nav-item'
+                      >{content.text && content.text}
+                      </Link>
+                    </li>
+                  </Fragment>
                   )
                 )}
               </ul>

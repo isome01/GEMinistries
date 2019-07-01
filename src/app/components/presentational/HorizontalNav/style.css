@@ -64,7 +64,9 @@
 
     .hrzl-nav .nav-logo {
         margin: auto;
-        width: 200px;
+        width: 100%;
+        min-width: 150px;
+        max-width: 200px;
         border-radius: 5px;
     }
 
@@ -111,6 +113,8 @@
     .hrzl-nav .nav-logo {
         height: 100%;
         max-height: 45px;
+        width: 100%;
+        max-width: 150px;
         margin: 0;
         border-radius: 5px;
     }

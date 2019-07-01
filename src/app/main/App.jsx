@@ -62,7 +62,7 @@ class App extends Component {
       },
       {text: 'About Us', link: '/About-Us'}
     ]
-    const homePageStyle = {width: '100%', margin: '0'}
+    const homePageStyle = {width: '100%'}
     const {uriHangar} = this.props
     const domain = this.props.domain || 'localhost'
     return (

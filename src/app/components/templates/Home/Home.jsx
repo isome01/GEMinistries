@@ -142,42 +142,27 @@ class Home extends Component{
 
   getFeaturedDisplay = () => {
     const element = document.getElementsByClassName('featured-display')[0]
-    //console.log(element)
+    console.log(element)
     if (element) {
-      const {height, maxHeight} = element.style
-      /*console.log('size:', height, maxHeight)
-      console.log(element.style)*/
-      return maxHeight || height
+      console.log('size:', element.style.height, element.style.maxHeight)
+      console.log(element.style)
+      return element.style.maxHeight || element.style.height
     }
   }
 
   render () {
     const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, pastEvents, featuredImage} = this.state
     const {getImage} = this.props
-    let featuredImageStyle = {
-      position: 'relative',
-      background: `url('${getImage('37229110_10156750315657859_5542478179626647552_n.jpg')}')`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      width: '100%',
-      maxWidth: '100%',
-      height: 600,
-      display: 'block',
-      transition: 'opacity 1.5s'
-    }
-
     const featuredImageHeight = this.getFeaturedDisplay()
-
-    if (!fetchNewsFeed || !fetchEvents) {
+    console.log($('.featured-display'))
+    if (!fetchEvents) {
       return (
-        <div className='container'>
-          <div className='text-center' style={{position: 'center'}}>
-            <PageLoader/>
-          </div>
+        <div className='text-center' style={{position: 'center', height: '100%', width: '100%'}}>
+          <PageLoader/>
         </div>
       )
     }
+
     return (
       <div id="home-page" className="home container-fluid">
         <main>
@@ -197,9 +182,7 @@ class Home extends Component{
               {
                 featuredEvent && featuredEvent['attachment'] && (
                   <div className='text-center'>
-                    <div
-                      className='featured-display'
-                      style={featuredImageStyle}>
+                    <div className='featured-display'>
                       <DynamicImg
                         title={featuredEvent.title || 'GEM'}
                         className='text-center'
@@ -207,7 +190,7 @@ class Home extends Component{
                           borderTop: 'solid #eee 1px',
                           borderBottom: 'solid #eee 1px',
                           backgroundColor: 'rgba(0, 0, 0, .8)',
-                          height: featuredImageHeight || 600
+                          width: 'inherit'
                         })}
                         dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
                           image => {
@@ -227,29 +210,29 @@ class Home extends Component{
                 )
               }
             </div>
-            <div className='col-xl-12 col-lg-12 col-md-12 col-12-sm'  style={{backgroundColor: '#fff'}}>
+            <div className='col-xl-12 col-lg-12 col-md-12 col-12-sm'  style={{backgroundColor: '#1e416e'}}>
               <div className='past-events-panel' style={{}}>
-                <h2 className='text-center' style={{fontWeight: 'bold', color: '#fff'}}> GEM Outreach Past Events! </h2>
-                <div className='offset-xl-1 col-xl-10 offset-lg-1 col-lg-10 offset-md-1 col-md-10 text-center' style={{backgroundColor: '#fff'}}>
-                  <div className='row past-event-row'>
-                    {
-                      pastEvents.map(event => (
-                        <div className='past-event-container'>
-                          <div className='past-event-img'>
-                            <div className='overlay'>
-                              {event.title}
+                <h2 className='text-center' style={{fontWeight: 'bold', color: '#1e416e'}}> GEM Outreach Past Events! </h2>
+                <div className=''>
+                  <div className='col-xl-12 col-lg-12 col-md-12 text-center'>
+                    <div className='row past-event-row'>
+                      {
+                        pastEvents.map(event => (
+                          <div className='past-event-container'>
+                            <div className='past-event-img'>
+                              <div className='overlay'>
+                                {event.title}
+                                <i>{event.endDate}</i>
+                              </div>
                             </div>
                           </div>
-                          <div className='past-events-dialog'>
-                            {event.description}
-                          </div>
-                        </div>
-                      ))
-                    }
+                        ))
+                      }
+                    </div>
                   </div>
-                  <div>
-                    <i>(For more information on upcoming events check out our events page.)</i>
-                  </div>
+                </div>
+                <div className='text-center'>
+                  <i>(For more information on upcoming events check out our events page.)</i>
                 </div>
               </div>
             </div>

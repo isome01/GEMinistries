@@ -33,6 +33,8 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
       data-ride="carousel"
       style={{
         display: style.display || 'block',
+        height: 'inherit',
+        width: 'inherit'
       }}
     >
       {
@@ -52,7 +54,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
       }
       <div
         className={`carousel-inner ${className}`}
-        style={{...imgBoxStyle}}
+        style={!className ? {...imgBoxStyle} : {className}}
       >
         {
           (dataList || []).map((data, index) => {
