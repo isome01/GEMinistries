@@ -16,7 +16,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
     maxHeight: style.height || style.maxHeight || '100%',
     border: style.border || 'solid #eee 2px',
     borderRadius: style.borderRadius || '0',
-    backgroundColor: style.backgroundColor || 'rgba'
+    backgroundColor: style.backgroundColor || '#000'
   }
   const imgStyle = {
     width: '100%',
@@ -34,7 +34,9 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
       style={{
         display: style.display || 'block',
         height: 'inherit',
-        width: 'inherit'
+        width: 'inherit',
+        maxHeight: 'inherit',
+        maxWidth: 'inherit'
       }}
     >
       {
@@ -54,7 +56,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
       }
       <div
         className={`carousel-inner ${className}`}
-        style={!className ? {...imgBoxStyle} : {className}}
+        style={{...imgBoxStyle}}
       >
         {
           (dataList || []).map((data, index) => {

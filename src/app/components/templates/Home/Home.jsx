@@ -190,7 +190,8 @@ class Home extends Component{
                           borderTop: 'solid #eee 1px',
                           borderBottom: 'solid #eee 1px',
                           backgroundColor: 'rgba(0, 0, 0, .8)',
-                          width: 'inherit'
+                          height: '600px',
+                          maxHeight: '600px'
                         })}
                         dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
                           image => {
