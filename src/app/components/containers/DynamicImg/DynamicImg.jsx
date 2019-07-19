@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types'
 import './style.css'
 
-const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink, getCurrentImage, transTime}) => {
+const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink, getCurrentImage, transTime, showOverlay}) => {
   /*
     Remember, title CANNOT have a string with whitespaces. Capiche?
   */
@@ -32,11 +32,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
       className='carousel slide'
       data-ride="carousel"
       style={{
-        display: style.display || 'block',
-        height: 'inherit',
-        width: 'inherit',
-        maxHeight: 'inherit',
-        maxWidth: 'inherit'
+        display: style.display || 'block'
       }}
     >
       {
@@ -82,7 +78,7 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
             )
           })
         }
-        {(showCaption || showTitle) && <div className='dialog-overlay' />}
+        {((showCaption || showTitle) && showOverlay) && <div className='dialog-overlay' />}
       </div >
       {
         dataList.length > 1 &&
@@ -120,6 +116,7 @@ DynamicImg.propTypes = {
   style: PropTypes.shape({}),
   showTitle: PropTypes.bool,
   showCaption: PropTypes.bool,
+  showOverlay: PropTypes.bool,
   passingLink: PropTypes.string,
   getCurrentImage: PropTypes.func,
   transTime: PropTypes.number
@@ -128,6 +125,7 @@ DynamicImg.propTypes = {
 DynamicImg.defaultProps = {
   showTitle: true,
   showCaption: true,
+  showOverlay: true,
   passingLink: '',
   resizeByWidth: null,
   resizeByHeight: null,

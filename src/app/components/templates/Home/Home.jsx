@@ -211,16 +211,25 @@ class Home extends Component{
                 )
               }
             </div>
-            <div className='col-xl-12 col-lg-12 col-md-12 col-12-sm'  style={{backgroundColor: '#1e416e'}}>
+            <div className='col-xl-12 col-lg-12 col-md-12 col-12-sm'>
               <div className='past-events-panel' style={{}}>
                 <h2 className='text-center' style={{fontWeight: 'bold', color: '#1e416e'}}> GEM Outreach Past Events! </h2>
                 <div className=''>
                   <div className='col-xl-12 col-lg-12 col-md-12 text-center'>
                     <div className='row past-event-row'>
                       {
-                        pastEvents.map(event => (
+                        pastEvents.filter(event => {
+                          console.log(event)
+                          return event.attachment
+                        }).map(event => (
                           <div className='past-event-container'>
-                            <div className='past-event-img'>
+                            <div className='' style={{
+                              position: 'relative',
+                              backgroundImage: `url('${getImage(event.attachment)}')`,
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                              height: 300
+                            }}>
                               <div className='overlay'>
                                 {event.title}
                                 <i>{event.endDate}</i>

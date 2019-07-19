@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import {Route,Redirect} from 'react-router-dom'
-import VerticalNav from '../../presentational/VerticalNav'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import {convertDate} from '../../../scripts'
-import UpcomingFragment from './UpcomingFragment'
-import CollageFragment from './CollageFragment'
+import UpcomingFragment from './UpcomingFragment.jsx'
+import CollageFragment from './CollageFragment.jsx'
 import './style.css'
 
 class Events extends Component {

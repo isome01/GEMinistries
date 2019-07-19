@@ -45,7 +45,7 @@ class CollageFragment extends Component {
     }
 
     return (
-      <Fragment>
+      <div className='collage-section'>
         {modalView && currentView && (
           <Modal
             isZoomed={window.screen.width > 1000}
@@ -80,43 +80,52 @@ class CollageFragment extends Component {
             ... perhaps you'll find yourself joining us sooner than you think!</p>
         </div>
         {
-          pastEvents.map(event => (
-            <div className='col-sm-12' style={{margin: '5px 0'}}>
-              <hr />
-              <h5 style={{margin: '20px 0', color: '#000080'}}>
-                {event.title}&nbsp;- From:&nbsp;{convertDate(event.startDate)} - {
-                convertDate(event.endDate)}
-              </h5>
-              <p style={{margin: '5px 0 25px 0', listStyleType: 'circle'}}>
-                {event.description}</p>
-              {
-                event['attachment'] && (
-                  event.attachment.split(',').map(image => (
-                    <div onClick={this.toggleModal} style={{width: '33%', display: 'inline-block', cursor: 'pointer'}}>
-                      <DynamicImg
-                        title={event.title}
-                        dataList={[{
-                          path: getImage(image),
-                          name: event.title
-                        }]}
-                        showTitle={false}
-                        showCaption={false}
-                        style={{
-                          border: 'solid #eee 2px',
-                          backgroundColor: '#000',
-                          height: '275px',
-                        }}
-                        className='text-center'
-                        passingLink={image}
-                      />
-                    </div>
-                  ))
-                )
-              }
+          pastEvents.filter(event => event.attachment).map(event => (
+            <div className='collage-event' style={{fontFamily: 'Audrey, Helvetica, Sans-Serif'}}>
+              <div className='row'>
+                <div className='container-fluid collage-row-desc'>
+                  <hr />
+                  <h5>
+                    <b>
+                    {event.title}&nbsp;- From:&nbsp;{convertDate(event.startDate)} - {
+                      convertDate(event.endDate)}
+                    </b>
+                  </h5>
+                  <br />
+                  <p style={{display: 'block'}}>
+                    {event.description}
+                  </p>
+                </div>
+              </div>
+              <div className='row collage-row'>
+                {
+                  event['attachment'] && (
+                    event.attachment.split(',').map(image => (
+                      <div className='text-center collage-row-item col-lg-4 col-md-4 col-sm-4' onClick={this.toggleModal}>
+                        <DynamicImg
+                          title={event.title}
+                          dataList={[{
+                            path: getImage(image),
+                            name: event.title
+                          }]}
+                          showTitle={false}
+                          showCaption={false}
+                          style={{
+                            display: 'block',
+                            height: 275,
+                            borderRadius: 15
+                          }}
+                          passingLink={image}
+                        />
+                      </div>
+                    ))
+                  )
+                }
+              </div>
             </div>
           ))
         }
-      </Fragment>
+      </div>
     )
   }
 }

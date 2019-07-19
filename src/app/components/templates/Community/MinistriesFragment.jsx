@@ -25,7 +25,7 @@ const MinistriesFragment = ({getImage}) => (
                 <DynamicImg
                   title='prayers-heard-abroad'
                   dataList={[{
-                    path: 'https://uploads.weconnect.com/8b30e0780a8fbc9e5f60a6ca0434adb172436eea/ie7d696xgv4ufquduscxpkl7iel.jpg',
+                    path: getImage('37161393_10205359654428711_8565820940498239488_n.jpg'),
                     name: 'prayers-heard-abroad'
                   }]}
                   style={{
@@ -64,9 +64,9 @@ const MinistriesFragment = ({getImage}) => (
           children={(
             <div className='frag-img-container'>
               <DynamicImg
-                title='prayers-for-you'
+                title='young-adults-ministry'
                 dataList={[{
-                  path: getImage('37161393_10205359654428711_8565820940498239488_n.jpg'),
+                  path: 'https://uploads.weconnect.com/8b30e0780a8fbc9e5f60a6ca0434adb172436eea/ie7d696xgv4ufquduscxpkl7iel.jpg',
                   name: 'prayers-for-you'
                 }]}
                 style={{
@@ -109,6 +109,28 @@ const MinistriesFragment = ({getImage}) => (
              programs that address needs in the areas of communication skills, interpersonal 
              skills, and positive use of leisure time activities; and vocational training.
           `}
+          slice='bisection'
+          children={(
+            <div>
+              <DynamicImg
+                title='Adults Ministry'
+                dataList={[{
+                  path: 'http://southbrookleyumc.org/wp-content/uploads/2018/03/AdultMinistriesWEB.jpg',
+                  name: 'adult-ministry'
+                }]}
+                style={{
+                  margin: 0,
+                  display: 'block',
+                  width: 769,
+                  background: 'rgba(0, 0, 0, 0)',
+                  border: 'solid #1e416e 1px',
+                  borderRadius: '10px'
+                }}
+                showTitle={false}
+                showCaption={false}
+              />
+            </div>
+          )}
         />
         </div>
       </li>

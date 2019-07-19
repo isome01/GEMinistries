@@ -93,6 +93,7 @@
         height: 100%;
         max-height: 600px;
         display: block;
+        margin-bottom: 50px;
     }
 
     .past-events-panel {

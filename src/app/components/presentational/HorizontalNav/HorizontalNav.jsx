@@ -6,6 +6,9 @@ import './style.css'
 
 const HorizontalNav = ({id, className, navLogoImg, navLogoText, navContent}) => {
 
+  const resetActive = () => {
+  }
+
   const [selectedChild, getSelectedChild] = useState(null)
   return (
     <Fragment>
@@ -25,6 +28,8 @@ const HorizontalNav = ({id, className, navLogoImg, navLogoText, navContent}) => 
               data-toggle='collapse'
               data-target={`#${id.replace(/ /g, '-')}`}
               aria-controls='navbarSupportedContent'
+              aria-expanded='false'
+              aria-label='hztlNavButton'
             >
               <span className='navbar-toggler-icon'/>
             </button>
@@ -37,6 +42,7 @@ const HorizontalNav = ({id, className, navLogoImg, navLogoText, navContent}) => 
                     <div className='nav-separator text-center'>|</div>
                     <li
                       onMouseOver={() => getSelectedChild(content.children)}
+                      onClick={content.children ? null : resetActive}
                     >
                       <Link
                         key={content.text}

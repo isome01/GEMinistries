@@ -3,7 +3,6 @@
     display: block;
     justify-content: center;
     margin: auto;
-    border-right: solid #eee 2px;
     box-sizing: border-box;
     word-wrap: break-word;
     max-width: 100%;
@@ -11,6 +10,7 @@
 }
 
 .about-us-header {
+    font-family: Audrey, Helvetica, sans-serif;
     padding: 15px;
     margin: auto;
 }
@@ -18,4 +18,19 @@
 
 .about-us-section{
     margin: 50px 10px;
+}
+
+@media only screen and (min-width: 767px) {
+    .about-us-profile {
+        min-width: 375px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .about-us-profile {
+        min-width: 250px;
+    }
+    .about-us-section {
+        margin: 25px 0;
+    }
 }

@@ -3,8 +3,6 @@
     display: block;
     justify-content: center;
     margin: auto;
-    border-right: solid #eee 2px;
-    border-left: solid #eee 2px;
     box-sizing: border-box;
     word-wrap: break-word;
     max-width: 100%;
@@ -21,23 +19,82 @@
     margin-top: 20px;
 }
 
-.collage-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1e416e;
-}
-
 @media only screen and (min-width: 768px) {
+    section {
+        background-color: #eeeeee;
+        margin-top: 65px;
+        padding: 45px 0;
+        border-radius: 25px;
+        border: solid #ddd 1px;
+    }
+
     .upcoming-calendar {
         width: 100%;
-        max-width: 1200px;
         min-width: 0;
-        margin: 0;
+    }
+
+    .upcoming-calendar-tile {
+        height: 100%;
+        min-height: 130px;
+    }
+
+    .upcoming-list {
+        width: 100%;
+        margin: 10px 20px;
+        background-color: #fff;
     }
 
     .event-img {
         display: inline-block;
+        min-width: 400px;
+    }
+
+    .collage-section {
+        margin: 100px 0;
+    }
+
+    .collage-event {
+        margin: 50px 0;
+    }
+
+    .collage-row {
+        justify-content: center;
+        background-color: #fff;
+        border: solid #eee 1px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+        position: relative;
+        padding: 5px;
+        margin: 10px 25px;
+    }
+
+    .collage-row-desc {
+        background-color: #def;
+        margin: 0 25px;
+        color: #676d73;
+        width: 100%;
+        border: solid #eee 1px;
+        border-radius: 15px 15px 5px 5px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .collage-row-desc hr {
+        border: solid 1px #1e416e;
+    }
+
+    .collage-row-desc h5{
+        margin: 20px 0;
+        color: #000080;
+    }
+
+    .collage-row-tile {
+        margin: 10px;
+    }
+
+    .collage-row-item {
+        cursor: pointer;
+        margin: 10px 0;
+        max-width: 400px;
         min-width: 400px;
     }
 }
@@ -54,6 +111,57 @@
         display: block;
         width: 100%;
     }
+
+    .collage-section {
+        margin: 100px 0;
+    }
+
+    .collage-event {
+        margin: 25px 0;
+    }
+
+    .collage-row {
+        justify-content: center;
+        background-color: #fff;
+        border: solid #eee 1px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+        position: relative;
+        padding: 5px;
+        margin: 10px 25px;
+    }
+
+    .collage-row-desc {
+        background-color: #def;
+        margin: 0 25px;
+        color: #676d73;
+        width: 100%;
+        border: solid #eee 1px;
+        border-radius: 15px 15px 5px 5px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .collage-row-desc hr {
+        border: solid 1px #1e416e;
+    }
+
+    .collage-row-desc h5{
+        margin: 20px 0;
+        color: #000080;
+    }
+
+    .collage-row-tile {
+        margin: 10px;
+    }
+
+    .collage-row-item {
+        cursor: pointer;
+        margin: 10px 0;
+        max-width: 400px;
+        min-width: 400px;
+    }
+
+
 }
 
 @media only screen and (max-width: 567px) {
@@ -69,4 +177,51 @@
         display: block;
         width: 100%;
     }
+
+    .collage-section {
+        margin: 0;
+        background: none;
+    }
+
+    .collage-event {
+        margin: 25px 0;
+    }
+
+    .collage-row-desc {
+        background-color: #def;
+        margin: 0 25px;
+        color: #676d73;
+        width: 100%;
+        border: solid #eee 1px;
+        border-radius: 15px 15px 5px 5px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .collage-row {
+        justify-content: center;
+        background-color: #fff;
+        border: solid #eee 1px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+        position: relative;
+        padding: 5px;
+        margin: 10px 0;
+    }
+
+    .collage-row-desc hr {
+        border: solid 1px #1e416e;
+    }
+
+    .collage-row-tile {
+        margin: 10px;
+    }
+
+    .collage-row-item {
+        cursor: pointer;
+        margin: 10px 0;
+        width: 100%;
+        max-width: 400px;
+        min-width: 275px;
+    }
+
 }

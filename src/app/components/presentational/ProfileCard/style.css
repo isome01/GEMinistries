@@ -17,12 +17,13 @@
     .profile_container h5 {
         margin: auto;
         padding: 5px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Audrey, Helvetica, sans-serif;
         font-size: 1.5rem;
         font-weight: bold;
-        color: black;
+        color: white;
         text-decoration: none;
         height: auto;
+        background: rgba(62, 82, 222, .5);
     }
 
 }
