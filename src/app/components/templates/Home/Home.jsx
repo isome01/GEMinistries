@@ -118,9 +118,7 @@ class Home extends Component{
   transitionFeaturedEvent = () => {
     const {featuredEvent} = this.state
     if (featuredEvent) {
-      console.log('firing off event stuff...')
       const title = `#${featuredEvent.title.replace(/ /g, '-')}`
-      console.log($(`${title}`).slide)
     }
   }
 
@@ -129,7 +127,6 @@ class Home extends Component{
     if (featuredEvent.title) {
       $(`#${featuredEvent.title.replace(/ /g, '-')}`).on('slid.bs.carousel', function () {
       })
-      //console.log(image)
       if (image) {
         this.setState({
           featuredImage: (this.props.getImage(
@@ -142,10 +139,7 @@ class Home extends Component{
 
   getFeaturedDisplay = () => {
     const element = document.getElementsByClassName('featured-display')[0]
-    console.log(element)
     if (element) {
-      console.log('size:', element.style.height, element.style.maxHeight)
-      console.log(element.style)
       return element.style.maxHeight || element.style.height
     }
   }
@@ -154,7 +148,6 @@ class Home extends Component{
     const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, pastEvents, featuredImage} = this.state
     const {getImage} = this.props
     const featuredImageHeight = this.getFeaturedDisplay()
-    console.log($('.featured-display'))
     if (!fetchEvents) {
       return (
         <div className='text-center' style={{position: 'center', height: '100%', width: '100%'}}>
@@ -219,7 +212,6 @@ class Home extends Component{
                     <div className='row past-event-row'>
                       {
                         pastEvents.filter(event => {
-                          console.log(event)
                           return event.attachment
                         }).map(event => (
                           <div className='past-event-container'>
