@@ -11,7 +11,7 @@ import Community from '../components/templates/Community/Community.jsx'
 import Events from '../components/templates/Events/Events.jsx'
 import PageBanner from '../components/containers/PageBanner/PageBanner.jsx'
 import HorizontalNav from '../components/presentational/HorizontalNav/HorizontalNav.jsx'
-import {getImage} from '../scripts'
+import {getImage, centerElementToScreen} from '../scripts'
 
 /* Styling and parent-sizing */
 import './main.css'
@@ -127,6 +127,7 @@ class App extends Component {
                   <Events
                     {...props}
                     getImage={getImage}
+                    centerElementToScreen={centerElementToScreen}
                     uriHangar={uriHangar}
                     domain={domain}
                   />

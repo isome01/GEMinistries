@@ -9,6 +9,7 @@ class CollageFragment extends Component {
   static propTypes = {
     getImage: PropTypes.func.isRequired,
     pastEvents: PropTypes.array,
+    centerElement: PropTypes.func,
     loading: PropTypes.bool
   }
   static defaultProps = {
@@ -52,6 +53,8 @@ class CollageFragment extends Component {
             className='offset-md-3 col-md-6 offset-sm-2 col-sm-8 offset-xs-0 col-xs-12'
             title={`Zoomed in`}
             toggleRender={this.toggleModal}
+            positionFunc={this.props.centerElement}
+            clientScrollEnabled
             children={(
               <DynamicImg
                 title={currentView.alt}

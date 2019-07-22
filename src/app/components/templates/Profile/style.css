@@ -1,10 +1,13 @@
-.profile-page{
+.profile-page {
     margin: 0;
     padding: 0;
     max-width: 100%;
     width: 100%;
     height:auto;
     background-color: #fff;
+}
+
+.profile-page {
 }
 
 .profile-specs{
@@ -17,6 +20,12 @@
     list-style-type: none;
     font-weight: bold;
 }
+
+.profile-contact-section {
+    word-wrap: break-word;
+}
+
+
 
 @media only screen and (min-width: 768px) {
     .profile-contact-section {

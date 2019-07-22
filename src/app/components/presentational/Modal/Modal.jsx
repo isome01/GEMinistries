@@ -2,21 +2,25 @@ import React, {Fragment} from 'react'
 //import Form from '../../../../data editor/src/presentational/Form/Form.jsx'
 import PropTypes from 'prop-types'
 import './style.css'
+import $ from 'jquery'
 
-const Modal = ({className, toggleRender, children, isZoomed}) => {
+const Modal = ({className, toggleRender, children, isZoomed, positionFunc, clientScrollEnabled}) => {
 
   const centerModal = e => {
     e.preventDefault()
-    let modal = document.getElementsByClassName('modal')[0]
-    if (modal) {
-      modal.style.width = `${window.screen.width}`
-    }
+    let modal = document.getElementsByClassName('modal-body')[0]
+    modal && positionFunc && positionFunc(modal)
   }
 
   //init()
   return (
     <div className='modal container-fluid row' onClick={toggleRender}>
-      <div className={`modal-body ${className}`} style={{width: (isZoomed ? '1000px' : '100%')}}>
+      <div
+        className={`modal-body ${className}`}
+        style={{
+          width: (isZoomed ? '1000px' : '100%'),
+          position: clientScrollEnabled ? 'absolute' : 'relative'
+        }}>
         <div className={`modal-main`} onLoad={centerModal}>
           {children}
         </div>
@@ -34,14 +38,18 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   toggleRender: PropTypes.func,
-  isZoomed: PropTypes.bool
+  isZoomed: PropTypes.bool,
+  positionFunc: PropTypes.func,
+  clientScrollEnabled: PropTypes.bool
 }
 
 Modal.defaultProps = {
   isForm: false,
   children: null,
   isZoomed: false,
-  className: ''
+  className: '',
+  clientScrollEnabled: false,
+  positionFunc: () => {}
 }
 
 export default Modal

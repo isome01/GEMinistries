@@ -153,31 +153,31 @@ class AboutUs extends Component{
         The result of having a personal relationship with Jesus Christ is knowing my desire is to please only the Lord and serve Him with my body, mind and soul. I love and fear the Lord and depend strongly on the leading and guiding of the Holy Spirit. I am sure of my calling I know that know that when people spend time with you they should be challenged when they leave you to be different, because the Spirit of the Lord is surrounding you.
         `,
         email: 'earlmwhite@gmail.com'
-    }];
+    }]
 
-    return(
-        <div>
-            {this.shouldPageRender()}
-            <Switch>
-                {profiles.map( profile => (
-                    <Route
-                        path={`${this.props.match.path}/${profile.route}`}
-                        render={()=><Profile
-                                        profile_image={profile.profile_image}
-                                        profile_name={profile.name}
-                                        profile_occupation={profile.occupation}
-                                        profile_bio={profile.bio}
-                                        onLoadFunction={this.profileIsAccessed.bind(this)}
-                                        phone={profile.phone}
-                                        email={profile.email}
-                                    /> } exact/>
-                    )
-                )}
-                {/* <Route path={`${this.props.match.path/:profile}`} render */}
-                <Redirect to={`${this.props.match.url}`} />
-            </Switch>
-        </div>
-    );
+    return (
+      <div>
+        {this.shouldPageRender()}
+        <Switch>
+          {profiles.map(profile => (
+            <Route
+              path={`${this.props.match.path}/${profile.route}`}
+              render={() => <Profile
+                profile_image={profile.profile_image}
+                profile_name={profile.name}
+                profile_occupation={profile.occupation}
+                profile_bio={profile.bio}
+                onLoadFunction={this.profileIsAccessed.bind(this)}
+                phone={profile.phone}
+                email={profile.email}
+              />} exact/>
+            )
+          )}
+          {/* <Route path={`${this.props.match.path/:profile}`} render */}
+          <Redirect to={`${this.props.match.url}`}/>
+        </Switch>
+      </div>
+    )
 }
 }
 
