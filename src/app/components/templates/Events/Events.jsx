@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import {Route,Redirect} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
-import {convertDate} from '../../../scripts'
+import {centerElementToScreen, convertDate} from '../../../scripts'
 import UpcomingFragment from './UpcomingFragment.jsx'
 import CollageFragment from './CollageFragment.jsx'
 import './style.css'
@@ -11,7 +11,8 @@ class Events extends Component {
   static propTypes = {
     getImage: PropTypes.func,
     uriHangar: PropTypes.func,
-    domain: PropTypes.func
+    domain: PropTypes.func,
+    centerElementToScreen: PropTypes.func
   }
   constructor (props) {
     super(props)
@@ -84,6 +85,7 @@ class Events extends Component {
                   loading={fetchEvents}
                   convertDate={convertDate}
                   pastEvents={pastEvents}
+                  centerElement={this.props.centerElementToScreen}
                 />
               )}
             />

@@ -18,3 +18,10 @@ export const getImage = (src = '') => {
   } else console.log('Media source not defined. :/')
   return ''
 }
+
+export const centerElementToScreen = (element = null) => {
+  if (element) {
+      element.style.top = `${(window.pageYOffset || element.scrollTop) - (element.clientTop)}px`
+      element.style.left = `${(window.pageXOffset || element.scrollLeft) - (element.clientLeft)}px`
+  } else console.log('invalid element\nElement value is', element)
+}
