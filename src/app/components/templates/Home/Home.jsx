@@ -211,13 +211,11 @@ class Home extends Component{
                   <div className='col-xl-12 col-lg-12 col-md-12 text-center'>
                     <div className='row past-event-row'>
                       {
-                        pastEvents.filter(event => {
-                          return event.attachment
-                        }).map(event => (
+                        pastEvents.filter(event => event.attachment).map(event => (
                           <div className='past-event-container'>
                             <div className='' style={{
                               position: 'relative',
-                              backgroundImage: `url('${getImage(event.attachment)}')`,
+                              backgroundImage: `url('${getImage(event.attachment.split(',')[0])}')`,
                               backgroundSize: 'cover',
                               backgroundPosition: 'center',
                               height: 300
@@ -290,8 +288,6 @@ class Home extends Component{
               </div>
             </div>
           </section>
-          {
-          }
         </main>
       </div>
     )
