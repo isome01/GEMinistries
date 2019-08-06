@@ -1,39 +1,59 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types'
+import {fromJS} from 'immutable'
 import './style.css'
 
-const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, passingLink, getCurrentImage, transTime, showOverlay}) => {
+const DynamicImg = (props) => {
+  const {
+    title,
+    dataList,
+    imageClass = '',
+    imageStyle = {},
+    applyImgStyle,
+    containerClass = '',
+    containerStyle = {},
+    showCaption,
+    showTitle,
+    passingLink,
+    getCurrentImage,
+    transTime,
+    showOverlay
+  } = props
   /*
-    Remember, title CANNOT have a string with whitespaces. Capiche?
+    Remember, "title" CANNOT have a string with whitespaces. Capiche?
   */
   const id = title.replace(/ /g, '-').replace(/(\$|%|^|&|\*|\.|@|#|!|\(|\)|\+|=|-|_|\{|}|\[|]|'|"|;|:|\/|,|\?|>|<)/g, '')
 
-  const imgBoxStyle = {
-    margin: style.margin || 'auto',
-    width: '100%',
-    maxWidth: style.width || style.maxWidth || '100%',
-    height: '100%',
-    maxHeight: style.height || style.maxHeight || '100%',
-    border: style.border || 'solid #eee 2px',
-    borderRadius: style.borderRadius || '0',
-    backgroundColor: style.backgroundColor || '#000'
-  }
-  const imgStyle = {
-    width: '100%',
-    maxWidth: (style.width || style.maxWidth) || 'auto',
-    height: '100%',
-    maxHeight: (style.height || style.maxHeight) || 'auto',
-    objectFit: 'contain'
-  }
+  const imgBoxStyle = (fromJS(containerStyle).size ?  {
+      margin: containerStyle.margin || 'auto',
+      width: '100%',
+      maxWidth: containerStyle.width || containerStyle.maxWidth || '100%',
+      height: '100%',
+      maxHeight: containerStyle.height || containerStyle.maxHeight || '100%',
+      border: containerStyle.border || 'solid #eee 2px',
+      borderRadius: containerStyle.borderRadius || '0',
+      backgroundColor: containerStyle.backgroundColor || '#000',
+      ...containerStyle
+    } : {}
+  )
+  const imgStyle = (
+    applyImgStyle && (fromJS(imageStyle).size) ?
+    {
+      width: '100%',
+      maxWidth: (imageStyle.width || imageStyle.maxWidth) || 'auto',
+      height: '100%',
+      maxHeight: (imageStyle.height || imageStyle.maxHeight) || 'auto',
+      objectFit: 'contain',
+      ...imageStyle
+    } : {}
+  )
 
   return (
     <div
       id={id}
       className='carousel slide'
       data-ride="carousel"
-      style={{
-        display: style.display || 'block'
-      }}
+      style={{display: containerStyle.display || 'block'}}
     >
       {
         dataList.length > 1 &&
@@ -51,8 +71,8 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
         </ol>
       }
       <div
-        className={`carousel-inner ${className}`}
-        style={{...imgBoxStyle}}
+        className={`carousel-inner ${containerClass}`}
+        style={imgBoxStyle}
       >
         {
           (dataList || []).map((data, index) => {
@@ -72,7 +92,8 @@ const DynamicImg = ({title, dataList, className, style, showCaption, showTitle, 
                   src={data.path}
                   alt={data.name}
                   name={passingLink}
-                  style={{...imgStyle}}
+                  className={imageClass}
+                  style={imgStyle}
                 />
               </div>
             )
@@ -112,14 +133,15 @@ DynamicImg.propTypes = {
       caption: PropTypes.string
     })
   ).isRequired,
-  className: PropTypes.string,
-  style: PropTypes.shape({}),
+  containerClass: PropTypes.string,
+  imageClass: PropTypes.string,
   showTitle: PropTypes.bool,
   showCaption: PropTypes.bool,
   showOverlay: PropTypes.bool,
   passingLink: PropTypes.string,
   getCurrentImage: PropTypes.func,
-  transTime: PropTypes.number
+  transTime: PropTypes.number,
+  applyImgStyle: PropTypes.bool
 }
 
 DynamicImg.defaultProps = {
@@ -130,7 +152,8 @@ DynamicImg.defaultProps = {
   resizeByWidth: null,
   resizeByHeight: null,
   getCurrentImage: null,
-  transTime: 0
+  transTime: 0,
+  applyImgStyle: true
 }
 
 export default DynamicImg;

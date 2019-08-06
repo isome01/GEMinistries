@@ -49,7 +49,6 @@ class Home extends Component{
 
   componentDidMount () {
     /* get info from the uri hangar ... */
-    let news_feed = [...feed]
     let upcomingEvents = []
     let featuredEvent = null
     const {uriHangar, domain} = this.props
@@ -147,7 +146,6 @@ class Home extends Component{
   render () {
     const {newsFeed, fetchNewsFeed, fetchEvents, featuredEvent, pastEvents, featuredImage} = this.state
     const {getImage} = this.props
-    const featuredImageHeight = this.getFeaturedDisplay()
     if (!fetchEvents) {
       return (
         <div className='text-center' style={{position: 'center', height: '100%', width: '100%'}}>
@@ -179,13 +177,8 @@ class Home extends Component{
                       <DynamicImg
                         title={featuredEvent.title || 'GEM'}
                         className='text-center'
-                        style={({
-                          borderTop: 'solid #eee 1px',
-                          borderBottom: 'solid #eee 1px',
-                          backgroundColor: 'rgba(0, 0, 0, .8)',
-                          height: '600px',
-                          maxHeight: '600px'
-                        })}
+                        containerClass='featured-event-container'
+                        imageClass='featured-event-image'
                         dataList={featuredEvent['attachment'].split(',').slice(0, 5).map(
                           image => {
                             return({
@@ -262,13 +255,18 @@ class Home extends Component{
                           feed.attachment &&
                           <div style={{height: '220px', width: '300px', display: 'inline-block'}}>
                             <DynamicImg
-                              style={{
+                              containerStyle={{
                                 border: 'solid #eee 1px',
                                 borderRadius: '10px' ,
                                 background: 'rgba(0, 0, 0, .15)',
                                 height: '100%',
                                 width: '100%',
                                 display: 'block'
+                              }}
+                              imageStyle={{
+                                height: '100%',
+                                width: '100%',
+                                objectFit: 'contain'
                               }}
                               dataList={[{
                                 name: feed.header,
