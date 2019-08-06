@@ -64,16 +64,6 @@
     display: inline-block;
 }
 
-.past-event-img {
-    position: relative;
-    background-image: url('https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-}
-
-
-
 @media only screen and (min-width: 1200px) {
     .home main section {
         background-color: #eeeeee;
@@ -94,6 +84,20 @@
         max-height: 600px;
         display: block;
         margin-bottom: 50px;
+    }
+
+    .featured-display .featured-event-container {
+        display: block;
+        height: 100%;
+        max-height: 650px;
+        background-color: rgba(0, 0, 0, .8);
+    }
+
+    .featured-display .featured-event-image {
+        max-height: 650px;
+        height: 100%;
+        width: auto;
+        object-fit: contain;
     }
 
     .past-events-panel {
@@ -175,9 +179,19 @@
         display: block;
     }
 
-    .featured-display img {
-        max-height: inherit;
-        max-width: inherit;
+    .featured-display .featured-event-container {
+        display: block;
+        height: 100%;
+        min-height: 375px;
+        max-height: 450px;
+        background-color: rgba(0, 0, 0, .8);
+    }
+
+    .featured-display .featured-event-image {
+        width: auto;
+        height: 100%;
+        max-height: 450px;
+        object-fit: contain;
     }
 
     .announcements-header {
@@ -186,13 +200,12 @@
         font-weight: bold;
     }
 
-
     .past-events-panel {
         background-color: #fff;
         border: solid rgb(16, 48, 96) 1px;
         border-radius: 15px;
         padding: 25px;
-        margin: 25px 0;
+        margin: 100px 0;
         font-family: Georgia, Times New Roman, serif;
     }
 
@@ -252,6 +265,22 @@
         max-width: 100%;
         display: block;
         border: 0;
+    }
+
+    .featured-display .featured-event-container {
+
+        display: block;
+        max-height: 300px;
+        min-height: 300px;
+        background-color: rgba(0, 0, 0, .8);
+    }
+
+    .featured-display .featured-event-image {
+        max-height: 300px;
+        min-height: 275px;
+        height: 100%;
+        width: inherit;
+        object-fit: contain;
     }
 
     .featured-event-info {
