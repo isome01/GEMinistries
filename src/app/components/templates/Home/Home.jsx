@@ -5,18 +5,22 @@ import Announcement from '../../containers/Announcement/Announcement.jsx'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import {convertDate} from '../../../scripts'
-import feed from './default'
 import './style.css'
 
 class Home extends Component{
   static propTypes = {
     getImage: PropTypes.func,
     uriHangar: PropTypes.func,
-    domain: PropTypes.string.isRequired
+    domain: PropTypes.string.isRequired,
+    loading: PropTypes.bool
   }
 
-  constructor() {
-    super()
+  static defaultProps = {
+
+  }
+
+  constructor(props) {
+    super(props)
     this.state = {
       fetchNewsFeed: false,
       newsFeed: [],
@@ -34,7 +38,7 @@ class Home extends Component{
   componentWillMount () {
     /* Set some arbitrary variables */
     const {uriHangar, domain} = this.props
-    let announcements = window.sessionStorage.getItem('announcements')
+    const announcements = window.sessionStorage.getItem('announcements')
 
     if (!announcements){
       uriHangar('announcements', 'read', {}, domain).then(
