@@ -19,12 +19,26 @@ class Events extends Component {
     this.state = {
       fetchEvents: false,
       upcomingEvents: [],
-      pastEvents: []
+      pastEvents: [],
+      navContent: []
     }
   }
+
+  componentWillMount () {
+    this.setState({
+      navContent: [
+        {link: '/Future-Events', text: 'Upcoming Events'},
+        {link: '/Collage', text: 'Our Wall of Events'}
+      ]
+    })
+  }
+
   componentDidMount() {
     const {uriHangar, domain} = this.props
-    this.setState({fetchEvents: true})
+    this.setState({
+      fetchEvents: true,
+
+    })
     uriHangar('events', 'read', {}, domain).then(
       res => {
         this.setState({
@@ -51,8 +65,20 @@ class Events extends Component {
     )
   }
 
+  isKnownPath = (path = '') => {
+    let  knownPath = false
+    this.state.navContent.forEach(content => {
+      const relPath = String(`${this.props.match.url}${content.link}`).toLowerCase()
+      const query = String(path).toLowerCase()
+      if (relPath.endsWith(query)) {
+        knownPath = true
+      }
+    })
+    return knownPath
+  }
+
   render () {
-    const {fetchEvents, upcomingEvents, pastEvents} = this.state
+    const {fetchEvents, upcomingEvents, pastEvents, navContent} = this.state
     const {getImage} = this.props
     if (fetchEvents) {
       return (
@@ -61,6 +87,7 @@ class Events extends Component {
         </div>
       )
     }
+
     return (
       <div id='events-page' className='events-page container-fluid'>
         <main>
@@ -89,6 +116,9 @@ class Events extends Component {
                 />
               )}
             />
+            {!this.isKnownPath(window.location.href) && (
+              <Redirect to={`${this.props.match.url}${navContent[0].link}`} />
+            )}
           </section>
         </main>
       </div>
