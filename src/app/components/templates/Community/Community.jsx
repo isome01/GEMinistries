@@ -46,28 +46,27 @@ class Community extends Component {
     this.populateNavContent()
   }
 
-  render(){
+  isKnownPath = (path = '') => {
+    let  knownPath = false
+    this.state.navContent.forEach(content => {
+      const relPath = String(`${this.props.match.url}${content.link}`).toLowerCase()
+      const query = String(path).toLowerCase()
+      if (relPath.endsWith(query)) {
+        knownPath = true
+      }
+    })
+    return knownPath
+  }
+
+  render () {
     const {navContent} = this.state
     const {getImage} = this.props
+
     return (
       <div id="community-page" className="community container-fluid">
         <main>
           <section className='row'>
             <div className='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12' style={{width: '100%', maxWidth: '100%'}}>
-              <Route
-                path={`${this.props.match.url}`}
-                render={() =>(
-                  <div className='text-center xioudown-banner'>
-                    <h3>Our community is growing!</h3>
-                    <b>
-                      We highly value our community, and you make the community. We
-                      strive for Christ-like relationships and growth for all; come and
-                      join us as we sail on this outreach!
-                    </b>
-                  </div>
-                )}
-                exact
-              />
               <Route
                 path={`${this.props.match.url}/Prayer`}
                 render={props => (
@@ -108,6 +107,9 @@ class Community extends Component {
                 )}
                 exact
               />
+              {!this.isKnownPath(window.location.href) && (
+                <Redirect to={`${this.props.match.url}${navContent[0].link}`} />
+              )}
             </div>
           </section>
         </main>
