@@ -40,10 +40,10 @@ const MissionTripsFragment = ({getImage}) => (
                     path: 'https://www.geneseo.edu/sites/default/files/styles/news_article/public/sites/news/kroenert1.jpg.jpeg?itok=5_1OH5-p',
                     name: 'prayers-for-you'
                   }]}
-                  style={{
+                  imageStyle={{
                     margin: 0,
                     display: 'block',
-                    width: 769,
+                    width: 600,
                     background: 'none',
                     border: 'solid #1e416e 1px',
                     borderRadius: '10px'
@@ -56,6 +56,7 @@ const MissionTripsFragment = ({getImage}) => (
           />
         </div>
       </li>
+      <hr style={{border: 'solid #1e416e 1px'}}/>
       <li className='community-fragment uplifting'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
@@ -85,8 +86,8 @@ const MissionTripsFragment = ({getImage}) => (
                     path: 'https://www.volunteerforever.com/uploads/editor_uploads/rsz_peace-corps-001.jpg',
                     name: 'prayers-heard-abroad'
                   }]}
-                  style={{
-                    width: 769,
+                  imageStyle={{
+                    width: 600,
                     margin: 0,
                     display: 'block',
                     background: 'rgba(0, 0, 0, 0)',
@@ -102,7 +103,7 @@ const MissionTripsFragment = ({getImage}) => (
           />
         </div>
       </li>
-
+      <hr style={{border: 'solid #1e416e 1px'}}/>
       <li className='community-fragment uplifting-inverted'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
@@ -122,7 +123,7 @@ const MissionTripsFragment = ({getImage}) => (
                     path: 'https://jmubethechange.files.wordpress.com/2013/09/purpleworld.jpg',
                     name: ''
                   }]}
-                  style={{
+                  imageStyle={{
                     width: 769,
                     margin: 0,
                     display: 'block',

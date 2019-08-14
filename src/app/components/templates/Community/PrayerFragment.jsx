@@ -36,10 +36,10 @@ const PrayerFragment = ({getImage}) => (
                     path: getImage('37161393_10205359654428711_8565820940498239488_n.jpg'),
                     name: 'prayers-for-you'
                   }]}
-                  style={{
+                  imageStyle={{
                     margin: 0,
                     display: 'block',
-                    width: 769,
+                    width: 600,
                     background: 'rgba(0, 0, 0, 0)',
                     border: 'solid #1e416e 1px',
                     borderRadius: '10px'
@@ -52,6 +52,7 @@ const PrayerFragment = ({getImage}) => (
           />
         </div>
       </li>
+      <hr style={{border: 'solid #1e416e 1px'}}/>
       <li className='community-fragment uplifting'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
@@ -69,15 +70,15 @@ const PrayerFragment = ({getImage}) => (
             Allow us to serve you in that.
           `}
             children={(
-              <div className='frag-img-container' style={{maxWidth: 769}}>
+              <div className='frag-img-container' style={{maxWidth: 600}}>
                 <DynamicImg
                   title='prayers-heard-abroad'
                   dataList={[{
                     path: getImage('37588589_10155221650800834_5980536509919395840_n.jpg'),
                     name: 'prayers-heard-abroad'
                   }]}
-                  style={{
-                    width: 769,
+                  imageStyle={{
+                    width: 600,
                     margin: 0,
                     display: 'block',
                     background: 'rgba(0, 0, 0, 0)',

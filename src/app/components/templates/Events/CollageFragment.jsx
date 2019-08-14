@@ -113,7 +113,7 @@ class CollageFragment extends Component {
                           }]}
                           showTitle={false}
                           showCaption={false}
-                          style={{
+                          imageStyle={{
                             display: 'block',
                             height: 275,
                             borderRadius: 15
