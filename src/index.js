@@ -9,7 +9,7 @@ app_wrapper
   ? ReactDOM.render(
     <App
       uriHangar={uriHangar}
-        domain='localhost'
+        domain='www.gemoutreach.org'
     />,
       app_wrapper
   ) : () => {

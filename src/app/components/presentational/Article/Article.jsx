@@ -34,15 +34,16 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
         <h4 className='article-header'>{header}</h4>
         }
         <div id={summaryid}>
-          {summary.split(/\n/g).map((paragraph, index) => {
+          {(typeof (summary) === 'string' &&
+            summary.split(/\n/g).map((paragraph, index) => {
             const key = `${header}-${index}`
             return (
               paragraph
               && <p className='article-paragraph' key={key}>
                 {paragraph}
               </p>
-            )
-          })}
+            )})) || summary
+          }
         </div>
       </div>
       {childAfter && !childBefore && children &&
@@ -59,7 +60,7 @@ const Article = ({header, summary, summaryid, width, children, childBefore, chil
 
 Article.propTypes = {
   header: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
+  summary: PropTypes.any.isRequired,
   summaryid: PropTypes.string.isRequired,
   width: PropTypes.number,
   children: PropTypes.node,

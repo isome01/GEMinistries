@@ -11,23 +11,28 @@ import './style.css'
 class Community extends Component {
 
   static propTypes = {
-    getImage: PropTypes.func.required
+    getImage: PropTypes.func.required,
+    routingContent: PropTypes.array
+  }
+
+  static defaultProps = {
+    routingContent: []
   }
 
   constructor(props){
     super(props)
 
     this.state = {
-      navContent: [],
+      navContent: []
     }
 
     this.populateNavContent = this.populateNavContent.bind(this)
   }
 
   populateNavContent = content => {
-    if (content){
-      let navContent = content.slice()
-      this.setState({navContent: navContent})
+    if (content.length){
+      console.log('There lies content...')
+      this.setState({navContent: content.slice()})
     } else {
       /*populate with default values*/
       this.setState( {
@@ -41,9 +46,9 @@ class Community extends Component {
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     /*make and axios fetch to backend if need be...*/
-    this.populateNavContent()
+    this.populateNavContent(this.props.routingContent)
   }
 
   isKnownPath = (path = '') => {
@@ -51,7 +56,7 @@ class Community extends Component {
     this.state.navContent.forEach(content => {
       const relPath = String(`${this.props.match.url}${content.link}`).toLowerCase()
       const query = String(path).toLowerCase()
-      if (relPath.endsWith(query)) {
+      if (query.endsWith(relPath)) {
         knownPath = true
       }
     })

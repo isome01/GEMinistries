@@ -23,6 +23,11 @@
     color: #1e416e;
 }
 
+.community ul li h5 {
+    color: #1e416e;
+    padding: 10px;
+}
+
 .graceful {
     background-color: rgb(240, 240, 255);
     color: #000;
@@ -53,6 +58,7 @@
 
 .uplifting-inverted {
     padding: 20px;
+    background-color: #fff;
 }
 
 .uplifting-inverted .pallet {

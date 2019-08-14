@@ -79,7 +79,7 @@ class AboutUs extends Component{
                         showCaption={false}
                         showOverlay={false}
                         showTitle
-                        style={{
+                        imageStyle={{
                           borderRadius: 20,
                           backgroundColor: 'rgba(0, 0, 0, .55)',
                           height: 275
@@ -98,7 +98,7 @@ class AboutUs extends Component{
                         showCaption={false}
                         showOverlay={false}
                         showTitle
-                        style={{
+                        imageStyle={{
                           border: 'solid #def 1px',
                           borderRadius: 20,
                           backgroundColor: 'rgba(0, 0, 0, .55)',
@@ -178,7 +178,7 @@ class AboutUs extends Component{
         </Switch>
       </div>
     )
-}
+  }
 }
 
 export default AboutUs

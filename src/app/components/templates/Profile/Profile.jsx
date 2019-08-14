@@ -42,7 +42,7 @@ class Profile extends Component {
                 path: profile_image,
                 name: 'profile_image'
               }]}
-              style={{
+              imageStyle={{
                 borderRadius: 15
               }}
               showCaption={false}

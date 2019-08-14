@@ -41,7 +41,7 @@ class UpcomingFragment extends Component {
 
     return (
       <Fragment>
-        <div className='text-center'>
+        <div className='container-fluid'>
           <Calendar
             value={new Date()}
             tileClassName={({date}) => {
@@ -54,7 +54,7 @@ class UpcomingFragment extends Component {
               }).map(() => 'upcoming-calendar-tile bg-success rounded-top rounded-bottom rounded-left rounded-right border-success text-default')
             }}
             onClickDay={value => this.selectEventFromDay(value)}
-            className='upcoming-calendar col-sm col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 border-dark rounded-bottom'
+            className='upcoming-calendar text-center col-sm col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 border-dark rounded-bottom'
             calendarType='Hebrew'
           />
         </div>

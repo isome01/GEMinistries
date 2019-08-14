@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Route, Redirect} from 'react-router-dom'
 import PageLoader from '../../presentational/Loaders/PageLoader.jsx'
 import {centerElementToScreen, convertDate} from '../../../scripts'
+import {List} from 'immutable'
 import UpcomingFragment from './UpcomingFragment.jsx'
 import CollageFragment from './CollageFragment.jsx'
 import './style.css'
@@ -12,46 +13,47 @@ class Events extends Component {
     getImage: PropTypes.func,
     uriHangar: PropTypes.func,
     domain: PropTypes.func,
-    centerElementToScreen: PropTypes.func
+    centerElementToScreen: PropTypes.func,
+    routingContent: PropTypes.instanceOf(List)
   }
+
+  static defaultProps = {
+    routingContent: List()
+  }
+
   constructor (props) {
     super(props)
     this.state = {
       fetchEvents: false,
-      upcomingEvents: [],
-      pastEvents: [],
-      navContent: []
+      upcomingEvents: List(),
+      pastEvents: List(),
+      navContent: List()
     }
+    this.populateNavContent = this.populateNavContent.bind(this)
   }
 
   componentWillMount () {
-    this.setState({
-      navContent: [
-        {link: '/Future-Events', text: 'Upcoming Events'},
-        {link: '/Collage', text: 'Our Wall of Events'}
-      ]
-    })
+    this.populateNavContent(this.props.routingContent)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const {uriHangar, domain} = this.props
     this.setState({
-      fetchEvents: true,
-
+      fetchEvents: true
     })
     uriHangar('events', 'read', {}, domain).then(
       res => {
         this.setState({
-          upcomingEvents: res.map(event => ({...event})).filter(
+          upcomingEvents: List(res.map(event => ({...event})).filter(
             event => {
               return (
                 new Date(event.startDate) >= new Date()
                 || event.endDate >= new Date(event.endDate))
             }
-          ),
-          pastEvents: res.map(event => ({...event})).filter(
+          )),
+          pastEvents: List(res.map(event => ({...event})).filter(
             event => new Date(event.endDate) < new Date()
-          ),
+          )),
           fetchEvents: false
         })
       }
@@ -65,12 +67,21 @@ class Events extends Component {
     )
   }
 
+  populateNavContent = (content = List()) => {
+    this.setState({
+      navContent: List(content.size
+        ? content
+        : [{link: '/Future-Events', text: 'Upcoming Events'},
+          {link: '/Collage', text: 'Our Wall of Events'}]
+    )})
+  }
+
   isKnownPath = (path = '') => {
     let  knownPath = false
-    this.state.navContent.forEach(content => {
+    this.state.navContent.toJS().forEach(content => {
       const relPath = String(`${this.props.match.url}${content.link}`).toLowerCase()
       const query = String(path).toLowerCase()
-      if (relPath.endsWith(query)) {
+      if (query.endsWith(relPath)) {
         knownPath = true
       }
     })
@@ -96,7 +107,7 @@ class Events extends Component {
               path={`${this.props.match.url}/Future-Events`} strict exact
               render={() => (
                 <UpcomingFragment
-                  upcomingEvents={upcomingEvents}
+                  upcomingEvents={upcomingEvents.toJS()}
                   loading={fetchEvents}
                   getImage={getImage}
                   convertDate={convertDate}
@@ -111,13 +122,13 @@ class Events extends Component {
                   getImage={getImage}
                   loading={fetchEvents}
                   convertDate={convertDate}
-                  pastEvents={pastEvents}
+                  pastEvents={pastEvents.toJS()}
                   centerElement={this.props.centerElementToScreen}
                 />
               )}
             />
             {!this.isKnownPath(window.location.href) && (
-              <Redirect to={`${this.props.match.url}${navContent[0].link}`} />
+              <Redirect to={`${this.props.match.url}${navContent.get(0, {link: '/#'}).link}`} />
             )}
           </section>
         </main>
