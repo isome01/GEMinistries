@@ -1,6 +1,6 @@
 const mongoDBClient = require('mongodb').MongoClient
 const urlParser = {useNewUrlParser: true}
-const url = 'mongodb://localhost:27017'
+const url = 'mongodb://www.gemoutreac.org:27017'
 
 module.exports = uri => (
   mongoDBClient.connect(url, urlParser).then(
