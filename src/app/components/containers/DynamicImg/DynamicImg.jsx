@@ -61,6 +61,7 @@ const DynamicImg = (props) => {
           {
             (dataList).map((data, index) => (
               <li
+                key={`${data.path}-car`}
                 onLoad={() => {console.log('YUP')}}
                 data-target={`#${id}`}
                 data-slide-to={`${index}`}
@@ -78,7 +79,7 @@ const DynamicImg = (props) => {
           (dataList || []).map((data, index) => {
             return (
               data.path &&
-              <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+              <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={`${data.name}-${index}`}>
                 {(showCaption || showTitle) &&
                   <Fragment>
                     <div className='carousel-caption d-none d-sm-block'>

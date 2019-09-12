@@ -7,7 +7,8 @@ class UpcomingFragment extends Component {
   static propTypes = {
     loading: PropTypes.bool.isRequired,
     upcomingEvents: PropTypes.array,
-    convertDate: PropTypes.func
+    convertDate: PropTypes.func,
+    getImage: PropTypes.func.isRequired
   }
 
   static defaultProps = {

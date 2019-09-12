@@ -1,7 +1,8 @@
 import React from 'react'
 import Article from "../../presentational/Article/Article.jsx";
+import PropTypes from 'prop-types'
 
-const ActivitiesFragment = () => (
+const ActivitiesFragment = ({getImage}) => (
   <div className='text-center'>
     <br/>
     <br/>
@@ -9,6 +10,7 @@ const ActivitiesFragment = () => (
     <hr style={{border: 'solid #1e416e 1px'}}/>
     <div className='offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
       <Article
+        summaryid='coming-soon'
         width={'100%'}
         header={'Activities Coming Soon!'}
         summary={`
@@ -17,9 +19,16 @@ const ActivitiesFragment = () => (
         `}
       />
     </div>
-
   </div>
 )
 
+
+ActivitiesFragment.propTypes = {
+  getImage: PropTypes.func
+}
+
+ActivitiesFragment.defaultProps = {
+  getImage: () => {}
+}
 
 export default ActivitiesFragment

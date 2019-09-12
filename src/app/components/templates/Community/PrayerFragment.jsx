@@ -1,6 +1,7 @@
 import React from 'react'
 import Article from '../../presentational/Article/Article.jsx'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
+import PropTypes from 'prop-types'
 
 const PrayerFragment = ({getImage}) => (
   <div>
@@ -13,7 +14,8 @@ const PrayerFragment = ({getImage}) => (
       <li className='community-fragment uplifting-inverted'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
-            header={'Prayers for you'}
+            summaryid='prayer'
+            header='Prayers for you'
             width='100%'
             summary={
               `Submit a prayer request and let us intercede with you.
@@ -40,9 +42,9 @@ const PrayerFragment = ({getImage}) => (
                     margin: 0,
                     display: 'block',
                     width: 600,
-                    background: 'rgba(0, 0, 0, 0)',
+                    background: '',
                     border: 'solid #1e416e 1px',
-                    borderRadius: '10px'
+                    borderRadius: 10
                   }}
                   showTitle={false}
                   showCaption={false}
@@ -58,6 +60,7 @@ const PrayerFragment = ({getImage}) => (
           <Article
             width='100%'
             header='Prayers heard abroad!'
+            summaryid='allow-us'
             summary={`
             If you want to pray for someone but don't know how to make that approach,
             we humbly encourage you to submit your thoughts to us, and we can pray 
@@ -81,9 +84,9 @@ const PrayerFragment = ({getImage}) => (
                     width: 600,
                     margin: 0,
                     display: 'block',
-                    background: 'rgba(0, 0, 0, 0)',
+                    background: '',
                     border: 'solid #1e416e 1px',
-                    borderRadius: '10px'
+                    borderRadius: 10
                   }}
                   showTitle={false}
                   showCaption={false}
@@ -97,5 +100,14 @@ const PrayerFragment = ({getImage}) => (
     </ul>
   </div>
 )
+
+
+PrayerFragment.propTypes = {
+  getImage: PropTypes.func
+}
+
+PrayerFragment.defaultProps = {
+  getImage: () => {}
+}
 
 export default PrayerFragment

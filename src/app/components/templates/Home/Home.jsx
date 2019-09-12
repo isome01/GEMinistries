@@ -9,9 +9,9 @@ import './style.css'
 
 class Home extends Component{
   static propTypes = {
+    domain: PropTypes.string.isRequired,
     getImage: PropTypes.func,
     uriHangar: PropTypes.func,
-    domain: PropTypes.string.isRequired,
     loading: PropTypes.bool
   }
 
@@ -209,14 +209,18 @@ class Home extends Component{
                     <div className='row past-event-row'>
                       {
                         pastEvents.filter(event => event.attachment).map(event => (
-                          <div className='past-event-container'>
-                            <div className='' style={{
-                              position: 'relative',
-                              backgroundImage: `url('${getImage(event.attachment.split(',')[0])}')`,
-                              backgroundSize: 'cover',
-                              backgroundPosition: 'center',
-                              height: 300
-                            }}>
+                          <div key={event.title} className='past-event-container'>
+                            <div
+                              key={`${event._id}`}
+                              className=''
+                              style={{
+                                position: 'relative',
+                                backgroundImage: `url('${getImage(event.attachment.split(',')[0])}')`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                height: 300
+                              }}
+                            >
                               <div className='overlay'>
                                 {event.title}
                                 <i>{event.endDate}</i>
@@ -244,7 +248,10 @@ class Home extends Component{
                 </h2>
                 <hr style={{border: 'solid #1e416e 1px'}}/>
                 {(newsFeed || []).reverse().map(feed => (
-                  <div style={{margin: '15px 0'}}>
+                  <div
+                    style={{margin: '15px 0'}}
+                    key={`${feed.header || ''}`}
+                  >
                     <p
                       className='text-left'
                       style={{color: '#000080'}}

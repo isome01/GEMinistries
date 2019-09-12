@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 import PropTypes from 'prop-types'
-import Article from '../../presentational/Article/Article.jsx'
 import Modal from '../../presentational/Modal'
 import {convertDate} from '../../../scripts'
 
@@ -70,8 +69,7 @@ class CollageFragment extends Component {
                   width: '100%'
                 }}
                 className='text-center'
-              /> ||
-              <h2>HELLO MODAL :D</h2>
+              />
             )}
           />)
         }
@@ -83,8 +81,12 @@ class CollageFragment extends Component {
             ... perhaps you'll find yourself joining us sooner than you think!</p>
         </div>
         {
-          pastEvents.filter(event => event.attachment).map(event => (
-            <div className='collage-event' style={{fontFamily: 'Audrey, Helvetica, Sans-Serif'}}>
+          pastEvents.filter(event => event.attachment).map((event, i) => (
+            <div
+              key={`${event.title}-${i}`}
+              className='collage-event'
+              style={{fontFamily: 'Audrey, Helvetica, Sans-Serif'}}
+            >
               <div className='row'>
                 <div className='container-fluid collage-row-desc'>
                   <hr />
@@ -103,8 +105,12 @@ class CollageFragment extends Component {
               <div className='row collage-row'>
                 {
                   event['attachment'] && (
-                    event.attachment.split(',').map(image => (
-                      <div className='text-center collage-row-item col-lg-4 col-md-4 col-sm-4' onClick={this.toggleModal}>
+                    event.attachment.split(',').map((image, i) => (
+                      <div
+                        key={`${String(image) || ''}-${i}`}
+                        className='text-center collage-row-item col-lg-4 col-md-4 col-sm-4'
+                        onClick={this.toggleModal}
+                      >
                         <DynamicImg
                           title={event.title}
                           dataList={[{
