@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import PropTypes from 'prop-types'
 import Article from "../../presentational/Article/Article.jsx"
 import DynamicImg from '../../containers/DynamicImg/DynamicImg.jsx'
 
@@ -13,8 +14,9 @@ const MissionTripsFragment = ({getImage}) => (
       <li className='community-fragment uplifting-inverted'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
-            width={'100%'}
-            header={'Our trip to Uganda'}
+            summaryid='missiontrip-2019'
+            width='100%'
+            header='Our trip to Uganda'
             summary={`
             May 4th, 2019 -
             
@@ -60,8 +62,9 @@ const MissionTripsFragment = ({getImage}) => (
       <li className='community-fragment uplifting'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
-            width={'100%'}
-            header={'Serving abroad and around!'}
+            summaryid='serving-abroad'
+            width='100%'
+            header='Serving abroad and around!'
             summary={`
               A conduit of success have we been moved to live this ministry, and by the
               uniqueness, vastness, and incomprehensible willpower of God are we
@@ -107,8 +110,9 @@ const MissionTripsFragment = ({getImage}) => (
       <li className='community-fragment uplifting-inverted'>
         <div className='pallet offset-lg-1 col-lg-10 offset-lg-1 offset-md-1 col-md-10 offset-md-1'>
           <Article
-            width={'100%'}
-            header={'Serve with us!'}
+            summaryid='Serve with us!'
+            width='100%'
+            header='Serve with us!'
             summary={`
               Come and participate with us on our journeys, and for any light of
               mission trips that are on your heart, do not hesitate to suggest.
@@ -129,7 +133,7 @@ const MissionTripsFragment = ({getImage}) => (
                     display: 'block',
                     background: 'rgba(0, 0, 0, 0)',
                     border: 'solid #1e416e 1px',
-                    borderRadius: '10px'
+                    borderRadius: 10
                   }}
                   showTitle={false}
                   showCaption={false}
@@ -143,5 +147,13 @@ const MissionTripsFragment = ({getImage}) => (
     </ul>
   </Fragment>
 )
+
+MissionTripsFragment.propTypes = {
+  getImage: PropTypes.func
+}
+
+MissionTripsFragment.defaultProps = {
+  getImage: () => {}
+}
 
 export default MissionTripsFragment

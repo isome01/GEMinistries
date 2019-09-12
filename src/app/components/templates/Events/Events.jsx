@@ -12,7 +12,7 @@ class Events extends Component {
   static propTypes = {
     getImage: PropTypes.func,
     uriHangar: PropTypes.func,
-    domain: PropTypes.func,
+    domain: PropTypes.string.isRequired,
     centerElementToScreen: PropTypes.func,
     routingContent: PropTypes.instanceOf(List)
   }

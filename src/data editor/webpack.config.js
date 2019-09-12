@@ -1,7 +1,7 @@
-const path = require('path');
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const HTMLWebpackPlugin = require("html-webpack-plugin")
 
-const outputDirectory = "dist";
+const outputDirectory = "dist"
 
 module.exports = {
     entry : "./src/",
@@ -42,15 +42,16 @@ module.exports = {
         ]
     },
     devServer: {
+        historyApiFallback: true,
         port: 3010,
         open: false,
         proxy: {
           "/api": "http://localhost:8080"
         }
     },
-    plugins : [
+    plugins: [
         new HTMLWebpackPlugin({
             template : "src/index.html",
         })
     ]
-};
+}

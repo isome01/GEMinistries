@@ -37,15 +37,14 @@ const HorizontalNav = ({id, className, navLogoImg, navLogoText, navContent}) => 
           <div className={`${className}`}>
             <div id={id.replace(/ /g, '-')} className='collapse navbar-collapse' style={{width: '100%'}}>
               <ul className="navbar-nav">
-                {(navContent || []).map(content => (
-                  <Fragment>
+                {(navContent || []).map((content, i) => (
+                  <Fragment key={`${content.text || ''}-${i}`}>
                     <div className='nav-separator text-center'>|</div>
                     <li
                       onMouseOver={() => getSelectedChild(content.children)}
                       onClick={content.children ? null : resetActive}
                     >
                       <Link
-                        key={content.text}
                         to={content.link || '#'}
                         className='nav-item hrzl-nav-item'
                       >{content.text && content.text}

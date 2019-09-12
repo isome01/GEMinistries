@@ -11,11 +11,13 @@ const VerticalNav = ({className, navHeader, navContent, matchUrl}) => (
     <ul className="navbar-nav">
       {(navContent || []).map( (nav, index) =>{
         return (
-         <li className={`nav-item ${index === 0 ? 'active' : ''}`}>
-           <Link key={`${nav.text}${index}`}
-             to={`${matchUrl}${nav.link}`}
-           ><a className='nav-link'>{nav.text}</a>
-           </Link>
+         <li
+           key={`${nav.text}${index}`}
+           className={`nav-item ${index === 0 ? 'active' : ''}`}
+         >
+           <span>
+             <Link className='nav-link' to={`${matchUrl}${nav.link}`}>{nav.text}</Link>
+           </span>
          </li>)
       })}
     </ul>

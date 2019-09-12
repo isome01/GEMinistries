@@ -13,7 +13,7 @@ class Announcement extends Component {
       childAfter: PropTypes.bool
     })
   }
-  defaultProps = {
+  static defaultProps = {
     children: null
   }
   constructor(props) {
@@ -58,7 +58,7 @@ class Announcement extends Component {
           summaryid={id}
           slice={overflows ? 'whole' : 'bisection'}
           header={header}
-          width='1000px'
+          width={1000}
           summary={(allowOverflow
             ? summary
             : summary.slice(0, 200)) || 'No summary... :/'

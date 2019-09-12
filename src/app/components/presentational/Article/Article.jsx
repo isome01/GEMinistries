@@ -62,10 +62,13 @@ Article.propTypes = {
   header: PropTypes.string.isRequired,
   summary: PropTypes.any.isRequired,
   summaryid: PropTypes.string.isRequired,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   children: PropTypes.node,
-  childBefore: PropTypes.node,
-  childAfter: PropTypes.node,
+  childBefore: PropTypes.bool,
+  childAfter: PropTypes.bool,
   className: PropTypes.string,
   slice: PropTypes.string
 }
@@ -74,7 +77,8 @@ Article.defaultProps = {
   childAfter: true,
   childBefore: false,
   children: null,
-  columnSlice: 'whole'
+  columnSlice: 'whole',
+  width: '100%'
 }
 
 export default Article;
