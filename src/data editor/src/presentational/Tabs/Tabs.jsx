@@ -6,9 +6,9 @@ const Tabs = ({navtabs, children, onClick}) => (
   <div className='container-fluid'>
     <div className='row'>
       <ul className='nav nav-tabs'>
-        {navtabs.map((tab, index) => (
-          <li key={`${tab.text}${index}`}
-              className='nav-item'
+        {navtabs.map((tab, i) => (
+          <li key={`${tab.text}${i}`}
+              className={`nav-item ${i === 0 ? 'active' : ''}`}
           ><Link
             className='nav-link'
             to={tab.link}

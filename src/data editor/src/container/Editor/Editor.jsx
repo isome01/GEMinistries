@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {Component, Fragment} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import Form from "../../presentational/Form"
 import DataDialogue from '../../presentational/DataDialogue'
 import Tabs from "../../presentational/Tabs"
@@ -14,9 +14,10 @@ class Editor extends Component {
     port: PropTypes.number,
     basePath: PropTypes.string.isRequired,
     baseAPI: PropTypes.string.isRequired,
+    reRoutePath: PropTypes.func,
     tabData: PropTypes.arrayOf(
       PropTypes.shape({
-        hasFormData: PropTypes.bool.isRequired,
+        hasFormData: PropTypes.bool,
         dataObjectKey: PropTypes.string.isRequired,
         action: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
@@ -38,7 +39,8 @@ class Editor extends Component {
   }
 
   static defaultProps = {
-    maxNoOfImages: 1
+    maxNoOfImages: 1,
+    reReroutePath: () => {}
   }
 
   constructor(props) {
@@ -108,9 +110,6 @@ class Editor extends Component {
       this.setState({retrievingData: true})
       let data = {}
       data[key] = inputValues
-
-      console.log(data)
-
       uriHangar(api, action, data, domain, port, {
         maxContentLength: this.props.maxNoOfImages * 50000000
       }).then(
@@ -147,12 +146,14 @@ class Editor extends Component {
         {retrievingData && (
           <ClipLoader
             sizeUnit='px'
-            size='100'
+            size={100}
             color='#1e416e'
             loading={retrievingData}
           />)
-        || tabData.map(tab => (
-            <div className='offset-1 col-sm-10'>
+        || (
+          <Fragment>
+            {tabData.map(tab => (
+            <div className='offset-1 col-sm-10' key={tab.tablink}>
               <Route
                 path={`${basePath}${tab.tablink}`}
                 render={() => (
@@ -186,7 +187,11 @@ class Editor extends Component {
                 )}
               />
             </div>
-          )
+            ))}
+            {!this.props.reRoutePath(window.location.href) &&
+              <Redirect to={`${basePath}${tabData[0].tablink}`} />
+            }
+          </Fragment>
         )}
       </div>
     )

@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, browserHistory } from 'react-router-dom'
+import { BrowserRouter as Router} from 'react-router-dom'
 import {Switch, Route } from 'react-router-dom'
 import Navbar from './presentational/Navbar/Navbar.jsx'
 import EventsEditor from './container/Events/EventsEditor.jsx'
@@ -17,11 +17,10 @@ const App = ({uriHangar, domain}) => {
     <Router
       basename='/'
       forceRefresh={!('pushState' in window.history)}
-      history={browserHistory}
     >
       <div className='row'>
         <div className=''>
-          <Navbar logo={"Data Editor"} navlinks={navbarLinks} />
+          <Navbar logo='Data Editor' navlinks={navbarLinks} />
         </div>
         <Switch>
           <Route
@@ -37,7 +36,7 @@ const App = ({uriHangar, domain}) => {
           }}
           />
           <Route
-            path={"/Announcements"}
+            path='/Announcements'
             component={props => {
               return (
                 <AnnouncementsEditor

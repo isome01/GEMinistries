@@ -226,9 +226,8 @@ class Form extends Component {
             if (input.key !== 'replaceMedia' ||
             (input.key === 'replaceMedia' && replaceMedia)) {
               return (
-                <Fragment>
+                <Fragment key={input.field.id}>
                   <FormGroup
-                    key={input.field.id}
                     inputType={input.field.inputType}
                     label={input.field.label}
                     textArea={input.field.textArea}
@@ -240,11 +239,11 @@ class Form extends Component {
                   <div
                     id={`${input.field.id}-media-row`}
                     className='row container-fluid'
-                  >{''}</div>
+                  />
                   }
                   <hr
                     style={index >= inputFields.length
-                      ? {paddingBottom: '15px'}
+                      ? {paddingBottom: 15}
                       : {width: '80%'}}
                   />
                 </Fragment>)
@@ -264,7 +263,7 @@ class Form extends Component {
               <button
                 className={"btn btn-primary form-control col-md-6 col-md-offset-3 text-center"}
                 type="submit"
-                style={{maxWidth: '130'}}
+                style={{maxWidth: 130}}
               >Submit</button>
             )
           }
