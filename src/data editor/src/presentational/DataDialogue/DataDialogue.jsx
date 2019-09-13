@@ -21,14 +21,16 @@ class DataDialogue extends Component {
           style={{
             padding: '30px 0',
             overflow: 'auto',
-            maxHeight: '100px'
+            maxHeight: 400
           }}
         >
           <h5>{this.props.dialogueTitle}</h5>
           <div style={{paddingTop: '10px', paddingBottom: '10px'}}>
             {(this.props.dataTitles).map(data => {
+              const title = data.title || data.header
               return (
                 <div
+                  key={`${title}`}
                   style={{
                     borderBottom: 'solid #eee 1px'
                   }}
@@ -36,7 +38,8 @@ class DataDialogue extends Component {
                   <DataSpan
                     children={(
                       <p style={{padding: '10px 0', cursor: 'pointer', color: '#1e416e'}}>
-                        {data.title}</p>
+                        {title}
+                      </p>
                     )}
                     selectSpan={this.props.selectSpan || null}
                     id={data._id}

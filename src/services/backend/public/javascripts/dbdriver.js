@@ -1,6 +1,6 @@
 const mongoDBClient = require('mongodb').MongoClient
 const urlParser = {useNewUrlParser: true}
-const url = 'mongodb://www.gemoutreac.org:27017'
+const url = 'mongodb://www.gemoutreach.org:27017'
 
 module.exports = uri => (
   mongoDBClient.connect(url, urlParser).then(
@@ -8,7 +8,7 @@ module.exports = uri => (
   ).catch(
     err => {
       console.log('There\'s been an error...')
-      throw new Error(err)
+      return null
     }
   )
 )
