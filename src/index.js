@@ -4,7 +4,7 @@ import uriHangar from './app/uri-hangar'
 import App from './app/main/App.jsx' /* Import App root  */
 
 const app_wrapper = document.getElementById('root');
-const domain = 'localhost'
+const domain = 'wwww.gemoutreach.org'
 
 app_wrapper
   ? ReactDOM.render(
