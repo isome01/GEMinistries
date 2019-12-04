@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "middleware": "nodemon src/middleware",
-    "start": "concurrently \"npm run build\" \"webpack-dev-server --mode development\""
+    "start": "concurrently \"npm run build\" \"npm run middleware\""
   },
   "author": "Michael J. Isome",
   "license": "ISC",

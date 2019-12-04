@@ -4,40 +4,41 @@ const Announcement = require('../../public/javascripts/Announcement')
 const uri = 'GEM'
 const collection = 'announcements'
 
-let announcementsDAL = {}
+const announcementsDAL = {}
 
 announcementsDAL.getAnnouncements = () => {
-  return dbDriver(uri).then(
-    db => {
-      return db.collection(collection).find().toArray().then(
-        results => results
-      )
-    }
-  ).catch(
-    err => ({message: err})
-  )
+  return dbDriver(uri)
+    .then(
+      db => db.collection(collection).find().toArray().then(results => results))
+    .catch(
+      err => ({message: err})
+    )
 }
 
 announcementsDAL.addAnnouncement = announcement => {
   return dbDriver(uri).then(
-    db => db.collection('announcements').insertOne({
-      'header': `${announcement.header}`,
-      'title': `${announcement.header}`,
-      'summary': `${announcement.summary}`,
-      'attachment': `${announcement.attachment || ''}`,
-      'created': `${new Date().toString()}`
-    }).then(
-      result => result
-    )
-  ).catch(
-    err => ({message: err})
-  )
+    db => {
+      db.collection('announcements').insertOne({
+        'header': `${announcement.header}`,
+        'title': `${announcement.header}`,
+        'summary': `${announcement.summary}`,
+        'attachment': `${announcement.attachment || ''}`,
+        'created': `${new Date().toString()}`
+      })
+    .then(
+        result => result
+      )
+    .catch(
+        err => ({message: err})
+      )
+  })
 }
 
 announcementsDAL.updateAnnouncement = announcement => {
   const id = new ObjectId(announcement.id)
   return dbDriver(uri).then(
-    db => db.collection('announcements').findOne({
+    db => {
+      db.collection('announcements').findOne({
       _id: id
     }, {'limit': 1}).then(
       result => {
@@ -67,7 +68,7 @@ announcementsDAL.updateAnnouncement = announcement => {
       }
     ).catch(
       err => {throw new Error(err)}
-    )
+    )}
   ).catch(
     err => {throw new Error(err)}
   )

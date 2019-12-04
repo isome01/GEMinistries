@@ -3,7 +3,7 @@ const Event = require('../../public/javascripts/Event')
 const ObjectId = require('mongodb').ObjectID
 const uri = 'GEM'
 
-let eventsDAL = {}
+const eventsDAL = {}
 
 const checkDate = date => {
   return (
@@ -34,8 +34,10 @@ eventsDAL.retrieveEvents = () => {
 }
 
 eventsDAL.addEvent = event => {
+  console.log('runnning...')
     return dbDriver(uri).then(
         db => {
+          console.log('runnning...')
           return db.collection('events').insertOne({
               'title': `${event.title}`,
               'startTime': `${event.startTime || ''}`,
