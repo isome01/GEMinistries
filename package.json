@@ -6,7 +6,7 @@
   "scripts": {
     "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit",
     "editor": "npm run start --prefix \"src/editor/\"",
-    "build": "webpack --mode production -w",
+    "build": "webpack --mode development -w",
     "backend": "nodemon src/services/backend/",
     "middleware": "nodemon src/services/middleware/",
     "start": "concurrently \"npm run backend\" \"npm run build\" \"npm run editor\" \"npm run middleware\"",
