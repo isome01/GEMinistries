@@ -16,7 +16,7 @@
     "concurrently": "^4.1.0",
     "css-loader": "^2.1.1",
     "jquery": "^3.4.1",
-    "npm": "^6.9.0",
+    "npm": "^6.14.6",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
